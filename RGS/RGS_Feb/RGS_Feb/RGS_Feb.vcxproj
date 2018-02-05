@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Character\character_base.cpp" />
     <ClCompile Include="Color\color.cpp" />
     <ClCompile Include="Core\application.cpp" />
     <ClCompile Include="Core\game.cpp" />
@@ -180,6 +181,7 @@
     <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character\character_base.h" />
     <ClInclude Include="Color\color.h" />
     <ClInclude Include="Core\application.h" />
     <ClInclude Include="Core\game.h" />
