@@ -103,6 +103,28 @@ namespace Device
 
 #pragma endregion
 
+#pragma region Sound関連
+
+		///<summary>BGMを読み込む</summary>
+		///<param name="fileName">Asset名</param>
+		///<param name="fileExtention">拡張子</param>
+		///<param name="path">パス</param>
+		void LoadBGM(std::string file_name, std::string file_extention, std::string path = "./Content/BGM/");
+		///<summary>SEを読み込む</summary>
+		///<param name="fileName">Asset名</param>
+		///<param name="fileExtention">拡張子</param>
+		///<param name="path">パス</param>
+		void LoadSE(std::string file_name, std::string file_extention, std::string path = "./Content/SE/");
+		///<summary>BGMのハンドルを取得</summary>
+		///<param name="texture_name">BGMの名前</param>
+		///<returns>BGM Handle</returns>
+		int BGMHandle(std::string bgm_name);
+		///<summary>SEのハンドルを取得</summary>
+		///<param name="texture_name">SEの名前</param>
+		///<returns>SE Handle</returns>
+		int SEHandle(std::string se_name);
+
+#pragma endregion
 
 	private:
 		std::map<std::string, int> m_models;			//モデルのハンドル
@@ -110,7 +132,9 @@ namespace Device
 		std::map<std::string, int*> m_motion;			//Animated Texture
 		std::map<std::string, int> m_font;				//Font
 		std::map<std::string, int> m_pixel_shader;		//Pixel Shader
+		std::map<std::string, int> m_bgms;				//BGM
+		std::map<std::string, int> m_sound_effects;		//SE
 
-		ss::ResourceManager* m_resource_manager;
+		ss::ResourceManager* m_resource_manager;		//SpriteStudioのresource Manager
 	};
 }

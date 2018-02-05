@@ -45,6 +45,9 @@ void Game::Load()
 	m_game_device->GetContent()->LoadTexture("moemoe_mask", ".png");
 	m_game_device->GetContent()->LoadTexture("mask", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png", 6, 6, 1, 64, 64);*/
+	m_game_device->GetContent()->LoadBGM("Battle-FatalBlood", ".mp3");
+	m_game_device->GetContent()->LoadSE("press2", ".wav");
+	m_game_device->GetContent()->LoadSE("attack1", ".wav");
 
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
 }

@@ -8,6 +8,7 @@
 #include <Core\input_state.h>
 #include <Device\renderer.h>
 #include <Device\projector.h>
+#include <Device\sound.h>
 #include <Device\content_manager.h>
 #include <Device\random.h>
 
@@ -32,6 +33,8 @@ namespace Device
 		std::shared_ptr<Core::InputState>	GetInput();
 		///<summary>レンダラー</summary>
 		std::shared_ptr<Renderer>			GetRenderer();
+		///<summary>Sound</summary>
+		std::shared_ptr<Sound>				GetSound();
 		///<summary>カメラ</summary>
 		std::shared_ptr<Projector>			GetProjector();
 		///<summary>コンテントマネージャー</summary>
@@ -47,6 +50,7 @@ namespace Device
 	private:
 		std::shared_ptr<Core::InputState>	m_input;			//入力装置
 		std::shared_ptr<Renderer>			m_renderer;			//レンダラー
+		std::shared_ptr<Sound>				m_sound;			//Sound
 		std::shared_ptr<Projector>			m_projector;		//カメラ
 		std::shared_ptr<ContentManager>		m_content;			//コンテンツ
 		Random								m_rand;				//ランダム

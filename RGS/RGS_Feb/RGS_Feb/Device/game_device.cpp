@@ -35,6 +35,8 @@ bool GameDevice::Initialize()
 	//Renderer‰Šú‰»
 	m_renderer = std::make_shared<Device::Renderer>(m_content);
 	m_renderer->Initialize();
+	//Sound‰Šú‰»
+	m_sound = std::make_shared<Device::Sound>(m_content);
 	//Random‰Šú‰»
 	m_rand = Random();
 	//Projector‰Šú‰»
@@ -75,6 +77,11 @@ std::shared_ptr<Core::InputState> GameDevice::GetInput()
 std::shared_ptr<Renderer> GameDevice::GetRenderer()
 {
 	return m_renderer;
+}
+
+std::shared_ptr<Sound> Device::GameDevice::GetSound()
+{
+	return m_sound;
 }
 
 std::shared_ptr<Projector> GameDevice::GetProjector() 

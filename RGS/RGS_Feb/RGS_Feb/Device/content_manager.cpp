@@ -37,6 +37,11 @@ void ContentManager::Initialize()
 	InitShader();				//ShaderHandleを削除
 	m_pixel_shader.clear();
 
+	InitSoundMem();				//Soundを初期化
+	InitMusicMem();				//Musicを初期化
+	m_bgms.clear();
+	m_sound_effects.clear();
+
 	m_resource_manager = ss::ResourceManager::getInstance();	//SpriteStudioのContentManagerを初期化
 
 	LoadFont("Arial", -1, -1);
@@ -53,6 +58,11 @@ void ContentManager::Release()
 		delete[] map.second;
 	}
 	m_motion.clear();			//MotionのHandleを削除
+
+	InitSoundMem();				//Soundを初期化
+	InitMusicMem();				//Musicを初期化
+	m_bgms.clear();
+	m_sound_effects.clear();
 
 	InitFontToHandle();			//FontのHandleを削除
 	m_font.clear();
@@ -157,6 +167,37 @@ int ContentManager::PixelShaderHandle(std::string shader_name)
 void Device::ContentManager::LoadSSFile(std::string file_name, std::string path)
 {
 	m_resource_manager->addData((path + file_name).c_str());
+}
+
+#pragma endregion
+
+
+#pragma region Sound関連
+
+//BGMを読み込む
+void ContentManager::LoadBGM(std::string file_name, std::string file_extention, std::string path) 
+{
+	int handle = LoadMusicMem((path + file_name + file_extention).c_str());
+	m_bgms[file_name] = handle;
+}
+
+//SEを読み込む
+void ContentManager::LoadSE(std::string file_name, std::string file_extention, std::string path) 
+{
+	int handle = LoadSoundMem((path + file_name + file_extention).c_str());
+	m_sound_effects[file_name] = handle;
+}
+
+//BGMのハンドルを取得
+int ContentManager::BGMHandle(std::string bgm_name) 
+{
+	return m_bgms[bgm_name];
+}
+
+//SEのハンドルを取得
+int ContentManager::SEHandle(std::string se_name) 
+{
+	return m_sound_effects[se_name];
 }
 
 #pragma endregion

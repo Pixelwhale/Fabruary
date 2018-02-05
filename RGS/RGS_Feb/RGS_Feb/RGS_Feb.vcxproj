@@ -159,8 +159,10 @@
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="Device\sound.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\end.cpp" />
@@ -193,6 +195,7 @@
     <ClInclude Include="Device\projector.h" />
     <ClInclude Include="Device\random.h" />
     <ClInclude Include="Device\renderer.h" />
+    <ClInclude Include="Device\sound.h" />
     <ClInclude Include="DX\DXLib\DxCompileConfig.h" />
     <ClInclude Include="DX\DXLib\DxDataType.h" />
     <ClInclude Include="DX\DXLib\DxDataTypeWin.h" />
@@ -274,6 +277,7 @@
     <ClInclude Include="DX\Include\xnamath.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_manager.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
+    <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\end.h" />
