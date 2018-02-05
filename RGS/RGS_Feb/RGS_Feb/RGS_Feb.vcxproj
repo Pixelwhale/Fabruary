@@ -158,6 +158,7 @@
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
@@ -269,6 +270,8 @@
     <ClInclude Include="DX\Include\XInput.h" />
     <ClInclude Include="DX\Include\xma2defs.h" />
     <ClInclude Include="DX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack_manager.h" />
+    <ClInclude Include="GameObject\Job\job_base.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\end.h" />
