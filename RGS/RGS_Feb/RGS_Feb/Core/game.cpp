@@ -67,7 +67,7 @@ void Game::Update()
 //•`‰æˆ—
 void Game::Draw()
 {
-	m_renderer->Clear(50, 50, 100);
+	m_renderer->Clear(100, 149, 237);
 
 	m_scene_manager->Draw();
 
