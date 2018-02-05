@@ -45,6 +45,7 @@ void Game::Load()
 	m_game_device->GetContent()->LoadTexture("moemoe_mask", ".png");
 	m_game_device->GetContent()->LoadTexture("mask", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png", 6, 6, 1, 64, 64);*/
+	m_game_device->GetContent()->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
 }
@@ -62,6 +63,9 @@ void Game::Update()
 		m_end_flag = true;
 
 	m_scene_manager->Update();
+
+	position += m_input_state->GetKeyBoardVelocity();
+	position += m_input_state->GetLeftStick(0);
 }
 
 //•`‰æˆ—
@@ -72,6 +76,8 @@ void Game::Draw()
 	m_scene_manager->Draw();
 
 	m_renderer->DrawString("Hellow World", Math::Vector2(0, 0));
+
+	m_renderer->DrawMotion3D("test", 0, position, 5);
 
 	m_renderer->Swap();
 }

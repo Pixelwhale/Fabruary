@@ -31,6 +31,7 @@ namespace Core
 
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
 
-		ss::Player* m_ss_player;
+		//ss::Player* m_ss_player;
+		Math::Vector3 position;
 	};
 }
