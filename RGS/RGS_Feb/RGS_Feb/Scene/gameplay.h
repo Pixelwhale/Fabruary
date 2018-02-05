@@ -1,17 +1,16 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
-// 作成日：2017.12.22
-// 内容　：ショップのシーン。
+// 作成日：2017.02.05
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
 
 namespace Scene
 {
-	class Shop : public SceneBase
+	class GamePlay : public SceneBase
 	{
 	public:
-		Shop();
+		GamePlay();
 		void Update();
 		void Draw();
 		void Shutdown();

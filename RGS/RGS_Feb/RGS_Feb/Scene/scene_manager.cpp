@@ -6,11 +6,10 @@
 #include <Scene\scene_manager.h>
 #include <Scene\loading.h>
 #include <Scene\title.h>
-#include <Scene\village.h>
-#include <Scene\shop.h>
-#include <Scene\team_view.h>
-#include <Scene\battle.h>
-#include <Scene\option.h>
+#include <Scene\tutorial.h>
+#include <Scene\gameplay.h>
+#include <Scene\end.h>
+#include <Scene\pause.h>
 
 using namespace Scene;
 using namespace std;
@@ -22,11 +21,10 @@ SceneManager::SceneManager()
 void SceneManager::Initialize()
 {
 	Add(kTitle, make_shared<Title>());
-	Add(kVillage, make_shared<Village>());
-	Add(kShop, make_shared<Shop>());
-	Add(kTeamView, make_shared<TeamView>());
-	Add(kBattle, make_shared<Battle>());
-	Add(kOption, make_shared<Option>());
+	Add(kTutorial, make_shared<Tutorial>());
+	Add(kGamePlay, make_shared<GamePlay>());
+	Add(kEnd, make_shared<End>());
+	Add(kPause, make_shared<Pause>());
 
 	Add(kLoading, make_shared<Loading>());
 	m_current_type = kLoading;
@@ -45,7 +43,7 @@ void SceneManager::Change(SceneType type)
 	m_current_scene = m_map[type];
 
 	//if scene is not "pause" => initialize
-	if (previous_type != kTeamView) m_current_scene.lock()->Initialize(previous_type);
+	if (previous_type != kPause) m_current_scene.lock()->Initialize(previous_type);
 }
 
 void SceneManager::Update()

@@ -1,17 +1,16 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
-// 作成日：2017.12.22
-// 内容　：村のシーン。冒険(Battle)、ショップ、チーム整頓、オプション。
+// 作成日：2017.02.05
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
 
 namespace Scene
 {
-	class Village : public SceneBase
+	class End : public SceneBase
 	{
 	public:
-		Village();
+		End();
 		void Update();
 		void Draw();
 		void Shutdown();

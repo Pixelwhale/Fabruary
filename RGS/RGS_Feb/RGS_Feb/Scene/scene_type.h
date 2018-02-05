@@ -11,10 +11,9 @@ namespace Scene
 	{
 		kLoading,
 		kTitle,
-		kVillage,
-		kShop,
-		kTeamView,
-		kBattle,
-		kOption,
+		kTutorial,
+		kGamePlay,
+		kEnd,
+		kPause,
 	};
 }

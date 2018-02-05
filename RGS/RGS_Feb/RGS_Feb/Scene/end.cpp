@@ -1,24 +1,24 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
-// 作成日：2017.12.22
-// 内容　：ショップのシーン。
+// 作成日：2017.02.05
 //-------------------------------------------------------
-#include <Scene\shop.h>
+#include <Scene\end.h>
 
 using namespace Scene;
 
-Shop::Shop()
+End::End()
 {
 }
 
-void Shop::Update()
+void End::Update()
 {
 }
 
-void Shop::Draw()
+void End::Draw()
 {
+	m_renderer->DrawString("End", Math::Vector2(150, 0));
 }
 
-void Shop::Shutdown()
+void End::Shutdown()
 {
 }
