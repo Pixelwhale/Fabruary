@@ -129,12 +129,12 @@ Math::Vector3 InputState::GetLeftStick(int pad_num)
 	float x = m_current_pad_state[pad_num].ThumbLX / 32767.0f;
 	float y = m_current_pad_state[pad_num].ThumbLY / 32767.0f;
 
-	if (x > 0 && x < 0.1f ||
-		x < 0 && x > -0.1f)
+	if (x > 0 && x < 0.3f ||
+		x < 0 && x > -0.3f)
 		x = 0;
 
-	if (y > 0 && y < 0.1f ||
-		y < 0 && y > -0.1f)
+	if (y > 0 && y < 0.3f ||
+		y < 0 && y > -0.3f)
 		y = 0;
 
 	return Math::Vector3(x, 0, y);
