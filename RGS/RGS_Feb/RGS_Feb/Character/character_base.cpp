@@ -1,3 +1,8 @@
+//-------------------------------------------------------
+// 作成者：金　淳元
+// 作成日：2018.02.05
+// 内容　：キャラクターのベースクラス
+//-------------------------------------------------------
 #include <Character\character_base.h>
 
 using namespace Character;
@@ -27,15 +32,24 @@ void CharacterBase::Update()
 
 void CharacterBase::MoveUpdate()
 {
-	m_position += m_velocity;
+	float speed = 5;
+	if (true)
+	{
+		speed += 0.2;
+		if (speed >= 8)
+		{
+			speed = 8;
+		}
+	}
+	m_position += m_velocity * speed;
 }
 
 void CharacterBase::GageUpdate()
 {
 	++m_gage;
-	if (m_gage >= 100)
+	if (m_gage >= 3000)
 	{
-		m_gage = 100;
+		m_gage = 3000;
 	}
 }
 

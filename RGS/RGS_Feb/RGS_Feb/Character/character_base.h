@@ -13,7 +13,7 @@ namespace Character
 	class CharacterBase
 	{
 	public:
-		CharacterBase();
+		CharacterBase(Math::Vector3 velocity);
 		~CharacterBase();
 		void Initialize();
 		void Update();
