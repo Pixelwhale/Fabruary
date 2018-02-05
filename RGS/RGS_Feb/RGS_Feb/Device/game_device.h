@@ -24,7 +24,7 @@ namespace Device
 		}
 
 		///<summary>‰Šú‰»</summary>
-		bool Initialize(HINSTANCE h_instance, HWND hwnd);
+		bool Initialize();
 		///<summary>‰ğ•úˆ—</summary>
 		void ShutDown();
 

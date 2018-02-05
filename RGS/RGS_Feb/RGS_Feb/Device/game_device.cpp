@@ -25,14 +25,10 @@ GameDevice::~GameDevice()
 	m_projector = 0;
 }
 
-bool GameDevice::Initialize(HINSTANCE h_instance, HWND hwnd)
+bool GameDevice::Initialize()
 {
 	//Input‰Šú‰»
-	bool result;
 	m_input = std::make_shared<Core::InputState>();
-	result = m_input->Initialize(h_instance, hwnd);
-	if (!result)
-		return false;
 	//Content‰Šú‰»
 	m_content = std::make_shared<Device::ContentManager>();
 	m_content->Initialize();
