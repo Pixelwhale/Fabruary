@@ -52,7 +52,7 @@ void Game::Load()
 //コンテンツ解放
 void Game::Unload()
 {
-	delete (m_ss_player);
+	//delete (m_ss_player);
 }
 
 //更新処理
