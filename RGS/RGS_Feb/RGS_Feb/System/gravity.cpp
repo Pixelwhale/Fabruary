@@ -6,16 +6,7 @@
 
 using namespace System;
 
-Gravity::Gravity()
-{
-	m_on_ground = true;
-}
-
-Gravity::~Gravity()
-{
-}
-
 void Gravity::Update(Math::Vector3& velocity)
 {
-	if (!m_on_ground) velocity.y -= kG / 60;
+	velocity.y -= kG / 60;
 }

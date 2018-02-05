@@ -10,11 +10,8 @@ namespace System
 	class Gravity
 	{
 	public:
-		Gravity();
-		~Gravity();
 		void Update(Math::Vector3& velocity);
 	private:
 		const float kG = 10.0f;
-		bool m_on_ground;
 	};
 }
