@@ -159,8 +159,8 @@
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
-    <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\end.cpp" />
@@ -179,6 +179,8 @@
     <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp" />
     <ClCompile Include="ssbpLib\SS5Player.cpp" />
     <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
+    <ClCompile Include="System\gravity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -272,8 +274,8 @@
     <ClInclude Include="DX\Include\XInput.h" />
     <ClInclude Include="DX\Include\xma2defs.h" />
     <ClInclude Include="DX\Include\xnamath.h" />
-    <ClInclude Include="GameObject\AttackSystem\attack_manager.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
+    <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\end.h" />
@@ -305,6 +307,9 @@
     <ClInclude Include="ssbpLib\SS5PlayerPlatform.h" />
     <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
     <ClInclude Include="ssbpLib\ssShader_frag.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack_manager.h" />
+    <ClInclude Include="System\gravity.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DX\Include\D3DX10math.inl" />
