@@ -23,14 +23,14 @@
     <ProjectGuid>{DC756510-8803-458C-BB7C-C31F26D30437}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>RGS_Feb</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -72,6 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\DX\Lib\lib;$(ProjectDir);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -89,9 +91,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DX\DXLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)\DX\DXLib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dxgi.lib;d3dx10.lib;dinput8.lib;dxguid.lib;d3d11.lib;d3dx11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -115,11 +121,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DX\DXLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>dxgi.lib;d3dx10.lib;dinput8.lib;dxguid.lib;d3d11.lib;d3dx11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,6 +148,169 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Color\color.cpp" />
+    <ClCompile Include="Core\application.cpp" />
+    <ClCompile Include="Core\game.cpp" />
+    <ClCompile Include="Core\input_state.cpp" />
+    <ClCompile Include="Device\content_manager.cpp" />
+    <ClCompile Include="Device\depth_sort.cpp" />
+    <ClCompile Include="Device\game_device.cpp" />
+    <ClCompile Include="Device\projector.cpp" />
+    <ClCompile Include="Device\random.cpp" />
+    <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\vector2.cpp" />
+    <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Scene\battle.cpp" />
+    <ClCompile Include="Scene\loading.cpp" />
+    <ClCompile Include="Scene\option.cpp" />
+    <ClCompile Include="Scene\scene_base.cpp" />
+    <ClCompile Include="Scene\scene_manager.cpp" />
+    <ClCompile Include="Scene\shop.cpp" />
+    <ClCompile Include="Scene\team_view.cpp" />
+    <ClCompile Include="Scene\title.cpp" />
+    <ClCompile Include="Scene\village.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect2.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effectfunction.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_matrix.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_PartState.cpp" />
+    <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp" />
+    <ClCompile Include="ssbpLib\SS5Player.cpp" />
+    <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Color\color.h" />
+    <ClInclude Include="Core\application.h" />
+    <ClInclude Include="Core\game.h" />
+    <ClInclude Include="Core\input_state.h" />
+    <ClInclude Include="Def\window_def.h" />
+    <ClInclude Include="Device\content_manager.h" />
+    <ClInclude Include="Device\depth_sort.h" />
+    <ClInclude Include="Device\game_device.h" />
+    <ClInclude Include="Device\projector.h" />
+    <ClInclude Include="Device\random.h" />
+    <ClInclude Include="Device\renderer.h" />
+    <ClInclude Include="DX\DXLib\DxCompileConfig.h" />
+    <ClInclude Include="DX\DXLib\DxDataType.h" />
+    <ClInclude Include="DX\DXLib\DxDataTypeWin.h" />
+    <ClInclude Include="DX\DXLib\DxFunctionWin.h" />
+    <ClInclude Include="DX\DXLib\DxLib.h" />
+    <ClInclude Include="DX\Include\audiodefs.h" />
+    <ClInclude Include="DX\Include\comdecl.h" />
+    <ClInclude Include="DX\Include\D2D1.h" />
+    <ClInclude Include="DX\Include\D2D1Helper.h" />
+    <ClInclude Include="DX\Include\D2DBaseTypes.h" />
+    <ClInclude Include="DX\Include\D2Derr.h" />
+    <ClInclude Include="DX\Include\D3D10.h" />
+    <ClInclude Include="DX\Include\D3D10effect.h" />
+    <ClInclude Include="DX\Include\d3d10misc.h" />
+    <ClInclude Include="DX\Include\d3d10sdklayers.h" />
+    <ClInclude Include="DX\Include\D3D10shader.h" />
+    <ClInclude Include="DX\Include\D3D10_1.h" />
+    <ClInclude Include="DX\Include\D3D10_1shader.h" />
+    <ClInclude Include="DX\Include\D3D11.h" />
+    <ClInclude Include="DX\Include\D3D11SDKLayers.h" />
+    <ClInclude Include="DX\Include\D3D11Shader.h" />
+    <ClInclude Include="DX\Include\d3d9.h" />
+    <ClInclude Include="DX\Include\d3d9caps.h" />
+    <ClInclude Include="DX\Include\d3d9types.h" />
+    <ClInclude Include="DX\Include\D3Dcommon.h" />
+    <ClInclude Include="DX\Include\D3Dcompiler.h" />
+    <ClInclude Include="DX\Include\D3DCSX.h" />
+    <ClInclude Include="DX\Include\D3DX10.h" />
+    <ClInclude Include="DX\Include\d3dx10async.h" />
+    <ClInclude Include="DX\Include\D3DX10core.h" />
+    <ClInclude Include="DX\Include\D3DX10math.h" />
+    <ClInclude Include="DX\Include\D3DX10mesh.h" />
+    <ClInclude Include="DX\Include\D3DX10tex.h" />
+    <ClInclude Include="DX\Include\D3DX11.h" />
+    <ClInclude Include="DX\Include\D3DX11async.h" />
+    <ClInclude Include="DX\Include\D3DX11core.h" />
+    <ClInclude Include="DX\Include\D3DX11tex.h" />
+    <ClInclude Include="DX\Include\d3dx9.h" />
+    <ClInclude Include="DX\Include\d3dx9anim.h" />
+    <ClInclude Include="DX\Include\d3dx9core.h" />
+    <ClInclude Include="DX\Include\d3dx9effect.h" />
+    <ClInclude Include="DX\Include\d3dx9math.h" />
+    <ClInclude Include="DX\Include\d3dx9mesh.h" />
+    <ClInclude Include="DX\Include\d3dx9shader.h" />
+    <ClInclude Include="DX\Include\d3dx9shape.h" />
+    <ClInclude Include="DX\Include\d3dx9tex.h" />
+    <ClInclude Include="DX\Include\d3dx9xof.h" />
+    <ClInclude Include="DX\Include\Dcommon.h" />
+    <ClInclude Include="DX\Include\dinput.h" />
+    <ClInclude Include="DX\Include\dinputd.h" />
+    <ClInclude Include="DX\Include\dsconf.h" />
+    <ClInclude Include="DX\Include\dsetup.h" />
+    <ClInclude Include="DX\Include\dsound.h" />
+    <ClInclude Include="DX\Include\DWrite.h" />
+    <ClInclude Include="DX\Include\dxdiag.h" />
+    <ClInclude Include="DX\Include\DxErr.h" />
+    <ClInclude Include="DX\Include\dxfile.h" />
+    <ClInclude Include="DX\Include\DXGI.h" />
+    <ClInclude Include="DX\Include\DXGIFormat.h" />
+    <ClInclude Include="DX\Include\DXGIType.h" />
+    <ClInclude Include="DX\Include\dxsdkver.h" />
+    <ClInclude Include="DX\Include\gameux.h" />
+    <ClInclude Include="DX\Include\PIXPlugin.h" />
+    <ClInclude Include="DX\Include\rmxfguid.h" />
+    <ClInclude Include="DX\Include\rmxftmpl.h" />
+    <ClInclude Include="DX\Include\rpcsal.h" />
+    <ClInclude Include="DX\Include\X3DAudio.h" />
+    <ClInclude Include="DX\Include\xact3.h" />
+    <ClInclude Include="DX\Include\xact3d3.h" />
+    <ClInclude Include="DX\Include\xact3wb.h" />
+    <ClInclude Include="DX\Include\XAPO.h" />
+    <ClInclude Include="DX\Include\XAPOBase.h" />
+    <ClInclude Include="DX\Include\XAPOFX.h" />
+    <ClInclude Include="DX\Include\XAudio2.h" />
+    <ClInclude Include="DX\Include\XAudio2fx.h" />
+    <ClInclude Include="DX\Include\XDSP.h" />
+    <ClInclude Include="DX\Include\XInput.h" />
+    <ClInclude Include="DX\Include\xma2defs.h" />
+    <ClInclude Include="DX\Include\xnamath.h" />
+    <ClInclude Include="Math\vector2.h" />
+    <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Scene\battle.h" />
+    <ClInclude Include="Scene\loading.h" />
+    <ClInclude Include="Scene\option.h" />
+    <ClInclude Include="Scene\scene_base.h" />
+    <ClInclude Include="Scene\scene_manager.h" />
+    <ClInclude Include="Scene\scene_type.h" />
+    <ClInclude Include="Scene\shop.h" />
+    <ClInclude Include="Scene\team_view.h" />
+    <ClInclude Include="Scene\title.h" />
+    <ClInclude Include="Scene\village.h" />
+    <ClInclude Include="ssbpLib\common\Animator\MersenneTwister.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_cellmap.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect2.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effectfunction.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_macro.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_matrix.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_PartState.h" />
+    <ClInclude Include="ssbpLib\common\Animator\xorshift32.h" />
+    <ClInclude Include="ssbpLib\common\Helper\DebugPrint.h" />
+    <ClInclude Include="ssbpLib\common\Loader\SsEffectBehavior.h" />
+    <ClInclude Include="ssbpLib\common\Loader\SsEffectElement.h" />
+    <ClInclude Include="ssbpLib\common\Loader\ssloader.h" />
+    <ClInclude Include="ssbpLib\common\Loader\ssloader_ssee.h" />
+    <ClInclude Include="ssbpLib\common\Loader\sstypes.h" />
+    <ClInclude Include="ssbpLib\SS5Player.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerData.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerPlatform.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
+    <ClInclude Include="ssbpLib\ssShader_frag.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DX\Include\D3DX10math.inl" />
+    <None Include="DX\Include\d3dx9math.inl" />
+    <None Include="DX\Include\D3DX_DXGIFormatConvert.inl" />
+    <None Include="DX\Include\xnamathconvert.inl" />
+    <None Include="DX\Include\xnamathmatrix.inl" />
+    <None Include="DX\Include\xnamathmisc.inl" />
+    <None Include="DX\Include\xnamathvector.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
