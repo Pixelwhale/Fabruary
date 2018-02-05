@@ -31,7 +31,7 @@ void Loading::UnloadContents()
 
 void Loading::Update()
 {
-	if (m_input->IsKeyTrigger(DIK_SPACE)) m_end_flag = true;
+	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE)) m_end_flag = true;
 }
 
 void Loading::Draw()

@@ -39,7 +39,7 @@ bool Application::InitWindow()
 #pragma region GameDevice初期化
 
 	m_game_device = Device::GameDevice::GetInstance();
-	result = m_game_device->Initialize(m_hInstance, m_hwnd);
+	result = m_game_device->Initialize();
 	if (!result)
 		return false;
 
@@ -60,8 +60,7 @@ void Application::Run()
 
 	while (ProcessMessage()== 0 && !IsEnd())						//終了しない限りGameLoop
 	{
-		if (!m_input_state->Update())		//InputState更新
-			break;
+		m_input_state->Update();
 
 		Update();							//Gameのアップデート
 		Draw();								//Gameの描画処理

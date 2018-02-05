@@ -58,7 +58,7 @@ void Game::Unload()
 //XVˆ—
 void Game::Update()
 {
-	if (m_input_state->IsKeyTrigger(DIK_ESCAPE))
+	if (m_input_state->IsKeyTrigger(KEY_INPUT_ESCAPE))
 		m_end_flag = true;
 
 	m_scene_manager->Update();
