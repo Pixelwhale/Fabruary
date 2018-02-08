@@ -10,6 +10,9 @@ using namespace Device;
 
 Projector::Projector()
 {
+	m_window_size = Math::Point(
+		WindowDef::kScreenWidth,
+		WindowDef::kScreenHeight);
 }
 
 Projector::Projector(const Projector&)
@@ -35,9 +38,9 @@ void Device::Projector::SpriteMode()
 	m_stock_target = m_target;										//ê›íËÇãLò^
 	m_stock_rerelative_position = m_relative_position;
 
-	SetupCamera_Ortho(WindowDef::kScreenHeight);					//èkè¨
+	SetupCamera_Ortho(m_window_size.y);								//èkè¨
 	//âÊñ ÇÃç∂â∫Çå¥ì_
-	SetTarget(Math::Vector3(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight / 2, 0.0f));
+	SetTarget(Math::Vector3(m_window_size.x / 2, m_window_size.y / 2, 0.0f));
 	SetRelativePosition(Math::Vector3(0, 0, -1));
 }
 

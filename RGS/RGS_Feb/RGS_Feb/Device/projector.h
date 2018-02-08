@@ -6,6 +6,7 @@
 #pragma once
 #include <DX\DXLib\DxLib.h>
 #include <Math\vector3.h>
+#include <Math\point.h>
 
 namespace Device 
 {
@@ -45,6 +46,8 @@ namespace Device
 		void UpdateView();
 
 	private:
+		Math::Point m_window_size;		//毎回アクセスしないように保存したWindowSize
+
 		VECTOR m_position;				//Projectorの位置
 		VECTOR m_target;				//注目点
 		VECTOR m_relative_position;		//Projectorと目標の相対位置

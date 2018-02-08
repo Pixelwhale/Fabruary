@@ -156,12 +156,14 @@
     <ClCompile Include="Device\content_manager.cpp" />
     <ClCompile Include="Device\depth_sort.cpp" />
     <ClCompile Include="Device\game_device.cpp" />
+    <ClCompile Include="Device\MotionSystem\motion.cpp" />
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
+    <ClCompile Include="Math\point.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\end.cpp" />
@@ -193,6 +195,8 @@
     <ClInclude Include="Device\content_manager.h" />
     <ClInclude Include="Device\depth_sort.h" />
     <ClInclude Include="Device\game_device.h" />
+    <ClInclude Include="Device\MotionSystem\motion.h" />
+    <ClInclude Include="Device\MotionSystem\motion_manager.h" />
     <ClInclude Include="Device\projector.h" />
     <ClInclude Include="Device\random.h" />
     <ClInclude Include="Device\renderer.h" />
@@ -278,6 +282,7 @@
     <ClInclude Include="DX\Include\xnamath.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
     <ClInclude Include="Math\collision_box.h" />
+    <ClInclude Include="Math\point.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\end.h" />

@@ -15,6 +15,7 @@ namespace Math
 		Vector2(const Vector2& other);
 
 		float    length() const;
+		float    lenghtSqrt() const;
 		Vector2& normalize();
 		float    dot(const Vector2& v) const;
 		Vector2  operator + () const;
