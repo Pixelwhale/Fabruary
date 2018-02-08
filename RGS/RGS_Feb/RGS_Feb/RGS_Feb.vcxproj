@@ -160,7 +160,6 @@
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
-    <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
