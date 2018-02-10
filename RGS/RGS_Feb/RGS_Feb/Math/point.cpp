@@ -29,7 +29,7 @@ float Point::length() const
 	return (float)sqrt(x * x + y * y);
 }
 
-int Math::Point::lengthSqrt() const
+int Point::lengthSqrt() const
 {
 	return x * x + y * y;
 }

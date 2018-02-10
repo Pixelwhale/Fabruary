@@ -29,7 +29,7 @@ float Vector2::length() const
 	return (float)sqrt(x * x + y * y);
 }
 
-float Math::Vector2::lenghtSqrt() const
+float Vector2::lenghtSqrt() const
 {
 	return x * x + y * y;
 }

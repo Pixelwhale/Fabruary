@@ -26,14 +26,14 @@ Projector::~Projector()
 void Projector::Initialize()
 {
 	SetCameraNearFar(1.0f, 1000.0f);								//Near 1.0 Far 1000.0
-	Zoom(100);														//Orthographic Zoom out 100
+	Zoom(200);														//Orthographic Zoom out 200
 
 	m_rotation = 0;
 	SetTarget(Math::Vector3(0.0f, 0.0f, 0.0f));						//目標：原点
-	SetRelativePosition(Math::Vector3(0.0f, 50.0f, -100.0f));		//相対位置設定(左手系座標なのでZは-)
+	SetRelativePosition(Math::Vector3(0.0f, 200.0f, -200.0f));		//相対位置設定(左手系座標なのでZは-)
 }
 
-void Device::Projector::SpriteMode()
+void Projector::SpriteMode()
 {
 	m_stock_target = m_target;										//設定を記録
 	m_stock_rerelative_position = m_relative_position;
@@ -44,7 +44,18 @@ void Device::Projector::SpriteMode()
 	SetRelativePosition(Math::Vector3(0, 0, -1));
 }
 
-void Device::Projector::PopSetting()
+void Projector::SetTargetDepth(float depth)
+{
+	m_stock_target = m_target;										//設定を記録
+	m_stock_rerelative_position = m_relative_position;
+
+	SetTarget(Math::Vector3(
+		m_relative_position.x, 
+		m_relative_position.y,
+		m_relative_position.z - depth));
+}
+
+void Projector::PopSetting()
 {
 	m_target = m_stock_target;										//設定を戻す
 	m_relative_position = m_stock_rerelative_position;

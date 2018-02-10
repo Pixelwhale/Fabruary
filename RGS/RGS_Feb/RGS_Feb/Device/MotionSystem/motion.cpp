@@ -4,26 +4,29 @@
 // 内容　：SpriteStudioの機能を簡単にまとめたモーションクラス
 //-------------------------------------------------------------
 #include <Device\MotionSystem\motion.h>
+#include <Device\game_device.h>
 
 using namespace MotionSystem;
 
-MotionSystem::Motion::Motion(string asset_name)
+Motion::Motion(string asset_name)
 {
 	m_motion_player = ss::Player::create();
 	m_motion_player->setData(asset_name);
 	m_position = Math::Vector3();
+
+	m_projector = Device::GameDevice::GetInstance()->GetProjector();
 }
 
-MotionSystem::Motion::Motion(const Motion &)
+Motion::Motion(const Motion &)
 {
 }
 
-MotionSystem::Motion::~Motion()
+Motion::~Motion()
 {
 	Release();
 }
 
-void MotionSystem::Motion::Initialize()
+void Motion::Initialize()
 {
 	m_motion_player->setPosition(0, 0);						//表示位置を設定
 	m_motion_player->setScale(1.0f, 1.0f);					//スケール設定
@@ -32,39 +35,42 @@ void MotionSystem::Motion::Initialize()
 	m_motion_player->setFlip(false, false);					//反転を設定
 }
 
-void MotionSystem::Motion::Release()
+void Motion::Release()
 {
 	if(m_motion_player)
 		delete(m_motion_player);
 }
 
-void MotionSystem::Motion::Play(string motion_name)
+void Motion::Play(string motion_name)
 {
 	m_motion_player->play(motion_name);
 }
 
-void MotionSystem::Motion::Update()
+void Motion::Update()
 {
 	m_motion_player->update(1 / 60.0f);
 }
 
-void MotionSystem::Motion::Draw() 
+void Motion::Draw()
 {
+	m_projector->SetTargetDepth(m_position.z);
 	m_motion_player->draw();
+	m_projector->PopSetting();
 }
 
-void MotionSystem::Motion::SetPosition(Math::Vector3 position)
+void Motion::SetPosition(Math::Vector3 position)
 {
 	m_position = position;
+	m_motion_player->setPosition(position.x, position.y);
 }
 
-void MotionSystem::Motion::SetColor(Color color)
+void Motion::SetColor(Color color)
 {
 	m_motion_player->setColor(color.r, color.g, color.b);
 	m_motion_player->setAlpha(color.a);
 }
 
-void MotionSystem::Motion::SetScale(Math::Vector2 scale)
+void Motion::SetScale(Math::Vector2 scale)
 {
 	m_motion_player->setScale(scale.x, scale.y);
 }

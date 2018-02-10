@@ -31,6 +31,8 @@ namespace Device
 		///<param name="target">注目目標</param>
 		void SetTarget(Math::Vector3 target);
 
+		void SetTargetDepth(float depth);
+
 		///<summary>回転</summary>
 		///<param name="angle">回転角度（ラジアン）</param>
 		void Rotate(float angle);

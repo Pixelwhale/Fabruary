@@ -547,5 +547,11 @@
     <None Include="DX\Include\xnamathvector.inl">
       <Filter>ヘッダー ファイル</Filter>
     </None>
+    <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_eye_Anime_anime_1.html" />
+    <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_Flower_Anime_anime_1.html" />
+    <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_rabbit_Anime_anime_1.html" />
+    <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_skeleton_Anime_anime_1.html" />
+    <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_Wolf_Anime_anime_1.html" />
+    <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_Worm_Anime_anime_1.html" />
   </ItemGroup>
 </Project>

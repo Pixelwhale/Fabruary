@@ -7,6 +7,7 @@
 #include <Core\application.h>
 #include <Device\game_device.h>
 #include <Scene\scene_manager.h>
+#include <Device\MotionSystem\motion.h>
 
 namespace Core
 {
@@ -32,5 +33,7 @@ namespace Core
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
 
 		//ss::Player* m_ss_player;
+		std::shared_ptr<MotionSystem::Motion> m_test_motion;
+		Math::Vector3 m_position;
 	};
 }

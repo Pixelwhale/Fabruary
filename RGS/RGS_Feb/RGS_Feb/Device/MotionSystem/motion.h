@@ -5,6 +5,7 @@
 //-------------------------------------------------------------
 #pragma once
 #include <ssbpLib\SS5Player.h>
+#include <Device\projector.h>
 #include <Color\color.h>
 #include <Math\vector3.h>
 #include <Math\vector2.h>
@@ -31,6 +32,7 @@ namespace MotionSystem
 
 	private:
 		ss::Player* m_motion_player;
+		std::shared_ptr<Device::Projector> m_projector;
 
 		Math::Vector3 m_position;
 	};

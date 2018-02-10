@@ -17,21 +17,10 @@ void Game::Initialize()
 	m_scene_manager = std::make_shared<Scene::SceneManager>();
 	m_scene_manager->Initialize();
 
-	//m_game_device->GetContent()->LoadSSFile("TestCharacter/player.ssbp");
-	//m_ss_player = ss::Player::create();
-	//m_ss_player->setData("player");
-	//m_ss_player->play("player_idle/idle");
-	////表示位置を設定
-	//m_ss_player->setPosition(0, 0);
-	////スケール設定
-	//m_ss_player->setScale(1.0f, 1.0f);
-	////回転を設定
-	//m_ss_player->setRotation(0.0f, 0.0f, 0.0f);
-	////透明度を設定
-	//m_ss_player->setAlpha(255);
-	////反転を設定
-	//m_ss_player->setFlip(false, false);
-
+	m_game_device->GetContent()->LoadSSFile("EnemyAnime/NewProject.ssbp");
+	m_test_motion = std::make_shared<MotionSystem::Motion>("NewProject");
+	m_test_motion->Initialize();
+	m_test_motion->Play("enemy_Worm_Anime/anime_1");
 }
 
 //ロードコンテンツ
@@ -45,9 +34,9 @@ void Game::Load()
 	m_game_device->GetContent()->LoadTexture("moemoe_mask", ".png");
 	m_game_device->GetContent()->LoadTexture("mask", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png", 6, 6, 1, 64, 64);*/
-	m_game_device->GetContent()->LoadBGM("Battle-FatalBlood", ".mp3");
+	/*m_game_device->GetContent()->LoadBGM("Battle-FatalBlood", ".mp3");
 	m_game_device->GetContent()->LoadSE("press2", ".wav");
-	m_game_device->GetContent()->LoadSE("attack1", ".wav");
+	m_game_device->GetContent()->LoadSE("attack1", ".wav");*/
 
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//WordでFont名を見る
 }
@@ -55,7 +44,7 @@ void Game::Load()
 //コンテンツ解放
 void Game::Unload()
 {
-	//delete (m_ss_player);
+	m_test_motion = NULL;
 }
 
 //更新処理
@@ -65,6 +54,10 @@ void Game::Update()
 		m_end_flag = true;
 
 	m_scene_manager->Update();
+
+	m_test_motion->Update();
+	m_position += m_game_device->GetInput()->GetKeyBoardVelocity();
+	m_test_motion->SetPosition(m_position);
 }
 
 //描画処理
@@ -74,7 +67,7 @@ void Game::Draw()
 
 	m_scene_manager->Draw();
 
-	m_renderer->DrawString("Hellow World", Math::Vector2(0, 0));
+	m_test_motion->Draw();
 
 	m_renderer->Swap();
 }
