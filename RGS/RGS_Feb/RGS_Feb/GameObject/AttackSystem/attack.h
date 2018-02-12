@@ -12,6 +12,8 @@ namespace AttackSystem
 	class Attack
 	{
 	public:
+		Attack(Math::Vector3 position, Math::Vector3 size) : m_position(position), m_size(size) {};
+		virtual void Collide() = 0;
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 		bool IsEnd() { return m_is_end; }
@@ -21,6 +23,8 @@ namespace AttackSystem
 		}
 	private:
 		bool m_is_end;
+
+		//CollisionBox‚Ì¶¬—p
 		Math::Vector3 m_position;		//CollisionBox‚Ì’†SˆÊ’u
 		Math::Vector3 m_size;			//CollisionBox‚Ì‘å‚«‚³
 	};
