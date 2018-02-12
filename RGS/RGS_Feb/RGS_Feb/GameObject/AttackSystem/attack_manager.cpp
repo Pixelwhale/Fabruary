@@ -39,6 +39,12 @@ void AttackManager::AddAttack()
 	m_add_list.clear();
 }
 
+/*
+bool AttackManager::IsCollision()
+{
+}
+*/
+
 void AttackManager::Update()
 {
 	AddAttack();
@@ -46,10 +52,12 @@ void AttackManager::Update()
 	for (auto atk : m_atk_list)
 	{
 		atk->Update();
+
+		//最適化：地図を割れて判定する
 		/*
 		for (auto c : character_list)
 		{
-			if (IsCollision(c, atk)
+			if (IsCollision(c, atk)　//中でSideをチェックして、Box生成して判定
 			{
 				c.Collide();
 				atk.Collide();
