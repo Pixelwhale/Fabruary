@@ -105,3 +105,13 @@ Math::Vector3 Projector::Position()
 {
 	return  Math::Vector3(m_position.x, m_position.y, m_position.z);
 }
+
+Math::Vector3 Projector::Target() 
+{
+	return Math::Vector3(m_target.x, m_target.y, m_target.z);
+}
+
+float Projector::ZoomRate() 
+{
+	return m_zoom_rate;
+}

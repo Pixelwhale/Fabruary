@@ -4,6 +4,7 @@
 // 内容　：モーションを管理するクラス
 //-------------------------------------------------------------
 #pragma once
+#include <Device\MotionSystem\motion.h>
 
 namespace MotionSystem 
 {

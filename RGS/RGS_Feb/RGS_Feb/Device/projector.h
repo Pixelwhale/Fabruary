@@ -30,7 +30,8 @@ namespace Device
 		///<summary>注目点を設定</summary>
 		///<param name="target">注目目標</param>
 		void SetTarget(Math::Vector3 target);
-
+		///<summary>SpriteStudioに合わせて深度調整、
+		///使用後は必ずPopSettingを呼んでもとのViewに戻す</summary>
 		void SetTargetDepth(float depth);
 
 		///<summary>回転</summary>
@@ -42,6 +43,10 @@ namespace Device
 
 		///<summary>カメラの位置</summary>
 		Math::Vector3 Position();
+		///<summary>カメラの注視点</summary>
+		Math::Vector3 Target();
+		///<summary>カメラの拡大率</summary>
+		float ZoomRate();
 
 	private:
 		///<summary>Viewを更新（移動などがある場合）</summary>

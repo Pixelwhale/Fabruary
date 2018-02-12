@@ -17,10 +17,12 @@ void Game::Initialize()
 	m_scene_manager = std::make_shared<Scene::SceneManager>();
 	m_scene_manager->Initialize();
 
-	m_game_device->GetContent()->LoadSSFile("EnemyAnime/NewProject.ssbp");
-	m_test_motion = std::make_shared<MotionSystem::Motion>("NewProject");
+	m_game_device->GetContent()->LoadSSFile("Character_test/CharacterTest.ssbp");
+	m_test_motion = std::make_shared<MotionSystem::Motion>("CharacterTest");
 	m_test_motion->Initialize();
-	m_test_motion->Play("enemy_Worm_Anime/anime_1");
+	m_test_motion->SetScale(Math::Vector2(0.3f, 0.3f));
+	m_test_motion->Play("Character_Animation/idle");
+	m_motion_right = false;
 }
 
 //ロードコンテンツ
@@ -56,7 +58,27 @@ void Game::Update()
 	m_scene_manager->Update();
 
 	m_test_motion->Update();
-	m_position += m_game_device->GetInput()->GetKeyBoardVelocity();
+	Math::Vector3 velocity = m_game_device->GetInput()->GetKeyBoardVelocity();
+	m_position += velocity;
+	if (velocity.lengthSqrt() != 0) 
+	{
+		m_test_motion->Play("Character_Animation/walk");
+		if (velocity.x > 0) 
+		{
+			m_test_motion->Flip(true, false);
+			m_motion_right = true;
+		}
+		if (velocity.x < 0) 
+		{
+			m_test_motion->Flip(false, false);
+			m_motion_right = false;
+		}
+	}
+	else
+	{
+		m_test_motion->Play("Character_Animation/idle");
+		m_test_motion->Flip(m_motion_right, false);
+	}
 	m_test_motion->SetPosition(m_position);
 }
 
@@ -66,7 +88,7 @@ void Game::Draw()
 	m_renderer->Clear(100, 149, 237);
 
 	m_scene_manager->Draw();
-
+	
 	m_test_motion->Draw();
 
 	m_renderer->Swap();

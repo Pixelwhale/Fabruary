@@ -1,0 +1,1974 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SpriteStudioAnimePack version="1.02.02">
+	<settings>
+		<fps>30</fps>
+		<frameCount>11</frameCount>
+		<sortMode>prio</sortMode>
+		<canvasSize>320 320</canvasSize>
+		<pivot>0 0</pivot>
+		<bgColor>FF323232</bgColor>
+		<gridSize>32</gridSize>
+		<gridColor>FF808080</gridColor>
+		<outStartNum>0</outStartNum>
+	</settings>
+	<name>Character_Animation</name>
+	<exportPath></exportPath>
+	<Model>
+		<partList>
+			<value>
+				<name>root</name>
+				<arrayIndex>0</arrayIndex>
+				<parentIndex>-1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>self</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Parent</name>
+				<arrayIndex>1</arrayIndex>
+				<parentIndex>0</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Body</name>
+				<arrayIndex>2</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Arm_L</name>
+				<arrayIndex>3</arrayIndex>
+				<parentIndex>2</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>Hand_L</name>
+				<arrayIndex>4</arrayIndex>
+				<parentIndex>3</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Arm_R</name>
+				<arrayIndex>5</arrayIndex>
+				<parentIndex>2</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>Hand_R</name>
+				<arrayIndex>6</arrayIndex>
+				<parentIndex>5</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Head</name>
+				<arrayIndex>7</arrayIndex>
+				<parentIndex>2</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Leg_R</name>
+				<arrayIndex>8</arrayIndex>
+				<parentIndex>2</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>Foot_R</name>
+				<arrayIndex>9</arrayIndex>
+				<parentIndex>8</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Leg_L</name>
+				<arrayIndex>10</arrayIndex>
+				<parentIndex>2</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>Foot_L</name>
+				<arrayIndex>11</arrayIndex>
+				<parentIndex>10</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+		</partList>
+	</Model>
+	<cellmapNames>
+		<value>CharacterTest.ssce</value>
+	</cellmapNames>
+	<animeList>
+		<anime>
+			<name>idle</name>
+			<overrideSettings>1</overrideSettings>
+			<settings>
+				<fps>40</fps>
+				<frameCount>60</frameCount>
+				<sortMode>z</sortMode>
+				<canvasSize>256 512</canvasSize>
+				<pivot>0 0</pivot>
+				<bgColor>FF323232</bgColor>
+				<gridSize>32</gridSize>
+				<gridColor>FF808080</gridColor>
+				<outStartNum>0</outStartNum>
+			</settings>
+			<labels />
+			<partAnimes>
+				<partAnime>
+					<partName>root</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Parent</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-15</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-15</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>1</value>
+							</key>
+							<key time="59">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Body</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Body</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>30</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Arm_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Arm_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>13</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>13</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>69</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>64</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>69</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTX">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTY">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>34.9786987304688</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>34.9786987304688</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Hand_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Hand_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-3.28466129302979</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-94.1008758544922</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-62.968677520752</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-64.9686737060547</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-62.9686737060547</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Arm_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Arm_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-17.3333358764648</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-17.3333358764648</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>70</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>65</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>70</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTX">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTY">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>19.6808090209961</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>20.6808090209961</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>19.6808090209961</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Hand_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Hand_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-1.13897383213043</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-88.7620620727539</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-33.3023834228516</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-35.3023834228516</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-33.3023834228516</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Head</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Head</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-13</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>134</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Leg_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Leg_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>4.92434883117676</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>4.92434883117676</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-85.5569534301758</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-89.5569534301758</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-85.5569534301758</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>14.6257734298706</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>13.8651752471924</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>14.6257734298706</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Foot_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Foot_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-0.00812736619263887</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1.99187254905701</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-0.00812736619263887</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-90.0789031982422</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-99.0789031982422</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-90.0789031982422</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0.878664314746857</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0.878664314746857</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Leg_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Leg_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-10</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-10</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-87.3333282470703</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-90.3333282470703</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-87.3333282470703</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-1.69645738601685</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-1.69645738601685</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Foot_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Foot_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-0.844730854034424</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-0.844730854034424</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-82.9730377197266</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-92.9730377197266</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-82.9730377197266</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>4.06420516967773</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>4.06420516967773</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+			</partAnimes>
+		</anime>
+		<anime>
+			<name>walk</name>
+			<overrideSettings>1</overrideSettings>
+			<settings>
+				<fps>60</fps>
+				<frameCount>60</frameCount>
+				<sortMode>z</sortMode>
+				<canvasSize>256 512</canvasSize>
+				<pivot>0 0</pivot>
+				<bgColor>FF323232</bgColor>
+				<gridSize>32</gridSize>
+				<gridColor>FF808080</gridColor>
+				<outStartNum>0</outStartNum>
+			</settings>
+			<labels />
+			<partAnimes>
+				<partAnime>
+					<partName>root</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Parent</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="16" ipType="linear">
+								<value>-13</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>-15</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Body</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Body</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>30</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0</value>
+							</key>
+							<key time="9" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>0.718701243400574</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>5.78316688537598</value>
+							</key>
+							<key time="45" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>3.33548712730408</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Arm_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Arm_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>13</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>13</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>69</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>69</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTX">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTY">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>34.9786987304688</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>28.185115814209</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>34.9786987304688</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Hand_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Hand_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-3.28466129302979</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-94.1008758544922</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-62.968677520752</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-60.2437705993652</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-62.9686737060547</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Arm_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Arm_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-17.3333358764648</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-13.1521673202515</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-17.3333358764648</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>70</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>69.5867691040039</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>70</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTX">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTY">
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>19.6808090209961</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>21.914026260376</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>19.6808090209961</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Hand_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Hand_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-1.13897383213043</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-88.7620620727539</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-33.3023834228516</value>
+							</key>
+							<key time="27" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-35.0180892944336</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-33.3023834228516</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Head</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Head</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>-13</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>134</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Leg_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Leg_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>4.92434883117676</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>4.92434883117676</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-85.5569534301758</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-85.5569534301758</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>14.6257734298706</value>
+							</key>
+							<key time="12" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-4.28304004669189</value>
+							</key>
+							<key time="25" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-33.3345260620117</value>
+							</key>
+							<key time="40" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-3.55872941017151</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>14.6257734298706</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Foot_R</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Foot_R</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-0.00812736619263887</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-0.00812736619263887</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-90.0789031982422</value>
+							</key>
+							<key time="25" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-93.0789031982422</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-90.0789031982422</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>0.878664314746857</value>
+							</key>
+							<key time="12" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>20.3970069885254</value>
+							</key>
+							<key time="25" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>28.4497756958008</value>
+							</key>
+							<key time="40" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>3.08558416366577</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>0.878664314746857</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Leg_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Leg_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-10</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-10</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-87.3333282470703</value>
+							</key>
+							<key time="25" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-95.3333282470703</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-87.3333282470703</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-1.69645738601685</value>
+							</key>
+							<key time="12" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>3.12537050247192</value>
+							</key>
+							<key time="25" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>14.1039772033691</value>
+							</key>
+							<key time="48" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-25.3617858886719</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-1.69645738601685</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Foot_L</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Foot_L</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-0.844730854034424</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-0.844730854034424</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>-82.9730377197266</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-82.9730377197266</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 -1 0</curve>
+								<value>4.06420516967773</value>
+							</key>
+							<key time="12" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-0.249819219112396</value>
+							</key>
+							<key time="25" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-1.8813328742981</value>
+							</key>
+							<key time="48" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>32.1803894042969</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>4.06420516967773</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="bezier">
+								<curve syncStartEnd="0">0 0 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+			</partAnimes>
+		</anime>
+	</animeList>
+</SpriteStudioAnimePack>

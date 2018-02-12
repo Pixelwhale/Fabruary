@@ -12,7 +12,6 @@ Motion::Motion(string asset_name)
 {
 	m_motion_player = ss::Player::create();
 	m_motion_player->setData(asset_name);
-	m_position = Math::Vector3();
 
 	m_projector = Device::GameDevice::GetInstance()->GetProjector();
 }
@@ -28,11 +27,13 @@ Motion::~Motion()
 
 void Motion::Initialize()
 {
-	m_motion_player->setPosition(0, 0);						//表示位置を設定
-	m_motion_player->setScale(1.0f, 1.0f);					//スケール設定
-	m_motion_player->setRotation(0.0f, 0.0f, 0.0f);			//回転を設定
-	m_motion_player->setAlpha(255);							//透明度を設定
-	m_motion_player->setFlip(false, false);					//反転を設定
+	m_position = Math::Vector3();
+	m_scale = Math::Vector2(1, 1);
+	m_motion_player->setPosition(m_position.x, m_position.y);	//表示位置を設定
+	m_motion_player->setScale(m_scale.x, m_scale.y);			//スケール設定
+	m_motion_player->setRotation(0.0f, 0.0f, 0.0f);				//回転を設定
+	m_motion_player->setAlpha(255);								//透明度を設定
+	m_motion_player->setFlip(false, false);						//反転を設定
 }
 
 void Motion::Release()
@@ -41,9 +42,13 @@ void Motion::Release()
 		delete(m_motion_player);
 }
 
-void Motion::Play(string motion_name)
+void Motion::Play(string motion_name, int loop)
 {
-	m_motion_player->play(motion_name);
+	if (m_current_motion == motion_name)
+		return;
+
+	m_current_motion = motion_name;
+	m_motion_player->play(motion_name, loop);
 }
 
 void Motion::Update()
@@ -72,5 +77,24 @@ void Motion::SetColor(Color color)
 
 void Motion::SetScale(Math::Vector2 scale)
 {
+	m_scale = scale;
 	m_motion_player->setScale(scale.x, scale.y);
+}
+
+void  Motion::Flip(bool x, bool y) 
+{
+	if ((x && m_scale.x > 0) ||
+		(!x && m_scale.x < 0))
+		m_scale.x *= -1;
+	if ((y && m_scale.y > 0) ||
+		(!y && m_scale.y < 0))
+		m_scale.y *= -1;
+
+	SetScale(m_scale);
+}
+
+//現在のフレーム＝最大フレーム（最後までプレイした）
+bool Motion::IsCurrentMotionEnd()
+{
+	return m_motion_player->getFrameNo() == m_motion_player->getMaxFrame();
 }

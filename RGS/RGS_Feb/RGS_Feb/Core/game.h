@@ -26,14 +26,14 @@ namespace Core
 		virtual bool IsEnd();			//終了確認するメソッド
 
 	private:
-		bool m_end_flag;					//ゲーム終了のフラグ
+		bool m_end_flag;				//ゲーム終了のフラグ
 
 		std::shared_ptr<Device::Renderer> m_renderer;
 
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
 
-		//ss::Player* m_ss_player;
 		std::shared_ptr<MotionSystem::Motion> m_test_motion;
 		Math::Vector3 m_position;
+		bool m_motion_right;
 	};
 }
