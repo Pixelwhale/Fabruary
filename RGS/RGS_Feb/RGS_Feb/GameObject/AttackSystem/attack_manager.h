@@ -21,6 +21,9 @@ namespace AttackSystem
 		void AddAttack(std::shared_ptr<Attack>);
 		void Update();
 		void Draw();
+
+		//attacks‚Æcharacters‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
+		//bool IsCollision(character_list);
 	private:
 		void AddAttack();
 

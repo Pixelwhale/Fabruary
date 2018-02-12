@@ -10,8 +10,9 @@ namespace Math
 	class CollisionBox
 	{
 	public:
-		CollisionBox(Vector3& min, Vector3& max) : m_min(min), m_max(max) {};
+		CollisionBox(Vector3 min, Vector3 max) : m_min(min), m_max(max) {};
 		bool IsCollision(CollisionBox& other);
+
 	private:
 		bool CheckX(CollisionBox& other);
 		bool CheckY(CollisionBox& other);
