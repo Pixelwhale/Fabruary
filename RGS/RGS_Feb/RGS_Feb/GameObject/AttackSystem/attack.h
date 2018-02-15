@@ -6,29 +6,49 @@
 #pragma once
 #include <Math\vector3.h>
 #include <Math\collision_box.h>
+#include <Character\character_base.h>
 #include <Character\side.h>
+#include <Def\size.h>
+#include <vector>
+#include <memory>
 
 namespace AttackSystem
 {
 	class Attack
 	{
 	public:
-		Attack(Side side, Math::Vector3 position, Math::Vector3 size) : m_side(side), m_position(position), m_size(size) { m_is_end = false; };
+		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, bool repeat_hit = false);
 		virtual void Collide() = 0;
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
-		bool IsEnd() { return m_is_end; }
-		Side GetSide() { return m_side; }
+
 		Math::CollisionBox GetBox()
 		{
 			return Math::CollisionBox(m_position - m_size / 2, m_position + m_size / 2);
 		}
-	private:
-		bool m_is_end;
 
-		Side m_side;
+		Side GetSide() { return m_side; }
+		int GetKnockBack() { return m_knockback; }
+		int GetKnockDown() { return m_knockdown; }
+
+		std::vector<std::weak_ptr<Character::CharacterBase>> GetAttackedList() { return m_attacked_list; }
+		bool IsRepeat() { return m_repeat_hit; }
+
+		bool IsEnd() { return m_is_end; }
+
+	protected:
 		//CollisionBoxÇÃê∂ê¨óp
 		Math::Vector3 m_position;		//CollisionBoxÇÃíÜêSà íu
 		Math::Vector3 m_size;			//CollisionBoxÇÃëÂÇ´Ç≥
+
+		Side m_side;
+
+		int m_knockback;
+		int m_knockdown;
+
+		bool m_is_end;
+
+		std::vector<std::weak_ptr<Character::CharacterBase>> m_attacked_list;
+		bool m_repeat_hit;
 	};
 }

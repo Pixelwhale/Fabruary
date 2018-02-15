@@ -161,6 +161,7 @@
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\point.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Core\application.h" />
     <ClInclude Include="Core\game.h" />
     <ClInclude Include="Core\input_state.h" />
+    <ClInclude Include="Def\size.h" />
     <ClInclude Include="Def\window_def.h" />
     <ClInclude Include="Device\content_manager.h" />
     <ClInclude Include="Device\depth_sort.h" />
