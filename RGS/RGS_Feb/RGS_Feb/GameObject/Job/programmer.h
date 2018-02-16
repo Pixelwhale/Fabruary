@@ -1,4 +1,10 @@
+//-------------------------------------------------------
+// 作成者：シスワントレサ
+// 作成日：2017.02.15
+// 内容　：Job Class - プログラマー
+//-------------------------------------------------------
 #pragma once
+#include <memory>
 #include <GameObject\Job\job_base.h>
 
 namespace Job
@@ -6,12 +12,13 @@ namespace Job
 	class Programmer : public JobBase
 	{
 	public :
-		void Skill1(AttackManager::AttackManager &attack_manager, Math::Vector3 position);
-
-		void Skill2(AttackManager::AttackManager &attack_manager, Math::Vector3 position);
-
-		void Skill3(AttackManager::AttackManager &attack_manager, Math::Vector3 position);
-
-		void Skill4(AttackManager::AttackManager &attack_manager, Math::Vector3 position);
+		Programmer(int punch_count, int kick_count);
+		~Programmer();
+		void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
+		void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
+		void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
+		void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
+		void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
+		void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
 	};
 }

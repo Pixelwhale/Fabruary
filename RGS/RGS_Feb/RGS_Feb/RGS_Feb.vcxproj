@@ -161,6 +161,8 @@
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
+    <ClCompile Include="GameObject\Job\programmer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\point.cpp" />
@@ -184,6 +186,7 @@
     <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
     <ClCompile Include="System\gravity.cpp" />
+    <ClCompile Include="Utility\timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -281,7 +284,9 @@
     <ClInclude Include="DX\Include\XInput.h" />
     <ClInclude Include="DX\Include\xma2defs.h" />
     <ClInclude Include="DX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
+    <ClInclude Include="GameObject\Job\programmer.h" />
     <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\point.h" />
     <ClInclude Include="Math\vector2.h" />
@@ -318,6 +323,7 @@
     <ClInclude Include="GameObject\AttackSystem\attack.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_manager.h" />
     <ClInclude Include="System\gravity.h" />
+    <ClInclude Include="Utility\timer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_eye_Anime_anime_1.html" />
