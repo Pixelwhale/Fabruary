@@ -33,6 +33,7 @@ namespace Character
 		void SetPosition(Math::Vector3* position);//位置の設定
 		bool IsRight();			//向きを返す
 		void DirectionUpdate();	//向きの更新
+		void Motion();			//モーション
 
 	private:
 		int m_hp;				
