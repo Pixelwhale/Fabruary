@@ -8,8 +8,8 @@
 
 using namespace AttackSystem;
 
-Kick::Kick(Side side, Math::Vector3 position, Math::Vector3 size, float life_span_timer)
-	: Attack(side, position, size), m_life_span_timer(life_span_timer)
+Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer)
+	: Attack(position, size, side, knockdown, knockback), m_life_span_timer(life_span_timer)
 {
 }
 

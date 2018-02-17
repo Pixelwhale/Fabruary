@@ -19,11 +19,11 @@ namespace AttackSystem
 		///<param name = "position">キャラクターの位置</param>
 		///<param name = "size">攻撃の大きさ</param>
 		///<param name = "life span">何秒に実現させるのか？</param>
-		Kick(Side side, Math::Vector3 position, Math::Vector3 size, float life_span_timer);
+		Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer);
 		~Kick();
-		virtual void Collide();
-		virtual void Update();
-		virtual void Draw();
+		void Collide();
+		void Update();
+		void Draw();
 	private:
 		Utility::Timer m_life_span_timer; // まだあったているか？
 	};

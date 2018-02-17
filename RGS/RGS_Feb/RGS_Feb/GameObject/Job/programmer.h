@@ -4,7 +4,6 @@
 // 内容　：Job Class - プログラマー
 //-------------------------------------------------------
 #pragma once
-#include <memory>
 #include <GameObject\Job\job_base.h>
 
 namespace Job
@@ -14,11 +13,11 @@ namespace Job
 	public :
 		Programmer(int punch_count, int kick_count);
 		~Programmer();
-		void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
-		void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
-		void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
-		void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
-		void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
-		void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, bool is_left, float life_span_timer);
+		void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer);
+		void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer);
+		void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer);
+		void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer);
+		void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer);
+		void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer);
 	};
 }
