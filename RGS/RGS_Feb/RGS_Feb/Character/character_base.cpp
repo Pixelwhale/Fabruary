@@ -13,7 +13,7 @@ CharacterBase::CharacterBase()
 	m_input = Device::GameDevice::GetInstance()->GetInput();
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_position = Math::Vector3(0, 0, 0);
-	m_size = Math::Vector3(10, 0, 10);
+	m_size = Math::Vector3(64, 128, 20);
 	m_rotation = Math::Vector3(0, 0, 0);
 	m_hp = 500;
 	m_mp = 0;
@@ -21,6 +21,25 @@ CharacterBase::CharacterBase()
 	m_atk_cnt = 0;
 	m_isDead = false;
 	m_isJump = false;
+	m_isRight = true;
+	m_side = Side::kNoTeam;
+}
+
+CharacterBase::CharacterBase(Math::Vector3* position,Side* side)
+{
+	m_input = Device::GameDevice::GetInstance()->GetInput();
+	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
+	m_position = *position;
+	m_size = Math::Vector3(64, 128, 20);
+	m_rotation = Math::Vector3(0, 0, 0);
+	m_hp = 500;
+	m_mp = 0;
+	m_atk_state = 0;
+	m_atk_cnt = 0;
+	m_isDead = false;
+	m_isJump = false;
+	m_isRight = true;
+	m_side = *side;
 }
 
 CharacterBase::~CharacterBase()
@@ -49,6 +68,18 @@ void CharacterBase::Update()
 	{
 		m_isDead = true;
 	}
+}
+
+//あたり判定
+void CharacterBase::Hit()
+{
+
+}
+
+//当たったか？
+bool CharacterBase::Collision(CharacterBase other)
+{
+
 }
 
 //攻撃
@@ -150,6 +181,17 @@ void CharacterBase::GageUpdate()
 	{
 		m_mp = 3000;
 	}
+}
+
+//向きの更新
+void CharacterBase::DirectionUpdate()
+{
+}
+
+//向きを返す
+bool CharacterBase::IsRight()
+{
+	return &m_isRight;
 }
 
 //チームの取得

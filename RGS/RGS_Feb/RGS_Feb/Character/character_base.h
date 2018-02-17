@@ -8,6 +8,7 @@
 #include <Math\vector3.h>;
 #include<Character\side.h>;
 #include<GameObject\Job\job_base.h>;
+#include<Math\collision_box.h>
 
 namespace Character
 {
@@ -15,9 +16,12 @@ namespace Character
 	{
 	public:
 		CharacterBase();		//コンストラクタ
+		CharacterBase(Math::Vector3* position,Side* side);
 		~CharacterBase();		//デストラクタ
 		void Initialize();		//初期化
 		void Update();			//更新
+		void Hit();				//あたり判定
+		bool Collision(CharacterBase other);//当たったか？
 		void Attack();			//攻撃
 		void MoveUpdate();		//移動更新
 		void GageUpdate();		//ゲージ更新
@@ -27,6 +31,8 @@ namespace Character
 		int* GetMp();			//Mpの取得
 		Math::Vector3* GetPosition();//位置の取得
 		void SetPosition(Math::Vector3* position);//位置の設定
+		bool IsRight();			//向きを返す
+		void DirectionUpdate();	//向きの更新
 
 	private:
 		int m_hp;				
@@ -35,6 +41,7 @@ namespace Character
 		int m_atk_cnt;			//技を打つカウント
 		bool m_isDead;
 		bool m_isJump;
+		bool m_isRight;
 		Side m_side;
 		Math::Vector3 m_position;
 		Math::Vector3 m_velocity;
