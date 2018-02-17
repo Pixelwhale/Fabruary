@@ -53,11 +53,12 @@ void AttackManager::Update()
 	{
 		atk->Update();
 
-		//最適化：地図を割れて判定する
+		//攻撃できる対象？
+		//距離判定ー＞精度高い判定
 		/*
 		for (auto c : character_list)
 		{
-			if (IsCollision(c, atk)　//中でSideをチェックして、Box生成して判定
+			if (IsCollision(atk,c)　//中でSideをチェックして、Box生成して判定
 			{
 				c.Collide();
 				atk.Collide();

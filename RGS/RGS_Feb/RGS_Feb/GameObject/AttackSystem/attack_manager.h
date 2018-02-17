@@ -22,8 +22,8 @@ namespace AttackSystem
 		void Update();
 		void Draw();
 
-		//attacks‚Æcharacters‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
-		//bool IsCollision(character_list);
+		//attack‚Æcharacter‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
+		//bool IsCollision(Attack a,CharacterBase c);
 	private:
 		void AddAttack();
 
