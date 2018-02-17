@@ -281,6 +281,9 @@
     <ClInclude Include="DX\Include\XInput.h" />
     <ClInclude Include="DX\Include\xma2defs.h" />
     <ClInclude Include="DX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ai_state.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ai_state_manager.h" />
+    <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
     <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\point.h" />
