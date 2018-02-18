@@ -533,9 +533,6 @@
     <ClInclude Include="Device\MotionSystem\motion.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Device\MotionSystem\motion_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Math\point.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>

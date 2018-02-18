@@ -203,7 +203,6 @@
     <ClInclude Include="Device\depth_sort.h" />
     <ClInclude Include="Device\game_device.h" />
     <ClInclude Include="Device\MotionSystem\motion.h" />
-    <ClInclude Include="Device\MotionSystem\motion_manager.h" />
     <ClInclude Include="Device\projector.h" />
     <ClInclude Include="Device\random.h" />
     <ClInclude Include="Device\renderer.h" />

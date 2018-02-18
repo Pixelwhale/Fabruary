@@ -44,7 +44,7 @@ void Motion::Release()
 
 void Motion::Play(string motion_name, int loop)
 {
-	if (m_current_motion == motion_name)
+	if (m_current_motion == motion_name && !IsCurrentMotionEnd())
 		return;
 
 	m_current_motion = motion_name;

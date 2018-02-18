@@ -23,16 +23,16 @@ namespace MotionSystem
 
 		///<summary>Positionなどの初期値を設定</summary>
 		void Initialize();
-		///<summary>データ解放（基本はマネージャーで使用）</summary>
+		///<summary>データ解放</summary>
 		void Release();
 		///<summary>プレイするモーション</summary>
 		///<param name="motion_name">ssaeファイル名（拡張子抜き）/ Animation名</param>
 		///<param name="loop">何回ループするか(無限 = 0)</param>
 		void Play(string motion_name, int loop = 0);
 
-		///<summary>更新処理（基本はマネージャーで使用）</summary>
+		///<summary>更新処理</summary>
 		void Update();
-		///<summary>描画処理（基本はマネージャーで使用）</summary>
+		///<summary>描画処理</summary>
 		void Draw();
 
 		///<summary>位置設定</summary>
