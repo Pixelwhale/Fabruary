@@ -12,10 +12,13 @@ CharacterManager::CharacterManager()
 }
 void CharacterManager::Initialize()
 {
+	m_character_list.clear();
+	m_add_characters.clear();
 }
 
 void CharacterManager::Add(CharacterBase* character)
 {
+
 }
 
 void CharacterManager::HitToCharacter()
@@ -32,6 +35,7 @@ void CharacterManager::Update()
 
 void CharacterManager::Motion()
 {
+
 }
 
 void CharacterManager::AddCharacter(CharacterBase* character)
