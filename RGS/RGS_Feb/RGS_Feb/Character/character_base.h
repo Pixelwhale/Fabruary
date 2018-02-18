@@ -41,6 +41,7 @@ namespace Character
 		int m_mp;
 		int m_atk_state;		//UŒ‚ó‘Ô
 		int m_atk_cnt;			//‹Z‚ğ‘Å‚ÂƒJƒEƒ“ƒg
+		float m_speed;
 		bool m_isDead;
 		bool m_isJump;
 		bool m_isRight;
