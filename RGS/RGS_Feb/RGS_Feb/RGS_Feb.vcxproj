@@ -193,8 +193,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
+    <ClInclude Include="Character\Controller\character_controller.h" />
     <ClInclude Include="Character\character_manager.h" />
     <ClInclude Include="Character\control_base.h" />
+    <ClInclude Include="Character\Controller\keyboard_controller.h" />
     <ClInclude Include="Character\side.h" />
     <ClInclude Include="Color\color.h" />
     <ClInclude Include="Core\application.h" />
