@@ -20,8 +20,8 @@ namespace Character
 		~CharacterBase();		//デストラクタ
 		void Initialize();		//初期化
 		void Update();			//更新
-		void Hit();				//あたり判定
-		bool Collision(CharacterBase other);//当たったか？
+		void Hit(CharacterBase* character);				//あたり判定
+		bool Collision(CharacterBase* other);//当たったか？
 		void Attack();			//攻撃
 		void MoveUpdate();		//移動更新
 		void GageUpdate();		//ゲージ更新
@@ -34,6 +34,7 @@ namespace Character
 		bool IsRight();			//向きを返す
 		void DirectionUpdate();	//向きの更新
 		void Motion();			//モーション
+		bool IsDead();			//死んだか？
 
 	private:
 		int m_hp;				
@@ -52,7 +53,7 @@ namespace Character
 		std::shared_ptr<Device::Renderer> m_renderer;
 		
 	protected:
-		Job::JobBase m_job;
+		//Job::JobBase m_job;
 	};
 
 

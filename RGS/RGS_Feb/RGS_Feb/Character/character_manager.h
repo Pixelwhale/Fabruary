@@ -15,16 +15,16 @@ namespace Character
 		CharacterManager();					//コンストラクタ
 		void Initialize();					//初期化
 		void Add(CharacterBase* character);	//オブジェクトの追加
-		void HitToCharacter();
-		void RemoveDeadCharacters();
-		void Update();
-		void Motion();
-		void AddCharacter(CharacterBase* character);
+		void HitToCharacter();				//オブジェクト同士の衝突
+		void RemoveDeadCharacters();		//死亡キャラを削除
+		void Update();						//更新
+		void Motion();						//モーション
+		void AddCharacter(CharacterBase* character);//モーション
 
 
 	private:
-		std::vector<CharacterBase>* m_character_list;	//キャラクターリスト
-		std::vector<CharacterBase>* m_add_characters;	//追加キャラクター
+		std::vector<CharacterBase*> m_character_list;	//キャラクターリスト
+		std::vector<CharacterBase*> m_add_characters;	//追加キャラクター
 
 	};
 }
