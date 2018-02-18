@@ -19,6 +19,7 @@ CharacterBase::CharacterBase()
 	m_mp = 0;
 	m_atk_state = 0;
 	m_atk_cnt = 0;
+	m_speed = 5;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -36,6 +37,7 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side)
 	m_mp = 0;
 	m_atk_state = 0;
 	m_atk_cnt = 0;
+	m_speed = 5;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -53,6 +55,7 @@ void CharacterBase::Initialize()
 	m_hp = 500;
 	m_mp = 0;
 	m_atk_state = 0;
+	m_speed = 5;
 	m_isDead = false;
 	m_isJump = false;
 }
@@ -70,14 +73,15 @@ void CharacterBase::Update()
 	}
 }
 
+
 //あたり判定
-void CharacterBase::Hit()
+void CharacterBase::Hit(CharacterBase* character)
 {
 
 }
 
 //当たったか？
-bool CharacterBase::Collision(CharacterBase other)
+bool CharacterBase::Collision(CharacterBase* other)
 {
 
 }
@@ -166,16 +170,24 @@ void CharacterBase::MoveUpdate()
 		m_velocity.y = 3;
 	}
 
-	float speed = 5;
-	if (true)
+	m_speed = 5;
+	if (m_input->IsKeyDown(KEY_INPUT_E))
 	{
-		speed += 0.2;
-		if (speed >= 8)
+		m_speed += 0.2f;
+		if (m_speed >= 8)
 		{
-			speed = 8;
+			m_speed = 8;
 		}
 	}
-	m_position += m_velocity * speed;
+	else
+	{
+		m_speed -= 0.2f;
+		if (m_speed <= 5)
+		{
+			m_speed = 5;
+		}
+	}
+	m_position += m_velocity * m_speed;
 }
 
 //ゲージ更新
