@@ -25,11 +25,11 @@ CharacterBase::CharacterBase()
 	m_side = Side::kNoTeam;
 }
 
-CharacterBase::CharacterBase(Math::Vector3* position,Side* side)
+CharacterBase::CharacterBase(Math::Vector3 position,Side side)
 {
 	m_input = Device::GameDevice::GetInstance()->GetInput();
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
-	m_position = *position;
+	m_position = position;
 	m_size = Math::Vector3(64, 128, 20);
 	m_rotation = Math::Vector3(0, 0, 0);
 	m_hp = 500;
@@ -39,7 +39,7 @@ CharacterBase::CharacterBase(Math::Vector3* position,Side* side)
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
-	m_side = *side;
+	m_side = side;
 }
 
 CharacterBase::~CharacterBase()
@@ -151,6 +151,11 @@ void CharacterBase::Attack()
 	
 }
 
+//モーション
+void CharacterBase::Motion()
+{
+}
+
 //移動更新
 void CharacterBase::MoveUpdate()
 {
@@ -195,38 +200,38 @@ bool CharacterBase::IsRight()
 }
 
 //チームの取得
-Side* CharacterBase::GetSide()
+Side CharacterBase::GetSide()
 {
-	return &m_side;
+	return m_side;
 }
 
 //チームの設定
-void CharacterBase::SetSide(Side* side)
+void CharacterBase::SetSide(Side side)
 {
-	m_side = *side;
+	m_side = side;
 }
 
 //Hpの取得
-int* CharacterBase::GetHp()
+int CharacterBase::GetHp()
 {
-	return &m_hp;
+	return m_hp;
 }
 
 //Mpの取得
-int* CharacterBase::GetMp()
+int CharacterBase::GetMp()
 {
-	return &m_mp;
+	return m_mp;
 }
 
 //位置の取得
-Math::Vector3* CharacterBase::GetPosition()
+Math::Vector3 CharacterBase::GetPosition()
 {
-	return &m_position;
+	return m_position;
 }
 
 //位置の設定
-void CharacterBase::SetPosition(Math::Vector3* position)
+void CharacterBase::SetPosition(Math::Vector3 position)
 {
-	m_position = *position;
+	m_position = position;
 }
 

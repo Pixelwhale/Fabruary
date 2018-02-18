@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character\character_base.cpp" />
+    <ClCompile Include="Character\character_manager.cpp" />
     <ClCompile Include="Color\color.cpp" />
     <ClCompile Include="Core\application.cpp" />
     <ClCompile Include="Core\game.cpp" />
@@ -187,6 +188,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
+    <ClInclude Include="Character\character_manager.h" />
+    <ClInclude Include="Character\control_base.h" />
     <ClInclude Include="Character\side.h" />
     <ClInclude Include="Color\color.h" />
     <ClInclude Include="Core\application.h" />

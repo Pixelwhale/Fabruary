@@ -16,7 +16,7 @@ namespace Character
 	{
 	public:
 		CharacterBase();		//コンストラクタ
-		CharacterBase(Math::Vector3* position,Side* side);
+		CharacterBase(Math::Vector3 position,Side side);
 		~CharacterBase();		//デストラクタ
 		void Initialize();		//初期化
 		void Update();			//更新
@@ -25,12 +25,12 @@ namespace Character
 		void Attack();			//攻撃
 		void MoveUpdate();		//移動更新
 		void GageUpdate();		//ゲージ更新
-		Side* GetSide();		//チームの取得
-		void SetSide(Side* side);//チームの設定
-		int* GetHp();			//Hpの取得
-		int* GetMp();			//Mpの取得
-		Math::Vector3* GetPosition();//位置の取得
-		void SetPosition(Math::Vector3* position);//位置の設定
+		Side GetSide();		//チームの取得
+		void SetSide(Side side);//チームの設定
+		int GetHp();			//Hpの取得
+		int GetMp();			//Mpの取得
+		Math::Vector3 GetPosition();//位置の取得
+		void SetPosition(Math::Vector3 position);//位置の設定
 		bool IsRight();			//向きを返す
 		void DirectionUpdate();	//向きの更新
 		void Motion();			//モーション
@@ -52,7 +52,7 @@ namespace Character
 		std::shared_ptr<Device::Renderer> m_renderer;
 		
 	protected:
-		Job::JobBase* m_job;
+		Job::JobBase m_job;
 	};
 
 
