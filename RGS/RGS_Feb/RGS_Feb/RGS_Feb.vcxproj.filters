@@ -153,16 +153,7 @@
     <ClCompile Include="Character\Controller\ai_controller.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\Job\planner.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Job\com_graphic.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Job\business.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -606,9 +597,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Character\Controller\ai_controller.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Job\planner.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h">
