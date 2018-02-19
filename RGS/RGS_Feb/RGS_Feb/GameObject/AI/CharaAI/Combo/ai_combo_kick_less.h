@@ -17,9 +17,13 @@ namespace AI
 		virtual std::shared_ptr<AiState> NextState();
 
 	private:
-		enum Combo 
+		///<summary>遅延時間をリセット</summary>
+		void ResetTimer();
+
+	private:
+		enum class Combo 
 		{
-			kPunch1,
+			kPunch1 = 0,
 			kPunch2,
 			kDefence,
 			kKick,
@@ -27,7 +31,8 @@ namespace AI
 		};
 
 	private:
-		Combo combo;
-
+		Combo m_current_combo;			//現在の段階
+		Device::Random* m_random;		//ランダム
+		Utility::Timer m_timer;			//遅延時間
 	};
 }
