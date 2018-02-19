@@ -1,9 +1,23 @@
+//-------------------------------------------------------------
+// 作成者：林佳叡
+// 作成日：2018.2.19
+// 内容　：Aiで制御するキャラコントローラー
+//-------------------------------------------------------------
 #include <Character\Controller\ai_controller.h>
 
 using namespace Character;
 
 AiController::AiController()
 {
+	m_velocity = Math::Vector3();
+	m_previous_punch = false;
+	m_current_punch = false;
+	m_previous_kick = false;
+	m_current_kick = false;
+	m_run = false;
+	m_previous_jump = false;
+	m_current_jump = false;
+	m_defence = false;
 }
 
 AiController::AiController(const AiController&)
@@ -50,6 +64,13 @@ void AiController::Update()
 {
 	m_previous_jump = m_current_jump;
 	m_previous_kick = m_current_kick;
+	m_previous_punch = m_current_punch;
+
+	m_current_jump = false;
+	m_current_kick = false;
+	m_current_punch = false;
+	m_run = false;
+	m_defence = false;
 }
 
 void AiController::SetVelocity(Math::Vector3 velocity)

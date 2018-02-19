@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="Character\character_base.cpp" />
     <ClCompile Include="Character\character_manager.cpp" />
+    <ClCompile Include="Character\Controller\ai_controller.cpp" />
     <ClCompile Include="Character\Controller\keyboard_controller.cpp" />
     <ClCompile Include="Character\Controller\pad_controller.cpp" />
     <ClCompile Include="Color\color.cpp" />
@@ -195,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
+    <ClInclude Include="Character\Controller\ai_controller.h" />
     <ClInclude Include="Character\Controller\character_controller.h" />
     <ClInclude Include="Character\character_manager.h" />
     <ClInclude Include="Character\Controller\pad_controller.h" />
