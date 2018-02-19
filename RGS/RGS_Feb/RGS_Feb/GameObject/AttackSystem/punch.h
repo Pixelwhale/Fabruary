@@ -20,9 +20,9 @@ namespace AttackSystem
 		///<param name = "life span">âΩïbÇ…é¿åªÇ≥ÇπÇÈÇÃÇ©ÅH</param>
 		Punch(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer);
 		~Punch();
-		void Collide();
-		void Update();
-		void Draw();
+		virtual void Collide();
+		virtual void Update();
+		virtual void Draw();
 
 	private:
 		Utility::Timer m_life_span_timer; // Ç‹ÇæÇ†Ç¡ÇΩÇƒÇ¢ÇÈÇ©ÅH

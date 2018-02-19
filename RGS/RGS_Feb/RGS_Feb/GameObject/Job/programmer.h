@@ -14,13 +14,13 @@ namespace Job
 	public :
 		Programmer(Side side);
 		~Programmer();
-		void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position,bool is_right);
-		void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		void Update();
+		virtual void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position,bool is_right);
+		virtual void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual void Update();
 
 	private :
 		int m_punch_count_max = 3; // プログラマーのパンチコンボの最大値
