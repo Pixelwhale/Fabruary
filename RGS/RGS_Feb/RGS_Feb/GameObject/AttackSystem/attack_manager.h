@@ -34,6 +34,7 @@ namespace AttackSystem
 		bool IsCollision(Attack& a, Character::CharacterBase* c);
 	private:
 		void AddAttack();
+		void Remove();
 
 		std::vector<std::shared_ptr<Attack>> m_atk_list;
 		std::vector<std::shared_ptr<Attack>> m_add_list;

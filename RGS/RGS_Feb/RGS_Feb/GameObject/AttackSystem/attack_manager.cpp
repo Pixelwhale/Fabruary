@@ -41,6 +41,16 @@ void AttackManager::AddAttack()
 	m_add_list.clear();
 }
 
+void AttackManager::Remove()
+{
+	//remove_if‚Í“¯‚¶
+	for (std::vector<shared_ptr<Attack>>::iterator i = m_atk_list.begin(); i != m_atk_list.end();)
+	{
+		if ((*i)->IsEnd() == true) m_atk_list.erase(i);
+		else ++i;
+	}
+}
+
 
 bool AttackManager::IsCollision(Attack& a, Character::CharacterBase* c)
 {
@@ -51,13 +61,14 @@ bool AttackManager::IsCollision(Attack& a, Character::CharacterBase* c)
 	/*
 	if (a.IsRepeat() == false)
 	{
-		CharaID charaID = c.GetID();
+		int charaID = c.GetID();
 		for (int ID : a.GetAttackedList)
 		{
 			if (ID == charaID) return false;
 		}
 	}
 	*/
+
 	//CollisionBox¶¬‚µ‚Ä”»’è
 	CollisionBox atk_box = a.GetBox();
 	CollisionBox c_box = CollisionBox(c->GetPosition() - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), c->GetPosition() + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
@@ -85,6 +96,8 @@ void AttackManager::Update()
 		}
 		*/
 	}
+
+	Remove();
 }
 
 void AttackManager::Draw()
