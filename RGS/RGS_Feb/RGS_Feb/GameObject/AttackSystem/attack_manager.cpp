@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #include "attack_manager.h";
 #include <Character\character_base.h>
+#include <Character\character_manager.h>
 #include "attack.h"
 
 using namespace AttackSystem;
@@ -52,17 +53,17 @@ void AttackManager::Remove()
 	}
 }
 
-bool AttackManager::IsCollision(std::shared_ptr<Attack> a, std::shared_ptr<Character::CharacterBase> c)
+bool AttackManager::IsCollision(std::shared_ptr<Attack> atk, std::shared_ptr<Character::CharacterBase> c)
 {
 	//同じチームだったらreturn
-	if (a->GetSide() == c->GetSide()) return false;
+	if (atk->GetSide() == c->GetSide()) return false;
 
 	//重複判定か？
 	/*
-	if (a->IsRepeat() == false)
+	if (atk->IsRepeat() == false)
 	{
 		int charaID = c->GetID();
-		for (int ID : a->GetAttackedList)
+		for (int ID : atk->GetAttackedList)
 		{
 			if (ID == charaID) return false;
 		}
@@ -70,13 +71,12 @@ bool AttackManager::IsCollision(std::shared_ptr<Attack> a, std::shared_ptr<Chara
 	*/
 
 	//CollisionBox生成して判定
-	CollisionBox atk_box = a->GetBox();
-	CollisionBox c_box = CollisionBox(c->GetPosition() - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), c->GetPosition() + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
+	CollisionBox atk_box = atk->GetBox();
+	CollisionBox c_box = c->GetBox();
 	return atk_box.IsCollision(c_box);
 }
 
-
-void AttackManager::Update(Character::CharacterManager& chara_mgr)
+void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mgr)
 {
 	AddAttack();
 
@@ -87,10 +87,10 @@ void AttackManager::Update(Character::CharacterManager& chara_mgr)
 		/*
 		for (auto c : chara_mgr.GetCharacterList)
 		{
-			if (IsCollision(a,c)
+			if (IsCollision(atk, c))
 			{
 				c.Collide();
-				atk->Collide();
+				atk->Collide(*this);
 				atk->AddID(c.GetID());
 			}
 		}

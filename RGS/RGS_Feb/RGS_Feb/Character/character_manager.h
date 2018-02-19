@@ -5,8 +5,8 @@
 //-------------------------------------------------------
 #pragma once
 #include <Device\game_device.h>
-#include<Character\character_base.h>
-#include<Math\vector3.h>
+#include <Character\character_base.h>
+#include <Math\vector3.h>
 
 namespace Character
 {
