@@ -1,3 +1,8 @@
+//-------------------------------------------------------------
+// 作成者：林佳叡
+// 作成日：2018.2.19
+// 内容　：KickCombo（小）のAiState
+//-------------------------------------------------------------
 #include <GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h>
 
 using namespace AI;
@@ -37,8 +42,28 @@ void KickComboWeak::Update(std::shared_ptr<Character::AiController> controller)
 		m_current_combo == Combo::kPunch2)
 	{
 		controller->TriggerPunch();
-		
+		m_current_combo = static_cast<Combo>((int)m_current_combo + 1);
 		ResetTimer();
+		return;
+	}
+	if (m_current_combo == Combo::kDefence) 
+	{
+		controller->Defence();
+		m_current_combo = static_cast<Combo>((int)m_current_combo + 1);
+		ResetTimer();
+		return;
+	}
+	if (m_current_combo == Combo::kKick) 
+	{
+		controller->TriggerKick();
+		m_current_combo = static_cast<Combo>((int)m_current_combo + 1);
+		ResetTimer();
+		return;
+	}
+	if (m_current_combo == Combo::kEnd) 
+	{
+		m_end_flag = true;
+		return;
 	}
 }
 

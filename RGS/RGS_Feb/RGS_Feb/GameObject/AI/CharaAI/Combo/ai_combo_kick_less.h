@@ -1,3 +1,8 @@
+//-------------------------------------------------------------
+// 作成者：林佳叡
+// 作成日：2018.2.19
+// 内容　：KickCombo（小）のAiState
+//-------------------------------------------------------------
 #pragma once
 #include <GameObject\AI\CharaAI\ai_state.h>
 #include <Device\game_device.h>
