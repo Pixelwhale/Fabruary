@@ -28,11 +28,13 @@ namespace Character
 		Side	GetSide();			//チームの取得
 		int		GetHp();			//Hpの取得
 		int		GetMp();			//Mpの取得
+		int		GetID();			//IDの取得
 		Math::Vector3 GetPosition();//位置の取得
 		void	SetPosition(Math::Vector3 position);//位置の設定
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
 		Math::CollisionBox GetBox();
+		
 		
 
 	private:						//更新関連

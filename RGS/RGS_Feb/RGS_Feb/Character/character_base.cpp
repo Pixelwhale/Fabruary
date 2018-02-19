@@ -224,6 +224,11 @@ void CharacterBase::SetPosition(Math::Vector3 position)
 	m_position = position;
 }
 
+//ID�̎擾
+int CharacterBase::GetID()
+{
+	return m_id;
+}
 
 Math::CollisionBox CharacterBase::GetBox()
 {
