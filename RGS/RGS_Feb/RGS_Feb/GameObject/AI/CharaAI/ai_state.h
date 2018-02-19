@@ -5,11 +5,12 @@
 //-------------------------------------------------------------
 #pragma once
 #include <memory>
-#include <GameObject\AI\MetaAI\meta_ai.h>
 #include <Character\Controller\ai_controller.h>
 
 namespace AI
 {
+	class MetaAI;
+
 	class AiState
 	{
 	public:

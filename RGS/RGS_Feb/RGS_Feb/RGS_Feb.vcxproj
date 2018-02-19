@@ -166,6 +166,7 @@
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
     <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
@@ -303,6 +304,7 @@
     <ClInclude Include="GameObject\AI\CharaAI\ai_state.h" />
     <ClInclude Include="GameObject\AI\CharaAI\ai_state_manager.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
     <ClInclude Include="GameObject\AttackSystem\kick.h" />
