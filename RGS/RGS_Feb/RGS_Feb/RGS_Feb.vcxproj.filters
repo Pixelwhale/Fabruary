@@ -602,6 +602,9 @@
     <ClInclude Include="GameObject\Job\planner.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DX\Include\D3DX10math.inl">
