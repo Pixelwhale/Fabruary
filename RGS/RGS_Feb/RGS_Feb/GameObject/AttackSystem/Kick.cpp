@@ -18,7 +18,7 @@ Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown,
 Kick::~Kick() {}
 
 
-void AttackSystem::Kick::Collide()
+void AttackSystem::Kick::Collide(AttackManager attackManager)
 {
 }
 

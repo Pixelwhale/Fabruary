@@ -29,21 +29,17 @@ void Programmer::Punch(AttackSystem::AttackManager & attack_manager, Math::Vecto
 
 	if (m_punch_count == 0)
 	{
-		std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
-		attack_manager.AddAttack(punch);
+		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
 		m_punch_count++;
-
 	}
 	else if (m_punch_count == 1)
 	{
-		std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
-		attack_manager.AddAttack(punch);
+		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
 		m_punch_count++;
 	}
 	else if (m_punch_count == 2)
 	{
-		std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position + plus, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
-		attack_manager.AddAttack(punch);
+		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
 		m_punch_count++;
 	}
 	else
@@ -60,9 +56,7 @@ void Programmer::Kick(AttackSystem::AttackManager & attack_manager, Math::Vector
 	{
 		plus.x *= -1;
 	}
-	std::shared_ptr<AttackSystem::Attack> kick(new AttackSystem::Kick(
-	position + plus,  Math::Vector3(2,2,2), m_side, 0, 0, 0.5));
-	attack_manager.AddAttack(kick);
+	attack_manager.AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
 }
 
 void Programmer::Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
