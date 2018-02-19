@@ -76,7 +76,7 @@ bool AttackManager::IsCollision(std::shared_ptr<Attack> a, std::shared_ptr<Chara
 }
 
 
-void AttackManager::Update()
+void AttackManager::Update(Character::CharacterManager& chara_mgr)
 {
 	AddAttack();
 
@@ -85,7 +85,7 @@ void AttackManager::Update()
 		atk->Update();
 
 		/*
-		for (auto c : character_list)
+		for (auto c : chara_mgr.GetCharacterList)
 		{
 			if (IsCollision(a,c)
 			{
