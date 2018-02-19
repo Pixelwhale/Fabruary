@@ -25,6 +25,6 @@ namespace Character
 		std::vector<std::shared_ptr<CharacterBase>> m_character_list;	//キャラクターリスト
 		std::vector<std::shared_ptr<CharacterBase>> m_add_characters;	//追加キャラクター
 
-		static int m_id;
+		int m_id;
 	};
 }
