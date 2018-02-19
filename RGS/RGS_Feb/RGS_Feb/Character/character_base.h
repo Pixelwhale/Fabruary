@@ -10,6 +10,7 @@
 #include <Math\collision_box.h>
 #include <Character\side.h>
 #include <Character\Controller\character_controller.h>
+#include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
 
 namespace Character
@@ -24,6 +25,7 @@ namespace Character
 		void Update();				//更新
 		void Collide();				//あたり判定
 		void Attack();				//攻撃
+		void MotionUpdate();		//モーションの更新
 		void Motion();				//モーション
 
 	public:							//取得関連
@@ -35,6 +37,7 @@ namespace Character
 		void	SetPosition(Math::Vector3 position);//位置の設定
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
+		bool	IsInvincible();		//無敵フラグ
 		Math::CollisionBox GetBox();
 		
 
@@ -50,14 +53,17 @@ namespace Character
 		bool	m_isDead;
 		bool	m_isJump;
 		bool	m_isRight;
+		bool	m_isInvincible;		//無敵フラグ
 		int		m_id;
 		Side	m_side;
+		CharacterState m_state;
 		Math::Vector3 m_position;
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_size;
 		Math::Vector3 m_rotation;
 		std::shared_ptr<Device::Renderer> m_renderer;
 		std::shared_ptr<VirtualController> m_controller;
+		std::shared_ptr<MotionSystem::Motion> m_motion;
 
 	protected:
 		
