@@ -20,7 +20,7 @@ Programmer::Programmer(Side side) : m_next_combo(0.7)
 // デストラクタ
 Programmer::~Programmer() {}
 
-std::string Programmer::Punch(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_right)
+std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
 
@@ -33,30 +33,26 @@ std::string Programmer::Punch(AttackSystem::AttackManager & attack_manager, Math
 
 	if (m_punch_count == 0)
 	{
-		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4f));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4f));
 		m_punch_count++;
 		return base_animation + "punch_1";
 	}
 	else if (m_punch_count == 1)
 	{
-		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_2";
 	}
 	else if (m_punch_count == 2)
 	{
-		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_3";
 	}
-	else
-	{
-		// 最後のパンチを出す後。
-		return "";
-	}
+	return base_animation + "idle";
 }
 
-std::string Programmer::Kick(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_right)
+std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
@@ -64,11 +60,11 @@ std::string Programmer::Kick(AttackSystem::AttackManager & attack_manager, Math:
 	{
 		plus.x *= -1;
 	}
-	attack_manager.AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
 	return base_animation + "kick1";
 }
 
-std::string Programmer::Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
+std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
@@ -80,7 +76,7 @@ std::string Programmer::Skill1(AttackSystem::AttackManager &attack_manager, Math
 	return base_animation + "skill1";
 }
 
-std::string Programmer::Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
+std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
@@ -92,7 +88,7 @@ std::string Programmer::Skill2(AttackSystem::AttackManager &attack_manager, Math
 	return base_animation + "skill2";
 }
 
-std::string Programmer::Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
+std::string Programmer::Skill3(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
@@ -104,7 +100,7 @@ std::string Programmer::Skill3(AttackSystem::AttackManager &attack_manager, Math
 	return base_animation + "skill3";
 }
 
-std::string Programmer::Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
+std::string Programmer::Skill4(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
