@@ -8,6 +8,8 @@
 #pragma once
 #include <GameObject\AttackSystem\attack_manager.h>
 #include <GameObject\AttackSystem\punch.h>
+#include <GameObject\AttackSystem\kick.h>
+#include <Utility\timer.h>
 #include <memory>
 #include <Math\vector3.h>
 
@@ -16,24 +18,12 @@ namespace Job
 	class JobBase
 	{
 	public:
-		virtual void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer) = 0;
-		virtual void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer) = 0;
-		virtual void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer) = 0;
-		virtual void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer) = 0;
-		virtual void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer) = 0;
-		virtual void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer) = 0;
-		void CharacterTraits(int punch_count, int kick_count)
-		{
-			m_punch_count = punch_count;
-			m_kick_count = kick_count;
-		};
-		Side GetSide()
-		{
-			return side;
-		}
-	private:
-		int m_punch_count;
-		int m_kick_count;
-		Side side;
+		virtual void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right) = 0;
+		virtual void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right) = 0;
+		virtual void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right) = 0;
+		virtual void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right) = 0;
+		virtual void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right) = 0;
+		virtual void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right) = 0;
+		virtual void Update() = 0;
 	};
 }

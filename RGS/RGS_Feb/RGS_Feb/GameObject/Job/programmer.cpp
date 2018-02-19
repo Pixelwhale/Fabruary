@@ -9,43 +9,86 @@
 using namespace Job;
 
 //コンストラクタ
-Programmer::Programmer(int punch_count, int kick_count)
+Programmer::Programmer(Side side) : m_next_combo(0.7)
 {
-	CharacterTraits(punch_count, kick_count);
+	m_side = side;
 }
 
 //デストラクタ
 Programmer::~Programmer() {}
 
-void Job::Programmer::Punch(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer)
+void Programmer::Punch(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_left)
 {
-	//std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, size, GetSide(), knockdown, knockback, life_span_timer));
-	//attack_manager.AddAttack(punch);
+	if (m_punch_count == 0)
+	{
+		std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, Math::Vector3(1,1,1), m_side, 0, 0, 0.4));
+		attack_manager.AddAttack(punch);
+		m_punch_count++;
+
+	}
+	else if (m_punch_count == 1)
+	{
+		std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
+		attack_manager.AddAttack(punch);
+		m_punch_count++;
+	}
+	else if (m_punch_count == 2)
+	{
+		std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
+		attack_manager.AddAttack(punch);
+		m_punch_count++;
+	}
+	else
+	{
+		// ずっとパンチしないように。
+	}
 }
 
-void Job::Programmer::Kick(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer)
+void Programmer::Kick(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_left)
 {
-	//std::shared_ptr<AttackSystem::Attack> kick(new AttackSystem::Punch(position, size, GetSide(), knockdown, knockback, life_span_timer));
-	//attack_manager.AddAttack(kick);
+		std::shared_ptr<AttackSystem::Attack> kick(new AttackSystem::Kick(position, Math::Vector3(2,2,2), m_side, 0, 0, 0.5));
+		attack_manager.AddAttack(kick);
 }
 
-void Job::Programmer::Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer)
-{
-
-}
-
-void Job::Programmer::Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer)
+void Programmer::Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
 
 }
 
-void Job::Programmer::Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer)
+void Programmer::Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
 
 }
 
-void Job::Programmer::Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, Math::Vector3 size, int knockdown, int knockback, bool is_left, float life_span_timer)
+void Programmer::Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
 
 }
+
+void Programmer::Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
+{
+
+}
+
+void Programmer::Update()
+{
+	if (m_next_combo.IsTime())
+	{
+		m_next_combo.Reset();
+		m_punch_count = 0;
+		m_punch_last_update = 0;
+	}
+
+	if (m_punch_count != m_punch_last_update)
+	{
+		m_next_combo.Reset();
+		m_punch_last_update = m_punch_count;
+	}
+
+	if (m_punch_count != 0)
+	{
+		m_next_combo.Update();
+	}
+}
+
 
