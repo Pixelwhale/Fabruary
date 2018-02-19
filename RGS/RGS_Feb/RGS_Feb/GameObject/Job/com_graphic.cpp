@@ -20,49 +20,43 @@ ComputerGraphic::~ComputerGraphic() {}
 
 void ComputerGraphic::Punch(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_right)
 {
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 2), 0);
+
 	if (is_right)
 	{
-		if (m_punch_count == 0)
-		{
-			std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
-			attack_manager.AddAttack(punch);
-			m_punch_count++;
+		plus.x *= -1;
+	}
 
-		}
-		else if (m_punch_count == 1)
-		{
-			std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
-			attack_manager.AddAttack(punch);
-			m_punch_count++;
-		}
-		else if (m_punch_count == 2)
-		{
-			std::shared_ptr<AttackSystem::Attack> punch(new AttackSystem::Punch(position, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
-			attack_manager.AddAttack(punch);
-			m_punch_count++;
-		}
-		else
-		{
-			// ずっとパンチしないように。
-		}
+	if (m_punch_count == 0)
+	{
+		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
+		m_punch_count++;
+	}
+	else if (m_punch_count == 1)
+	{
+		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
+		m_punch_count++;
+	}
+	else if (m_punch_count == 2)
+	{
+		attack_manager.AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 1, 0, 0.4));
+		m_punch_count++;
 	}
 	else
 	{
-		// 左向き
+		// 最後のパンチを出す後。
 	}
 }
 
 void ComputerGraphic::Kick(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_right)
 {
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
 	if (is_right)
-	{
-		std::shared_ptr<AttackSystem::Attack> kick(new AttackSystem::Kick(position, Math::Vector3(2, 2, 2), m_side, 0, 0, 0.5));
-		attack_manager.AddAttack(kick);
-	}
-	else
-	{
 
+	{
+		plus.x *= -1;
 	}
+	attack_manager.AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 0, 0, 0.4));
 }
 
 void ComputerGraphic::Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
