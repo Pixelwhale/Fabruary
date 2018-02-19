@@ -12,6 +12,7 @@
 #include <Character\Controller\character_controller.h>
 #include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
+#include <GameObject\AttackSystem\attack_manager.h>
 
 namespace Character
 {
@@ -19,13 +20,15 @@ namespace Character
 	{
 	public:
 		//コンストラクタ（位置、チーム、ID、Hp）
-		CharacterBase(Math::Vector3 position,Side side,int id,int hp,std::shared_ptr<VirtualController> controller);
+		CharacterBase(Math::Vector3 position,Side side,int id,int hp,
+			std::shared_ptr<VirtualController> controller,
+			std::shared_ptr<Job::JobBase> job,
+			std::shared_ptr<AttackSystem::AttackManager> attackManager);
 		~CharacterBase();			//デストラクタ
 		void Initialize(Math::Vector3 position, int hp);//初期化
 		void Update();				//更新
 		void Collide();				//あたり判定
 		void Attack();				//攻撃
-		void MotionUpdate();		//モーションの更新
 		void Motion();				//モーション
 
 	public:							//取得関連
@@ -44,7 +47,7 @@ namespace Character
 	private:						//更新関連
 		void MoveUpdate();			//移動更新
 		void GageUpdate();			//ゲージ更新
-		void DirectionUpdate();		//向きの更新
+		void MotionUpdate();		//モーションの更新
 
 	private:
 		int		m_hp;				
@@ -61,13 +64,11 @@ namespace Character
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_size;
 		Math::Vector3 m_rotation;
-		std::shared_ptr<Device::Renderer> m_renderer;
-		std::shared_ptr<VirtualController> m_controller;
-		std::shared_ptr<MotionSystem::Motion> m_motion;
-
-	protected:
-		
-
+		std::shared_ptr<Device::Renderer>		m_renderer;
+		std::shared_ptr<VirtualController>		m_controller;
+		std::shared_ptr<MotionSystem::Motion>	m_motion;
+		std::shared_ptr<Job::JobBase>			m_job;
+		std::shared_ptr<AttackSystem::AttackManager> m_attack_manager;
 	};
 
 

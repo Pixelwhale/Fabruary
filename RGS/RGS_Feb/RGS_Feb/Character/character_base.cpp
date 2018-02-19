@@ -8,9 +8,14 @@
 using namespace Character;
 
 
-CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, std::shared_ptr<VirtualController> controller)
+CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, 
+							std::shared_ptr<VirtualController> controller,
+							std::shared_ptr<Job::JobBase> job,
+							std::shared_ptr<AttackSystem::AttackManager> attackManager)
 {
 	m_controller = controller;
+	m_job = job;
+	m_attack_manager = attackManager;
 	m_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_position = position;
@@ -80,18 +85,17 @@ void CharacterBase::Attack()
 	//パンチ
 	if (m_controller->IsPunchTrigger())
 	{
-
 	}
 	//キック
 	if (m_controller->IsKickTrigger())
 	{
-
 	}
 	//防御
 	if (m_controller->IsDefence())
 	{
 		m_state = CharacterState::kDefence;
 	}
+	
 	
 }
 
@@ -167,11 +171,6 @@ void CharacterBase::GageUpdate()
 	{
 		m_mp = 3000;
 	}
-}
-
-//向きの更新
-void CharacterBase::DirectionUpdate()
-{
 }
 
 //向きを返す

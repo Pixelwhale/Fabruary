@@ -17,9 +17,13 @@ void CharacterManager::Initialize()
 	m_add_characters.clear();
 }
 
-std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Side side,int hp, std::shared_ptr<VirtualController> controller)
+std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Side side,int hp,
+			std::shared_ptr<VirtualController> controller,
+			std::shared_ptr<Job::JobBase> job,
+			std::shared_ptr<AttackSystem::AttackManager> attackManager)
 {
-	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>(position, side, m_id, hp, controller);
+	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>
+											(position, side, m_id, hp, controller,job, attackManager);
 	m_add_characters.push_back(character);
 	m_id++;
 	return character;
