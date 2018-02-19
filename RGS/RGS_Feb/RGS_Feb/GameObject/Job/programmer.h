@@ -6,6 +6,7 @@
 //-------------------------------------------------------
 #pragma once
 #include <GameObject\Job\job_base.h>
+#include <Character\side.h>
 
 namespace Job
 {
@@ -14,12 +15,12 @@ namespace Job
 	public :
 		Programmer(Side side);
 		~Programmer();
-		virtual void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position,bool is_right);
-		virtual void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position,bool is_right);
+		virtual std::string Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
 		virtual void Update();
 
 	private :
