@@ -32,10 +32,8 @@ namespace Character
 		void	SetPosition(Math::Vector3 position);//位置の設定
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
-		Math::CollisionBox GetBox()
-		{
-			return CollisionBox(m_position - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), m_position + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
-		}
+		Math::CollisionBox GetBox();
+		
 
 	private:						//更新関連
 		void MoveUpdate();			//移動更新
