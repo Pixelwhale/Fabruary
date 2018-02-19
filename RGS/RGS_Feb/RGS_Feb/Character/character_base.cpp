@@ -11,6 +11,7 @@ using namespace Character;
 CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, std::shared_ptr<VirtualController> controller)
 {
 	m_controller = controller;
+	m_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_position = position;
 	m_size = Math::Vector3(Size::kCharaX, Size::kCharaY, Size::kCharaZ);
@@ -21,13 +22,17 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, std
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
+	m_isInvincible = false;
 	m_side = side;
 	m_id = id;
+	m_state = CharacterState::kIdle;
 }
 
 CharacterBase::~CharacterBase()
 {
 	m_controller = NULL;
+	m_motion = NULL;
+	m_renderer = NULL;
 }
 
 //初期化
@@ -40,6 +45,12 @@ void CharacterBase::Initialize(Math::Vector3 position, int hp)
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
+	m_isInvincible = false;
+	m_motion->Initialize();
+	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
+	m_motion->Play("chara_base_anime/idle");
+	m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
+	m_state = CharacterState::kIdle;
 }
 
 //更新
@@ -48,6 +59,7 @@ void CharacterBase::Update()
 	Attack();		//攻撃
 	MoveUpdate();	//移動更新
 	GageUpdate();	//ゲージ更新
+	MotionUpdate(); //モーションの更新
 	//死亡更新
 	if (m_hp <= 0)
 	{
@@ -75,13 +87,50 @@ void CharacterBase::Attack()
 	{
 
 	}
+	//防御
+	if (m_controller->IsDefence())
+	{
+		m_state = CharacterState::kDefence;
+	}
 	
 }
 
 //モーション
 void CharacterBase::Motion()
 {
+	m_motion->Draw();
+}
 
+//モーションの更新
+void CharacterBase::MotionUpdate()
+{
+	m_motion->Update();
+
+	if (m_velocity.lengthSqrt() != 0)
+	{
+		//歩き
+		m_state = CharacterState::kWalk;
+		m_motion->Play("chara_base_anime/walk");
+
+		//向き
+		if (m_velocity.x > 0)
+		{
+			m_motion->Flip(true, false);
+			m_isRight = true;
+		}
+		if (m_velocity.x < 0)
+		{
+			m_motion->Flip(false, false);
+			m_isRight = false;
+		}
+	}
+	else
+	{
+		m_motion->Play("chara_base_anime/idle");
+		m_motion->Flip(m_isRight, false);
+	}
+
+	m_motion->SetPosition(m_position);
 }
 
 //移動更新
@@ -90,6 +139,8 @@ void CharacterBase::MoveUpdate()
 	m_velocity = m_controller->Velocity();
 	if (m_controller->IsJumpTrigger())
 	{
+		m_state = CharacterState::kJump;
+		m_motion->Play("chara_base_anime/jump");
 		m_isJump = true;
 		m_velocity.y = 3;
 	}
@@ -97,13 +148,13 @@ void CharacterBase::MoveUpdate()
 	m_speed = 4;
 	if (m_controller->IsRun())
 	{
+		m_state = CharacterState::kRun;
+		m_motion->Play("chara_base_anime/run");
 		m_speed = 8;
 	}
 	else
 	{
-		
 		m_speed = 5;
-		
 	}
 	m_position += m_velocity * m_speed;
 }
@@ -170,6 +221,12 @@ void CharacterBase::SetPosition(Math::Vector3 position)
 int CharacterBase::GetID()
 {
 	return m_id;
+}
+
+//無敵フラグ
+bool CharacterBase::IsInvincible()
+{
+	return m_isInvincible;
 }
 
 Math::CollisionBox CharacterBase::GetBox()
