@@ -165,7 +165,7 @@
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
-    <ClCompile Include="GameObject\AttackSystem\Kick.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
     <ClCompile Include="GameObject\Job\programmer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -298,7 +298,7 @@
     <ClInclude Include="GameObject\AI\CharaAI\ai_state_manager.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
-    <ClInclude Include="GameObject\AttackSystem\Kick.h" />
+    <ClInclude Include="GameObject\AttackSystem\kick.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
     <ClInclude Include="GameObject\Job\programmer.h" />
