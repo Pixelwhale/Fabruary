@@ -47,13 +47,13 @@ void CharacterManager::HitToCharacter()
 //€–SƒLƒƒƒ‰‚ğíœ
 void CharacterManager::RemoveDeadCharacters()
 {
-	for each (CharacterBase* c in m_character_list)
+	/*for each (CharacterBase* c in m_character_list)
 	{
 		if (c->IsDead())
 		{
 			m_character_list.erase(c);
 		}
-	}
+	}*/
 }
 
 //XV

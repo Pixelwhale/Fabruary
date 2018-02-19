@@ -208,7 +208,13 @@ void CharacterBase::DirectionUpdate()
 //Œü‚«‚ğ•Ô‚·
 bool CharacterBase::IsRight()
 {
-	return &m_isRight;
+	return m_isRight;
+}
+
+//€‚ñ‚¾‚©H
+bool CharacterBase::IsDead()
+{
+	return m_isDead;
 }
 
 //ƒ`[ƒ€‚Ìæ“¾
