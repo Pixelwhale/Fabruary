@@ -183,6 +183,7 @@
     <ClCompile Include="Scene\loading.cpp" />
     <ClCompile Include="Scene\pause..cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
+    <ClCompile Include="Scene\scene_fader.cpp" />
     <ClCompile Include="Scene\scene_manager.cpp" />
     <ClCompile Include="Scene\title.cpp" />
     <ClCompile Include="Scene\tutorial.cpp" />
@@ -321,6 +322,7 @@
     <ClInclude Include="Scene\loading.h" />
     <ClInclude Include="Scene\pause.h" />
     <ClInclude Include="Scene\scene_base.h" />
+    <ClInclude Include="Scene\scene_fader.h" />
     <ClInclude Include="Scene\scene_manager.h" />
     <ClInclude Include="Scene\scene_type.h" />
     <ClInclude Include="Scene\title.h" />
@@ -371,6 +373,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />
+    <Image Include="Content\Texture\black_pixel.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -65,6 +65,20 @@ void Renderer::DrawTexture(std::string texture_name, Math::Vector2 position, flo
 
 void Renderer::DrawTexture(
 	std::string texture_name, Math::Vector2 position,
+	Math::Vector2 scale, float alpha)
+{
+	int handle = m_contents->TextureHandle(texture_name);
+
+	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//Fİ’è
+	DrawExtendGraph((int)position.x, (int)position.y,
+		(int)position.x + (int)scale.x, (int)position.y + (int)scale.y,
+		m_contents->TextureHandle(texture_name), true);
+
+	SetDrawBright(255, 255, 255);					//F‚ğ–ß‚·													//F‚ğ–ß‚·
+}
+
+void Renderer::DrawTexture(
+	std::string texture_name, Math::Vector2 position,
 	Math::Vector2 pivot, Math::Vector2 scale,
 	float angle, Color color, bool horizen_flip)
 {

@@ -10,6 +10,7 @@
 #include <Scene\gameplay.h>
 #include <Scene\end.h>
 #include <Scene\pause.h>
+#include <Scene\scene_fader.h>
 
 using namespace Scene;
 using namespace std;
@@ -20,7 +21,8 @@ SceneManager::SceneManager()
 
 void SceneManager::Initialize()
 {
-	Add(kTitle, make_shared<Title>());
+	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(),1.0f,1.0f));
+	//Add(kTitle, make_shared<Title>());
 	Add(kTutorial, make_shared<Tutorial>());
 	Add(kGamePlay, make_shared<GamePlay>());
 	Add(kEnd, make_shared<End>());
@@ -29,6 +31,7 @@ void SceneManager::Initialize()
 	Add(kLoading, make_shared<Loading>());
 	m_current_type = kLoading;
 	m_current_scene = m_map[kLoading];
+	Change(kTitle);	//test
 }
 
 void SceneManager::Add(SceneType type, std::shared_ptr<SceneBase> scene)

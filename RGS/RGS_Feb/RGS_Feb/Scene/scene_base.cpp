@@ -16,6 +16,6 @@ SceneBase::SceneBase()
 
 void SceneBase::Initialize(SceneType previous)
 {
-	m_end_flag = false;
+	m_is_end = false;
 	m_previous = previous;
 }

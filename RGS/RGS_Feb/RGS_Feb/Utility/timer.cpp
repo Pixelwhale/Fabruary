@@ -45,3 +45,8 @@ bool Timer::IsTime()
 {
 	return m_current_time <= 0;
 }
+
+float Timer::Rate()
+{
+	return 1.0f * m_current_time / m_limit_time;
+}

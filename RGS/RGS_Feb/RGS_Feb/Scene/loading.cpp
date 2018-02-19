@@ -11,7 +11,7 @@ Loading::Loading()
 {
 	m_content = Device::GameDevice::GetInstance()->GetContent();
 	m_next = kTitle;
-	m_end_flag = false;
+	m_is_end = false;
 }
 
 void Loading::LoadContents()
@@ -31,7 +31,7 @@ void Loading::UnloadContents()
 
 void Loading::Update()
 {
-	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE)) m_end_flag = true;
+	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE)) m_is_end = true;
 }
 
 void Loading::Draw()

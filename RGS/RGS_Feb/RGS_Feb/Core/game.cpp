@@ -46,6 +46,7 @@ void Game::Load()
 	m_game_device->GetContent()->LoadSE("attack1", ".wav");*/
 
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
+	m_game_device->GetContent()->LoadTexture("black_pixel", ".png");
 }
 
 //ƒRƒ“ƒeƒ“ƒc‰ð•ú
