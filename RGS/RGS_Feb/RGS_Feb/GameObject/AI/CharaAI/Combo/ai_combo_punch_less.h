@@ -19,7 +19,7 @@ namespace AI
 
 		virtual void GetBattleInfo(std::shared_ptr<MetaAI> meta_ai);
 		virtual void Update(std::shared_ptr<Character::AiController> controller);
-		virtual std::shared_ptr<AiState> NextState();
+		virtual std::shared_ptr<AiState> NextState(int difficulty);
 
 	private:
 		///<summary>’x‰„ŽžŠÔ‚ðƒŠƒZƒbƒg</summary>

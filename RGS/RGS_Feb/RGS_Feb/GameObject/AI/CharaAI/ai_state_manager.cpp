@@ -34,7 +34,7 @@ void AiStateManager::Update(std::shared_ptr<MetaAI> meta_ai)
 	
 	if (m_current_state->IsEnd())							//AI•ÏX
 	{
-		m_current_state = m_current_state->NextState();
+		m_current_state = m_current_state->NextState(m_difficulty);
 	}
 }
 

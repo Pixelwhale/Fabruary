@@ -1,21 +1,28 @@
 //-------------------------------------------------------------
 // 作成者：林佳叡
 // 作成日：2018.2.19
-// 内容　：KickCombo（大）のAiState
+// 内容　：NormalPunchのAiState
 //-------------------------------------------------------------
 #pragma once
 #include <GameObject\AI\CharaAI\ai_state.h>
 #include <Device\game_device.h>
 #include <Utility\timer.h>
 
+namespace Character
+{
+	class CharacterBase;
+}
+
 namespace AI
 {
-	class KickComboStrong : public AiState
+	class NormalPunch : public AiState
 	{
 	public:
-		KickComboStrong();
-		KickComboStrong(const KickComboStrong&);
-		~KickComboStrong();
+		NormalPunch(
+			std::shared_ptr<Character::CharacterBase> my_chara,
+			std::shared_ptr<Character::CharacterBase> target, int count);
+		NormalPunch(const NormalPunch&);
+		~NormalPunch();
 
 		virtual void GetBattleInfo(std::shared_ptr<MetaAI> meta_ai);
 		virtual void Update(std::shared_ptr<Character::AiController> controller);
@@ -24,19 +31,15 @@ namespace AI
 	private:
 		///<summary>遅延時間をリセット</summary>
 		void ResetTimer();
+		///<summary>攻撃範囲内か</summary>
+		bool IsInAttckRange();
 
 	private:
-		enum class Combo
-		{
-			kDefence = 0,
-			kRun,
-			kKick,
-			kEnd,
-		};
-
-	private:
-		Combo m_current_combo;			//現在の段階
 		Device::Random* m_random;		//ランダム
 		Utility::Timer m_timer;			//遅延時間
+
+		std::shared_ptr<Character::CharacterBase> m_character;
+		std::shared_ptr<Character::CharacterBase> m_target;
+		int m_punch_count;
 	};
 }

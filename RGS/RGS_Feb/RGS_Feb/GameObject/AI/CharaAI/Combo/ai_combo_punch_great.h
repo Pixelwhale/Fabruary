@@ -10,12 +10,12 @@
 
 namespace AI
 {
-	class KickComboStrong : public AiState
+	class PunchComboStrong : public AiState
 	{
 	public:
-		KickComboStrong();
-		KickComboStrong(const KickComboStrong&);
-		~KickComboStrong();
+		PunchComboStrong();
+		PunchComboStrong(const PunchComboStrong&);
+		~PunchComboStrong();
 
 		virtual void GetBattleInfo(std::shared_ptr<MetaAI> meta_ai);
 		virtual void Update(std::shared_ptr<Character::AiController> controller);
@@ -30,7 +30,7 @@ namespace AI
 		{
 			kDefence = 0,
 			kRun,
-			kKick,
+			kPunch,
 			kEnd,
 		};
 

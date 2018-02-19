@@ -9,6 +9,7 @@ using namespace AI;
 
 PunchComboWeak::PunchComboWeak()
 {
+	m_end_flag = false;
 	m_random = Device::GameDevice::GetInstance()->GetRandom();
 	m_timer = Utility::Timer(m_random->Next(3, 12) / 60.0f);
 	m_current_combo = Combo::kPunch1;
@@ -61,7 +62,7 @@ void PunchComboWeak::Update(std::shared_ptr<Character::AiController> controller)
 	}
 }
 
-std::shared_ptr<AiState> PunchComboWeak::NextState()
+std::shared_ptr<AiState> PunchComboWeak::NextState(int difficulty)
 {
 	return make_shared<PunchComboWeak>();						//‰¼
 }

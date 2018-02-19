@@ -21,9 +21,12 @@ namespace AI
 		AiStateManager(const AiStateManager&);
 		~AiStateManager();
 
+		///<summary>Aiの操作更新</summary>
 		void Update(std::shared_ptr<MetaAI> meta_ai);
 
+		///<summary>キャラ生成する時に必要なコントローラー</summary>
 		std::shared_ptr<Character::AiController> Controller();
+		///<summary>実機状態を取得できるように設定</summary>
 		void SetCharaInfo(std::shared_ptr<Character::CharacterBase> character);
 
 	private:
