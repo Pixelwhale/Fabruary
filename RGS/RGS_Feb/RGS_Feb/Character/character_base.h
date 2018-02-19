@@ -4,11 +4,13 @@
 // 内容　：キャラクターのベースクラス
 //-------------------------------------------------------
 #pragma once
-#include <Device\game_device.h>;
-#include <Math\vector3.h>;
-#include<Character\side.h>;
-#include<GameObject\Job\job_base.h>;
-#include<Math\collision_box.h>
+#include <Device\game_device.h>
+#include <Device\MotionSystem\motion.h>
+#include <Math\vector3.h>
+#include <Math\collision_box.h>
+#include <Character\side.h>
+#include <Character\Controller\character_controller.h>
+#include <GameObject\Job\job_base.h>
 
 namespace Character
 {
@@ -16,7 +18,7 @@ namespace Character
 	{
 	public:
 		//コンストラクタ（位置、チーム、ID、Hp）
-		CharacterBase(Math::Vector3 position,Side side,int id,int hp);
+		CharacterBase(Math::Vector3 position,Side side,int id,int hp,std::shared_ptr<VirtualController> controller);
 		~CharacterBase();			//デストラクタ
 		void Initialize(Math::Vector3 position, int hp);//初期化
 		void Update();				//更新
@@ -28,6 +30,7 @@ namespace Character
 		Side	GetSide();			//チームの取得
 		int		GetHp();			//Hpの取得
 		int		GetMp();			//Mpの取得
+		int		GetID();			//IDの取得
 		Math::Vector3 GetPosition();//位置の取得
 		void	SetPosition(Math::Vector3 position);//位置の設定
 		bool	IsRight();			//向きを返す
@@ -43,8 +46,6 @@ namespace Character
 	private:
 		int		m_hp;				
 		int		m_mp;
-		int		m_atk_state;		//攻撃入力状態
-		int		m_atk_cnt;			//連続入力カウント
 		float	m_speed;
 		bool	m_isDead;
 		bool	m_isJump;
@@ -55,10 +56,12 @@ namespace Character
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_size;
 		Math::Vector3 m_rotation;
-		std::shared_ptr<Core::InputState> m_input;
 		std::shared_ptr<Device::Renderer> m_renderer;
-		
+		std::shared_ptr<VirtualController> m_controller;
+
 	protected:
+		
+
 	};
 
 
