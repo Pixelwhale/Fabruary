@@ -55,6 +55,9 @@ void AttackManager::Remove()
 
 bool AttackManager::IsCollision(std::shared_ptr<Attack> atk, std::shared_ptr<Character::CharacterBase> c)
 {
+	//ƒLƒƒƒ‰‚Í–³“GŽžŠÔ‚¾‚Á‚½‚çreturn
+	//if (c->IsInvincible()) return false;
+
 	//“¯‚¶ƒ`[ƒ€‚¾‚Á‚½‚çreturn
 	if (atk->GetSide() == c->GetSide()) return false;
 

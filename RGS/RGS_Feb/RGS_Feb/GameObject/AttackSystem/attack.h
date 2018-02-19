@@ -48,8 +48,8 @@ namespace AttackSystem
 
 		Side m_side;
 
-		int m_knockback;
-		int m_knockdown;
+		int m_knockback;		//撃退の距離
+		int m_knockdown;		//倒れる値、キャラの上限値超えると倒れる
 
 		bool m_is_end;
 
