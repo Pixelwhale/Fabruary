@@ -224,3 +224,8 @@ void CharacterBase::SetPosition(Math::Vector3 position)
 	m_position = position;
 }
 
+
+Math::CollisionBox CharacterBase::GetBox()
+{
+	return Math::CollisionBox(m_position - Math::Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), m_position + Math::Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
+}
