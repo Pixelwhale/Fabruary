@@ -620,6 +620,9 @@
     <ClInclude Include="GameObject\Job\business.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Character\character_state.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DX\Include\D3DX10math.inl">
