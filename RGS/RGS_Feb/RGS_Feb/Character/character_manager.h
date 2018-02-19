@@ -6,6 +6,7 @@
 #pragma once
 #include <Device\game_device.h>
 #include<Character\character_base.h>
+#include<Math\vector3.h>
 
 namespace Character
 {
@@ -14,17 +15,16 @@ namespace Character
 	public:
 		CharacterManager();					//コンストラクタ
 		void Initialize();					//初期化
-		void Add(CharacterBase* character);	//オブジェクトの追加
-		void HitToCharacter();				//オブジェクト同士の衝突
+		void Add(Math::Vector3 position, Side side, int hp);	//オブジェクトの追加
+		void Collide();						//オブジェクト同士の衝突
 		void RemoveDeadCharacters();		//死亡キャラを削除
 		void Update();						//更新
 		void Motion();						//モーション
-		void AddCharacter(CharacterBase* character);//モーション
-
 
 	private:
-		std::vector<CharacterBase*> m_character_list;	//キャラクターリスト
-		std::vector<CharacterBase*> m_add_characters;	//追加キャラクター
+		std::vector<std::shared_ptr<CharacterBase>> m_character_list;	//キャラクターリスト
+		std::vector<std::shared_ptr<CharacterBase>> m_add_characters;	//追加キャラクター
 
+		static int m_id;
 	};
 }
