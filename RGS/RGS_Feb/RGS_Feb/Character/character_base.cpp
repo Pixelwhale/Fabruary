@@ -8,18 +8,16 @@
 using namespace Character;
 
 
-CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp)
+CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, std::shared_ptr<VirtualController> controller)
 {
-	m_input = Device::GameDevice::GetInstance()->GetInput();
+	m_controller = controller;
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_position = position;
-	m_size = Math::Vector3(64, 128, 20);
+	m_size = Math::Vector3(Size::kCharaX, Size::kCharaY, Size::kCharaZ);
 	m_rotation = Math::Vector3(0, 0, 0);
 	m_hp = hp;
 	m_mp = 0;
-	m_atk_state = 0;
-	m_atk_cnt = 0;
-	m_speed = 5;
+	m_speed = 4;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -29,6 +27,7 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp)
 
 CharacterBase::~CharacterBase()
 {
+	m_controller = NULL;
 }
 
 //初期化
@@ -37,7 +36,7 @@ void CharacterBase::Initialize(Math::Vector3 position, int hp)
 	m_position = position;
 	m_hp = hp;
 	m_mp = 0;
-	m_speed = 5;
+	m_speed = 4;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -66,67 +65,15 @@ void CharacterBase::Collide()
 //攻撃
 void CharacterBase::Attack()
 {
-	//小技
-	if (m_input->IsKeyDown(KEY_INPUT_RIGHT) ||
-		m_input->IsKeyDown(KEY_INPUT_LEFT))
+	//パンチ
+	if (m_controller->IsPunchTrigger())
 	{
-		m_atk_state = 1;
-	}
-	if (m_atk_state == 1 && 
-		(m_input->IsKeyTrigger(KEY_INPUT_LEFT) || 
-		 m_input->IsKeyTrigger(KEY_INPUT_RIGHT)) )
-	{
-		m_atk_state = 2;
-	}
-	if (m_atk_state == 2)
-	{
-		if (m_input->IsKeyTrigger(KEY_INPUT_A))
-		{
-			m_renderer->DrawString("パンチの小技", Math::Vector2(100, 100));
-			m_atk_state = 0;
-		}
-		if (m_input->IsKeyTrigger(KEY_INPUT_D))
-		{
-			m_renderer->DrawString("キックの小技", Math::Vector2(100, 100));
-			m_atk_state = 0;
-		}
-	}
 
-	//大技
-	if (m_input->IsKeyDown(KEY_INPUT_UP) ||
-		m_input->IsKeyDown(KEY_INPUT_DOWN))
-	{
-		m_atk_state = 4;
 	}
-	if (m_atk_state == 4 &&
-		(m_input->IsKeyTrigger(KEY_INPUT_UP) ||
-			m_input->IsKeyTrigger(KEY_INPUT_DOWN)))
+	//キック
+	if (m_controller->IsKickTrigger)
 	{
-		m_atk_state = 5;
-	}
-	if (m_atk_state == 5)
-	{
-		if (m_input->IsKeyTrigger(KEY_INPUT_A))
-		{
-			m_renderer->DrawString("パンチの大技", Math::Vector2(100, 100));
-			m_atk_state = 0;
-		}
-		if (m_input->IsKeyTrigger(KEY_INPUT_D))
-		{
-			m_renderer->DrawString("キックの大技", Math::Vector2(100, 100));
-			m_atk_state = 0;
-		}
-	}
 
-	//10フレーム以内に技を打たないと
-	//m_atk_state = 0に
-	if (m_atk_state > 0)
-	{
-		m_atk_cnt++;
-		if (m_atk_cnt > 10)
-		{
-			m_atk_state = 0;
-		}
 	}
 	
 }
@@ -134,34 +81,29 @@ void CharacterBase::Attack()
 //モーション
 void CharacterBase::Motion()
 {
+
 }
 
 //移動更新
 void CharacterBase::MoveUpdate()
 {
-	m_velocity = m_input->GetKeyBoardVelocity();
-	if (m_input->IsKeyDown(KEY_INPUT_SPACE))
+	m_velocity = m_controller->Velocity();
+	if (m_controller->IsJumpTrigger())
 	{
 		m_isJump = true;
 		m_velocity.y = 3;
 	}
 
-	m_speed = 5;
-	if (m_input->IsKeyDown(KEY_INPUT_E))
+	m_speed = 4;
+	if (m_controller->IsRun())
 	{
-		m_speed += 0.2f;
-		if (m_speed >= 8)
-		{
-			m_speed = 8;
-		}
+		m_speed = 8;
 	}
 	else
 	{
-		m_speed -= 0.2f;
-		if (m_speed <= 5)
-		{
-			m_speed = 5;
-		}
+		
+		m_speed = 5;
+		
 	}
 	m_position += m_velocity * m_speed;
 }
