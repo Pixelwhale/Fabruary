@@ -9,6 +9,7 @@ using namespace Character;
 
 CharacterManager::CharacterManager()
 {
+	m_id = 0;
 }
 void CharacterManager::Initialize()
 {
