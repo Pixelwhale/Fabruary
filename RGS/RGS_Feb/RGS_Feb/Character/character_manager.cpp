@@ -17,9 +17,9 @@ void CharacterManager::Initialize()
 	m_add_characters.clear();
 }
 
-void CharacterManager::Add(Math::Vector3 position, Side side,int hp)
+void CharacterManager::Add(Math::Vector3 position, Side side,int hp, std::shared_ptr<VirtualController> controller)
 {
-	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>(position, side, m_id, hp);
+	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>(position, side, m_id, hp, controller);
 	m_add_characters.push_back(character);
 	m_id++;
 }
