@@ -37,16 +37,16 @@ void NormalPunch::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
 
 void NormalPunch::Update(std::shared_ptr<Character::AiController> controller) 
 {
-	m_timer.Update();
-	if (!m_timer.IsTime())
+	m_timer.Update();				//遅延更新
+	if (!m_timer.IsTime())			//遅延中は以下実行しない
 		return;
-	if (!IsInAttckRange())
+	if (!IsInAttckRange())			//範囲内か判断する
 		return;
 
-	controller->TriggerPunch();
-	m_punch_count--;
+	controller->TriggerPunch();		//パンチする
+	m_punch_count--;				//指定回数を減らす
 
-	if (m_punch_count <= 0)
+	if (m_punch_count <= 0)			//指定回数に達したら終わる
 		m_end_flag = true;
 }
 
@@ -63,5 +63,5 @@ void NormalPunch::ResetTimer()
 bool NormalPunch::IsInAttckRange() 
 {
 	float distance = (m_character->GetPosition() - m_target->GetPosition()).lengthSqrt();
-	return distance < (Size::kCharaX / 2.0f) * (Size::kCharaX / 2.0f);
+	return distance < (Size::kCharaX * 1.5f) * (Size::kCharaX * 1.5f);
 }
