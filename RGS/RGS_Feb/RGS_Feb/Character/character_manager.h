@@ -20,6 +20,7 @@ namespace Character
 		void RemoveDeadCharacters();		//死亡キャラを削除
 		void Update();						//更新
 		void Motion();						//モーション
+		std::vector<std::shared_ptr<CharacterBase>>& GetCharacterList();//キャラクターリストの取得
 
 	private:
 		std::vector<std::shared_ptr<CharacterBase>> m_character_list;	//キャラクターリスト
