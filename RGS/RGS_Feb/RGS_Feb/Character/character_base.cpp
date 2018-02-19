@@ -8,32 +8,14 @@
 using namespace Character;
 
 
-CharacterBase::CharacterBase()
-{
-	m_input = Device::GameDevice::GetInstance()->GetInput();
-	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
-	m_position = Math::Vector3(0, 0, 0);
-	m_size = Math::Vector3(64, 128, 20);
-	m_rotation = Math::Vector3(0, 0, 0);
-	m_hp = 500;
-	m_mp = 0;
-	m_atk_state = 0;
-	m_atk_cnt = 0;
-	m_speed = 5;
-	m_isDead = false;
-	m_isJump = false;
-	m_isRight = true;
-	m_side = Side::kNoTeam;
-}
-
-CharacterBase::CharacterBase(Math::Vector3 position,Side side)
+CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp)
 {
 	m_input = Device::GameDevice::GetInstance()->GetInput();
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_position = position;
 	m_size = Math::Vector3(64, 128, 20);
 	m_rotation = Math::Vector3(0, 0, 0);
-	m_hp = 500;
+	m_hp = hp;
 	m_mp = 0;
 	m_atk_state = 0;
 	m_atk_cnt = 0;
@@ -42,6 +24,7 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side)
 	m_isJump = false;
 	m_isRight = true;
 	m_side = side;
+	m_id = id;
 }
 
 CharacterBase::~CharacterBase()
@@ -49,15 +32,15 @@ CharacterBase::~CharacterBase()
 }
 
 //初期化
-void CharacterBase::Initialize()
+void CharacterBase::Initialize(Math::Vector3 position, int hp)
 {
-	m_position = Math::Vector3(0, 0, 0);
-	m_hp = 500;
+	m_position = position;
+	m_hp = hp;
 	m_mp = 0;
-	m_atk_state = 0;
 	m_speed = 5;
 	m_isDead = false;
 	m_isJump = false;
+	m_isRight = true;
 }
 
 //更新
@@ -75,13 +58,7 @@ void CharacterBase::Update()
 
 
 //あたり判定
-void CharacterBase::Hit(CharacterBase* character)
-{
-
-}
-
-//当たったか？
-bool CharacterBase::Collision(CharacterBase* other)
+void CharacterBase::Collide()
 {
 
 }
@@ -103,12 +80,12 @@ void CharacterBase::Attack()
 	}
 	if (m_atk_state == 2)
 	{
-		if (m_input->IsKeyTrigger(KEY_INPUT_X))
+		if (m_input->IsKeyTrigger(KEY_INPUT_A))
 		{
 			m_renderer->DrawString("パンチの小技", Math::Vector2(100, 100));
 			m_atk_state = 0;
 		}
-		if (m_input->IsKeyTrigger(KEY_INPUT_Z))
+		if (m_input->IsKeyTrigger(KEY_INPUT_D))
 		{
 			m_renderer->DrawString("キックの小技", Math::Vector2(100, 100));
 			m_atk_state = 0;
@@ -129,12 +106,12 @@ void CharacterBase::Attack()
 	}
 	if (m_atk_state == 5)
 	{
-		if (m_input->IsKeyTrigger(KEY_INPUT_X))
+		if (m_input->IsKeyTrigger(KEY_INPUT_A))
 		{
 			m_renderer->DrawString("パンチの大技", Math::Vector2(100, 100));
 			m_atk_state = 0;
 		}
-		if (m_input->IsKeyTrigger(KEY_INPUT_Z))
+		if (m_input->IsKeyTrigger(KEY_INPUT_D))
 		{
 			m_renderer->DrawString("キックの大技", Math::Vector2(100, 100));
 			m_atk_state = 0;
@@ -151,7 +128,6 @@ void CharacterBase::Attack()
 			m_atk_state = 0;
 		}
 	}
-	
 	
 }
 
@@ -223,11 +199,6 @@ Side CharacterBase::GetSide()
 	return m_side;
 }
 
-//チームの設定
-void CharacterBase::SetSide(Side side)
-{
-	m_side = side;
-}
 
 //Hpの取得
 int CharacterBase::GetHp()
