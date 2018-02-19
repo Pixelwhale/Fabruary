@@ -6,7 +6,6 @@
 #pragma once
 #include <Math\vector3.h>
 #include <Math\collision_box.h>
-#include <Character\character_base.h>
 #include <Character\side.h>
 #include <Def\size.h>
 #include <vector>
@@ -18,7 +17,10 @@ namespace AttackSystem
 	{
 	public:
 		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, bool repeat_hit = false);
+
+		//キャラに当たる後Attack自身のリアクション
 		virtual void Collide() = 0;
+
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 
@@ -31,8 +33,9 @@ namespace AttackSystem
 		int GetKnockBack() { return m_knockback; }
 		int GetKnockDown() { return m_knockdown; }
 
-		std::vector<std::weak_ptr<Character::CharacterBase>> GetAttackedList() { return m_attacked_list; }
 		bool IsRepeat() { return m_repeat_hit; }
+		//重複判定を避けるため
+		//std::vector<CharaID> GetAttackedList() { return m_attacked_list; }
 
 		bool IsEnd() { return m_is_end; }
 
@@ -48,7 +51,7 @@ namespace AttackSystem
 
 		bool m_is_end;
 
-		std::vector<std::weak_ptr<Character::CharacterBase>> m_attacked_list;
-		bool m_repeat_hit;
+		bool m_repeat_hit;		//重複判定できるスキルはtrue
+		//std::vector<CharaID> m_attacked_list;
 	};
 }

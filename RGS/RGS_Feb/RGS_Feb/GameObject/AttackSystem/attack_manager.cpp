@@ -6,6 +6,8 @@
 #include "attack_manager.h";
 
 using namespace AttackSystem;
+using namespace Character;
+using namespace Math;
 
 AttackManager::AttackManager()
 {
@@ -40,8 +42,23 @@ void AttackManager::AddAttack()
 }
 
 /*
-bool AttackManager::IsCollision()
+bool AttackManager::IsCollision(Attack& a, CharacterBase& c)
 {
+	if (a.GetSide() == c.GetSide()) return;
+
+	if (a.IsRepeat() == false)
+	{
+		CharaID charaID = c.GetID();
+		for (auto ID : a.GetAttackedList)
+		{
+			if (ID == charaID) return;
+		}
+	}
+
+	CollisionBox atk_box = a.GetBox();
+	CollisionBox c_box = CollisionBox(c.GetPosition() - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), c.GetPosition() + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
+
+	return atk_box.IsCollision(c_box);
 }
 */
 
@@ -53,12 +70,10 @@ void AttackManager::Update()
 	{
 		atk->Update();
 
-		//攻撃できる対象？
-		//距離判定ー＞精度高い判定
 		/*
 		for (auto c : character_list)
 		{
-			if (IsCollision(atk,c)　//中でSideをチェックして、Box生成して判定
+			if (IsCollision(atk,c)
 			{
 				c.Collide();
 				atk.Collide();

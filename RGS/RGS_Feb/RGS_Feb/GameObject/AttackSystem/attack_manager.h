@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #pragma once
 #include "attack.h"
+#include <Character\character_base.h>
 #include <Math\collision_box.h>
 #include <memory>
 #include <vector>
@@ -23,7 +24,7 @@ namespace AttackSystem
 		void Draw();
 
 		//attack‚Æcharacter‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
-		//bool IsCollision(Attack a,CharacterBase c);
+		//bool IsCollision(Attack& a, Character::CharacterBase& c);
 	private:
 		void AddAttack();
 
