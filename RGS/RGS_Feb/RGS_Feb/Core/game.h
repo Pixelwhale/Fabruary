@@ -34,6 +34,7 @@ namespace Core
 
 		std::shared_ptr<MotionSystem::Motion> m_test_motion;
 		Math::Vector3 m_position;
+		std::shared_ptr<MotionSystem::Motion> m_test_motion2;
 		bool m_motion_right;
 	};
 }

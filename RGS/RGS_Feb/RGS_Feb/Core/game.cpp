@@ -17,11 +17,16 @@ void Game::Initialize()
 	m_scene_manager = std::make_shared<Scene::SceneManager>();
 	m_scene_manager->Initialize();
 
-	m_game_device->GetContent()->LoadSSFile("Character_test/CharacterTest.ssbp");
-	m_test_motion = std::make_shared<MotionSystem::Motion>("CharacterTest");
+	m_game_device->GetContent()->LoadSSFile("Character_base/Character.ssbp");
+	m_test_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_test_motion->Initialize();
-	m_test_motion->SetScale(Math::Vector2(0.3f, 0.3f));
-	m_test_motion->Play("Character_Animation/idle");
+	m_test_motion->SetScale(Math::Vector2(1.0f, 1.0f));
+	m_test_motion->Play("chara_base_anime/idle");
+	m_test_motion2 = std::make_shared<MotionSystem::Motion>("Character");
+	m_test_motion2->Initialize();
+	m_test_motion2->SetScale(Math::Vector2(1.0f, 1.0f));
+	m_test_motion2->Play("chara_base_anime/idle");
+	m_test_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_motion_right = false;
 }
 
@@ -47,6 +52,7 @@ void Game::Load()
 void Game::Unload()
 {
 	m_test_motion = NULL;
+	m_test_motion2 = NULL;
 }
 
 //XVˆ—
@@ -58,11 +64,12 @@ void Game::Update()
 	m_scene_manager->Update();
 
 	m_test_motion->Update();
-	Math::Vector3 velocity = m_game_device->GetInput()->GetKeyBoardVelocity();
+	m_test_motion2->Update();
+	Math::Vector3 velocity = m_game_device->GetInput()->GetKeyBoardVelocity() * 8;
 	m_position += velocity;
 	if (velocity.lengthSqrt() != 0) 
 	{
-		m_test_motion->Play("Character_Animation/walk");
+		m_test_motion->Play("chara_base_anime/run");
 		if (velocity.x > 0) 
 		{
 			m_test_motion->Flip(true, false);
@@ -76,7 +83,7 @@ void Game::Update()
 	}
 	else
 	{
-		m_test_motion->Play("Character_Animation/idle");
+		m_test_motion->Play("chara_base_anime/idle");
 		m_test_motion->Flip(m_motion_right, false);
 	}
 	m_test_motion->SetPosition(m_position);
@@ -89,6 +96,7 @@ void Game::Draw()
 
 	m_scene_manager->Draw();
 	
+	m_test_motion2->Draw();
 	m_test_motion->Draw();
 
 	m_renderer->Swap();

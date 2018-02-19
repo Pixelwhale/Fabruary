@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SpriteStudioCellMap version="1.00.02">
+	<name>chara_base</name>
+	<exportPath></exportPath>
+	<generator>SpriteStudio</generator>
+	<packed>0</packed>
+	<imagePath>chara_base.png</imagePath>
+	<pixelSize>128 256</pixelSize>
+	<overrideTexSettings>0</overrideTexSettings>
+	<wrapMode>clamp</wrapMode>
+	<filterMode>linear</filterMode>
+	<imagePathAtImport></imagePathAtImport>
+	<packInfoFilePath></packInfoFilePath>
+	<texPackSettings>
+		<maxSize>4096 4096</maxSize>
+		<forcePo2>1</forcePo2>
+		<forceSquare>0</forceSquare>
+		<margin>0</margin>
+		<padding>1</padding>
+	</texPackSettings>
+	<cells>
+		<cell>
+			<name>Head</name>
+			<pos>0 0</pos>
+			<size>64 64</size>
+			<pivot>0 -0.4375</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>bone_up</name>
+			<pos>0 64</pos>
+			<size>32 64</size>
+			<pivot>0 0.21875</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>bone_down</name>
+			<pos>0 128</pos>
+			<size>32 64</size>
+			<pivot>0 -0.203125</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>arm_right</name>
+			<pos>32 64</pos>
+			<size>32 64</size>
+			<pivot>0 0.34375</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>arm_left</name>
+			<pos>64 64</pos>
+			<size>32 64</size>
+			<pivot>0 0.34375</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>leg_right</name>
+			<pos>32 128</pos>
+			<size>32 64</size>
+			<pivot>0 0.34375</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>leg_left</name>
+			<pos>64 128</pos>
+			<size>32 64</size>
+			<pivot>0 0.34375</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>hand_right</name>
+			<pos>0 192</pos>
+			<size>32 64</size>
+			<pivot>0 0.421875</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>hand_left</name>
+			<pos>32 192</pos>
+			<size>32 64</size>
+			<pivot>0 0.421875</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>foot_right</name>
+			<pos>64 192</pos>
+			<size>32 64</size>
+			<pivot>0 0.421875</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>foot_left</name>
+			<pos>96 192</pos>
+			<size>32 64</size>
+			<pivot>0 0.421875</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+	</cells>
+</SpriteStudioCellMap>

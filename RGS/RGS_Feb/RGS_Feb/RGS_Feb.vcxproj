@@ -345,6 +345,10 @@
     <ClInclude Include="Utility\timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\SpriteStudio\Character_base\Character.ssbp" />
+    <None Include="Content\SpriteStudio\Character_base\Character.sspj" />
+    <None Include="Content\SpriteStudio\Character_base\chara_base.ssce" />
+    <None Include="Content\SpriteStudio\Character_base\chara_base_anime.ssae" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_eye_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_Flower_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_rabbit_Anime_anime_1.html" />
@@ -358,6 +362,9 @@
     <None Include="DX\Include\xnamathmatrix.inl" />
     <None Include="DX\Include\xnamathmisc.inl" />
     <None Include="DX\Include\xnamathvector.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

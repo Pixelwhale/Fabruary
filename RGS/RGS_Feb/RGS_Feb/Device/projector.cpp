@@ -26,7 +26,7 @@ Projector::~Projector()
 void Projector::Initialize()
 {
 	SetCameraNearFar(1.0f, 1000.0f);								//Near 1.0 Far 1000.0
-	Zoom(200);														//Orthographic Zoom out 200
+	Zoom(800);														//Orthographic Zoom out 200
 
 	m_rotation = 0;
 	SetTarget(Math::Vector3(0.0f, 0.0f, 0.0f));						//ñ⁄ïWÅFå¥ì_
