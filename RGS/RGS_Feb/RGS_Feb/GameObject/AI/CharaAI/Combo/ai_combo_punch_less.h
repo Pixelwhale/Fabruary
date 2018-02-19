@@ -1,21 +1,21 @@
 //-------------------------------------------------------------
 // 作成者：林佳叡
 // 作成日：2018.2.19
-// 内容　：KickCombo（小）のAiState
+// 内容　：PunchCombo（小）のAiState
 //-------------------------------------------------------------
 #pragma once
 #include <GameObject\AI\CharaAI\ai_state.h>
 #include <Device\game_device.h>
 #include <Utility\timer.h>
 
-namespace AI 
+namespace AI
 {
-	class KickComboWeak : public AiState
+	class PunchComboWeak : public AiState
 	{
 	public:
-		KickComboWeak();
-		KickComboWeak(const KickComboWeak&);
-		~KickComboWeak();
+		PunchComboWeak();
+		PunchComboWeak(const PunchComboWeak&);
+		~PunchComboWeak();
 
 		virtual void GetBattleInfo(std::shared_ptr<MetaAI> meta_ai);
 		virtual void Update(std::shared_ptr<Character::AiController> controller);
@@ -26,12 +26,12 @@ namespace AI
 		void ResetTimer();
 
 	private:
-		enum class Combo 
+		enum class Combo
 		{
 			kPunch1 = 0,
 			kPunch2,
 			kDefence,
-			kKick,
+			kPunch3,
 			kEnd,
 		};
 

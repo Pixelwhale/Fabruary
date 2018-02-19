@@ -1,10 +1,16 @@
+//-------------------------------------------------------------
+// 作成者：林佳叡
+// 作成日：2018.2.19
+// 内容　：AiStateのインターフェース
+//-------------------------------------------------------------
 #pragma once
 #include <memory>
-#include <GameObject\AI\MetaAI\meta_ai.h>
 #include <Character\Controller\ai_controller.h>
 
 namespace AI
 {
+	class MetaAI;
+
 	class AiState
 	{
 	public:
