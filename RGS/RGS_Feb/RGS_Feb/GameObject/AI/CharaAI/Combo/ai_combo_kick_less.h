@@ -1,5 +1,7 @@
 #pragma once
 #include <GameObject\AI\CharaAI\ai_state.h>
+#include <Device\game_device.h>
+#include <Utility\timer.h>
 
 namespace AI 
 {
@@ -26,5 +28,6 @@ namespace AI
 
 	private:
 		Combo combo;
+
 	};
 }
