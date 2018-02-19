@@ -15,7 +15,7 @@ namespace Character
 	public:
 		CharacterManager();					//コンストラクタ
 		void Initialize();					//初期化
-		void Add(Math::Vector3 position, Side side, int hp, std::shared_ptr<VirtualController> controller);	//オブジェクトの追加
+		std::shared_ptr<CharacterBase> Add(Math::Vector3 position, Side side, int hp, std::shared_ptr<VirtualController> controller);	//オブジェクトの追加
 		void Collide();						//オブジェクト同士の衝突
 		void RemoveDeadCharacters();		//死亡キャラを削除
 		void Update();						//更新
