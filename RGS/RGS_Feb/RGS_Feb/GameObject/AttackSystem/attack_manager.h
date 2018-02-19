@@ -4,6 +4,7 @@
 // 内容：Attackの更新と描画
 //-------------------------------------------------------
 #pragma once
+#include <Character\character_manager.h>
 #include <Math\collision_box.h>
 #include <memory>
 #include <vector>
@@ -25,7 +26,7 @@ namespace AttackSystem
 		void Initialize();
 
 		void AddAttack(std::shared_ptr<Attack>);
-		void Update();
+		void Update(Character::CharacterManager& chara_mgr);
 		void Draw();
 
 		//attackとcharacterのcollision boxを生成して判定する
