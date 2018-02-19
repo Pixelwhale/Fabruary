@@ -9,6 +9,7 @@
 #include <GameObject\AttackSystem\attack_manager.h>
 #include <GameObject\AttackSystem\punch.h>
 #include <GameObject\AttackSystem\kick.h>
+#include <Def\size.h>
 #include <Utility\timer.h>
 #include <memory>
 #include <Math\vector3.h>

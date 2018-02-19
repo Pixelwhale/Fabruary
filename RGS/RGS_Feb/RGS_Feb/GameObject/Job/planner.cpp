@@ -46,28 +46,63 @@ void Planner::Punch(AttackSystem::AttackManager & attack_manager, Math::Vector3 
 
 void Planner::Kick(AttackSystem::AttackManager & attack_manager, Math::Vector3 position, bool is_right)
 {
-	std::shared_ptr<AttackSystem::Attack> kick(new AttackSystem::Kick(position, Math::Vector3(2, 2, 2), m_side, 0, 0, 0.5));
-	attack_manager.AddAttack(kick);
+	if (is_right)
+	{
+		std::shared_ptr<AttackSystem::Attack> kick(new AttackSystem::Kick(position, Math::Vector3(2, 2, 2), m_side, 0, 0, 0.5));
+		attack_manager.AddAttack(kick);
+	}
+	else
+	{
+
+	}
 }
 
 void Planner::Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
+	if (is_right)
+	{
 
+	}
+	else
+	{
+
+	}
 }
 
 void Planner::Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
+	if (is_right)
+	{
 
+	}
+	else
+	{
+
+	}
 }
 
 void Planner::Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
+	if (is_right)
+	{
 
+	}
+	else
+	{
+
+	}
 }
 
 void Planner::Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right)
 {
+	if (is_right)
+	{
 
+	}
+	else
+	{
+
+	}
 }
 
 void Planner::Update()
