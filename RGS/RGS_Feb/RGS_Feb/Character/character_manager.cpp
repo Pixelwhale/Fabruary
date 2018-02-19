@@ -67,3 +67,7 @@ void CharacterManager::Motion()
 	}
 }
 
+std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetCharacterList()
+{
+	return m_character_list;
+}
