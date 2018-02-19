@@ -168,6 +168,7 @@
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
     <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
+    <ClCompile Include="GameObject\Job\planner.cpp" />
     <ClCompile Include="GameObject\Job\programmer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
@@ -303,6 +304,7 @@
     <ClInclude Include="GameObject\AttackSystem\kick.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
+    <ClInclude Include="GameObject\Job\planner.h" />
     <ClInclude Include="GameObject\Job\programmer.h" />
     <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\point.h" />
