@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #pragma once
 #include "attack.h"
+#include "attack_mediator.h"
 #include <Character\character_base.h>
 #include <Math\collision_box.h>
 #include <memory>
