@@ -71,7 +71,7 @@ void CharacterBase::Attack()
 
 	}
 	//ƒLƒbƒN
-	if (m_controller->IsKickTrigger)
+	if (m_controller->IsKickTrigger())
 	{
 
 	}
