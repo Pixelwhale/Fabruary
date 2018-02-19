@@ -55,20 +55,21 @@ void AttackManager::Remove()
 
 bool AttackManager::IsCollision(std::shared_ptr<Attack> atk, std::shared_ptr<Character::CharacterBase> c)
 {
+	//キャラは無敵時間だったらreturn
+	//if (c->IsInvincible()) return false;
+
 	//同じチームだったらreturn
 	if (atk->GetSide() == c->GetSide()) return false;
 
 	//重複判定か？
-	/*
 	if (atk->IsRepeat() == false)
 	{
 		int charaID = c->GetID();
-		for (int ID : atk->GetAttackedList)
+		for (int ID : atk->GetAttackedList())
 		{
 			if (ID == charaID) return false;
 		}
 	}
-	*/
 
 	//CollisionBox生成して判定
 	CollisionBox atk_box = atk->GetBox();
@@ -84,17 +85,15 @@ void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mg
 	{
 		atk->Update();
 
-		/*
-		for (auto c : chara_mgr.GetCharacterList)
+		for (auto c : chara_mgr->GetCharacterList())
 		{
 			if (IsCollision(atk, c))
 			{
-				c.Collide();
+				c->Collide();
 				atk->Collide(*this);
-				atk->AddID(c.GetID());
+				atk->AddID(c->GetID());
 			}
 		}
-		*/
 	}
 
 	Remove();
