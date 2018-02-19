@@ -165,6 +165,8 @@
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="Device\sound.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ai_state_manager.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_great.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
@@ -301,6 +303,7 @@
     <ClInclude Include="DX\Include\xnamath.h" />
     <ClInclude Include="GameObject\AI\CharaAI\ai_state.h" />
     <ClInclude Include="GameObject\AI\CharaAI\ai_state_manager.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_great.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
