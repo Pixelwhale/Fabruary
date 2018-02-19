@@ -4,8 +4,6 @@
 // 内容：Attackの更新と描画
 //-------------------------------------------------------
 #pragma once
-#include "attack.h"
-#include "attack_mediator.h"
 #include <Math\collision_box.h>
 #include <memory>
 #include <vector>
@@ -17,7 +15,7 @@ namespace Character
 
 namespace AttackSystem
 {
-	
+	class Attack;
 
 	class AttackManager
 	{
@@ -31,9 +29,10 @@ namespace AttackSystem
 		void Draw();
 
 		//attackとcharacterのcollision boxを生成して判定する
-		bool IsCollision(Attack& a, Character::CharacterBase* c);
+		bool IsCollision(std::shared_ptr<Attack> a, std::shared_ptr<Character::CharacterBase> c);
 	private:
 		void AddAttack();
+		void Remove();
 
 		std::vector<std::shared_ptr<Attack>> m_atk_list;
 		std::vector<std::shared_ptr<Attack>> m_add_list;
