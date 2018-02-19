@@ -6,13 +6,19 @@
 #pragma once
 #include "attack.h"
 #include "attack_mediator.h"
-#include <Character\character_base.h>
 #include <Math\collision_box.h>
 #include <memory>
 #include <vector>
 
+namespace Character
+{
+	class CharacterBase;
+}
+
 namespace AttackSystem
 {
+	
+
 	class AttackManager
 	{
 	public:
@@ -25,7 +31,7 @@ namespace AttackSystem
 		void Draw();
 
 		//attack‚Æcharacter‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
-		//bool IsCollision(Attack& a, Character::CharacterBase& c);
+		bool IsCollision(Attack& a, Character::CharacterBase* c);
 	private:
 		void AddAttack();
 

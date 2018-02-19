@@ -4,9 +4,9 @@
 // 内容：CollisionBoxの更新と描画
 //-------------------------------------------------------
 #include "attack_manager.h";
+#include <Character\character_base.h>
 
 using namespace AttackSystem;
-using namespace Character;
 using namespace Math;
 
 AttackManager::AttackManager()
@@ -41,28 +41,29 @@ void AttackManager::AddAttack()
 	m_add_list.clear();
 }
 
-/*
-bool AttackManager::IsCollision(Attack& a, CharacterBase& c)
+
+bool AttackManager::IsCollision(Attack& a, Character::CharacterBase* c)
 {
 	//同じチームだったらreturn
-	if (a.GetSide() == c.GetSide()) return;
+	if (a.GetSide() == c->GetSide()) return false;
 
 	//重複判定か？
+	/*
 	if (a.IsRepeat() == false)
 	{
 		CharaID charaID = c.GetID();
 		for (int ID : a.GetAttackedList)
 		{
-			if (ID == charaID) return;
+			if (ID == charaID) return false;
 		}
 	}
-
+	*/
 	//CollisionBox生成して判定
 	CollisionBox atk_box = a.GetBox();
-	CollisionBox c_box = CollisionBox(c.GetPosition() - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), c.GetPosition() + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
+	CollisionBox c_box = CollisionBox(c->GetPosition() - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), c->GetPosition() + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
 	return atk_box.IsCollision(c_box);
 }
-*/
+
 
 void AttackManager::Update()
 {
