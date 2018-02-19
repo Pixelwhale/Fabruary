@@ -1,6 +1,6 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
-// 作成日：2017.02.05
+// 作成日：2018.02.05
 // 内容：攻撃のインターフェース。
 //-------------------------------------------------------
 #pragma once
@@ -33,9 +33,10 @@ namespace AttackSystem
 		int GetKnockBack() { return m_knockback; }
 		int GetKnockDown() { return m_knockdown; }
 
+		//重複判定にかかわる
 		bool IsRepeat() { return m_repeat_hit; }
-		//重複判定を避けるため
-		//std::vector<CharaID> GetAttackedList() { return m_attacked_list; }
+		void AddID(int ID) { m_attacked_list.push_back(ID); }
+		std::vector<int>& GetAttackedList() { return m_attacked_list; }
 
 		bool IsEnd() { return m_is_end; }
 
@@ -52,6 +53,6 @@ namespace AttackSystem
 		bool m_is_end;
 
 		bool m_repeat_hit;		//重複判定できるスキルはtrue
-		//std::vector<CharaID> m_attacked_list;
+		std::vector<int> m_attacked_list;
 	};
 }
