@@ -1,6 +1,6 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
-// 作成日：2017.02.05
+// 作成日：2018.02.05
 // 内容：CollisionBoxの更新と描画
 //-------------------------------------------------------
 #include "attack_manager.h";
@@ -44,20 +44,22 @@ void AttackManager::AddAttack()
 /*
 bool AttackManager::IsCollision(Attack& a, CharacterBase& c)
 {
+	//同じチームだったらreturn
 	if (a.GetSide() == c.GetSide()) return;
 
+	//重複判定か？
 	if (a.IsRepeat() == false)
 	{
 		CharaID charaID = c.GetID();
-		for (auto ID : a.GetAttackedList)
+		for (int ID : a.GetAttackedList)
 		{
 			if (ID == charaID) return;
 		}
 	}
 
+	//CollisionBox生成して判定
 	CollisionBox atk_box = a.GetBox();
 	CollisionBox c_box = CollisionBox(c.GetPosition() - Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), c.GetPosition() + Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
-
 	return atk_box.IsCollision(c_box);
 }
 */
@@ -73,10 +75,11 @@ void AttackManager::Update()
 		/*
 		for (auto c : character_list)
 		{
-			if (IsCollision(atk,c)
+			if (IsCollision(a,c)
 			{
 				c.Collide();
 				atk.Collide();
+				atk.AddID(c.GetID());
 			}
 		}
 		*/
