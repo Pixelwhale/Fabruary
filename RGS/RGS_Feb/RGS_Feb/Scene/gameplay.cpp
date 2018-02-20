@@ -24,18 +24,29 @@ void GamePlay::Initialize(SceneType previous)
 	m_character_manager = make_shared<Character::CharacterManager>();
 
 	m_character_manager->Initialize();
-	m_character_manager->Add(Math::Vector3(), Side::kTeam1, 1000, make_shared<Character::KeyboardController>(), make_shared<Job::Programmer>(Side::kTeam1), m_attack_manager);
+	m_character_manager->Add(Math::Vector3(), Side::kTeam1, make_shared<Character::KeyboardController>(), make_shared<Job::Programmer>(Side::kTeam1), m_attack_manager);
 }
 
 void GamePlay::Update()
 {
 	m_character_manager->Update();
+
+
+}
+
+void GamePlay::CheckEnd() 
+{
+	if (m_character_manager->GetEnd()) 
+	{
+		m_is_end = true;
+		m_next = SceneType::kGamePlay;
+	}
 }
 
 void GamePlay::Draw()
 {
 	m_renderer->DrawString("GamePlay", Math::Vector2(150, 0));
-	//m_character_manager->
+	m_character_manager->Draw();
 }
 
 void GamePlay::Shutdown()
