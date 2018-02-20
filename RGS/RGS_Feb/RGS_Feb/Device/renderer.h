@@ -60,7 +60,7 @@ namespace Device
 		///<param name="scale">ägëÂèkè¨</param>
 		void DrawTexture(
 			std::string texture_name, Math::Vector2 position,
-			Math::Vector2 scale, float alpha = 1.0f);
+			Math::Vector2 scale, float alpha = 1.0);
 
 		///<summary>TextureÇï`âÊ</summary>
 		///<param name="texture_name">Assetñº</param>
@@ -74,6 +74,10 @@ namespace Device
 			std::string texture_name, Math::Vector2 position,
 			Math::Vector2 pivot, Math::Vector2 scale,
 			float angle, Color color, bool horizen_flip = false);
+
+
+		void DrawFade(Color color, float alpha = 1.0f);
+
 #pragma endregion
 
 
