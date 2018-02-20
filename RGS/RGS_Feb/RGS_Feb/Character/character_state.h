@@ -14,4 +14,10 @@ enum CharacterState
 	kDefence,
 	kKnockDown,
 	kKnockBack,
+	kPunch,
+	kPunch_1,
+	kPunch_2,
+	kKick,
+	kKick_1,
+	kKick_2,
 };

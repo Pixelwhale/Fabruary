@@ -28,6 +28,7 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp,
 	m_isJump = false;
 	m_isRight = true;
 	m_isInvincible = false;
+	m_isStop = false;
 	m_side = side;
 	m_id = id;
 	m_state = CharacterState::kIdle;
@@ -50,6 +51,7 @@ void CharacterBase::Initialize(Math::Vector3 position, int hp)
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
+	m_isStop = false;
 	m_isInvincible = false;
 	m_motion->Initialize();
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
@@ -65,6 +67,7 @@ void CharacterBase::Update()
 	MoveUpdate();	//移動更新
 	GageUpdate();	//ゲージ更新
 	MotionUpdate(); //モーションの更新
+	StateUpdate();	//状態の更新
 	//死亡更新
 	if (m_hp <= 0)
 	{
@@ -74,9 +77,31 @@ void CharacterBase::Update()
 
 
 //あたり判定
-void CharacterBase::Collide()
+void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool isRight)
 {
+	m_isStop = true;
 
+	m_hp -= damage;
+
+	if (isRight)
+	{
+		m_velocity.x = knockBack;
+	}
+	else if (!isRight)
+	{
+		m_velocity.x = -knockBack;
+	}
+
+	//Jobから倒れ値をもらって、比較する　（今は100に）
+	if (knockDown > 100)
+	{
+		m_state = CharacterState::kKnockDown;
+		//倒れ値を　０　に
+	}
+	else
+	{
+		m_state = CharacterState::kKnockBack;
+	}
 }
 
 //攻撃
@@ -85,17 +110,24 @@ void CharacterBase::Attack()
 	//パンチ
 	if (m_controller->IsPunchTrigger())
 	{
+		m_motion->Play(m_job->Punch(m_attack_manager, m_position, m_isRight));
+		m_state = CharacterState::kPunch;
+		m_isStop = true;
 	}
 	//キック
 	if (m_controller->IsKickTrigger())
 	{
+		m_motion->Play(m_job->Kick(m_attack_manager, m_position, m_isRight));
+		m_state = CharacterState::kKick;
+		m_isStop = true;
 	}
 	//防御
 	if (m_controller->IsDefence())
 	{
 		m_state = CharacterState::kDefence;
+		m_isStop = true;
+
 	}
-	
 	
 }
 
@@ -110,7 +142,7 @@ void CharacterBase::MotionUpdate()
 {
 	m_motion->Update();
 
-	if (m_velocity.lengthSqrt() != 0)
+	if (m_velocity.lengthSqrt() != 0 && m_state == CharacterState::kIdle)
 	{
 		//歩き
 		m_state = CharacterState::kWalk;
@@ -140,7 +172,11 @@ void CharacterBase::MotionUpdate()
 //移動更新
 void CharacterBase::MoveUpdate()
 {
-	m_velocity = m_controller->Velocity();
+	//攻撃、攻撃を受けた状態ではないと入力による移動可能
+	if (!m_isStop)
+	{
+		m_velocity = m_controller->Velocity();
+	}
 	if (m_controller->IsJumpTrigger())
 	{
 		m_state = CharacterState::kJump;
@@ -150,7 +186,7 @@ void CharacterBase::MoveUpdate()
 	}
 
 	m_speed = 4;
-	if (m_controller->IsRun())
+	if (m_controller->IsRun() && m_velocity.lengthSqrt() != 0)
 	{
 		m_state = CharacterState::kRun;
 		m_motion->Play("chara_base_anime/run");
@@ -158,7 +194,7 @@ void CharacterBase::MoveUpdate()
 	}
 	else
 	{
-		m_speed = 5;
+		m_speed = 4;
 	}
 	m_position += m_velocity * m_speed;
 }
@@ -172,6 +208,38 @@ void CharacterBase::GageUpdate()
 		m_mp = 3000;
 	}
 }
+
+//状態の更新
+void CharacterBase::StateUpdate()
+{
+	//防御か倒られた時は無敵
+	if (m_state == CharacterState::kDefence || 
+		m_state == CharacterState::kKnockDown)
+	{
+		m_isInvincible = true;
+	}
+	else
+	{
+		m_isInvincible = false;
+	}
+
+	//待機、歩き、走る状態じゃないと、モーションが終わったら、待機状態に
+	if (m_state != CharacterState::kIdle &&
+		m_state != CharacterState::kRun	 &&
+		m_state != CharacterState::kWalk )
+	{
+		
+		if (m_motion->IsCurrentMotionEnd())
+		{
+			m_state = CharacterState::kIdle;
+			m_velocity = Math::Vector3(0, 0, 0);
+			m_isStop = false;
+			m_motion->Play("chara_base_anime/idle");
+		}
+	}
+
+}
+
 
 //向きを返す
 bool CharacterBase::IsRight()

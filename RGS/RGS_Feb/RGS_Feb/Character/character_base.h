@@ -27,7 +27,7 @@ namespace Character
 		~CharacterBase();			//デストラクタ
 		void Initialize(Math::Vector3 position, int hp);//初期化
 		void Update();				//更新
-		void Collide();				//あたり判定
+		void Collide(int damage, int knockback, int knockdown, bool isright);//あたり判定
 		void Attack();				//攻撃
 		void Motion();				//モーション
 
@@ -48,22 +48,28 @@ namespace Character
 		void MoveUpdate();			//移動更新
 		void GageUpdate();			//ゲージ更新
 		void MotionUpdate();		//モーションの更新
+		void StateUpdate();			//状態の更新
 
 	private:
 		int		m_hp;				
 		int		m_mp;
 		float	m_speed;
+		int		m_id;
+
 		bool	m_isDead;
 		bool	m_isJump;
 		bool	m_isRight;
 		bool	m_isInvincible;		//無敵フラグ
-		int		m_id;
+		bool	m_isStop;			//攻撃状態とか攻撃を受けた時、入力による移動を防ぐ
+
 		Side	m_side;
 		CharacterState m_state;
+
 		Math::Vector3 m_position;
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_size;
 		Math::Vector3 m_rotation;
+
 		std::shared_ptr<Device::Renderer>		m_renderer;
 		std::shared_ptr<VirtualController>		m_controller;
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
