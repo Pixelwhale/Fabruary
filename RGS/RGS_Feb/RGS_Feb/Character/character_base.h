@@ -19,7 +19,7 @@ namespace Character
 	class CharacterBase
 	{
 	public:
-		//コンストラクタ（位置、チーム、ID、Hp）
+		//コンストラクタ（位置、チーム、ID、Hp,controller, job, attackMediator）
 		CharacterBase(Math::Vector3 position,Side side,int id,int hp,
 			std::shared_ptr<VirtualController> controller,
 			std::shared_ptr<Job::JobBase> job,
@@ -28,7 +28,6 @@ namespace Character
 		void Initialize(Math::Vector3 position, int hp);//初期化
 		void Update();				//更新
 		void Collide(int damage, int knockback, int knockdown, bool isright);//あたり判定
-		void Attack();				//攻撃
 
 	public:							//取得関連
 		Side	GetSide();			//チームの取得
@@ -44,15 +43,19 @@ namespace Character
 		
 
 	private:						//更新関連
+		void Attack();				//攻撃
 		void MoveUpdate();			//移動更新
 		void GageUpdate();			//ゲージ更新
 		void MotionUpdate();		//モーションの更新
 		void Motion();				//モーション
 		void StateUpdate();			//状態の更新
+		void KnockCntUpdate();		//倒れ値カウント更新
 
 	private:
 		int		m_hp;				
 		int		m_mp;
+		int		m_knock_value;		//倒れ値
+		int		m_knock_cnt;		//一定時間攻撃を受けないと倒れ値が下がる
 		float	m_speed;
 		int		m_id;
 

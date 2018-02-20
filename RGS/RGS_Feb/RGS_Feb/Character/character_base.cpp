@@ -24,6 +24,8 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp,
 	m_hp = hp;
 	m_mp = 0;
 	m_speed = 4;
+	m_knock_value = 0;
+	m_knock_cnt = 0;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -48,6 +50,8 @@ void CharacterBase::Initialize(Math::Vector3 position, int hp)
 	m_hp = hp;
 	m_mp = 0;
 	m_speed = 4;
+	m_knock_value = 0;
+	m_knock_cnt = 0;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -69,6 +73,7 @@ void CharacterBase::Update()
 	MotionUpdate(); //モーションの更新
 	Motion();		//モーションの描画
 	StateUpdate();	//状態の更新
+	KnockCntUpdate();//倒れ値カウント更新
 	//死亡更新
 	if (m_hp <= 0)
 	{
@@ -76,13 +81,26 @@ void CharacterBase::Update()
 	}
 }
 
+//倒れ値カウント更新
+void CharacterBase::KnockCntUpdate()
+{
+	m_knock_cnt++;
+	//180(3秒)を超えたら、倒れ値が下がる
+	if (m_knock_cnt >= 180)
+	{
+		m_knock_value--;
+		m_knock_cnt = 180;
+	}
+}
+
 
 //あたり判定
 void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRight)
 {
+	m_knock_cnt = 0;
 	m_isStop = true;
-
 	m_hp -= damage;
+	m_knock_value += knockBack;
 
 	if (fromRight)
 	{
@@ -93,11 +111,11 @@ void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRi
 		m_velocity.x = knockBack;
 	}
 
-	//Jobから倒れ値をもらって、比較する　（今は100に）
-	if (knockDown > 100)
+	//倒れ値を超えたら、倒れる
+	if (m_knock_value > m_job->KnockValue())
 	{
 		m_state = CharacterState::kKnockDown;
-		//倒れ値を　０　に
+		m_knock_value = 0;
 	}
 	else
 	{
