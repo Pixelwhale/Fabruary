@@ -17,11 +17,9 @@ namespace Character
 		void Initialize();					//初期化
 		std::shared_ptr<CharacterBase> Add(Math::Vector3 position, Side side, int hp,
 			std::shared_ptr<VirtualController> controller,std::shared_ptr<Job::JobBase> job, 
-			std::shared_ptr<AttackSystem::AttackManager> attackManager);	//オブジェクトの追加
-		void Collide();						//オブジェクト同士の衝突
+			std::shared_ptr<AttackSystem::AttackMediator> attackMediator);	//オブジェクトの追加
 		void RemoveDeadCharacters();		//死亡キャラを削除
 		void Update();						//更新
-		void Motion();						//モーション
 		std::vector<std::shared_ptr<CharacterBase>>& GetCharacterList();//キャラクターリストの取得
 
 	private:

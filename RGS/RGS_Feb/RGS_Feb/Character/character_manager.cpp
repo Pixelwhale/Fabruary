@@ -20,28 +20,31 @@ void CharacterManager::Initialize()
 std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Side side,int hp,
 			std::shared_ptr<VirtualController> controller,
 			std::shared_ptr<Job::JobBase> job,
-			std::shared_ptr<AttackSystem::AttackManager> attackManager)
+			std::shared_ptr<AttackSystem::AttackMediator> attackMediator)
 {
 	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>
-											(position, side, m_id, hp, controller,job, attackManager);
+											(position, side, m_id, hp, controller,job, attackMediator);
 	m_add_characters.push_back(character);
 	m_id++;
 	return character;
 }
 
 
-void CharacterManager::Collide()
-{
-	for (auto c : m_character_list)
-	{
-		c->Collide();
-	}
-}
-
 //死亡キャラを削除
 void CharacterManager::RemoveDeadCharacters()
 {
-	
+	std::vector<std::shared_ptr<CharacterBase>>::iterator it;
+	for (it = m_character_list.begin(); it != m_character_list.end();)
+	{
+		if ((*it)->IsDead())
+		{
+			it = m_character_list.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
 }
 
 //更新
@@ -59,18 +62,8 @@ void CharacterManager::Update()
 	}
 	//追加終了後、追加リストはクリア
 	m_add_characters.clear();
-	//あたり判定
-	Collide();
 	//死亡したキャラを削除
 	RemoveDeadCharacters();
-}
-
-void CharacterManager::Motion()
-{
-	for (auto c : m_character_list)
-	{
-		c->Motion();
-	}
 }
 
 std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetCharacterList()

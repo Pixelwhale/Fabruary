@@ -12,7 +12,7 @@
 #include <Character\Controller\character_controller.h>
 #include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
-#include <GameObject\AttackSystem\attack_manager.h>
+#include <GameObject\AttackSystem\attack_mediator.h>
 
 namespace Character
 {
@@ -23,24 +23,23 @@ namespace Character
 		CharacterBase(Math::Vector3 position,Side side,int id,int hp,
 			std::shared_ptr<VirtualController> controller,
 			std::shared_ptr<Job::JobBase> job,
-			std::shared_ptr<AttackSystem::AttackManager> attackManager);
+			std::shared_ptr<AttackSystem::AttackMediator> attackMediator);
 		~CharacterBase();			//デストラクタ
 		void Initialize(Math::Vector3 position, int hp);//初期化
 		void Update();				//更新
 		void Collide(int damage, int knockback, int knockdown, bool isright);//あたり判定
 		void Attack();				//攻撃
-		void Motion();				//モーション
 
 	public:							//取得関連
 		Side	GetSide();			//チームの取得
 		int		GetHp();			//Hpの取得
 		int		GetMp();			//Mpの取得
 		int		GetID();			//IDの取得
-		Math::Vector3 GetPosition();//位置の取得
-		void	SetPosition(Math::Vector3 position);//位置の設定
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
 		bool	IsInvincible();		//無敵フラグ
+		void	SetPosition(Math::Vector3 position);//位置の設定
+		Math::Vector3 GetPosition();//位置の取得
 		Math::CollisionBox GetBox();
 		
 
@@ -48,6 +47,7 @@ namespace Character
 		void MoveUpdate();			//移動更新
 		void GageUpdate();			//ゲージ更新
 		void MotionUpdate();		//モーションの更新
+		void Motion();				//モーション
 		void StateUpdate();			//状態の更新
 
 	private:
@@ -74,7 +74,7 @@ namespace Character
 		std::shared_ptr<VirtualController>		m_controller;
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
 		std::shared_ptr<Job::JobBase>			m_job;
-		std::shared_ptr<AttackSystem::AttackManager> m_attack_manager;
+		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
 	};
 
 

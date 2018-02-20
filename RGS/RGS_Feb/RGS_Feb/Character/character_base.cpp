@@ -11,11 +11,11 @@ using namespace Character;
 CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, 
 							std::shared_ptr<VirtualController> controller,
 							std::shared_ptr<Job::JobBase> job,
-							std::shared_ptr<AttackSystem::AttackManager> attackManager)
+							std::shared_ptr<AttackSystem::AttackMediator> attackMediator)
 {
 	m_controller = controller;
 	m_job = job;
-	m_attack_manager = attackManager;
+	m_attack_mediator = attackMediator;
 	m_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_position = position;
@@ -67,6 +67,7 @@ void CharacterBase::Update()
 	MoveUpdate();	//移動更新
 	GageUpdate();	//ゲージ更新
 	MotionUpdate(); //モーションの更新
+	Motion();		//モーションの描画
 	StateUpdate();	//状態の更新
 	//死亡更新
 	if (m_hp <= 0)
@@ -77,19 +78,19 @@ void CharacterBase::Update()
 
 
 //あたり判定
-void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool isRight)
+void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRight)
 {
 	m_isStop = true;
 
 	m_hp -= damage;
 
-	if (isRight)
-	{
-		m_velocity.x = knockBack;
-	}
-	else if (!isRight)
+	if (fromRight)
 	{
 		m_velocity.x = -knockBack;
+	}
+	else if (!fromRight)
+	{
+		m_velocity.x = knockBack;
 	}
 
 	//Jobから倒れ値をもらって、比較する　（今は100に）
@@ -110,14 +111,14 @@ void CharacterBase::Attack()
 	//パンチ
 	if (m_controller->IsPunchTrigger())
 	{
-		m_motion->Play(m_job->Punch(m_attack_manager, m_position, m_isRight));
+		m_motion->Play(m_job->Punch(m_attack_mediator, m_position, m_isRight));
 		m_state = CharacterState::kPunch;
 		m_isStop = true;
 	}
 	//キック
 	if (m_controller->IsKickTrigger())
 	{
-		m_motion->Play(m_job->Kick(m_attack_manager, m_position, m_isRight));
+		m_motion->Play(m_job->Kick(m_attack_mediator, m_position, m_isRight));
 		m_state = CharacterState::kKick;
 		m_isStop = true;
 	}
