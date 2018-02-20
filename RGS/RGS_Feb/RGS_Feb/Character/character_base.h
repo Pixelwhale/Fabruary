@@ -27,6 +27,7 @@ namespace Character
 		~CharacterBase();			//デストラクタ
 		void Initialize(Math::Vector3 position);//初期化
 		void Update();				//更新
+		void Draw();				//モーション
 		void Collide(int damage, int knockback, int knockdown, bool isright);//あたり判定
 
 	public:							//取得関連
@@ -47,7 +48,6 @@ namespace Character
 		void MoveUpdate();			//移動更新
 		void GageUpdate();			//ゲージ更新
 		void MotionUpdate();		//モーションの更新
-		void Motion();				//モーション
 		void StateUpdate();			//状態の更新
 		void KnockCntUpdate();		//倒れ値カウント更新
 
