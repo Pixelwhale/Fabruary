@@ -10,6 +10,7 @@ using namespace Character;
 CharacterManager::CharacterManager()
 {
 	m_id = 0;
+	m_isEnd = false;
 }
 void CharacterManager::Initialize()
 {
@@ -17,13 +18,13 @@ void CharacterManager::Initialize()
 	m_add_characters.clear();
 }
 
-std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Side side,int hp,
+std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Side side,
 			std::shared_ptr<VirtualController> controller,
 			std::shared_ptr<Job::JobBase> job,
 			std::shared_ptr<AttackSystem::AttackMediator> attackMediator)
 {
 	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>
-											(position, side, m_id, hp, controller,job, attackMediator);
+											(position, side, m_id,controller,job, attackMediator);
 	m_add_characters.push_back(character);
 	m_id++;
 	return character;
@@ -33,17 +34,38 @@ std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Sid
 //€–SƒLƒƒƒ‰‚ğíœ
 void CharacterManager::RemoveDeadCharacters()
 {
+	bool isDelete = false;
 	std::vector<std::shared_ptr<CharacterBase>>::iterator it;
 	for (it = m_character_list.begin(); it != m_character_list.end();)
 	{
 		if ((*it)->IsDead())
 		{
 			it = m_character_list.erase(it);
+			isDelete = true;
 		}
 		else
 		{
 			++it;
 		}
+	}
+
+	if (!isDelete)
+	{
+		return;
+	}
+	else if (isDelete)
+	{
+		for (auto c1 : m_character_list)
+		{
+			for (auto c2 : m_character_list)
+			{
+				if (c1->GetSide() != c2->GetSide())
+				{
+					m_isEnd = true;
+				}
+			}
+		}
+		
 	}
 }
 
@@ -69,4 +91,9 @@ void CharacterManager::Update()
 std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetCharacterList()
 {
 	return m_character_list;
+}
+
+bool CharacterManager::GetEnd()
+{
+	return m_isEnd;
 }

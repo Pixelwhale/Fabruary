@@ -20,12 +20,12 @@ namespace Character
 	{
 	public:
 		//コンストラクタ（位置、チーム、ID、Hp,controller, job, attackMediator）
-		CharacterBase(Math::Vector3 position,Side side,int id,int hp,
+		CharacterBase(Math::Vector3 position,Side side,int id,
 			std::shared_ptr<VirtualController> controller,
 			std::shared_ptr<Job::JobBase> job,
 			std::shared_ptr<AttackSystem::AttackMediator> attackMediator);
 		~CharacterBase();			//デストラクタ
-		void Initialize(Math::Vector3 position, int hp);//初期化
+		void Initialize(Math::Vector3 position);//初期化
 		void Update();				//更新
 		void Collide(int damage, int knockback, int knockdown, bool isright);//あたり判定
 
