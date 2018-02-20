@@ -133,4 +133,9 @@ void Programmer::Update()
 	}
 }
 
+int Programmer::GetHp()
+{
+	return m_hp;
+}
+
 
