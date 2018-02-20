@@ -73,7 +73,6 @@ void CharacterBase::Update()
 	MoveUpdate();	//移動更新
 	GageUpdate();	//ゲージ更新
 	MotionUpdate(); //モーションの更新
-	Draw();		//モーションの描画
 	StateUpdate();	//状態の更新
 	KnockCntUpdate();//倒れ値カウント更新
 	//死亡更新

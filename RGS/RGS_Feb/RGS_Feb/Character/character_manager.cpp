@@ -25,6 +25,7 @@ std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Sid
 {
 	std::shared_ptr<CharacterBase>character = std::make_shared<CharacterBase>
 											(position, side, m_id,controller,job, attackMediator);
+	character->Initialize(position);
 	m_add_characters.push_back(character);
 	m_id++;
 	return character;
