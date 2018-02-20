@@ -18,7 +18,7 @@ namespace Scene
 		void Draw();
 		void Shutdown();
 	private:
-		std::shared_ptr<Character::CharacterManager> m_character_manager;
-		std::shared_ptr<AttackSystem::AttackManager> m_attack_manager;
+		std::shared_ptr<Character::CharacterManager> m_character_manager;	//Character Manager
+		std::shared_ptr<AttackSystem::AttackManager> m_attack_manager;		//Attacke Manager
 	};
 }

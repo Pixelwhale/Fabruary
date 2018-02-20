@@ -14,7 +14,7 @@
 
 namespace AttackSystem
 {
-	class AttackManager : AttackMediator
+	class AttackManager : public AttackMediator
 	{
 	public:
 		AttackManager();
