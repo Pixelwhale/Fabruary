@@ -22,6 +22,7 @@ namespace Job
 		virtual std::string Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
 		virtual std::string Skill4(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
 		virtual int KnockValue() = 0;
+		virtual int GetHp();
 		virtual void Update();
 
 	private :
@@ -29,6 +30,7 @@ namespace Job
 		int m_punch_count = 0; // 今は何番のパンチ
 		int m_punch_last_update = 0; // 時間をリセットするために
 		Utility::Timer m_next_combo; // 次のコンボに進めるかの制限時間？
+		int m_hp;
 		Side m_side;
 	};
 }
