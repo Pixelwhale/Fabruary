@@ -9,8 +9,8 @@
 using namespace AttackSystem;
 
 // コンストラクタ
-Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer)
-	: Attack(position, size, side, knockdown, knockback), m_life_span_timer(life_span_timer)
+Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, float life_span_timer)
+	: Attack(position, size, side, attack, knockdown, knockback), m_life_span_timer(life_span_timer)
 {
 }
 
@@ -18,8 +18,10 @@ Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown,
 Kick::~Kick() {}
 
 
-std::vector<std::shared_ptr<Attack>> AttackSystem::Kick::Collide()
+std::vector<std::shared_ptr<Attack>>& AttackSystem::Kick::Collide()
 {
+	std::vector<std::shared_ptr<Attack>> attack;
+	return attack;
 }
 
 void AttackSystem::Kick::Update()
