@@ -20,7 +20,7 @@ namespace AttackSystem
 		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, bool repeat_hit = false);
 
 		//キャラに当たる後Attack自身のリアクション
-		virtual void Collide(AttackManager attackManager) = 0;
+		virtual void Collide(AttackManager& attackManager) = 0;
 
 		virtual void Update() = 0;
 		virtual void Draw() = 0;

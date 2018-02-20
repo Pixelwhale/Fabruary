@@ -177,6 +177,9 @@
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\scene_fader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\application.h">
@@ -644,6 +647,9 @@
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\scene_fader.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DX\Include\D3DX10math.inl">
@@ -680,6 +686,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Content\Texture\black_pixel.png">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>

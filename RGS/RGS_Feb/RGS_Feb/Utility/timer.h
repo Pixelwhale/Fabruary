@@ -22,6 +22,7 @@ namespace Utility
 		void Reset();
 		///<summary>óÎÇ…Ç»Ç¡ÇΩÇ©ÅH</summary>
 		bool IsTime();
+		float Rate();
 
 	private:
 		int m_limit_time;	// âΩïbÇ≈Ç∑Ç©ÅH

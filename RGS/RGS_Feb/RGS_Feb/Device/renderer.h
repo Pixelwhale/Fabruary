@@ -57,6 +57,14 @@ namespace Device
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="texture_name">Asset–¼</param>
 		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="scale">Šg‘åk¬</param>
+		void DrawTexture(
+			std::string texture_name, Math::Vector2 position,
+			Math::Vector2 scale, float alpha = 1.0f);
+
+		///<summary>Texture‚ğ•`‰æ</summary>
+		///<param name="texture_name">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
 		///<param name="pivot">‰ñ“]AƒXƒP[ƒ‹’†S</param>
 		///<param name="scale">Šg‘åk¬</param>
 		///<param name="angle">‰ñ“]iƒ‰ƒWƒAƒ“j</param>
