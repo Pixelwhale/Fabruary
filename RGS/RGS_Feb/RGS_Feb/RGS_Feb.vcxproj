@@ -317,6 +317,7 @@
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
     <ClInclude Include="GameObject\AttackSystem\kick.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />

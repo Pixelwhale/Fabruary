@@ -4,6 +4,7 @@
 // 内容：Attackの更新と描画
 //-------------------------------------------------------
 #pragma once
+#include "attack_mediator.h"
 #include <Math\collision_box.h>
 #include <memory>
 #include <vector>
@@ -18,7 +19,7 @@ namespace AttackSystem
 {
 	class Attack;
 
-	class AttackManager
+	class AttackManager : AttackMediator
 	{
 	public:
 		AttackManager();

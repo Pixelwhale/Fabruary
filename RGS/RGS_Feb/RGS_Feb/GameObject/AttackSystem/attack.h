@@ -4,7 +4,6 @@
 // 内容：攻撃のインターフェース。
 //-------------------------------------------------------
 #pragma once
-#include "attack_manager.h"
 #include <Math\vector3.h>
 #include <Math\collision_box.h>
 #include <Character\side.h>
@@ -17,10 +16,11 @@ namespace AttackSystem
 	class Attack
 	{
 	public:
-		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, bool repeat_hit = false);
+		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int atk, int knockdown, int knockback, bool repeat_hit = false);
 
 		//キャラに当たる後Attack自身のリアクション
-		virtual void Collide(AttackManager& attackManager) = 0;
+		//Attacksを後はAttackManagerに入れる。
+		virtual std::vector<std::shared_ptr<Attack>>& Collide() = 0;
 
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
@@ -30,7 +30,9 @@ namespace AttackSystem
 			return Math::CollisionBox(m_position - m_size / 2, m_position + m_size / 2);
 		}
 
+		float GetPositionX() { return m_position.x; }
 		Side GetSide() { return m_side; }
+		int GetAtk() { return m_atk; }
 		int GetKnockBack() { return m_knockback; }
 		int GetKnockDown() { return m_knockdown; }
 
@@ -48,8 +50,9 @@ namespace AttackSystem
 
 		Side m_side;
 
-		int m_knockback;		//撃退の距離
-		int m_knockdown;		//倒れる値、キャラの上限値超えると倒れる
+		int m_atk;			//攻撃力
+		int m_knockback;	//撃退の距離
+		int m_knockdown;	//倒れる値、キャラの上限値超えると倒れる
 
 		bool m_is_end;
 

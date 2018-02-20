@@ -56,7 +56,7 @@ void AttackManager::Remove()
 bool AttackManager::IsCollision(std::shared_ptr<Attack> atk, std::shared_ptr<Character::CharacterBase> c)
 {
 	//ƒLƒƒƒ‰‚Í–³“GŽžŠÔ‚¾‚Á‚½‚çreturn
-	//if (c->IsInvincible()) return false;
+	if (c->IsInvincible()) return false;
 
 	//“¯‚¶ƒ`[ƒ€‚¾‚Á‚½‚çreturn
 	if (atk->GetSide() == c->GetSide()) return false;
@@ -89,8 +89,12 @@ void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mg
 		{
 			if (IsCollision(atk, c))
 			{
-				c->Collide();
-				atk->Collide(*this);
+				bool from_right = (atk->GetPositionX() > c->GetPosition().x);
+				c->Collide(atk->GetAtk(), atk->GetKnockBack(), atk->GetKnockDown(), from_right);
+				for (auto a : atk->Collide())
+				{
+					AddAttack(a);
+				}
 				atk->AddID(c->GetID());
 			}
 		}
