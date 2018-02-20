@@ -21,7 +21,7 @@ namespace Job
 		virtual std::string Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
 		virtual std::string Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
 		virtual std::string Skill4(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
-		virtual int KnockValue() = 0;
+		virtual int KnockValue();
 		virtual int GetHp();
 		virtual void Update();
 

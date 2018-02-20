@@ -138,4 +138,8 @@ int Programmer::GetHp()
 	return m_hp;
 }
 
+int Programmer::KnockValue()
+{
+	return 0;
+}
 
