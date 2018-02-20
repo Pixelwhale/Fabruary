@@ -21,7 +21,6 @@ namespace AttackSystem
 
 		//キャラに当たる後Attack自身のリアクション
 		virtual void Collide(AttackManager& attackManager) = 0;
-
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 

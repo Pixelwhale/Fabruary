@@ -17,7 +17,7 @@ Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int knockdow
 // デストラクタ
 Punch::~Punch() {}
 
-void AttackSystem::Punch::Collide(AttackManager attackManager)
+void AttackSystem::Punch::Collide(AttackManager& attackManager)
 {
 }
 

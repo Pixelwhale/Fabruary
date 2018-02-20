@@ -18,7 +18,7 @@ Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown,
 Kick::~Kick() {}
 
 
-void AttackSystem::Kick::Collide(AttackManager attackManager)
+std::vector<std::shared_ptr<Attack>> AttackSystem::Kick::Collide()
 {
 }
 

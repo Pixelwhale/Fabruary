@@ -21,7 +21,7 @@ namespace AttackSystem
 		///<param name = "life span">âΩïbÇ…é¿åªÇ≥ÇπÇÈÇÃÇ©ÅH</param>
 		Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer);
 		~Kick();
-		virtual void Collide(AttackManager attackManager);
+		virtual std::vector<std::shared_ptr<Attack>>& Collide();
 		virtual void Update();
 		virtual void Draw();
 
