@@ -184,6 +184,7 @@
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\end.cpp" />
     <ClCompile Include="Scene\gameplay.cpp" />
+    <ClCompile Include="Scene\game_manager.cpp" />
     <ClCompile Include="Scene\loading.cpp" />
     <ClCompile Include="Scene\pause..cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
@@ -327,6 +328,7 @@
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\end.h" />
     <ClInclude Include="Scene\gameplay.h" />
+    <ClInclude Include="Scene\game_manager.h" />
     <ClInclude Include="Scene\loading.h" />
     <ClInclude Include="Scene\pause.h" />
     <ClInclude Include="Scene\scene_base.h" />

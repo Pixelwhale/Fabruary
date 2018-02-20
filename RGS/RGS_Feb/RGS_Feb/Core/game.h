@@ -31,10 +31,5 @@ namespace Core
 		std::shared_ptr<Device::Renderer> m_renderer;
 
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
-
-		std::shared_ptr<MotionSystem::Motion> m_test_motion;
-		Math::Vector3 m_position;
-		std::shared_ptr<MotionSystem::Motion> m_test_motion2;
-		bool m_motion_right;
 	};
 }
