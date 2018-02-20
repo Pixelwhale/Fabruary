@@ -4,6 +4,7 @@
 // 内容　：Render機能を整理したクラス
 //-------------------------------------------------------
 #include <Device\renderer.h>
+#include <Def\window_def.h>
 
 using namespace Device;
 
@@ -24,11 +25,12 @@ Renderer::~Renderer()
 
 void Renderer::Initialize()
 {
-	SetDrawScreen(DX_SCREEN_BACK);		//描画先をBackBufferに設定
-	SetUseZBuffer3D(TRUE);				// Ｚバッファを有効にする
-	SetWriteZBuffer3D(TRUE);			// Ｚバッファへの書き込みを有効にする
+	SetDrawScreen(DX_SCREEN_BACK);					//描画先をBackBufferに設定
+	SetUseZBuffer3D(TRUE);							// Ｚバッファを有効にする
+	SetWriteZBuffer3D(TRUE);						// Ｚバッファへの書き込みを有効にする
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);		//AlphaBlend有効
 	SetUseLighting(false);							//Light無効（計算なし）
+	SetTransColor(0, 0, 0);
 }
 
 void Renderer::Release()
@@ -68,13 +70,16 @@ void Renderer::DrawTexture(
 	Math::Vector2 scale, float alpha)
 {
 	int handle = m_contents->TextureHandle(texture_name);
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
 
-	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
 	DrawExtendGraph((int)position.x, (int)position.y,
 		(int)position.x + (int)scale.x, (int)position.y + (int)scale.y,
 		m_contents->TextureHandle(texture_name), true);
 
-	SetDrawBright(255, 255, 255);					//色を戻す													//色を戻す
+	SetDrawBright(255, 255, 255);						//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
 }
 
 void Renderer::DrawTexture(
@@ -89,6 +94,19 @@ void Renderer::DrawTexture(
 		scale.x, scale.y, angle, m_contents->TextureHandle(texture_name), true, horizen_flip);
 
 	SetDrawBright(255, 255, 255);					//色を戻す
+}
+
+void Renderer::DrawFade(Color color, float alpha)
+{
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
+
+	DrawBox(0, 0, WindowDef::kScreenWidth, WindowDef::kScreenHeight,
+		GetColor(color.r, color.g, color.b), true);
+
+	SetDrawBright(255, 255, 255);						//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
 }
 
 void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 position, float alpha)
