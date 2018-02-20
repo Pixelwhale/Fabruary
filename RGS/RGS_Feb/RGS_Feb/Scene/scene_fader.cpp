@@ -37,7 +37,11 @@ void SceneFader::Update()
 		break;
 	case kOut:
 		m_fade_out.Update();
-		//if (m_fade_out.IsTime()) m_is_end = true;
+		if (m_fade_out.IsTime())
+		{
+			m_is_end = true;
+			m_next = m_scene->Next();
+		}
 		break;
 	}
 }
