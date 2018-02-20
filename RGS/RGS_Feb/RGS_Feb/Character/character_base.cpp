@@ -41,6 +41,8 @@ CharacterBase::~CharacterBase()
 	m_controller = NULL;
 	m_motion = NULL;
 	m_renderer = NULL;
+	m_job = NULL;
+	m_attack_mediator = NULL;
 }
 
 //‰Šú‰»
@@ -120,11 +122,13 @@ void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRi
 	if (m_knock_value > m_job->KnockValue())
 	{
 		m_state = CharacterState::kKnockDown;
+		m_motion->Play("chara_base_anime/knock_down");
 		m_knock_value = 0;
 	}
 	else
 	{
 		m_state = CharacterState::kKnockBack;
+		m_motion->Play("chara_base_anime/damage");
 	}
 }
 
@@ -150,7 +154,6 @@ void CharacterBase::Attack()
 	{
 		m_state = CharacterState::kDefence;
 		m_isStop = true;
-
 	}
 	
 }
