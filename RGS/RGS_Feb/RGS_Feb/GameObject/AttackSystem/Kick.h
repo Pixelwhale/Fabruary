@@ -19,7 +19,7 @@ namespace AttackSystem
 		///<param name = "position">キャラクターの位置</param>
 		///<param name = "size">攻撃の大きさ</param>
 		///<param name = "life span">何秒に実現させるのか？</param>
-		Kick(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer);
+		Kick(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, float life_span_timer);
 		~Kick();
 		virtual std::vector<std::shared_ptr<Attack>>& Collide();
 		virtual void Update();

@@ -9,16 +9,18 @@
 using namespace AttackSystem;
 
 // コンストラクタ
-Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int knockdown, int knockback, float life_span_timer)
-	: Attack(position, size, side, knockdown, knockback), m_life_span_timer(life_span_timer)
+Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, float life_span_timer)
+	: Attack(position, size, side, attack, knockdown, knockback), m_life_span_timer(life_span_timer)
 {	
 }
 
 // デストラクタ
 Punch::~Punch() {}
 
-void AttackSystem::Punch::Collide(AttackManager& attackManager)
+std::vector<std::shared_ptr<Attack>>& AttackSystem::Punch::Collide()
 {
+	std::vector<std::shared_ptr<Attack>> attack;
+	return attack;
 }
 
 void AttackSystem::Punch::Update()
