@@ -5,20 +5,15 @@
 //-------------------------------------------------------
 #pragma once
 #include "attack_mediator.h"
+#include "attack.h"
+#include <Character\character_base.h>
+#include <Character\character_manager.h>
 #include <Math\collision_box.h>
 #include <memory>
 #include <vector>
 
-namespace Character
-{
-	class CharacterBase;
-	class CharacterManager;
-}
-
 namespace AttackSystem
 {
-	class Attack;
-
 	class AttackManager : AttackMediator
 	{
 	public:

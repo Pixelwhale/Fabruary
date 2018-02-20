@@ -31,7 +31,6 @@ void SceneManager::Initialize()
 	Add(kLoading, make_shared<Loading>());
 	m_current_type = kLoading;
 	m_current_scene = m_map[kLoading];
-	Change(kTitle);	//test
 }
 
 void SceneManager::Add(SceneType type, std::shared_ptr<SceneBase> scene)
