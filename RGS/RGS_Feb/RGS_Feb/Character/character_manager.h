@@ -19,6 +19,7 @@ namespace Character
 			std::shared_ptr<VirtualController> controller,std::shared_ptr<Job::JobBase> job, 
 			std::shared_ptr<AttackSystem::AttackMediator> attackMediator);	//オブジェクトの追加
 		void Update();						//更新
+		void Draw();						//描画
 		bool GetEnd();
 		std::vector<std::shared_ptr<CharacterBase>>& GetCharacterList();//キャラクターリストの取得
 

@@ -88,6 +88,15 @@ void CharacterManager::Update()
 	RemoveDeadCharacters();
 }
 
+//•`‰æ
+void CharacterManager::Draw()
+{
+	for (auto c:m_character_list)
+	{
+		c->Draw();
+	}
+}
+
 std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetCharacterList()
 {
 	return m_character_list;
