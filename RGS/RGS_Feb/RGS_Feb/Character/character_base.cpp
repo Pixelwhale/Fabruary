@@ -97,6 +97,11 @@ void CharacterBase::KnockCntUpdate()
 //‚ ‚½‚è”»’è
 void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRight)
 {
+	if (m_state == CharacterState::kDefence && m_isRight == fromRight)
+	{
+		return;
+	}
+
 	m_knock_cnt = 0;
 	m_isStop = true;
 	m_hp -= damage;
@@ -232,8 +237,7 @@ void CharacterBase::GageUpdate()
 void CharacterBase::StateUpdate()
 {
 	//–hŒä‚©“|‚ç‚ê‚½Žž‚Í–³“G
-	if (m_state == CharacterState::kDefence || 
-		m_state == CharacterState::kKnockDown)
+	if (m_state == CharacterState::kKnockDown)
 	{
 		m_isInvincible = true;
 	}
