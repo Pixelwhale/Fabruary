@@ -28,6 +28,7 @@ void Game::Load()
 //コンテンツ解放
 void Game::Unload()
 {
+	m_scene_manager = NULL;
 }
 
 //更新処理

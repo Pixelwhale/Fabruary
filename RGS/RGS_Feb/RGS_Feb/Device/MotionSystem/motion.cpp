@@ -96,5 +96,5 @@ void  Motion::Flip(bool x, bool y)
 //現在のフレーム＝最大フレーム（最後までプレイした）
 bool Motion::IsCurrentMotionEnd()
 {
-	return m_motion_player->getFrameNo() == m_motion_player->getMaxFrame();
+	return m_motion_player->getFrameNo() >= m_motion_player->getMaxFrame() - 1;
 }
