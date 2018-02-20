@@ -8,7 +8,7 @@
 using namespace Character;
 
 
-CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp, 
+CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id, 
 							std::shared_ptr<VirtualController> controller,
 							std::shared_ptr<Job::JobBase> job,
 							std::shared_ptr<AttackSystem::AttackMediator> attackMediator)
@@ -21,7 +21,7 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,int hp,
 	m_position = position;
 	m_size = Math::Vector3(Size::kCharaX, Size::kCharaY, Size::kCharaZ);
 	m_rotation = Math::Vector3(0, 0, 0);
-	m_hp = hp;
+	m_hp = m_job->GetHp();
 	m_mp = 0;
 	m_speed = 4;
 	m_knock_value = 0;
@@ -41,13 +41,15 @@ CharacterBase::~CharacterBase()
 	m_controller = NULL;
 	m_motion = NULL;
 	m_renderer = NULL;
+	m_job = NULL;
+	m_attack_mediator = NULL;
 }
 
 //‰Šú‰»
-void CharacterBase::Initialize(Math::Vector3 position, int hp)
+void CharacterBase::Initialize(Math::Vector3 position)
 {
 	m_position = position;
-	m_hp = hp;
+	m_hp = m_job->GetHp();
 	m_mp = 0;
 	m_speed = 4;
 	m_knock_value = 0;
@@ -120,11 +122,13 @@ void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRi
 	if (m_knock_value > m_job->KnockValue())
 	{
 		m_state = CharacterState::kKnockDown;
+		m_motion->Play("chara_base_anime/knock_down");
 		m_knock_value = 0;
 	}
 	else
 	{
 		m_state = CharacterState::kKnockBack;
+		m_motion->Play("chara_base_anime/damage");
 	}
 }
 
