@@ -16,13 +16,6 @@ Loading::Loading()
 
 void Loading::LoadContents()
 {
-	m_content->LoadTexture("load", ".png");
-	m_content->LoadTexture("test", ".png");
-	m_content->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
-
-	m_content->LoadFont("MS UI Gothic", 50, 3);
-
-	m_content->LoadModel("test", ".mv1");
 }
 
 void Loading::UnloadContents()
@@ -31,7 +24,8 @@ void Loading::UnloadContents()
 
 void Loading::Update()
 {
-	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE)) m_is_end = true;
+	if (!m_is_end) LoadContents();
+	m_is_end = true;
 }
 
 void Loading::Draw()
@@ -41,4 +35,5 @@ void Loading::Draw()
 
 void Loading::Shutdown()
 {
+	UnloadContents();
 }

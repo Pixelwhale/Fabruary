@@ -49,21 +49,19 @@ void SceneFader::Update()
 void SceneFader::Draw()
 {
 	m_scene->Draw();
-	
+
 	switch (state)
 	{
 	case kIn:
-		m_renderer->DrawTexture("black_pixel", Math::Vector2(),
-			Math::Vector2(WindowDef::kScreenWidth, WindowDef::kScreenHeight), m_fade_in.Rate());
+		m_renderer->DrawFade(Color(0, 0, 0), m_fade_in.Rate());
 		break;
 	case kOut:
-		m_renderer->DrawTexture("black_pixel", Math::Vector2(),
-			Math::Vector2(WindowDef::kScreenWidth, WindowDef::kScreenHeight), m_fade_out.Rate());
+		m_renderer->DrawFade(Color(0, 0, 0), 1 - m_fade_out.Rate());
 		break;
 	default:
 		break;
 	}
-	
+
 }
 
 void SceneFader::Shutdown()
