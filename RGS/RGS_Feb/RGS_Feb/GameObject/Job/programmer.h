@@ -15,12 +15,12 @@ namespace Job
 	public :
 		Programmer(Side side);
 		~Programmer();
-		virtual std::string Punch(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right);
-		virtual std::string Kick(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position,bool is_right);
-		virtual std::string Skill1(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right);
-		virtual std::string Skill2(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right);
-		virtual std::string Skill3(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right);
-		virtual std::string Skill4(std::shared_ptr<AttackSystem::AttackManager> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position,bool is_right);
+		virtual std::string Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill4(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
 		virtual int KnockValue() = 0;
 		virtual void Update();
 
