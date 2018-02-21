@@ -34,6 +34,7 @@ namespace Character
 	public:							//取得関連
 		Side	GetSide();			//チームの取得
 		int		GetHp();			//Hpの取得
+		int		GetMaxHp();			//MAXHpの取得
 		int		GetMp();			//Mpの取得
 		int		GetID();			//IDの取得
 		bool	IsRight();			//向きを返す
@@ -58,6 +59,7 @@ namespace Character
 		int		m_mp;
 		int		m_knock_value;		//倒れ値
 		int		m_knock_cnt;		//一定時間攻撃を受けないと倒れ値が下がる
+		int		m_defence_value;	//防御値
 		float	m_speed;
 		int		m_id;
 
