@@ -50,5 +50,5 @@ bool Trace::InRange(float distance)
 
 std::shared_ptr<AiState> Trace::NextState(int difficulty)
 {
-	return std::make_shared<Trace>(m_character, m_target->GetPosition());
+	return std::make_shared<Trace>(m_character, m_target);
 }
