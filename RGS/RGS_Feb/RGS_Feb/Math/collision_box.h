@@ -11,12 +11,12 @@ namespace Math
 	{
 	public:
 		CollisionBox(Vector3 min, Vector3 max) : m_min(min), m_max(max) {};
-		bool IsCollision(CollisionBox& other);
+		bool IsCollision(const CollisionBox& other) const;
 
 	private:
-		bool CheckX(CollisionBox& other);
-		bool CheckY(CollisionBox& other);
-		bool CheckZ(CollisionBox& other);
+		bool CheckX(const CollisionBox& other) const;
+		bool CheckY(const CollisionBox& other) const;
+		bool CheckZ(const CollisionBox& other) const;
 		Vector3& m_min;
 		Vector3& m_max;
 	};
