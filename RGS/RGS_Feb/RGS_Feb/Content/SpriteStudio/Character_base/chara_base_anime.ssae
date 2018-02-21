@@ -1777,6 +1777,757 @@
 			</partAnimes>
 		</anime>
 		<anime>
+			<name>get_up</name>
+			<overrideSettings>1</overrideSettings>
+			<settings>
+				<fps>60</fps>
+				<frameCount>60</frameCount>
+				<sortMode>z</sortMode>
+				<canvasSize>256 384</canvasSize>
+				<pivot>0 0</pivot>
+				<bgColor>FF323232</bgColor>
+				<gridSize>32</gridSize>
+				<gridColor>FF808080</gridColor>
+				<outStartNum>0</outStartNum>
+			</settings>
+			<labels />
+			<partAnimes>
+				<partAnime>
+					<partName>root</partName>
+					<attributes>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Chara</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>15</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>11</value>
+							</key>
+							<key time="22" ipType="acceleration">
+								<value>11.4489793777466</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>20</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>8</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>4</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-116</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-85</value>
+							</key>
+							<key time="22" ipType="acceleration">
+								<value>-22.3061218261719</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>64</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>27</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>-19</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-85.0645980834961</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-109.795150756836</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>-40.4382476806641</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>29.2327880859375</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>-2.67113757133484</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Head</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>Head</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-4</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>56</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>24.5629558563232</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>11.7649917602539</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Body</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Bone</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>0.899999976158142</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>bone_up</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>bone_up</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>60</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>bone_down</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>bone_down</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-30</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>arm_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>arm_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-4.33333206176758</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>44</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>10.1983556747437</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-138.273880004883</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>-79.1133422851563</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>-60.7334671020508</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>-13.143611907959</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>hand_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>hand_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-0.0256269033998251</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-39.0582160949707</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-10.0624380111694</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-85.5632095336914</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>-48.8122825622559</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>0.899999976158142</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>leg_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>leg_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-2.33333349227905</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-19.6666679382324</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-27.9335289001465</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-94.3707427978516</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>47.6630058288574</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>-74.1908416748047</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>-48.3705596923828</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>foot_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>foot_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-0.382773071527481</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-40.0217170715332</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>47.3330917358398</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>42.1535148620605</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>arm_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>arm_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>7</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>45</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-4</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-15.2646932601929</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-131.463394165039</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>-101.013870239258</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>31.4538383483887</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>38.221752166748</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>hand_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>hand_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0.737494826316833</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-38.841739654541</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-5</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0.00782525539398193</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-75.4868545532227</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>-24.7741165161133</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>-56.5555038452148</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>-42.8001708984375</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>0.899999976158142</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>leg_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>leg_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>2.33333349227905</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-20.3333320617676</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-1</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-4.90394830703735</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>-127.438789367676</value>
+							</key>
+							<key time="34" ipType="acceleration">
+								<value>80.7822418212891</value>
+							</key>
+							<key time="44" ipType="acceleration">
+								<value>-39.5524635314941</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>24.9703769683838</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>foot_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>foot_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0.542533338069916</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-39.4637298583984</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>2.59958815574646</value>
+							</key>
+							<key time="19" ipType="acceleration">
+								<value>48.5194931030273</value>
+							</key>
+							<key time="55" ipType="acceleration">
+								<value>22.7588405609131</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+			</partAnimes>
+		</anime>
+		<anime>
 			<name>idle</name>
 			<overrideSettings>1</overrideSettings>
 			<settings>
@@ -6020,7 +6771,7 @@
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
 								<curve syncStartEnd="0">0 0 0 0</curve>
-								<value>0</value>
+								<value>3.7408926486969</value>
 							</key>
 						</attribute>
 						<attribute tag="PRIO">
@@ -6086,6 +6837,9 @@
 							</key>
 						</attribute>
 						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
 							<key time="17" ipType="linear">
 								<value>3.9429497718811</value>
 							</key>
@@ -6487,7 +7241,7 @@
 						<attribute tag="POSX">
 							<key time="0" ipType="bezier">
 								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>3</value>
+								<value>5</value>
 							</key>
 							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
@@ -6750,14 +7504,6 @@
 					<attributes>
 						<attribute tag="POSX">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>0</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>0</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>0</value>
 							</key>
@@ -6768,14 +7514,6 @@
 						</attribute>
 						<attribute tag="POSY">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-3</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>-6</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-7</value>
 							</key>
@@ -7229,14 +7967,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-2.13983726501465</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>-18.0346794128418</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-22.1440010070801</value>
 							</key>
@@ -7309,14 +8039,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-0.151779055595398</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>2.27296209335327</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>7.63647556304932</value>
 							</key>
@@ -7376,7 +8098,7 @@
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>11.3895540237427</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="23" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>31.4362964630127</value>
 							</key>
@@ -7480,15 +8202,9 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>9.20407009124756</value>
-							</key>
-							<key time="8" ipType="acceleration">
-								<value>17.6835994720459</value>
-							</key>
-							<key time="16" ipType="acceleration">
 								<value>18.3700618743896</value>
 							</key>
-							<key time="17" ipType="acceleration">
+							<key time="20" ipType="acceleration">
 								<value>30.9544658660889</value>
 							</key>
 						</attribute>
@@ -7542,9 +8258,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>0.380362629890442</value>
-							</key>
-							<key time="8" ipType="acceleration">
 								<value>5.72106075286865</value>
 							</key>
 						</attribute>
@@ -7593,14 +8306,6 @@
 					<attributes>
 						<attribute tag="POSX">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>0</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>0</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>0</value>
 							</key>
@@ -7611,14 +8316,6 @@
 						</attribute>
 						<attribute tag="POSY">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-3</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>-6</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-7</value>
 							</key>
@@ -7913,7 +8610,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-4.33333206176758</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="26" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>0.666667938232422</value>
 							</key>
@@ -7923,7 +8620,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>44</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="26" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>47</value>
 							</key>
@@ -7944,11 +8641,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-4.76501417160034</value>
 							</key>
-							<key time="16" ipType="bezier">
+							<key time="14" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>3.21425294876099</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="26" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>31.5609512329102</value>
 							</key>
@@ -8016,11 +8713,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-17.4618339538574</value>
 							</key>
-							<key time="16" ipType="bezier">
+							<key time="14" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-40.6297302246094</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="26" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-30.6748027801514</value>
 							</key>
@@ -8080,14 +8777,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-2.13983726501465</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>-18.0346794128418</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-22.1440010070801</value>
 							</key>
@@ -8160,14 +8849,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-0.151779055595398</value>
-							</key>
-							<key time="8" ipType="bezier">
-								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>2.27296209335327</value>
-							</key>
-							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>7.63647556304932</value>
 							</key>
@@ -8351,15 +9032,9 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>9.20407009124756</value>
-							</key>
-							<key time="8" ipType="acceleration">
-								<value>17.6835994720459</value>
-							</key>
-							<key time="16" ipType="acceleration">
 								<value>18.3700618743896</value>
 							</key>
-							<key time="17" ipType="acceleration">
+							<key time="21" ipType="acceleration">
 								<value>30.9544658660889</value>
 							</key>
 						</attribute>
@@ -8413,9 +9088,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>0.380362629890442</value>
-							</key>
-							<key time="8" ipType="acceleration">
 								<value>5.72106075286865</value>
 							</key>
 						</attribute>
@@ -8483,7 +9155,7 @@
 						<attribute tag="POSY">
 							<key time="0" ipType="bezier">
 								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-3</value>
+								<value>-11</value>
 							</key>
 							<key time="8" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
@@ -8984,7 +9656,7 @@
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
 								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-2.13983726501465</value>
+								<value>-39.2026786804199</value>
 							</key>
 							<key time="8" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
@@ -9072,7 +9744,7 @@
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
 								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-0.151779055595398</value>
+								<value>29.6536865234375</value>
 							</key>
 							<key time="8" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
@@ -9268,7 +9940,7 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>9.20407009124756</value>
+								<value>25.1322555541992</value>
 							</key>
 							<key time="8" ipType="acceleration">
 								<value>17.6835994720459</value>
@@ -9396,8 +10068,16 @@
 								<value>0</value>
 							</key>
 							<key time="17" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-9</value>
+							</key>
+							<key time="20" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>1</value>
+							</key>
+							<key time="23" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
-								<value>3</value>
+								<value>7</value>
 							</key>
 						</attribute>
 						<attribute tag="POSY">
@@ -9414,6 +10094,14 @@
 								<value>-7</value>
 							</key>
 							<key time="17" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-14</value>
+							</key>
+							<key time="20" ipType="bezier">
+								<curve syncStartEnd="1">1 0 -1 0</curve>
+								<value>-28</value>
+							</key>
+							<key time="23" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-25</value>
 							</key>
@@ -9434,8 +10122,12 @@
 								<value>0</value>
 							</key>
 							<key time="17" ipType="bezier">
-								<curve syncStartEnd="1">1 0 0 0</curve>
+								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>7.91688680648804</value>
+							</key>
+							<key time="23" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>16.76735496521</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -9752,8 +10444,12 @@
 								<value>95.5504531860352</value>
 							</key>
 							<key time="17" ipType="bezier">
-								<curve syncStartEnd="1">1 0 0 0</curve>
+								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-86.7055358886719</value>
+							</key>
+							<key time="23" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-70.2268142700195</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -9883,20 +10579,16 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-2.13983726501465</value>
-							</key>
-							<key time="8" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-18.0346794128418</value>
 							</key>
 							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>-22.1440010070801</value>
+								<value>-29.1554718017578</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="23" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
-								<value>-67.2190017700195</value>
+								<value>-76.7018280029297</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -9940,7 +10632,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-0.382773071527481</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-0.382769525051117</value>
 							</key>
@@ -9950,7 +10642,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-40.0217170715332</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-40.0217170715332</value>
 							</key>
@@ -9963,18 +10655,14 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="bezier">
-								<curve syncStartEnd="0">0 0 -1 0</curve>
-								<value>-0.151779055595398</value>
-							</key>
-							<key time="8" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>2.27296209335327</value>
 							</key>
 							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
-								<value>7.63647556304932</value>
+								<value>16.6193923950195</value>
 							</key>
-							<key time="17" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>50.997802734375</value>
 							</key>
@@ -10138,16 +10826,16 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>9.20407009124756</value>
-							</key>
-							<key time="8" ipType="acceleration">
 								<value>17.6835994720459</value>
 							</key>
 							<key time="16" ipType="acceleration">
 								<value>18.3700618743896</value>
 							</key>
-							<key time="17" ipType="acceleration">
+							<key time="20" ipType="acceleration">
 								<value>30.9544658660889</value>
+							</key>
+							<key time="23" ipType="acceleration">
+								<value>21.5729656219482</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -10200,9 +10888,6 @@
 						</attribute>
 						<attribute tag="ROTZ">
 							<key time="0" ipType="acceleration">
-								<value>0.380362629890442</value>
-							</key>
-							<key time="8" ipType="acceleration">
 								<value>5.72106075286865</value>
 							</key>
 						</attribute>
@@ -11156,11 +11841,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>0</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>122</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-70</value>
 							</key>
@@ -11170,11 +11855,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-3</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-26</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-29</value>
 							</key>
@@ -11190,11 +11875,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>0</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>10.9824619293213</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>24.8594551086426</value>
 							</key>
@@ -11240,7 +11925,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-4</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-3.09265637397766</value>
 							</key>
@@ -11250,7 +11935,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>56</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>55.5796051025391</value>
 							</key>
@@ -11266,7 +11951,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>0</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-19.1271228790283</value>
 							</key>
@@ -11452,7 +12137,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-4.33333206176758</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>4.8828501701355</value>
 							</key>
@@ -11462,7 +12147,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>44</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>44.2487945556641</value>
 							</key>
@@ -11483,11 +12168,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-4.76501417160034</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>47.6939888000488</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>16.5386829376221</value>
 							</key>
@@ -11555,11 +12240,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-17.4618339538574</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-82.8791580200195</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-325.398803710938</value>
 							</key>
@@ -11604,7 +12289,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-2.33333349227905</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-3.47639226913452</value>
 							</key>
@@ -11614,7 +12299,7 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-19.6666679382324</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-25.5567836761475</value>
 							</key>
@@ -11630,11 +12315,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-2.13983726501465</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-38.1660461425781</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-96.5676422119141</value>
 							</key>
@@ -11698,11 +12383,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-0.151779055595398</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-29.5235137939453</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>61.2090873718262</value>
 							</key>
@@ -11736,11 +12421,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>3</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-5.44731521606445</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-5.99654054641724</value>
 							</key>
@@ -11750,11 +12435,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>46</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>41.900505065918</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>41.6339530944824</value>
 							</key>
@@ -11770,11 +12455,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>16.0354404449463</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-20.8320198059082</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-109.757499694824</value>
 							</key>
@@ -11826,11 +12511,11 @@
 								<curve syncStartEnd="0">0 0 -1 0</curve>
 								<value>-14.8034467697144</value>
 							</key>
-							<key time="15" ipType="bezier">
+							<key time="17" ipType="bezier">
 								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>148.80419921875</value>
 							</key>
-							<key time="18" ipType="bezier">
+							<key time="20" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
 								<value>-6.2097487449646</value>
 							</key>
@@ -11869,7 +12554,7 @@
 							<key time="0" ipType="acceleration">
 								<value>2.33333349227905</value>
 							</key>
-							<key time="18" ipType="acceleration">
+							<key time="20" ipType="acceleration">
 								<value>0.780118584632874</value>
 							</key>
 						</attribute>
@@ -11877,7 +12562,7 @@
 							<key time="0" ipType="acceleration">
 								<value>-20.3333320617676</value>
 							</key>
-							<key time="18" ipType="acceleration">
+							<key time="20" ipType="acceleration">
 								<value>-23.0878810882568</value>
 							</key>
 						</attribute>
@@ -11890,10 +12575,10 @@
 							<key time="0" ipType="acceleration">
 								<value>9.20407009124756</value>
 							</key>
-							<key time="15" ipType="acceleration">
+							<key time="17" ipType="acceleration">
 								<value>49.3620834350586</value>
 							</key>
-							<key time="18" ipType="acceleration">
+							<key time="20" ipType="acceleration">
 								<value>40.5531616210938</value>
 							</key>
 						</attribute>
@@ -11949,10 +12634,10 @@
 							<key time="0" ipType="acceleration">
 								<value>0.380362629890442</value>
 							</key>
-							<key time="15" ipType="acceleration">
+							<key time="17" ipType="acceleration">
 								<value>-44.6496238708496</value>
 							</key>
-							<key time="18" ipType="acceleration">
+							<key time="20" ipType="acceleration">
 								<value>-46.3358306884766</value>
 							</key>
 						</attribute>
