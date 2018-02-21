@@ -34,13 +34,13 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 
 	if (m_punch_count == 0)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 100, 0, 0, 0.4f));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 0), m_side, 100, 0, 0, 30, 0.4f));
 		m_punch_count++;
 		return base_animation + "punch_6";
 	}
 	else if (m_punch_count == 1)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 1), m_side, 200, 0, 0, 40, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_7";
 	}
@@ -55,7 +55,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 300, 0, 0, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 300, 0, 0, 40, 0.4));
 	return base_animation + "kick_1";
 }
 
@@ -68,7 +68,7 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 0), m_side, 300, 0, 1, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 0), m_side, 300, 0, 1, 80, 0.4));
 	return base_animation + "skill_1";
 }
 
@@ -81,7 +81,7 @@ std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 300, 0, 0, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 300, 0, 0, 90, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
 	return base_animation + "skill_2";
 }
 

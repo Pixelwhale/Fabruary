@@ -35,31 +35,31 @@ std::string ComputerGraphic::Punch(std::shared_ptr<AttackSystem::AttackMediator>
 
 	if (m_punch_count == 0)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 100, 0, 0, 0.4f));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 100, 0, 0, 15, 0.4f));
 		m_punch_count++;
 		return base_animation + "punch_1";
 	}
 	else if (m_punch_count == 1)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 15, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_2";
 	}
 	else if (m_punch_count == 2)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 15, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_3";
 	}
 	else if (m_punch_count == 3)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 20, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_4";
 	}
 	else if (m_punch_count == 4)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 20, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_5";
 	}
@@ -75,7 +75,7 @@ std::string ComputerGraphic::Kick(std::shared_ptr<AttackSystem::AttackMediator> 
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 300, 0, 0, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 300, 0, 0, 40, 0.4));
 	return base_animation + "kick_1";
 }
 
