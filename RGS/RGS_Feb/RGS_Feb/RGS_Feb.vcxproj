@@ -175,11 +175,9 @@
     <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Defence\ai_defence.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp" />
-    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_stay.cpp" />
-    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp" />
-    <ClCompile Include="GameObject\AI\MetaAI\meta_ai.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
     <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\laser.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
     <ClCompile Include="GameObject\Job\business.cpp" />
     <ClCompile Include="GameObject\Job\com_graphic.cpp" />
@@ -192,7 +190,6 @@
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\end.cpp" />
     <ClCompile Include="Scene\gameplay.cpp" />
-    <ClCompile Include="Scene\game_manager.cpp" />
     <ClCompile Include="Scene\loading.cpp" />
     <ClCompile Include="Scene\pause..cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
@@ -326,11 +323,10 @@
     <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Defence\ai_defence.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h" />
-    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_stay.h" />
-    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_trace.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
     <ClInclude Include="GameObject\AttackSystem\kick.h" />
+    <ClInclude Include="GameObject\AttackSystem\laser.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\Job\business.h" />
     <ClInclude Include="GameObject\Job\com_graphic.h" />
@@ -343,7 +339,6 @@
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\end.h" />
     <ClInclude Include="Scene\gameplay.h" />
-    <ClInclude Include="Scene\game_manager.h" />
     <ClInclude Include="Scene\loading.h" />
     <ClInclude Include="Scene\pause.h" />
     <ClInclude Include="Scene\scene_base.h" />

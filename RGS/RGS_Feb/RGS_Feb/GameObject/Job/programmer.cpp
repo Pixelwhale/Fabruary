@@ -8,11 +8,12 @@
 #include <GameObject\Job\programmer.h>
 #include <GameObject\AttackSystem\punch.h>
 #include <GameObject\AttackSystem\kick.h>
+#include <GameObject\AttackSystem\laser.h>
 
 using namespace Job;
 
 // コンストラクタ
-Programmer::Programmer(Side side) : m_next_combo(0.7)
+Programmer::Programmer(Side side) : m_next_combo(0.5)
 {
 	m_side = side;
 }
@@ -78,7 +79,8 @@ std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	// スキルの追加はここに
+	// python カメハメハ
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 300, 0, 0, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
 	return base_animation + "skill_2";
 }
 
