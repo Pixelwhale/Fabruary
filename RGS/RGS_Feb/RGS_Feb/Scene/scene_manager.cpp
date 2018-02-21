@@ -33,7 +33,7 @@ void SceneManager::Initialize()
 	m_current_scene = m_map[kLoading];
 }
 
-void SceneManager::Add(SceneType type, std::shared_ptr<SceneBase> scene)
+void SceneManager::Add(SceneType type, const std::shared_ptr<SceneBase> scene)
 {
 	m_map[type] = scene;
 }
