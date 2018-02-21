@@ -25,7 +25,7 @@ AiStateManager::~AiStateManager()
 	m_character = NULL;
 }
 
-void AiStateManager::Update(std::shared_ptr<MetaAI> meta_ai) 
+void AiStateManager::Update(MetaAI* meta_ai) 
 {
 	m_controller->Update();									//キーを先に更新
 
@@ -46,4 +46,9 @@ std::shared_ptr<Character::AiController> AiStateManager::Controller()
 void AiStateManager::SetCharaInfo(std::shared_ptr<Character::CharacterBase> character) 
 {
 	m_character = character;
+}
+
+bool AiStateManager::IsDead()
+{
+	return m_character->IsDead();
 }

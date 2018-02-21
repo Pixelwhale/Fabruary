@@ -26,7 +26,7 @@ NormalKick::~NormalKick()
 	m_target = NULL;
 }
 
-void NormalKick::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void NormalKick::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

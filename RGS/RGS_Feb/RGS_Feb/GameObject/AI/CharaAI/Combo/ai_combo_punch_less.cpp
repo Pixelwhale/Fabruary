@@ -23,7 +23,7 @@ PunchComboWeak::~PunchComboWeak()
 {
 }
 
-void PunchComboWeak::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void PunchComboWeak::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

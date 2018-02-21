@@ -17,7 +17,7 @@ namespace AI
 		PunchComboStrong(const PunchComboStrong&);
 		~PunchComboStrong();
 
-		virtual void GetBattleInfo(std::shared_ptr<MetaAI> meta_ai);
+		virtual void GetBattleInfo(MetaAI* meta_ai);
 		virtual void Update(std::shared_ptr<Character::AiController> controller);
 		virtual std::shared_ptr<AiState> NextState(int difficulty);
 

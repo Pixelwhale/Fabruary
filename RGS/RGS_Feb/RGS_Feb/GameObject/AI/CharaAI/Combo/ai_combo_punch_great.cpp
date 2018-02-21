@@ -23,7 +23,7 @@ PunchComboStrong::~PunchComboStrong()
 {
 }
 
-void PunchComboStrong::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void PunchComboStrong::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

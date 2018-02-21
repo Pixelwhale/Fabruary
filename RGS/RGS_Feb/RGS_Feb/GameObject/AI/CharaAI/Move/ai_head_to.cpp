@@ -21,7 +21,7 @@ HeadDestination::~HeadDestination()
 	m_character = NULL;
 }
 
-void HeadDestination::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void HeadDestination::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

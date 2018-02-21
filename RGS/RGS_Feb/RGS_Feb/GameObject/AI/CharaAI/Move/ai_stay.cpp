@@ -17,7 +17,7 @@ Stay::~Stay()
 {
 }
 
-void Stay::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void Stay::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

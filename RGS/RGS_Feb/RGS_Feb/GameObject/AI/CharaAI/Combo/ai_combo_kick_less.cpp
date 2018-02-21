@@ -23,7 +23,7 @@ KickComboWeak::~KickComboWeak()
 {
 }
 
-void KickComboWeak::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void KickComboWeak::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

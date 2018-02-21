@@ -30,7 +30,7 @@ NormalPunch::~NormalPunch()
 	m_target = NULL;
 }
 
-void NormalPunch::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai) 
+void NormalPunch::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

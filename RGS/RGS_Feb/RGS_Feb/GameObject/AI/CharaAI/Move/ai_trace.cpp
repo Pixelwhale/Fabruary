@@ -22,7 +22,7 @@ Trace::~Trace()
 	m_target = NULL;
 }
 
-void Trace::GetBattleInfo(std::shared_ptr<MetaAI> meta_ai)
+void Trace::GetBattleInfo(MetaAI* meta_ai)
 {
 	return;
 }

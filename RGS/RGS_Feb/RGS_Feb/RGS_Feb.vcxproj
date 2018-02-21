@@ -175,6 +175,7 @@
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_stay.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp" />
+    <ClCompile Include="GameObject\AI\MetaAI\meta_ai.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
     <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
