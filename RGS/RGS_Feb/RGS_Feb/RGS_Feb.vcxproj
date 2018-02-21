@@ -172,6 +172,7 @@
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Defence\ai_defence.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_stay.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp" />
@@ -318,6 +319,7 @@
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Defence\ai_defence.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_stay.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_trace.h" />
