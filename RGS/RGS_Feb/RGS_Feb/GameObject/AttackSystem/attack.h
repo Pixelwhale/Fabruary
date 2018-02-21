@@ -13,15 +13,34 @@
 
 namespace AttackSystem
 {
+	enum Direction
+	{
+		kCenter,
+		kRight,
+		kLeft,
+	};
+	struct Attacked
+	{
+		Attacked(int id, int cool_down) : id(id), cool_down(cool_down) {}
+		int id;
+		int cool_down;
+	};
+
 	class Attack
 	{
 	public:
-		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int atk, int knockdown, int knockback, bool repeat_hit = false);
+		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int atk, int knockdown, int knockback, int dbreak, int cool_down = -1, Direction from = kCenter);
 
 		//キャラに当たる後Attack自身のリアクション
 		//Attacksを後はAttackManagerに入れる。
 		virtual std::vector<std::shared_ptr<Attack>>& Collide() = 0;
-		virtual void Update() = 0;
+
+		virtual void Update()
+		{
+			//attacked cool downのUpdate
+			for (auto attacked : m_attacked_list) { --attacked.cool_down; }
+		};
+
 		virtual void Draw() = 0;
 
 		Math::CollisionBox GetBox() const
@@ -34,11 +53,14 @@ namespace AttackSystem
 		int GetAtk() const { return m_atk; }
 		int GetKnockBack() const { return m_knockback; }
 		int GetKnockDown() const { return m_knockdown; }
+		int GetBreak() const { return m_break; }
 
 		//重複判定にかかわる
-		bool IsRepeat() const { return m_repeat_hit; }
-		void AddID(int ID) { m_attacked_list.push_back(ID); }
-		const std::vector<int>& GetAttackedList() const { return m_attacked_list; }
+		int IsRepeat() const { return m_cool_down; }
+		void AddID(int id) { m_attacked_list.push_back(Attacked(id, m_cool_down)); }
+		const std::vector<Attacked>& GetAttackedList() const { return m_attacked_list; }
+
+		Direction GetSourceDirection() const { return m_source_direction; }
 
 		bool IsEnd() const { return m_is_end; }
 
@@ -51,11 +73,14 @@ namespace AttackSystem
 
 		int m_atk;			//攻撃力
 		int m_knockback;	//撃退の距離
-		int m_knockdown;	//倒れる値、キャラの上限値超えると倒れる
+		int m_knockdown;	//倒れる値
+		int m_break;		//防御を崩れる値
 
 		bool m_is_end;
 
-		bool m_repeat_hit;		//重複判定できるスキルはtrue
-		std::vector<int> m_attacked_list;
+		int m_cool_down;		//キャラはフレームことに判定する。重複判定しないスキルは-1に設定する
+		std::vector<Attacked> m_attacked_list;
+
+		Direction m_source_direction;
 	};
 }

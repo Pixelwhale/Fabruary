@@ -62,13 +62,10 @@ bool AttackManager::IsCollision(const std::shared_ptr<const Attack> atk, const s
 	if (atk->GetSide() == c->GetSide()) return false;
 
 	//d•¡”»’è‚©H
-	if (atk->IsRepeat() == false)
+	int charaID = c->GetID();
+	for (auto attacked : atk->GetAttackedList())
 	{
-		int charaID = c->GetID();
-		for (int ID : atk->GetAttackedList())
-		{
-			if (ID == charaID) return false;
-		}
+		if (attacked.id == charaID && attacked.cool_down != 0) return false;
 	}
 
 	//CollisionBox¶¬‚µ‚Ä”»’è
@@ -89,7 +86,8 @@ void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mg
 		{
 			if (IsCollision(atk, c))
 			{
-				bool from_right = (atk->GetPosition().x > c->GetPosition().x);
+				bool from_right = (atk->GetSourceDirection() == kRight)
+					|| (atk->GetPosition().x > c->GetPosition().x);
 				c->Collide(atk->GetAtk(), atk->GetKnockBack(), atk->GetKnockDown(), from_right);
 				for (auto a : atk->Collide())
 				{
