@@ -36,12 +36,13 @@ void CharacterBase::Initialize(Math::Vector3 position)
 {
 	m_position = position;
 	m_hp = m_job->GetHp();
-	m_mp = 0;
+	m_mp = 3000;
 	m_speed = 4;
 	m_knock_value = 0;
 	m_knock_cnt = 0;
 	m_skill_num = 0;
 	m_skill_cnt = 0;
+	m_defence_value = 0;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -87,16 +88,6 @@ void CharacterBase::Draw()
 //‚ ‚½‚è”»’è
 void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
-	if (m_state == CharacterState::kDefence && m_isRight == atk.GetSourceDir())
-	{
-		return;
-	}
-
-	m_knock_cnt = 0;
-	m_isStop = true;
-	m_hp -= atk.GetDamage();
-	m_knock_value += atk.GetKnockDown();
-
 	if (atk.GetSourceDir())
 	{
 		m_velocity.x = -atk.GetKnockBack();
@@ -105,19 +96,35 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	{
 		m_velocity.x = atk.GetKnockBack();
 	}
-	//“|‚ê’l‚ð’´‚¦‚½‚çA“|‚ê‚é
-	if (m_knock_value > m_job->KnockValue())
+	m_knock_cnt = 0;
+	m_isStop = true;
+
+	//–hŒä‚ÌŽž
+	if (m_state == CharacterState::kDefence && 
+		m_isRight == atk.GetSourceDir() && 
+		m_defence_value < 100)
 	{
-		m_state = CharacterState::kKnockDown;
-		m_motion->Play("chara_base_anime/knock_down",1);
-		m_isStop = true;
-		m_knock_value = 0;
+		m_defence_value += 20;		//ˆø”‚ÅŽó‚¯‚é
 	}
 	else
 	{
-		m_state = CharacterState::kKnockBack;
-		m_motion->Play("chara_base_anime/damage",1);
-		m_isStop = true;
+		//“|‚ê’l‚ð’´‚¦‚½‚çA“|‚ê‚é
+		if (m_knock_value > m_job->KnockValue())
+		{
+			m_state = CharacterState::kKnockDown;
+			m_motion->Play("chara_base_anime/knock_down",1);
+			m_hp -= atk.GetDamage();
+			m_knock_value = 0;
+			m_defence_value = 0;
+		}
+		else
+		{
+			m_state = CharacterState::kKnockBack;
+			m_motion->Play("chara_base_anime/damage",1);
+			m_hp -= atk.GetDamage();
+			m_knock_value += atk.GetKnockDown();
+			m_defence_value = 0;
+		}
 	}
 }
 
@@ -146,6 +153,7 @@ void CharacterBase::Attack()
 		m_state = CharacterState::kDefence;
 		m_motion->Play("chara_base_anime/defence");
 		m_isStop = true;
+
 	}
 }
 
@@ -386,7 +394,7 @@ void CharacterBase::StateUpdate()
 #pragma endregion
 
 
-// GetASetŠÖ˜A
+//GetASetŠÖ˜A
 
 //Œü‚«‚ð•Ô‚·
 bool CharacterBase::IsRight()
@@ -417,6 +425,12 @@ int CharacterBase::GetHp()
 int CharacterBase::GetMp()
 {
 	return m_mp;
+}
+
+//MaxMp‚ÌŽæ“¾
+int CharacterBase::GetMaxHp()
+{
+	return m_job->GetHp();
 }
 
 //ˆÊ’u‚ÌŽæ“¾
