@@ -15,7 +15,7 @@ namespace AI
 	public:
 		MetaAI(
 			std::shared_ptr<Character::CharacterManager> character_manager,
-			std::shared_ptr<AttackSystem::AttackManager> attack_manager);
+			std::shared_ptr<AttackSystem::AttackMediator> attack_manager);
 		MetaAI(const MetaAI&);
 		~MetaAI();
 
@@ -31,12 +31,12 @@ namespace AI
 		void Update();
 
 		std::shared_ptr<Character::CharacterBase> FindNear(std::shared_ptr<Character::CharacterBase> my_chara);
-		std::shared_ptr<Character::CharacterBase> FindStrong();
-		std::shared_ptr<Character::CharacterBase> FindWeak();
+		std::shared_ptr<Character::CharacterBase> FindStrong(std::shared_ptr<Character::CharacterBase> my_chara);
+		std::shared_ptr<Character::CharacterBase> FindWeak(std::shared_ptr<Character::CharacterBase> my_chara);
 
 	private:
 		std::shared_ptr<Character::CharacterManager> m_character_manager;	//ƒLƒƒƒ‰ƒNƒ^[ŠÇ—Ò
-		std::shared_ptr<AttackSystem::AttackManager> m_attack_manager;		//UŒ‚ŠÇ—Ò
+		std::shared_ptr<AttackSystem::AttackMediator> m_attack_manager;		//UŒ‚ŠÇ—Ò
 
 		vector<AiStateManager> m_ai;										//AI
 	};

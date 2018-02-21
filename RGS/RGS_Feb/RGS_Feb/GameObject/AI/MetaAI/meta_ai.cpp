@@ -9,7 +9,7 @@ using namespace AI;
 
 MetaAI::MetaAI(
 	std::shared_ptr<Character::CharacterManager> character_manager,
-	std::shared_ptr<AttackSystem::AttackManager> attack_manager)
+	std::shared_ptr<AttackSystem::AttackMediator> attack_manager)
 {
 }
 
@@ -62,12 +62,73 @@ void MetaAI::Update()
 
 std::shared_ptr<Character::CharacterBase> MetaAI::FindNear(std::shared_ptr<Character::CharacterBase> my_chara) 
 {
+	std::shared_ptr<Character::CharacterBase> near_chara;
+	for (auto &c : m_character_manager->GetCharacterList())
+	{
+		if (c == my_chara)		//“¯‚¶‚È‚çContinue
+			continue;
+
+		if (near_chara == NULL)	//‚Ü‚¾İ’è‚µ‚Ä‚È‚¢ó‘Ô‚È‚çİ’è‚·‚é
+		{
+			near_chara = c;
+			continue;
+		}
+
+		//‹——£‚ğ”äŠr‚·‚é
+		if ((c->GetPosition() - my_chara->GetPosition()).lengthSqrt() <
+			(near_chara->GetPosition() - my_chara->GetPosition()).lengthSqrt())
+		{
+			near_chara = c;
+		}
+	}
+
+	return near_chara;
 }
 
-std::shared_ptr<Character::CharacterBase> MetaAI::FindStrong() 
+std::shared_ptr<Character::CharacterBase> MetaAI::FindStrong(std::shared_ptr<Character::CharacterBase> my_chara)
 {
+	std::shared_ptr<Character::CharacterBase> strong_chara;
+	for (auto &c : m_character_manager->GetCharacterList())
+	{
+		if (c == my_chara)			//“¯‚¶‚È‚çContinue
+			continue;
+
+		if (strong_chara == NULL)	//‚Ü‚¾İ’è‚µ‚Ä‚È‚¢ó‘Ô‚È‚çİ’è‚·‚é
+		{
+			strong_chara = c;
+			continue;
+		}
+
+		//c‚éHP‚ğ”äŠr‚·‚é
+		if (c->GetHp() > strong_chara->GetHp())
+		{
+			strong_chara = c;
+		}
+	}
+
+	return strong_chara;
 }
 
-std::shared_ptr<Character::CharacterBase> MetaAI::FindWeak() 
+std::shared_ptr<Character::CharacterBase> MetaAI::FindWeak(std::shared_ptr<Character::CharacterBase> my_chara)
 {
+	std::shared_ptr<Character::CharacterBase> weak_chara;
+	for (auto &c : m_character_manager->GetCharacterList())
+	{
+		if (c == my_chara)			//“¯‚¶‚È‚çContinue
+			continue;
+
+		if (weak_chara == NULL)	//‚Ü‚¾İ’è‚µ‚Ä‚È‚¢ó‘Ô‚È‚çİ’è‚·‚é
+		{
+			weak_chara = c;
+			continue;
+		}
+
+		//c‚éHP‚ğ”äŠr‚·‚é
+		if (c->GetHp() < weak_chara->GetHp())
+		{
+			weak_chara = c;
+		}
+	}
+
+	return weak_chara;
 }
