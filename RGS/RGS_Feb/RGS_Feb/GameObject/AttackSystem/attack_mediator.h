@@ -12,5 +12,6 @@ namespace AttackSystem
 	{
 	public:
 		virtual void AddAttack(std::shared_ptr<Attack>) = 0;
+		virtual const std::vector<std::shared_ptr<Attack>>& GetAttackList() const = 0;
 	};
 }

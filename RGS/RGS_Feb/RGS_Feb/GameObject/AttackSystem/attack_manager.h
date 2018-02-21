@@ -22,14 +22,15 @@ namespace AttackSystem
 		void Initialize();
 
 		void AddAttack(std::shared_ptr<Attack>);
+		const std::vector<std::shared_ptr<Attack>>& GetAttackList() const { return m_atk_list; }
 		void Update(std::shared_ptr<Character::CharacterManager> chara_mgr);
 		void Draw();
-
-		//attack‚Æcharacter‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
-		bool IsCollision(std::shared_ptr<Attack> atk, std::shared_ptr<Character::CharacterBase> c);
 	private:
 		void AddAttack();
 		void Remove();
+
+		//attack‚Æcharacter‚Ìcollision box‚ğ¶¬‚µ‚Ä”»’è‚·‚é
+		bool IsCollision(const std::shared_ptr<const Attack> atk, const std::shared_ptr<Character::CharacterBase> c);
 
 		std::vector<std::shared_ptr<Attack>> m_atk_list;
 		std::vector<std::shared_ptr<Attack>> m_add_list;

@@ -53,7 +53,7 @@ void AttackManager::Remove()
 	}
 }
 
-bool AttackManager::IsCollision(std::shared_ptr<Attack> atk, std::shared_ptr<Character::CharacterBase> c)
+bool AttackManager::IsCollision(const std::shared_ptr<const Attack> atk, const std::shared_ptr<Character::CharacterBase> c)
 {
 	//ƒLƒƒƒ‰‚Í–³“GŽžŠÔ‚¾‚Á‚½‚çreturn
 	if (c->IsInvincible()) return false;
