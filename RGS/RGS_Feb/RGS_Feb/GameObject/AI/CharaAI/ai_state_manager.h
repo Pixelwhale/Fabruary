@@ -29,15 +29,19 @@ namespace AI
 		///<summary>実機状態を取得できるように設定</summary>
 		void SetCharaInfo(std::shared_ptr<Character::CharacterBase> character);
 
+
 		///<summary>操作したキャラは死んでいるか</summary>
 		bool IsDead();
 
 	private:
+		void CheckDefence(MetaAI* meta_ai);
+
+	private:
 		int m_difficulty;											//強さ
+		bool m_is_defence = false;
 		std::shared_ptr<Character::AiController> m_controller;		//コントローラー
 
 		std::shared_ptr<AiState> m_current_state;					//今の行動パターン
-		std::shared_ptr<AiState> m_previous_state;					//前の行動パターン
 		std::shared_ptr<Character::CharacterBase> m_character;		//操作するキャラ
 	};
 }

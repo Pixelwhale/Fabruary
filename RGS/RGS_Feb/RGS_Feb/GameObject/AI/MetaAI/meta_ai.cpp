@@ -142,3 +142,17 @@ std::shared_ptr<Character::CharacterBase> MetaAI::FindWeak(std::shared_ptr<Chara
 
 	return weak_chara;
 }
+
+bool MetaAI::NeedToDefence(std::shared_ptr<Character::CharacterBase> my_chara) 
+{
+	for (auto &a : m_attack_manager->GetAttackList()) 
+	{
+		if (a->GetSide() == my_chara->GetSide())
+			continue;
+
+		if ((a->GetPosition() - my_chara->GetPosition()).lengthSqrt() < 128 * 128)
+			return true;
+	}
+
+	return false;
+}
