@@ -18,7 +18,8 @@ namespace AI
 	public:
 		Trace(
 			std::shared_ptr<Character::CharacterBase> my_chara,
-			std::shared_ptr<Character::CharacterBase> target);
+			std::shared_ptr<Character::CharacterBase> target,
+			int difficulty);
 		Trace(const Trace&);
 		~Trace();
 
@@ -31,5 +32,7 @@ namespace AI
 	private:
 		std::shared_ptr<Character::CharacterBase> m_character;		//自機
 		std::shared_ptr<Character::CharacterBase> m_target;			//ターゲット
+
+		int m_difficulty;											//AiLevel
 	};
 }

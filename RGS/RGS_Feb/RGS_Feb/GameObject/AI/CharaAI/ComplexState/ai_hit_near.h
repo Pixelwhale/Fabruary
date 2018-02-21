@@ -16,7 +16,7 @@ namespace AI
 	class HitNear : public AiState
 	{
 	public:
-		HitNear(std::shared_ptr<Character::CharacterBase> my_character);
+		HitNear(std::shared_ptr<Character::CharacterBase> my_character, int difficulty);
 		HitNear(const HitNear&);
 		~HitNear();
 
@@ -30,5 +30,7 @@ namespace AI
 
 		std::shared_ptr<AiState> m_trace;							//’Ç”öAi
 		std::shared_ptr<AiState> m_attack;							//UŒ‚Ai
+
+		float m_difficulty;
 	};
 }

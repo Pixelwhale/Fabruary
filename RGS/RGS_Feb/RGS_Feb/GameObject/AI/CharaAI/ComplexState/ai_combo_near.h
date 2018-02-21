@@ -17,7 +17,8 @@ namespace AI
 	{
 	public:
 		ComboNear(std::shared_ptr<Character::CharacterBase> my_character,
-			std::shared_ptr<AiState> attack);
+			std::shared_ptr<AiState> attack,
+			int difficulity);
 		ComboNear(const ComboNear&);
 		~ComboNear();
 
@@ -31,5 +32,7 @@ namespace AI
 
 		std::shared_ptr<AiState> m_trace;							//’Ç”öAi
 		std::shared_ptr<AiState> m_attack;							//UŒ‚Ai
+
+		int m_difficulty;
 	};
 }

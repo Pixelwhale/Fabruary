@@ -6,13 +6,14 @@
 #include <GameObject\AI\CharaAI\ComplexState\ai_combo_near.h>
 #include <GameObject\AI\CharaAI\ComplexState\ai_hit_weak.h>
 #include <GameObject\AI\CharaAI\Move\ai_trace.h>
+#include <GameObject\AI\CharaAI\ComplexState\ai_wait.h>
 #include <GameObject\AI\MetaAI\meta_ai.h>
 
 using namespace AI;
 
 ComboNear::ComboNear(std::shared_ptr<Character::CharacterBase> my_character,
-	std::shared_ptr<AiState> attack)
-	:m_character(my_character), m_attack(attack)
+	std::shared_ptr<AiState> attack, int difficulty)
+	:m_character(my_character), m_attack(attack), m_difficulty(difficulty)
 {
 	m_end_flag = false;
 }
@@ -29,7 +30,7 @@ void ComboNear::GetBattleInfo(MetaAI* meta_ai)
 {
 	m_target = meta_ai->FindNear(m_character);
 
-	m_trace = std::make_shared<Trace>(m_character, m_target);
+	m_trace = std::make_shared<Trace>(m_character, m_target, m_difficulty);
 }
 
 void ComboNear::Update(std::shared_ptr<Character::AiController> controller)
@@ -43,5 +44,10 @@ void ComboNear::Update(std::shared_ptr<Character::AiController> controller)
 
 std::shared_ptr<AiState> ComboNear::NextState(int difficulty)
 {
-	return make_shared<HitWeak>(m_character);
+	int rate = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 9);
+
+	if (rate - difficulty > 0)
+		return make_shared<Wait>(m_character, 2.0f / difficulty);
+
+	return make_shared<HitWeak>(m_character, difficulty);
 }

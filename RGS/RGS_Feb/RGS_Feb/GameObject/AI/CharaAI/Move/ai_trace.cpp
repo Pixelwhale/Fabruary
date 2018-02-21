@@ -10,8 +10,9 @@ using namespace AI;
 
 Trace::Trace(
 	std::shared_ptr<Character::CharacterBase> my_chara,
-	std::shared_ptr<Character::CharacterBase> target)
-	:m_character(my_chara), m_target(target)
+	std::shared_ptr<Character::CharacterBase> target,
+	int difficulty)
+	:m_character(my_chara), m_target(target), m_difficulty(difficulty)
 {
 	m_end_flag = false;
 }
@@ -45,7 +46,7 @@ void Trace::Update(std::shared_ptr<Character::AiController> controller)
 	velocity = velocity.normalize();
 	controller->SetVelocity(velocity);
 
-	if (!InRange(200))					//‹——£‚ª’·‚¢‚Æ‘–‚é
+	if (!InRange(200) && m_difficulty > 4)					//‹——£‚ª’·‚¢‚Æ‘–‚é
 		controller->Run();
 
 	if (InRange(300) &&
@@ -62,5 +63,5 @@ bool Trace::InRange(float distance)
 
 std::shared_ptr<AiState> Trace::NextState(int difficulty)
 {
-	return std::make_shared<Trace>(m_character, m_target);
+	return std::make_shared<Trace>(m_character, m_target, difficulty);
 }

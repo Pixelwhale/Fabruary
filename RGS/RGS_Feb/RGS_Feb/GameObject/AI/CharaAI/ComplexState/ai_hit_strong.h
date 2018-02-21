@@ -16,7 +16,7 @@ namespace AI
 	class HitStrong : public AiState
 	{
 	public:
-		HitStrong(std::shared_ptr<Character::CharacterBase> my_character);
+		HitStrong(std::shared_ptr<Character::CharacterBase> my_character, int difficulty);
 		HitStrong(const HitStrong&);
 		~HitStrong();
 
@@ -31,5 +31,7 @@ namespace AI
 		std::shared_ptr<AiState> m_trace;							//í«îˆAi
 		std::shared_ptr<AiState> m_attack;							//çUåÇAi
 		bool m_can_attack;
+
+		int m_difficulty;
 	};
 }

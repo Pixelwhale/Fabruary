@@ -40,5 +40,5 @@ void Wait::Update(std::shared_ptr<Character::AiController> controller)
 
 std::shared_ptr<AiState> Wait::NextState(int difficulty)
 {
-	return std::make_shared<HitNear>(m_character);
+	return std::make_shared<HitNear>(m_character, difficulty);
 }

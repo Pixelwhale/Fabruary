@@ -13,8 +13,8 @@
 
 using namespace AI;
 
-HitStrong::HitStrong(std::shared_ptr<Character::CharacterBase> my_character)
-	:m_character(my_character), m_can_attack(false)
+HitStrong::HitStrong(std::shared_ptr<Character::CharacterBase> my_character, int difficulty)
+	:m_character(my_character), m_can_attack(false), m_difficulty(difficulty)
 {
 	m_end_flag = false;
 }
@@ -39,7 +39,7 @@ void HitStrong::GetBattleInfo(MetaAI* meta_ai)
 			m_attack = std::make_shared<PunchComboStrong>();
 	}
 
-	m_trace = std::make_shared<Trace>(m_character, m_target);
+	m_trace = std::make_shared<Trace>(m_character, m_target, m_difficulty);
 }
 
 void HitStrong::Update(std::shared_ptr<Character::AiController> controller)
@@ -60,7 +60,7 @@ void HitStrong::Update(std::shared_ptr<Character::AiController> controller)
 std::shared_ptr<AiState> HitStrong::NextState(int difficulty)
 {
 	if (difficulty > 5)
-		return make_shared<HitWeak>(m_character);
+		return make_shared<HitWeak>(m_character, difficulty);
 
-	return make_shared<HitNear>(m_character);
+	return make_shared<HitNear>(m_character, difficulty);
 }

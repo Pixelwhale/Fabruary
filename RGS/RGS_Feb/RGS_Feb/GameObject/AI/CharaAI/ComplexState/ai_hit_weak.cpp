@@ -18,8 +18,8 @@
 
 using namespace AI;
 
-HitWeak::HitWeak(std::shared_ptr<Character::CharacterBase> my_character)
-	:m_character(my_character)
+HitWeak::HitWeak(std::shared_ptr<Character::CharacterBase> my_character, int difficulty)
+	:m_character(my_character), m_difficulty(difficulty)
 {
 	m_end_flag = false;
 }
@@ -42,7 +42,7 @@ void HitWeak::GetBattleInfo(MetaAI* meta_ai)
 		m_attack = std::make_shared<NormalPunch>(m_character, m_target, punch_count);
 	}
 
-	m_trace = std::make_shared<Trace>(m_character, m_target);
+	m_trace = std::make_shared<Trace>(m_character, m_target, m_difficulty);
 }
 
 void HitWeak::Update(std::shared_ptr<Character::AiController> controller)
@@ -59,47 +59,47 @@ void HitWeak::Update(std::shared_ptr<Character::AiController> controller)
 std::shared_ptr<AiState> HitWeak::NextState(int difficulty)
 {
 	if (m_target->IsDead())
-		return make_shared<HitWeak>(m_character);
+		return make_shared<HitWeak>(m_character, difficulty);
 
 	std::shared_ptr<AiState> attack = std::make_shared<NormalKick>(m_character, m_target);
 
 	if (difficulty < 3)
-		return make_shared<ComboNear>(m_character, attack);
+		return make_shared<ComboNear>(m_character, attack, difficulty);
 
 	float rate = Device::GameDevice::GetInstance()->GetRandom()->NextDouble();
 
 	if (rate < 0.1f)
-		return make_shared<HitNear>(m_character);
+		return make_shared<HitNear>(m_character, difficulty);
 
 	if (m_character->GetMp() > 300 && rate < 0.2f)
 	{
 		attack = std::make_shared<PunchComboWeak>();
-		return make_shared<ComboNear>(m_character, attack);
+		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
 	if (m_character->GetMp() > 300 && rate < 0.4f)
 	{
 		attack = std::make_shared<KickComboWeak>();
-		return make_shared<ComboNear>(m_character, attack);
+		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
 	if (difficulty > 7 && m_character->GetMp() > 1500
 		&& m_character->GetHp() > 60)
 	{
-		return make_shared<HitStrong>(m_character);
+		return make_shared<HitStrong>(m_character, difficulty);
 	}
 
 	if (m_character->GetMp() > 1500 && rate > 0.9f)
 	{
 		attack = std::make_shared<KickComboStrong>();
-		return make_shared<ComboNear>(m_character, attack);
+		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
 	if (m_character->GetMp() > 1500 && rate > 0.8f)
 	{
 		attack = std::make_shared<PunchComboStrong>();
-		return make_shared<ComboNear>(m_character, attack);
+		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
-	return make_shared<HitWeak>(m_character);
+	return make_shared<HitWeak>(m_character, difficulty);
 }

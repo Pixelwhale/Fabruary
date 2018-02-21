@@ -16,7 +16,7 @@ namespace AI
 	class HitWeak : public AiState
 	{
 	public:
-		HitWeak(std::shared_ptr<Character::CharacterBase> my_character);
+		HitWeak(std::shared_ptr<Character::CharacterBase> my_character, int difficulty);
 		HitWeak(const HitWeak&);
 		~HitWeak();
 
@@ -30,5 +30,6 @@ namespace AI
 
 		std::shared_ptr<AiState> m_trace;							//’Ç”öAi
 		std::shared_ptr<AiState> m_attack;							//UŒ‚Ai
+		int m_difficulty;
 	};
 }
