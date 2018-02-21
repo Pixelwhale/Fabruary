@@ -31,24 +31,22 @@ std::string Business::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack
 		plus.x *= -1;
 	}
 
-	if (m_punch_count == 0)
+	switch (m_punch_count)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 100, 0, 0, 20, 0.4f));
+	case 0 :
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 20, 0.4f));
 		m_punch_count++;
 		return base_animation + "punch_3";
-	}
-	else if (m_punch_count == 1)
-	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 20, 0.4));
+	case 1 :
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 13, 0, 0, 20, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_4";
-	}
-	else if (m_punch_count == 2)
-	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 30, 0.4));
+	case 2 :
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(33, 33, 33), m_side, 15, 1, 1, 30, 0.4));
 		m_punch_count++;
 		return base_animation + "punch_6";
 	}
+
 	return base_animation + "idle";
 }
 
@@ -60,7 +58,7 @@ std::string Business::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 300, 0, 0, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(40, 40, 40), m_side, 35, 0, 0, 40, 0.4));
 	return base_animation + "kick_1";
 }
 
