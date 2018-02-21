@@ -75,13 +75,13 @@ std::shared_ptr<AiState> HitNear::NextState(int difficulty)
 		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
-	if (m_character->GetMp() > 1500 && rate > 0.9f)
+	if (m_character->GetMp() > 1500 && rate > 0.95f)
 	{
 		attack = std::make_shared<KickComboStrong>();
 		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
-	if (m_character->GetMp() > 1500 && rate > 0.8f)
+	if (m_character->GetMp() > 1500 && rate > 0.9f)
 	{
 		attack = std::make_shared<PunchComboStrong>();
 		return make_shared<ComboNear>(m_character, attack, difficulty);

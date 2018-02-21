@@ -37,7 +37,7 @@ void NormalPunch::GetBattleInfo(MetaAI* meta_ai)
 
 void NormalPunch::Update(std::shared_ptr<Character::AiController> controller) 
 {
-	if (m_character == NULL) 
+	if (m_target == NULL) 
 	{
 		m_end_flag = true;
 		return;

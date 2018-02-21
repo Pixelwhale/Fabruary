@@ -29,7 +29,7 @@ void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobB
 		m_character_manager->Add(
 			position, side, ai->Controller(), job, m_attack_manager);
 
-	ai->SetCharaInfo(character);											//AI‚É”C‚·
+	ai->SetCharaInfo(character);										//AI‚É”C‚·
 
 	m_ai.push_back(ai);													//List‚É’Ç‰Á
 }
