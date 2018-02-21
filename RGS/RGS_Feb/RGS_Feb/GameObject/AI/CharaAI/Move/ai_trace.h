@@ -1,7 +1,7 @@
 //-------------------------------------------------------------
 // 作成者：林佳叡
-// 作成日：2018.2.19
-// 内容　：指定の場所を向くAiState
+// 作成日：2018.2.21
+// 内容　：特定のキャラを追尾するAiState
 //-------------------------------------------------------------
 #pragma once
 #include <GameObject\AI\CharaAI\ai_state.h>
@@ -13,14 +13,14 @@ namespace Character
 
 namespace AI
 {
-	class HeadDestination : public AiState
+	class Trace : public AiState
 	{
 	public:
-		HeadDestination(
+		Trace(
 			std::shared_ptr<Character::CharacterBase> my_chara,
-			Math::Vector3 destination);
-		HeadDestination(const HeadDestination&);
-		~HeadDestination();
+			std::shared_ptr<Character::CharacterBase> target);
+		Trace(const Trace&);
+		~Trace();
 
 		virtual void GetBattleInfo(std::shared_ptr<MetaAI> meta_ai);
 		virtual void Update(std::shared_ptr<Character::AiController> controller);
@@ -30,6 +30,6 @@ namespace AI
 
 	private:
 		std::shared_ptr<Character::CharacterBase> m_character;		//自機
-		Math::Vector3 m_destination;								//目標地
+		std::shared_ptr<Character::CharacterBase> m_target;			//ターゲット
 	};
 }
