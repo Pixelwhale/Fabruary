@@ -56,6 +56,7 @@ namespace Character
 		int		m_mp;
 		int		m_knock_value;		//“|‚ê’l
 		int		m_knock_cnt;		//ˆê’èŠÔUŒ‚‚ğó‚¯‚È‚¢‚Æ“|‚ê’l‚ª‰º‚ª‚é
+		int		m_velocity_y;		//jump
 		float	m_speed;
 		int		m_id;
 

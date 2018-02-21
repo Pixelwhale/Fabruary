@@ -4,6 +4,7 @@
 // 内容　：キャラクターのベースクラス
 //-------------------------------------------------------
 #include <Character\character_base.h>
+#include <Device\game_device.h>
 
 using namespace Character;
 
@@ -54,6 +55,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_speed = 4;
 	m_knock_value = 0;
 	m_knock_cnt = 0;
+	m_velocity_y = 0;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -75,6 +77,7 @@ void CharacterBase::Update()
 	MotionUpdate(); //モーションの更新
 	StateUpdate();	//状態の更新
 	KnockCntUpdate();//倒れ値カウント更新
+	m_job->Update();//Jobの更新
 	//死亡更新
 	if (m_hp <= 0)
 	{
@@ -121,13 +124,15 @@ void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRi
 	if (m_knock_value > m_job->KnockValue())
 	{
 		m_state = CharacterState::kKnockDown;
-		m_motion->Play("chara_base_anime/knock_down");
+		m_motion->Play("chara_base_anime/knock_down",1);
+		m_isStop = true;
 		m_knock_value = 0;
 	}
 	else
 	{
 		m_state = CharacterState::kKnockBack;
-		m_motion->Play("chara_base_anime/damage");
+		m_motion->Play("chara_base_anime/damage",1);
+		m_isStop = true;
 	}
 }
 
@@ -137,14 +142,14 @@ void CharacterBase::Attack()
 	//パンチ
 	if (m_controller->IsPunchTrigger())
 	{
-		m_motion->Play(m_job->Punch(m_attack_mediator, m_position, m_isRight));
+		m_motion->Play(m_job->Punch(m_attack_mediator, m_position, m_isRight),1);
 		m_state = CharacterState::kPunch;
 		m_isStop = true;
 	}
 	//キック
 	if (m_controller->IsKickTrigger())
 	{
-		m_motion->Play(m_job->Kick(m_attack_mediator, m_position, m_isRight));
+		m_motion->Play(m_job->Kick(m_attack_mediator, m_position, m_isRight),1);
 		m_state = CharacterState::kKick;
 		m_isStop = true;
 	}
@@ -152,6 +157,7 @@ void CharacterBase::Attack()
 	if (m_controller->IsDefence())
 	{
 		m_state = CharacterState::kDefence;
+		m_motion->Play("chara_base_anime/defence", 1);
 		m_isStop = true;
 
 	}
@@ -162,6 +168,7 @@ void CharacterBase::Attack()
 void CharacterBase::Draw()
 {
 	m_motion->Draw();
+	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(m_velocity.y, Math::Vector2(100, 0));
 }
 
 //モーションの更新
@@ -169,30 +176,16 @@ void CharacterBase::MotionUpdate()
 {
 	m_motion->Update();
 
-	if (m_velocity.lengthSqrt() != 0 && m_state == CharacterState::kIdle)
+	//向き
+	if (m_velocity.x > 0)
 	{
-		//歩き
-		m_state = CharacterState::kWalk;
-		m_motion->Play("chara_base_anime/walk");
-
-		//向き
-		if (m_velocity.x > 0)
-		{
-			m_motion->Flip(true, false);
-			m_isRight = true;
-		}
-		if (m_velocity.x < 0)
-		{
-			m_motion->Flip(false, false);
-			m_isRight = false;
-		}
+		m_isRight = true;
 	}
-	else
+	if (m_velocity.x < 0)
 	{
-		m_motion->Play("chara_base_anime/idle");
-		m_motion->Flip(m_isRight, false);
+		m_isRight = false;
 	}
-
+	m_motion->Flip(m_isRight, false);
 	m_motion->SetPosition(m_position);
 }
 
@@ -203,26 +196,47 @@ void CharacterBase::MoveUpdate()
 	if (!m_isStop)
 	{
 		m_velocity = m_controller->Velocity();
+		m_velocity.y = m_velocity_y;
 	}
-	if (m_controller->IsJumpTrigger())
+	
+	m_speed = 4;
+	if (m_velocity.lengthSqrt() != 0 && !m_isStop)
+	{
+		//run
+		if (m_controller->IsRun())
+		{
+			m_state = CharacterState::kRun;
+			m_motion->Play("chara_base_anime/run");
+			m_speed = 8;
+		}
+		else
+		{
+			//歩き
+			m_state = CharacterState::kWalk;
+			m_motion->Play("chara_base_anime/walk");
+			m_speed = 4;
+		}
+	}
+	else if (m_velocity.lengthSqrt() == 0 && !m_isStop)
+	{
+		m_motion->Play("chara_base_anime/idle");
+	}
+	
+
+	//jump
+	if (m_controller->IsJumpTrigger() && !m_isJump)
 	{
 		m_state = CharacterState::kJump;
-		m_motion->Play("chara_base_anime/jump");
+		m_motion->Play("chara_base_anime/jump",1);
 		m_isJump = true;
-		m_velocity.y = 3;
+		m_velocity_y = 30;
+	}
+	if (m_position.y <= 0)
+	{
+		m_isJump = false;
+		m_velocity_y = 0;
 	}
 
-	m_speed = 4;
-	if (m_controller->IsRun() && m_velocity.lengthSqrt() != 0)
-	{
-		m_state = CharacterState::kRun;
-		m_motion->Play("chara_base_anime/run");
-		m_speed = 8;
-	}
-	else
-	{
-		m_speed = 4;
-	}
 	m_position += m_velocity * m_speed;
 }
 
@@ -249,21 +263,17 @@ void CharacterBase::StateUpdate()
 		m_isInvincible = false;
 	}
 
-	//待機、歩き、走る状態じゃないと、モーションが終わったら、待機状態に
-	if (m_state != CharacterState::kIdle &&
-		m_state != CharacterState::kRun	 &&
-		m_state != CharacterState::kWalk )
+	//モーションが終わったら、待機状態に
+	if (m_isStop)
 	{
-		
+		m_velocity = Math::Vector3(0, 0, 0);
 		if (m_motion->IsCurrentMotionEnd())
 		{
 			m_state = CharacterState::kIdle;
-			m_velocity = Math::Vector3(0, 0, 0);
-			m_isStop = false;
 			m_motion->Play("chara_base_anime/idle");
+			m_isStop = false;
 		}
 	}
-
 }
 
 
