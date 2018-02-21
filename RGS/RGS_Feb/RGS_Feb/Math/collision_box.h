@@ -17,7 +17,7 @@ namespace Math
 		bool CheckX(const CollisionBox& other) const;
 		bool CheckY(const CollisionBox& other) const;
 		bool CheckZ(const CollisionBox& other) const;
-		Vector3& m_min;
-		Vector3& m_max;
+		Vector3 m_min;
+		Vector3 m_max;
 	};
 }
