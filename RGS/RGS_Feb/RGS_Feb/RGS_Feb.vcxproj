@@ -172,7 +172,11 @@
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_combo_near.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_strong.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_weak.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_wait.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Defence\ai_defence.cpp" />
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
@@ -320,7 +324,11 @@
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_combo_near.h" />
     <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_strong.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_weak.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_wait.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Defence\ai_defence.h" />
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
