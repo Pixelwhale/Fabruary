@@ -56,7 +56,7 @@ void HitNear::Update(std::shared_ptr<Character::AiController> controller)
 
 std::shared_ptr<AiState> HitNear::NextState(int difficulty)
 {
-	if (m_target->IsDead())
+	if (m_target == NULL || m_target->IsDead())
 		return make_shared<HitNear>(m_character, difficulty);
 
 	std::shared_ptr<AiState> attack = std::make_shared<NormalKick>(m_character, m_target);

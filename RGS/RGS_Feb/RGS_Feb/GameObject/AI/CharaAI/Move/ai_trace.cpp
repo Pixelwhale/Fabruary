@@ -37,7 +37,7 @@ void Trace::Update(std::shared_ptr<Character::AiController> controller)
 		return;
 	}
 
-	if (InRange(30))					//‹ß‚·‚¬‚é‚ÆI—¹
+	if (InRange(100))					//‹ß‚·‚¬‚é‚ÆI—¹
 	{
 		controller->SetVelocity(Math::Vector3());
 		m_end_flag = true;

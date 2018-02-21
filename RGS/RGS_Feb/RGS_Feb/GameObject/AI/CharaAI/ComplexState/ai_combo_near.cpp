@@ -44,10 +44,10 @@ void ComboNear::Update(std::shared_ptr<Character::AiController> controller)
 
 std::shared_ptr<AiState> ComboNear::NextState(int difficulty)
 {
-	int rate = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 9);
+	int priority = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
+	priority *= difficulty;
+	if (priority > 8 * 3)											//“ïˆÕ“x8 2/5‚ÌŠm—¦
+		return make_shared<HitWeak>(m_character, difficulty);
 
-	if (rate - difficulty > 0)
-		return make_shared<Wait>(m_character, 2.0f / difficulty);
-
-	return make_shared<HitWeak>(m_character, difficulty);
+	return make_shared<Wait>(m_character, 2.0f / difficulty);
 }

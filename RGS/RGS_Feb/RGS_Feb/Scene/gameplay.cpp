@@ -28,8 +28,13 @@ void GamePlay::Initialize(SceneType previous)
 	m_character_manager->Add(Math::Vector3(), Side::kTeam1, make_shared<Character::KeyboardController>(), make_shared<Job::Programmer>(Side::kTeam1), m_attack_manager);
 
 	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
-	m_meta_ai->AddCom(Math::Vector3(400, 0, 0), Side::kTeam2, make_shared<Job::Programmer>(Side::kTeam2), 1);
-	m_meta_ai->AddCom(Math::Vector3(-400, 0, 0), Side::kTeam3, make_shared<Job::Programmer>(Side::kTeam3), 1);
+	m_meta_ai->AddCom(Math::Vector3(400, 0, 20), Side::kTeam3, make_shared<Job::Programmer>(Side::kTeam3), 2);
+	m_meta_ai->AddCom(Math::Vector3(420, 0, 20), Side::kTeam3, make_shared<Job::Programmer>(Side::kTeam3), 2);
+	m_meta_ai->AddCom(Math::Vector3(440, 0, 20), Side::kTeam3, make_shared<Job::Programmer>(Side::kTeam3), 5);
+	m_meta_ai->AddCom(Math::Vector3(-400, 0, -20), Side::kTeam2, make_shared<Job::Programmer>(Side::kTeam2), 9);
+	m_meta_ai->AddCom(Math::Vector3(-420, 0, -20), Side::kTeam2, make_shared<Job::Programmer>(Side::kTeam2), 9);
+	m_meta_ai->AddCom(Math::Vector3(-430, 0, -20), Side::kTeam2, make_shared<Job::Programmer>(Side::kTeam2), 8);
+	m_meta_ai->AddCom(Math::Vector3(0, 0, -100), Side::kTeam4, make_shared<Job::Programmer>(Side::kTeam4), 6);
 }
 
 void GamePlay::Update()
@@ -37,6 +42,8 @@ void GamePlay::Update()
 	m_meta_ai->Update();
 	m_character_manager->Update();
 	m_attack_manager->Update(m_character_manager);
+
+	CheckEnd();
 }
 
 void GamePlay::CheckEnd() 
@@ -44,7 +51,7 @@ void GamePlay::CheckEnd()
 	if (m_character_manager->GetEnd()) 
 	{
 		m_is_end = true;
-		m_next = SceneType::kGamePlay;
+		m_next = SceneType::kTitle;
 	}
 }
 

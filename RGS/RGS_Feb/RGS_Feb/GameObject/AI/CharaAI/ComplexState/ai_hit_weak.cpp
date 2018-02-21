@@ -15,6 +15,7 @@
 #include <GameObject\AI\MetaAI\meta_ai.h>
 #include <GameObject\AI\CharaAI\ComplexState\ai_combo_near.h>
 #include <GameObject\AI\CharaAI\ComplexState\ai_hit_strong.h>
+#include <GameObject\AI\CharaAI\ComplexState\ai_wait.h>
 
 using namespace AI;
 
@@ -58,7 +59,7 @@ void HitWeak::Update(std::shared_ptr<Character::AiController> controller)
 
 std::shared_ptr<AiState> HitWeak::NextState(int difficulty)
 {
-	if (m_target->IsDead())
+	if (m_target == NULL || m_target->IsDead())
 		return make_shared<HitWeak>(m_character, difficulty);
 
 	std::shared_ptr<AiState> attack = std::make_shared<NormalKick>(m_character, m_target);
@@ -69,7 +70,7 @@ std::shared_ptr<AiState> HitWeak::NextState(int difficulty)
 	float rate = Device::GameDevice::GetInstance()->GetRandom()->NextDouble();
 
 	if (rate < 0.1f)
-		return make_shared<HitNear>(m_character, difficulty);
+		return make_shared<Wait>(m_character, 1.5f / difficulty);
 
 	if (m_character->GetMp() > 300 && rate < 0.2f)
 	{
@@ -83,7 +84,7 @@ std::shared_ptr<AiState> HitWeak::NextState(int difficulty)
 		return make_shared<ComboNear>(m_character, attack, difficulty);
 	}
 
-	if (difficulty > 7 && m_character->GetMp() > 1500
+	if (difficulty > 6 && m_character->GetMp() > 1500
 		&& m_character->GetHp() > 60)
 	{
 		return make_shared<HitStrong>(m_character, difficulty);
