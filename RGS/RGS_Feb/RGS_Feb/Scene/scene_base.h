@@ -17,8 +17,8 @@ namespace Scene
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 		virtual void Shutdown() = 0;
-		bool IsEnd() { return m_is_end; };
-		SceneType Next() { return m_next; };
+		bool IsEnd() const { return m_is_end; };
+		SceneType Next() const { return m_next; };
 	protected:
 		std::shared_ptr<Device::Renderer> m_renderer;
 		std::shared_ptr<Core::InputState> m_input;

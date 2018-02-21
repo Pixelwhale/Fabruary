@@ -23,7 +23,7 @@ namespace Scene
 		SceneType m_current_type;
 		std::weak_ptr<SceneBase> m_current_scene;
 		
-		void Add(SceneType type, std::shared_ptr<SceneBase> scene);
+		void Add(SceneType type, const std::shared_ptr<SceneBase> scene);
 		void Change(SceneType type);
 	};
 }
