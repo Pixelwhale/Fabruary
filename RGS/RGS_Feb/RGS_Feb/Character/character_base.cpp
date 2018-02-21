@@ -348,10 +348,10 @@ void CharacterBase::MoveUpdate()
 //à íuÇÃçXêV
 void CharacterBase::PositionUpdate()
 {
-	Math::Vector3 min = Math::Vector3(-WindowDef::kScreenWidth / 2 + Size::kCharaX / 2, -5, 
-										Size::kCharaZ / 2);
-	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 2,  Size::kCharaY * 2,
-								      WindowDef::kScreenHeight  / 2- Size::kCharaZ / 2);
+	Math::Vector3 min = Math::Vector3(-WindowDef::kScreenWidth / 2 + Size::kCharaX / 12, -5, 
+										-WindowDef::kScreenHeight / 2  - Size::kCharaZ);
+	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 12,  Size::kCharaY * 2,
+								      WindowDef::kScreenHeight / 2);
 
 	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
 
