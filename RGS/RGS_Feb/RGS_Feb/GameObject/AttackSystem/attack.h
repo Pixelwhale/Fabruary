@@ -24,23 +24,23 @@ namespace AttackSystem
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 
-		Math::CollisionBox GetBox()
+		Math::CollisionBox GetBox() const
 		{
 			return Math::CollisionBox(m_position - m_size / 2, m_position + m_size / 2);
 		}
 
-		float GetPositionX() { return m_position.x; }
-		Side GetSide() { return m_side; }
-		int GetAtk() { return m_atk; }
-		int GetKnockBack() { return m_knockback; }
-		int GetKnockDown() { return m_knockdown; }
+		const Math::Vector3& GetPosition() const { return m_position; }
+		Side GetSide() const { return m_side; }
+		int GetAtk() const { return m_atk; }
+		int GetKnockBack() const { return m_knockback; }
+		int GetKnockDown() const { return m_knockdown; }
 
 		//èdï°îªíËÇ…Ç©Ç©ÇÌÇÈ
-		bool IsRepeat() { return m_repeat_hit; }
+		bool IsRepeat() const { return m_repeat_hit; }
 		void AddID(int ID) { m_attacked_list.push_back(ID); }
-		std::vector<int>& GetAttackedList() { return m_attacked_list; }
+		const std::vector<int>& GetAttackedList() const { return m_attacked_list; }
 
-		bool IsEnd() { return m_is_end; }
+		bool IsEnd() const { return m_is_end; }
 
 	protected:
 		//CollisionBoxÇÃê∂ê¨óp
