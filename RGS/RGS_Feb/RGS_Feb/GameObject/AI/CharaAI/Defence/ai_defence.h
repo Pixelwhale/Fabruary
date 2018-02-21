@@ -5,13 +5,14 @@
 //-------------------------------------------------------------
 #pragma once
 #include <GameObject\AI\CharaAI\ai_state.h>
+#include <Utility\timer.h>
 
 namespace AI
 {
 	class Defence : public AiState
 	{
 	public:
-		Defence();
+		Defence(std::shared_ptr<AiState> last_state, int difficulty);
 		Defence(const Defence&);
 		~Defence();
 
@@ -20,5 +21,7 @@ namespace AI
 		virtual std::shared_ptr<AiState> NextState(int difficulty);
 
 	private:
+		std::shared_ptr<AiState> m_last_state;		//‘O‚Ìó‘Ô
+		Utility::Timer m_timer;						//”½‰ŠÔ
 	};
 }

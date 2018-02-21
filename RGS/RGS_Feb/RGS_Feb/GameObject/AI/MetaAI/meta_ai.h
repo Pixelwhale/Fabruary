@@ -34,6 +34,8 @@ namespace AI
 		std::shared_ptr<Character::CharacterBase> FindStrong(std::shared_ptr<Character::CharacterBase> my_chara);
 		std::shared_ptr<Character::CharacterBase> FindWeak(std::shared_ptr<Character::CharacterBase> my_chara);
 
+		bool NeedToDefence(std::shared_ptr<Character::CharacterBase> my_chara);
+
 	private:
 		std::shared_ptr<Character::CharacterManager> m_character_manager;	//キャラクター管理者
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_manager;		//攻撃管理者

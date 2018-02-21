@@ -5,6 +5,8 @@
 //-------------------------------------------------------------
 #include <GameObject\AI\CharaAI\ai_state_manager.h>
 #include <GameObject\AI\CharaAI\ComplexState\ai_wait.h>
+#include <GameObject\AI\MetaAI\meta_ai.h>
+#include <GameObject\AI\CharaAI\Defence\ai_defence.h>
 #include <Character\character_base.h>
 
 using namespace AI;
@@ -30,6 +32,7 @@ void AiStateManager::Update(MetaAI* meta_ai)
 {
 	m_controller->Update();									//キーを先に更新
 
+	CheckDefence(meta_ai);
 	m_current_state->GetBattleInfo(meta_ai);				//戦場情報を与える
 	m_current_state->Update(m_controller);					//AI思考
 	
@@ -53,4 +56,18 @@ void AiStateManager::SetCharaInfo(std::shared_ptr<Character::CharacterBase> char
 bool AiStateManager::IsDead()
 {
 	return m_character->IsDead();
+}
+
+void AiStateManager::CheckDefence(MetaAI* meta_ai)
+{
+	if (meta_ai->NeedToDefence(m_character) && !m_is_defence) 
+	{
+		m_current_state = std::make_shared<Defence>(m_current_state, m_difficulty);
+		m_is_defence = true;
+	}
+	else if(m_is_defence)
+	{
+		m_current_state = m_current_state->NextState(m_difficulty);
+		m_is_defence = false;
+	}
 }

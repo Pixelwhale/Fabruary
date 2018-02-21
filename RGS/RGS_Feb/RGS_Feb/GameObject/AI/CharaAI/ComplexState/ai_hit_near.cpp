@@ -61,9 +61,6 @@ std::shared_ptr<AiState> HitNear::NextState(int difficulty)
 
 	std::shared_ptr<AiState> attack = std::make_shared<NormalKick>(m_character, m_target);
 
-	if(difficulty < 3)
-		return make_shared<ComboNear>(m_character, attack);
-
 	float rate = Device::GameDevice::GetInstance()->GetRandom()->NextDouble();
 
 	if (m_character->GetMp() > 300 && rate < 0.2f) 
