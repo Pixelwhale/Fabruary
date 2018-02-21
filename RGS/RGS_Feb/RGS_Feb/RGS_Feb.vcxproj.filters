@@ -186,6 +186,15 @@
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_stay.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\AI\MetaAI\meta_ai.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\AI\CharaAI\Defence\ai_defence.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\application.h">
@@ -660,6 +669,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_trace.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_stay.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\AI\CharaAI\Defence\ai_defence.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
