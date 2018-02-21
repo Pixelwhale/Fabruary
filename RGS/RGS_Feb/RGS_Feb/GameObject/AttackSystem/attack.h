@@ -29,7 +29,7 @@ namespace AttackSystem
 	class Attack
 	{
 	public:
-		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int atk, int knockdown, int knockback, int dbreak, int cool_down = -1, Direction from = kCenter);
+		Attack(Math::Vector3 position, Math::Vector3 size, Side side, int dmg, int knockdown, int knockback, int dbreak, int cool_down = -1, Direction source_dir = kCenter);
 
 		//キャラに当たる後Attack自身のリアクション
 		//Attacksを後はAttackManagerに入れる。
@@ -60,7 +60,7 @@ namespace AttackSystem
 		void AddID(int id) { m_attacked_list.push_back(Attacked(id, m_cool_down)); }
 		const std::vector<Attacked>& GetAttackedList() const { return m_attacked_list; }
 
-		Direction GetSourceDirection() const { return m_source_direction; }
+		Direction GetSourceDir() const { return m_source_dir; }
 
 		bool IsEnd() const { return m_is_end; }
 
@@ -71,7 +71,7 @@ namespace AttackSystem
 
 		Side m_side;
 
-		int m_atk;			//攻撃力
+		int m_dmg;			//攻撃力
 		int m_knockback;	//撃退の距離
 		int m_knockdown;	//倒れる値
 		int m_break;		//防御を崩れる値
@@ -81,6 +81,6 @@ namespace AttackSystem
 		int m_cool_down;		//キャラはフレームことに判定する。重複判定しないスキルは-1に設定する
 		std::vector<Attacked> m_attacked_list;
 
-		Direction m_source_direction;
+		Direction m_source_dir;
 	};
 }
