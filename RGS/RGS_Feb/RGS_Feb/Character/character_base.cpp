@@ -36,10 +36,13 @@ void CharacterBase::Initialize(Math::Vector3 position)
 {
 	m_position = position;
 	m_hp = m_job->GetHp();
-	m_mp = 0;
+	m_mp = 3000;
 	m_speed = 4;
 	m_knock_value = 0;
 	m_knock_cnt = 0;
+	m_skill_num = 0;
+	m_skill_cnt = 0;
+	m_defence_value = 0;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -58,9 +61,10 @@ void CharacterBase::Initialize(Math::Vector3 position)
 void CharacterBase::Update()
 {
 	Attack();		//攻撃
+	Skill();		//スキール
 	MoveUpdate();	//移動更新
 	JumpUpdate();	//Jump更新
-	GageUpdate();	//ゲージ更新
+	MpUpdate();	//ゲージ更新
 	MotionUpdate(); //モーションの更新
 	StateUpdate();	//状態の更新
 	KnockCntUpdate();//倒れ値カウント更新
@@ -78,44 +82,49 @@ void CharacterBase::Update()
 void CharacterBase::Draw()
 {
 	m_motion->Draw();
-	
 }
 
 
 //あたり判定
-void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRight)
+void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
-	if (m_state == CharacterState::kDefence && m_isRight == fromRight)
+	if (atk.GetSourceDir())
 	{
-		return;
+		m_velocity.x = -atk.GetKnockBack();
 	}
-
+	else if (!atk.GetSourceDir())
+	{
+		m_velocity.x = atk.GetKnockBack();
+	}
 	m_knock_cnt = 0;
 	m_isStop = true;
-	m_hp -= damage;
-	m_knock_value += knockBack;
 
-	if (fromRight)
+	//防御の時
+	if (m_state == CharacterState::kDefence && 
+		m_isRight == atk.GetSourceDir() && 
+		m_defence_value < 100)
 	{
-		m_velocity.x = -knockBack;
-	}
-	else if (!fromRight)
-	{
-		m_velocity.x = knockBack;
-	}
-	//倒れ値を超えたら、倒れる
-	if (m_knock_value > m_job->KnockValue())
-	{
-		m_state = CharacterState::kKnockDown;
-		m_motion->Play("chara_base_anime/knock_down",1);
-		m_isStop = true;
-		m_knock_value = 0;
+		m_defence_value += 20;		//引数で受ける
 	}
 	else
 	{
-		m_state = CharacterState::kKnockBack;
-		m_motion->Play("chara_base_anime/damage",1);
-		m_isStop = true;
+		//倒れ値を超えたら、倒れる
+		if (m_knock_value > m_job->KnockValue())
+		{
+			m_state = CharacterState::kKnockDown;
+			m_motion->Play("chara_base_anime/knock_down",1);
+			m_hp -= atk.GetDamage();
+			m_knock_value = 0;
+			m_defence_value = 0;
+		}
+		else
+		{
+			m_state = CharacterState::kKnockBack;
+			m_motion->Play("chara_base_anime/damage",1);
+			m_hp -= atk.GetDamage();
+			m_knock_value += atk.GetKnockDown();
+			m_defence_value = 0;
+		}
 	}
 }
 
@@ -146,7 +155,102 @@ void CharacterBase::Attack()
 		m_isStop = true;
 
 	}
+}
+
+//スキール
+void CharacterBase::Skill()
+{
+	m_skill_cnt--;
+	if (m_skill_cnt <= 0)
+	{
+		m_skill_num = 0;
+	}
+
+	//小技
+	if (m_controller->IsPunchTrigger() && 
+		(m_skill_num == 0 || m_skill_num == 5))
+	{
+		m_skill_num = 1;
+		m_skill_cnt = 60;
+	}
+		
+	if (m_controller->IsPunchTrigger() && 
+		m_skill_num == 1 && 
+		m_skill_cnt > 0)
+	{
+		m_skill_num	 = 2;
+	}
+	if (m_controller->IsDefence() && 
+		m_skill_num == 2 &&
+		m_skill_cnt > 0)
+	{
+		m_skill_num = 3;
+	}
+	if (m_controller->IsPunchTrigger()&&
+		m_skill_num == 3 &&
+		m_skill_cnt > 0 &&
+		m_mp >= 300)
+	{
+		//パンチの小技
+		m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kPunch_1;
+		m_isStop = true;
+		m_skill_num = 0;
+		m_mp -= 300;
+	}
+	if (m_controller->IsKickTrigger() &&
+		m_skill_num == 3 &&
+		m_skill_cnt > 0 &&
+		m_mp >= 300)
+	{
+		//キックの小技
+		m_motion->Play(m_job->Skill3(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kKick_1;
+		m_isStop = true;
+		m_skill_num = 0;
+		m_mp -= 300;
+	}
 	
+
+	//大技
+	if (m_controller->IsDefence() && 
+		(m_skill_num == 0 || m_skill_num ==1))
+	{
+		m_skill_num = 5;
+		m_skill_cnt = 60;
+	}
+	
+	if (m_controller->IsRun() &&
+		m_skill_num == 5 &&
+		m_skill_cnt > 0)
+	{
+		m_skill_num = 6;
+	}
+	if (m_controller->IsPunchTrigger() && 
+		m_skill_num == 6 &&
+		m_skill_cnt > 0 &&
+		m_mp >= 1500)
+	{
+		//パンチの大技
+		m_motion->Play(m_job->Skill2(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kPunch_2;
+		m_isStop = true;
+		m_skill_num = 0;
+		m_mp -= 1500;
+	}
+	if (m_controller->IsKickTrigger() && 
+		m_skill_num == 6 &&
+		m_skill_cnt > 0 &&
+		m_mp >= 1500)
+	{
+		//キックの大技
+		m_motion->Play(m_job->Skill4(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kKick_2;
+		m_isStop = true;
+		m_skill_num = 0;
+		m_mp -= 1500;
+	}
+
 }
 
 //倒れ値カウント更新
@@ -243,7 +347,7 @@ void CharacterBase::JumpUpdate()
 }
 
 //ゲージ更新
-void CharacterBase::GageUpdate()
+void CharacterBase::MpUpdate()
 {
 	++m_mp;
 	if (m_mp >= 6000)
@@ -290,7 +394,7 @@ void CharacterBase::StateUpdate()
 #pragma endregion
 
 
-// Get、Set関連
+//Get、Set関連
 
 //向きを返す
 bool CharacterBase::IsRight()
@@ -321,6 +425,12 @@ int CharacterBase::GetHp()
 int CharacterBase::GetMp()
 {
 	return m_mp;
+}
+
+//MaxMpの取得
+int CharacterBase::GetMaxHp()
+{
+	return m_job->GetHp();
 }
 
 //位置の取得
