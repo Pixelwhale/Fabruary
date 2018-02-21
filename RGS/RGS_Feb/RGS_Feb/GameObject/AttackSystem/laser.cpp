@@ -8,8 +8,8 @@
 
 using namespace AttackSystem;
 
-Laser::Laser(Math::Vector3 first_position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, Math::Vector3 added_position, Math::Vector3 added_size, float life_span_timer)
-	: Attack (first_position, size, side, attack, knockdown, knockback), m_life_span_timer(life_span_timer)
+Laser::Laser(Math::Vector3 first_position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, Math::Vector3 added_position, Math::Vector3 added_size, float life_span_timer)
+	: Attack (first_position, size, side, attack, knockdown, knockback, dbreak), m_life_span_timer(life_span_timer)
 {
 	m_added_position = added_position;
 	m_added_size = added_size;

@@ -23,7 +23,7 @@ namespace AttackSystem
 		///<param name = "added position">前に動かせるため</param>
 		///<param name = "added size">サイズが変更できるため</param>
 		///<param name = "life span">何秒に実現させるのか？</param>
-		Laser(Math::Vector3 first_position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, Math::Vector3 added_position, Math::Vector3 added_size, float life_span_timer);
+		Laser(Math::Vector3 first_position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, Math::Vector3 added_position, Math::Vector3 added_size, float life_span_timer);
 		~Laser();
 		virtual std::vector <std::shared_ptr<Attack>>& Collide();
 		virtual void Update();
