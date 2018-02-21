@@ -21,6 +21,7 @@ using namespace AI;
 HitWeak::HitWeak(std::shared_ptr<Character::CharacterBase> my_character)
 	:m_character(my_character)
 {
+	m_end_flag = false;
 }
 
 HitWeak::HitWeak(const HitWeak&)
@@ -37,7 +38,7 @@ void HitWeak::GetBattleInfo(MetaAI* meta_ai)
 
 	if (m_attack == NULL)		//Punch‚ªÝ’è‚³‚ê‚Ä‚¢‚È‚¢ŽžAÝ’è‚·‚é
 	{
-		int punch_count = Device::GameDevice::GetInstance()->GetRandom()->Next(0, 2);
+		int punch_count = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
 		m_attack = std::make_shared<NormalPunch>(m_character, m_target, punch_count);
 	}
 
@@ -50,6 +51,7 @@ void HitWeak::Update(std::shared_ptr<Character::AiController> controller)
 	m_attack->Update(controller);
 
 	//‘å‹Z1500A¬‹Z300i‹L˜^—pj
+	bool isEnd = m_attack->IsEnd();
 	if (m_attack->IsEnd())
 		m_end_flag = true;
 }

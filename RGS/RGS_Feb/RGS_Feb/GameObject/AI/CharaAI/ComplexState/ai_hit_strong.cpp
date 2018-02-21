@@ -15,6 +15,7 @@ using namespace AI;
 HitStrong::HitStrong(std::shared_ptr<Character::CharacterBase> my_character)
 	:m_character(my_character), m_can_attack(false)
 {
+	m_end_flag = false;
 }
 
 HitStrong::HitStrong(const HitStrong&)

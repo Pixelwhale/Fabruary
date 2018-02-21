@@ -45,6 +45,7 @@ void NormalPunch::Update(std::shared_ptr<Character::AiController> controller)
 
 	controller->TriggerPunch();		//パンチする
 	m_punch_count--;				//指定回数を減らす
+	ResetTimer();
 
 	if (m_punch_count <= 0)			//指定回数に達したら終わる
 		m_end_flag = true;

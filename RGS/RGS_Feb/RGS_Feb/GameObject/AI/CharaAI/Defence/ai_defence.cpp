@@ -9,6 +9,7 @@ using namespace AI;
 
 Defence::Defence()
 {
+	m_end_flag = false;
 }
 
 Defence::Defence(const Defence&) {}

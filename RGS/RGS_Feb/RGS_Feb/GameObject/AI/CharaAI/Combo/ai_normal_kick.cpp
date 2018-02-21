@@ -48,5 +48,5 @@ std::shared_ptr<AiState> NormalKick::NextState(int difficulty)
 bool NormalKick::IsInAttckRange()
 {
 	float distance = (m_character->GetPosition() - m_target->GetPosition()).lengthSqrt();
-	return distance < (Size::kCharaX * 1.5f) * (Size::kCharaX * 1.5f);
+	return distance < (Size::kCharaX * 2.0f) * (Size::kCharaX * 2.0f);
 }
