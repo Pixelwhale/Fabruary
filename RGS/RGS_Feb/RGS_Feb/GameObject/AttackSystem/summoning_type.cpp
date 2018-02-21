@@ -19,7 +19,18 @@ SummoningType::SummoningType(Math::Vector3 position, Math::Vector3 size, Side si
 //デストラクタ
 SummoningType::~SummoningType() {};
 
-std::vector<std::shared_ptr<Attack>>& Collide()
+std::vector<std::shared_ptr<Attack>>& SummoningType::Collide()
+{
+	std::vector<std::shared_ptr<Attack>> attack;
+	return attack;
+}
+
+void SummoningType::Update()
+{
+	m_life_span_timer.Update();
+}
+
+void SummoningType::Draw()
 {
 
 }

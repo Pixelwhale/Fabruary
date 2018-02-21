@@ -13,6 +13,7 @@
 #include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
 #include <GameObject\AttackSystem\attack_mediator.h>
+#include <System\gravity.h>
 
 namespace Character
 {
@@ -46,6 +47,7 @@ namespace Character
 	private:						//更新関連
 		void Attack();				//攻撃
 		void MoveUpdate();			//移動更新
+		void JumpUpdate();			//Jump更新
 		void GageUpdate();			//ゲージ更新
 		void MotionUpdate();		//モーションの更新
 		void StateUpdate();			//状態の更新
@@ -56,7 +58,6 @@ namespace Character
 		int		m_mp;
 		int		m_knock_value;		//倒れ値
 		int		m_knock_cnt;		//一定時間攻撃を受けないと倒れ値が下がる
-		int		m_velocity_y;		//jump
 		float	m_speed;
 		int		m_id;
 
@@ -71,14 +72,15 @@ namespace Character
 
 		Math::Vector3 m_position;
 		Math::Vector3 m_velocity;
+		Math::Vector3 m_velocity_jump;		//jump
 		Math::Vector3 m_size;
 		Math::Vector3 m_rotation;
 
-		std::shared_ptr<Device::Renderer>		m_renderer;
 		std::shared_ptr<VirtualController>		m_controller;
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
 		std::shared_ptr<Job::JobBase>			m_job;
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
+		System::Gravity							m_gravity;
 	};
 
 
