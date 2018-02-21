@@ -37,6 +37,12 @@ void NormalPunch::GetBattleInfo(MetaAI* meta_ai)
 
 void NormalPunch::Update(std::shared_ptr<Character::AiController> controller) 
 {
+	if (m_character == NULL) 
+	{
+		m_end_flag = true;
+		return;
+	}
+
 	m_timer.Update();				//’x‰„XV
 	if (!m_timer.IsTime())			//’x‰„’†‚ÍˆÈ‰ºÀs‚µ‚È‚¢
 		return;
