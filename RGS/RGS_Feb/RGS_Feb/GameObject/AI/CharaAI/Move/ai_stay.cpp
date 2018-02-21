@@ -9,6 +9,7 @@ using namespace AI;
 
 Stay::Stay()
 {
+	m_end_flag = false;
 }
 
 Stay::Stay(const Stay&) {}

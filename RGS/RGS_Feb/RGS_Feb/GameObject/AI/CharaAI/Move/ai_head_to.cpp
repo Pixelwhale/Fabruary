@@ -13,6 +13,7 @@ HeadDestination::HeadDestination(
 	Math::Vector3 destination)
 	:m_character(my_chara), m_destination(destination)
 {
+	m_end_flag = false;
 }
 
 HeadDestination::HeadDestination(const HeadDestination&) {}

@@ -14,6 +14,7 @@ ComboNear::ComboNear(std::shared_ptr<Character::CharacterBase> my_character,
 	std::shared_ptr<AiState> attack)
 	:m_character(my_character), m_attack(attack)
 {
+	m_end_flag = false;
 }
 
 ComboNear::ComboNear(const ComboNear&)

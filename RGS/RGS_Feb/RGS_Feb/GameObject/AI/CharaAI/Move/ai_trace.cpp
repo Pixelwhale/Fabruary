@@ -13,6 +13,7 @@ Trace::Trace(
 	std::shared_ptr<Character::CharacterBase> target)
 	:m_character(my_chara), m_target(target)
 {
+	m_end_flag = false;
 }
 
 Trace::Trace(const Trace&) {}
@@ -29,23 +30,30 @@ void Trace::GetBattleInfo(MetaAI* meta_ai)
 
 void Trace::Update(std::shared_ptr<Character::AiController> controller)
 {
-	if (InRange(40))					//‹ß‚·‚¬‚é‚ÆI—¹
+	if (InRange(30))					//‹ß‚·‚¬‚é‚ÆI—¹
 	{
+		controller->SetVelocity(Math::Vector3());
 		m_end_flag = true;
 		return;
+	}
+	else
+	{
+		m_end_flag = false;
 	}
 
 	Math::Vector3 velocity = m_target->GetPosition() - m_character->GetPosition();
 	velocity = velocity.normalize();
 	controller->SetVelocity(velocity);
 
-	if (!InRange(256))					//‹——£‚ª’·‚¢‚Æ‘–‚é
+	if (!InRange(200))					//‹——£‚ª’·‚¢‚Æ‘–‚é
 		controller->Run();
 }
 
 bool Trace::InRange(float distance)
 {
-	return (m_character->GetPosition() - m_target->GetPosition()).lengthSqrt() < distance * distance;
+	float a = (m_target->GetPosition() - m_character->GetPosition()).lengthSqrt();
+	float b = distance * distance;
+	return (m_target->GetPosition() - m_character->GetPosition()).lengthSqrt() < distance * distance;
 }
 
 std::shared_ptr<AiState> Trace::NextState(int difficulty)

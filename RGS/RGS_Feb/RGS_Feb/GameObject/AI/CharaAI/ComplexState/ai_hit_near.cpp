@@ -20,6 +20,7 @@ using namespace AI;
 HitNear::HitNear(std::shared_ptr<Character::CharacterBase> my_character)
 	:m_character(my_character)
 {
+	m_end_flag = false;
 }
 
 HitNear::HitNear(const HitNear&)
@@ -36,7 +37,7 @@ void HitNear::GetBattleInfo(MetaAI* meta_ai)
 
 	if (m_attack == NULL)		//Punch‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢Aİ’è‚·‚é
 	{
-		int punch_count = Device::GameDevice::GetInstance()->GetRandom()->Next(0, 6);
+		int punch_count = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
 		m_attack = std::make_shared<NormalPunch>(m_character, m_target, punch_count);
 	}
 
