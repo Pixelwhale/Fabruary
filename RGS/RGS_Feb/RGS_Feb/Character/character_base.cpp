@@ -120,7 +120,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	{
 		m_velocity.x = -atk.GetKnockBack();
 	}
-	else if (!from_right)
+	if (!from_right)
 	{
 		m_velocity.x = atk.GetKnockBack();
 	}
@@ -133,6 +133,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 		m_defence_value < m_defence_max)
 	{
 		m_defence_value += 20;		//ˆø”‚ÅŽó‚¯‚é
+		m_isStop = true;
 	}
 	else
 	{
@@ -152,6 +153,14 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_hp -= atk.GetDamage();
 			m_knock_value += atk.GetKnockDown();
 			m_defence_value = 0;
+		}
+		if (from_right)
+		{
+			m_isRight = true;
+		}
+		else
+		{
+			m_isRight = false;
 		}
 	}
 }
