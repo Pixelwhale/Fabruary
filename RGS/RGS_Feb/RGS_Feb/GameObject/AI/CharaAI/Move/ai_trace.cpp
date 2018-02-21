@@ -47,6 +47,10 @@ void Trace::Update(std::shared_ptr<Character::AiController> controller)
 
 	if (!InRange(200))					//‹——£‚ª’·‚¢‚Æ‘–‚é
 		controller->Run();
+
+	if (InRange(300) &&
+		m_target->GetPosition().y > 128)
+		controller->TriggerJump();
 }
 
 bool Trace::InRange(float distance)
