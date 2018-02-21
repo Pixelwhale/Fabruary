@@ -88,7 +88,7 @@ void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mg
 			{
 				bool from_right = (atk->GetSourceDir() == kRight)
 					|| (atk->GetPosition().x > c->GetPosition().x);
-				c->Collide(atk);
+				c->Collide((*atk));
 				for (auto a : atk->Collide())
 				{
 					AddAttack(a);
