@@ -30,8 +30,6 @@ namespace AttackSystem
 		}
 
 		const Math::Vector3& GetPosition() const { return m_position; }
-		void SetPosition(Math::Vector3 position) { m_position = position; }
-		void SetSize(Math::Vector3 size) { m_size = size; }
 		Side GetSide() const { return m_side; }
 		int GetAtk() const { return m_atk; }
 		int GetKnockBack() const { return m_knockback; }
