@@ -1,772 +1,268 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Character\character_base.cpp" />
+    <ClCompile Include="Character\character_manager.cpp" />
+    <ClCompile Include="Character\Controller\ai_controller.cpp" />
+    <ClCompile Include="Character\Controller\keyboard_controller.cpp" />
+    <ClCompile Include="Character\Controller\pad_controller.cpp" />
+    <ClCompile Include="Color\color.cpp" />
+    <ClCompile Include="Core\application.cpp" />
+    <ClCompile Include="Core\game.cpp" />
+    <ClCompile Include="Core\input_state.cpp" />
+    <ClCompile Include="Device\content_manager.cpp" />
+    <ClCompile Include="Device\depth_sort.cpp" />
+    <ClCompile Include="Device\game_device.cpp" />
+    <ClCompile Include="Device\MotionSystem\motion.cpp" />
+    <ClCompile Include="Device\projector.cpp" />
+    <ClCompile Include="Device\random.cpp" />
+    <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="Device\sound.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ai_state_manager.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_great.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_great.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_combo_near.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_strong.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_weak.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_wait.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Defence\ai_defence.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_stay.cpp" />
+    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp" />
+    <ClCompile Include="GameObject\AI\MetaAI\meta_ai.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\laser.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\summoning_type.cpp" />
+    <ClCompile Include="GameObject\Job\business.cpp" />
+    <ClCompile Include="GameObject\Job\com_graphic.cpp" />
+    <ClCompile Include="GameObject\Job\planner.cpp" />
+    <ClCompile Include="GameObject\Job\programmer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\collision_box.cpp" />
+    <ClCompile Include="Math\point.cpp" />
+    <ClCompile Include="Math\vector2.cpp" />
+    <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Scene\end.cpp" />
+    <ClCompile Include="Scene\gameplay.cpp" />
+    <ClCompile Include="Scene\loading.cpp" />
+    <ClCompile Include="Scene\pause..cpp" />
+    <ClCompile Include="Scene\scene_base.cpp" />
+    <ClCompile Include="Scene\scene_fader.cpp" />
+    <ClCompile Include="Scene\scene_manager.cpp" />
+    <ClCompile Include="Scene\title.cpp" />
+    <ClCompile Include="Scene\tutorial.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect2.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effectfunction.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_matrix.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_PartState.cpp" />
+    <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp" />
+    <ClCompile Include="ssbpLib\SS5Player.cpp" />
+    <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp" />
+    <ClCompile Include="System\gravity.cpp" />
+    <ClCompile Include="Utility\timer.cpp" />
+    <ClCompile Include="Scene\game_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\application.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\game.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\input_state.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\content_manager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\depth_sort.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\game_device.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\projector.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\random.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\renderer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\vector2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\vector3.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Color\color.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\loading.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\scene_base.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\scene_manager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\title.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effectfunction.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\common\Animator\ssplayer_matrix.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\common\Animator\ssplayer_PartState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\SS5Player.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\end.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\gameplay.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\tutorial.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\pause..cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Character\character_base.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\collision_box.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="System\gravity.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AttackSystem\attack_manager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\collision_box.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\sound.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\MotionSystem\motion.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\point.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AttackSystem\attack.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Utility\timer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AttackSystem\punch.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Job\programmer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Character\character_manager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Character\Controller\keyboard_controller.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Character\Controller\pad_controller.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Character\Controller\ai_controller.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_great.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\ai_state_manager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_great.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_head_to.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\scene_fader.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Job\planner.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Job\com_graphic.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Job\business.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AttackSystem\laser.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AttackSystem\kick.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AttackSystem\summoning_type.cpp">
-    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_combo_near.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_weak.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_hit_strong.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\ComplexState\ai_wait.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Defence\ai_defence.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_stay.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\AI\MetaAI\meta_ai.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
+    <ClInclude Include="Character\character_base.h" />
+    <ClInclude Include="Character\character_state.h" />
+    <ClInclude Include="Character\Controller\ai_controller.h" />
+    <ClInclude Include="Character\Controller\character_controller.h" />
+    <ClInclude Include="Character\character_manager.h" />
+    <ClInclude Include="Character\Controller\pad_controller.h" />
+    <ClInclude Include="Character\control_base.h" />
+    <ClInclude Include="Character\Controller\keyboard_controller.h" />
+    <ClInclude Include="Character\side.h" />
+    <ClInclude Include="Color\color.h" />
+    <ClInclude Include="Core\application.h" />
+    <ClInclude Include="Core\game.h" />
+    <ClInclude Include="Core\input_state.h" />
+    <ClInclude Include="Def\size.h" />
+    <ClInclude Include="Def\window_def.h" />
+    <ClInclude Include="Device\content_manager.h" />
+    <ClInclude Include="Device\depth_sort.h" />
+    <ClInclude Include="Device\game_device.h" />
+    <ClInclude Include="Device\MotionSystem\motion.h" />
+    <ClInclude Include="Device\projector.h" />
+    <ClInclude Include="Device\random.h" />
+    <ClInclude Include="Device\renderer.h" />
+    <ClInclude Include="Device\sound.h" />
+    <ClInclude Include="DX\DXLib\DxCompileConfig.h" />
+    <ClInclude Include="DX\DXLib\DxDataType.h" />
+    <ClInclude Include="DX\DXLib\DxDataTypeWin.h" />
+    <ClInclude Include="DX\DXLib\DxFunctionWin.h" />
+    <ClInclude Include="DX\DXLib\DxLib.h" />
+    <ClInclude Include="DX\Include\audiodefs.h" />
+    <ClInclude Include="DX\Include\comdecl.h" />
+    <ClInclude Include="DX\Include\D2D1.h" />
+    <ClInclude Include="DX\Include\D2D1Helper.h" />
+    <ClInclude Include="DX\Include\D2DBaseTypes.h" />
+    <ClInclude Include="DX\Include\D2Derr.h" />
+    <ClInclude Include="DX\Include\D3D10.h" />
+    <ClInclude Include="DX\Include\D3D10effect.h" />
+    <ClInclude Include="DX\Include\d3d10misc.h" />
+    <ClInclude Include="DX\Include\d3d10sdklayers.h" />
+    <ClInclude Include="DX\Include\D3D10shader.h" />
+    <ClInclude Include="DX\Include\D3D10_1.h" />
+    <ClInclude Include="DX\Include\D3D10_1shader.h" />
+    <ClInclude Include="DX\Include\D3D11.h" />
+    <ClInclude Include="DX\Include\D3D11SDKLayers.h" />
+    <ClInclude Include="DX\Include\D3D11Shader.h" />
+    <ClInclude Include="DX\Include\d3d9.h" />
+    <ClInclude Include="DX\Include\d3d9caps.h" />
+    <ClInclude Include="DX\Include\d3d9types.h" />
+    <ClInclude Include="DX\Include\D3Dcommon.h" />
+    <ClInclude Include="DX\Include\D3Dcompiler.h" />
+    <ClInclude Include="DX\Include\D3DCSX.h" />
+    <ClInclude Include="DX\Include\D3DX10.h" />
+    <ClInclude Include="DX\Include\d3dx10async.h" />
+    <ClInclude Include="DX\Include\D3DX10core.h" />
+    <ClInclude Include="DX\Include\D3DX10math.h" />
+    <ClInclude Include="DX\Include\D3DX10mesh.h" />
+    <ClInclude Include="DX\Include\D3DX10tex.h" />
+    <ClInclude Include="DX\Include\D3DX11.h" />
+    <ClInclude Include="DX\Include\D3DX11async.h" />
+    <ClInclude Include="DX\Include\D3DX11core.h" />
+    <ClInclude Include="DX\Include\D3DX11tex.h" />
+    <ClInclude Include="DX\Include\d3dx9.h" />
+    <ClInclude Include="DX\Include\d3dx9anim.h" />
+    <ClInclude Include="DX\Include\d3dx9core.h" />
+    <ClInclude Include="DX\Include\d3dx9effect.h" />
+    <ClInclude Include="DX\Include\d3dx9math.h" />
+    <ClInclude Include="DX\Include\d3dx9mesh.h" />
+    <ClInclude Include="DX\Include\d3dx9shader.h" />
+    <ClInclude Include="DX\Include\d3dx9shape.h" />
+    <ClInclude Include="DX\Include\d3dx9tex.h" />
+    <ClInclude Include="DX\Include\d3dx9xof.h" />
+    <ClInclude Include="DX\Include\Dcommon.h" />
+    <ClInclude Include="DX\Include\dinput.h" />
+    <ClInclude Include="DX\Include\dinputd.h" />
+    <ClInclude Include="DX\Include\dsconf.h" />
+    <ClInclude Include="DX\Include\dsetup.h" />
+    <ClInclude Include="DX\Include\dsound.h" />
+    <ClInclude Include="DX\Include\DWrite.h" />
+    <ClInclude Include="DX\Include\dxdiag.h" />
+    <ClInclude Include="DX\Include\DxErr.h" />
+    <ClInclude Include="DX\Include\dxfile.h" />
+    <ClInclude Include="DX\Include\DXGI.h" />
+    <ClInclude Include="DX\Include\DXGIFormat.h" />
+    <ClInclude Include="DX\Include\DXGIType.h" />
+    <ClInclude Include="DX\Include\dxsdkver.h" />
+    <ClInclude Include="DX\Include\gameux.h" />
+    <ClInclude Include="DX\Include\PIXPlugin.h" />
+    <ClInclude Include="DX\Include\rmxfguid.h" />
+    <ClInclude Include="DX\Include\rmxftmpl.h" />
+    <ClInclude Include="DX\Include\rpcsal.h" />
+    <ClInclude Include="DX\Include\X3DAudio.h" />
+    <ClInclude Include="DX\Include\xact3.h" />
+    <ClInclude Include="DX\Include\xact3d3.h" />
+    <ClInclude Include="DX\Include\xact3wb.h" />
+    <ClInclude Include="DX\Include\XAPO.h" />
+    <ClInclude Include="DX\Include\XAPOBase.h" />
+    <ClInclude Include="DX\Include\XAPOFX.h" />
+    <ClInclude Include="DX\Include\XAudio2.h" />
+    <ClInclude Include="DX\Include\XAudio2fx.h" />
+    <ClInclude Include="DX\Include\XDSP.h" />
+    <ClInclude Include="DX\Include\XInput.h" />
+    <ClInclude Include="DX\Include\xma2defs.h" />
+    <ClInclude Include="DX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ai_state.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ai_state_manager.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_great.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_great.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_combo_near.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_strong.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_weak.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_wait.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Defence\ai_defence.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_stay.h" />
+    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_trace.h" />
+    <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
+    <ClInclude Include="GameObject\AttackSystem\kick.h" />
+    <ClInclude Include="GameObject\AttackSystem\laser.h" />
+    <ClInclude Include="GameObject\AttackSystem\punch.h" />
+    <ClInclude Include="GameObject\AttackSystem\summoning_type.h" />
+    <ClInclude Include="GameObject\Job\business.h" />
+    <ClInclude Include="GameObject\Job\com_graphic.h" />
+    <ClInclude Include="GameObject\Job\job_base.h" />
+    <ClInclude Include="GameObject\Job\planner.h" />
+    <ClInclude Include="GameObject\Job\programmer.h" />
+    <ClInclude Include="Math\collision_box.h" />
+    <ClInclude Include="Math\point.h" />
+    <ClInclude Include="Math\vector2.h" />
+    <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Scene\end.h" />
+    <ClInclude Include="Scene\gameplay.h" />
+    <ClInclude Include="Scene\loading.h" />
+    <ClInclude Include="Scene\pause.h" />
+    <ClInclude Include="Scene\scene_base.h" />
+    <ClInclude Include="Scene\scene_fader.h" />
+    <ClInclude Include="Scene\scene_manager.h" />
+    <ClInclude Include="Scene\scene_type.h" />
+    <ClInclude Include="Scene\title.h" />
+    <ClInclude Include="Scene\tutorial.h" />
+    <ClInclude Include="ssbpLib\common\Animator\MersenneTwister.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_cellmap.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect2.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effectfunction.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_macro.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_matrix.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_PartState.h" />
+    <ClInclude Include="ssbpLib\common\Animator\xorshift32.h" />
+    <ClInclude Include="ssbpLib\common\Helper\DebugPrint.h" />
+    <ClInclude Include="ssbpLib\common\Loader\SsEffectBehavior.h" />
+    <ClInclude Include="ssbpLib\common\Loader\SsEffectElement.h" />
+    <ClInclude Include="ssbpLib\common\Loader\ssloader.h" />
+    <ClInclude Include="ssbpLib\common\Loader\ssloader_ssee.h" />
+    <ClInclude Include="ssbpLib\common\Loader\sstypes.h" />
+    <ClInclude Include="ssbpLib\SS5Player.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerData.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerPlatform.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
+    <ClInclude Include="ssbpLib\ssShader_frag.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack.h" />
+    <ClInclude Include="GameObject\AttackSystem\attack_manager.h" />
+    <ClInclude Include="System\gravity.h" />
+    <ClInclude Include="Utility\timer.h" />
+    <ClInclude Include="Scene\game_manager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\application.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\game.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\input_state.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Def\window_def.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\content_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\depth_sort.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\game_device.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\projector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\random.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\renderer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\vector2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\vector3.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Color\color.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\loading.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\scene_base.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\scene_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\scene_type.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\title.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\MersenneTwister.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_cellmap.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effectfunction.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_macro.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_matrix.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\ssplayer_PartState.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Animator\xorshift32.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Helper\DebugPrint.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Loader\SsEffectBehavior.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Loader\SsEffectElement.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Loader\ssloader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Loader\ssloader_ssee.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\common\Loader\sstypes.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\SS5Player.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\SS5PlayerData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\SS5PlayerPlatform.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\SS5PlayerTypes.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ssbpLib\ssShader_frag.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\DXLib\DxCompileConfig.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\DXLib\DxDataType.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\DXLib\DxDataTypeWin.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\DXLib\DxFunctionWin.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\DXLib\DxLib.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\audiodefs.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\comdecl.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D2D1.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D2D1Helper.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D2DBaseTypes.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D2Derr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D10.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D10effect.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3d10misc.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3d10sdklayers.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D10shader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D10_1.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D10_1shader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D11.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D11SDKLayers.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3D11Shader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3d9.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3d9caps.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3d9types.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3Dcommon.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3Dcompiler.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DCSX.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX10.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx10async.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX10core.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX10math.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX10mesh.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX10tex.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX11.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX11async.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX11core.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\D3DX11tex.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9anim.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9core.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9effect.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9math.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9mesh.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9shader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9shape.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9tex.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\d3dx9xof.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\Dcommon.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dinput.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dinputd.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dsconf.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dsetup.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dsound.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\DWrite.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dxdiag.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\DxErr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dxfile.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\DXGI.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\DXGIFormat.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\DXGIType.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\dxsdkver.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\gameux.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\PIXPlugin.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\rmxfguid.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\rmxftmpl.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\rpcsal.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\X3DAudio.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\xact3.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\xact3d3.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\xact3wb.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XAPO.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XAPOBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XAPOFX.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XAudio2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XAudio2fx.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XDSP.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\XInput.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\xma2defs.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DX\Include\xnamath.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\end.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\gameplay.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\tutorial.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\pause.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Job\job_base.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\character_base.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\collision_box.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="System\gravity.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\attack_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\attack.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\collision_box.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\sound.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\MotionSystem\motion.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\point.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\side.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ai_state.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ai_state_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Def\size.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\punch.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Utility\timer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Job\programmer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\control_base.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\character_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\Controller\character_controller.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\Controller\keyboard_controller.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\Controller\pad_controller.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\attack_mediator.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\Controller\ai_controller.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_less.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Character\character_state.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_less.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_kick_great.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_combo_punch_great.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_punch.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Combo\ai_normal_kick.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_head_to.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\scene_fader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Job\planner.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Job\com_graphic.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Job\business.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\laser.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\kick.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AttackSystem\summoning_type.h">
-    <ClInclude Include="GameObject\AI\CharaAI\Defence\ai_defence.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_near.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_combo_near.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_weak.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_hit_strong.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\ComplexState\ai_wait.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_stay.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\AI\CharaAI\Move\ai_trace.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
+    <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />
+    <Image Include="Content\Texture\black_pixel.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DX\Include\D3DX10math.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="DX\Include\d3dx9math.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="DX\Include\D3DX_DXGIFormatConvert.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="DX\Include\xnamathconvert.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="DX\Include\xnamathmatrix.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="DX\Include\xnamathmisc.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="DX\Include\xnamathvector.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
+    <None Include="Content\SpriteStudio\Character_base\Character.ssbp" />
+    <None Include="Content\SpriteStudio\Character_base\Character.sspj" />
+    <None Include="Content\SpriteStudio\Character_base\chara_base.ssce" />
+    <None Include="Content\SpriteStudio\Character_base\chara_base_anime.ssae" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_eye_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\Enemy_Flower_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_rabbit_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_skeleton_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_Wolf_Anime_anime_1.html" />
     <None Include="Content\SpriteStudio\EnemyAnime\Export\enemy_Worm_Anime_anime_1.html" />
-    <None Include="Content\SpriteStudio\Character_base\chara_base.ssce" />
-    <None Include="Content\SpriteStudio\Character_base\chara_base_anime.ssae" />
-    <None Include="Content\SpriteStudio\Character_base\Character.ssbp" />
-    <None Include="Content\SpriteStudio\Character_base\Character.sspj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Content\SpriteStudio\Character_base\chara_base.png">
-      <Filter>リソース ファイル</Filter>
-    </Image>
-    <Image Include="Content\Texture\black_pixel.png">
-      <Filter>リソース ファイル</Filter>
-    </Image>
+    <None Include="DX\Include\D3DX10math.inl" />
+    <None Include="DX\Include\d3dx9math.inl" />
+    <None Include="DX\Include\D3DX_DXGIFormatConvert.inl" />
+    <None Include="DX\Include\xnamathconvert.inl" />
+    <None Include="DX\Include\xnamathmatrix.inl" />
+    <None Include="DX\Include\xnamathmisc.inl" />
+    <None Include="DX\Include\xnamathvector.inl" />
   </ItemGroup>
 </Project>
