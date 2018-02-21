@@ -20,6 +20,7 @@ Laser::~Laser() {}
 std::vector<std::shared_ptr<Attack>>& Laser::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
+	attack.clear();
 	return attack;
 }
 

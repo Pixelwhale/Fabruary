@@ -22,6 +22,7 @@ SummoningType::~SummoningType() {};
 std::vector<std::shared_ptr<Attack>>& SummoningType::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
+	attack.clear();
 	return attack;
 }
 

@@ -25,7 +25,7 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 {
 	std::string base_animation = "chara_base_anime/";
 
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 2), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 2), Size::kCharaZ);
 	
 	if (is_right)
 	{
@@ -34,7 +34,7 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 
 	if (m_punch_count == 0)
 	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 0), m_side, 100, 0, 0, 30, 0.4f));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(300, 300, 300), m_side, 100, 0, 0, 30, 0.4f));
 		m_punch_count++;
 		return base_animation + "punch_6";
 	}
@@ -44,18 +44,24 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 		m_punch_count++;
 		return base_animation + "punch_7";
 	}
+	else if (m_punch_count == 2)
+	{
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 1), m_side, 200, 1, 1, 40, 0.4));
+		m_punch_count++;
+		return base_animation + "punch_8";
+	}
 	return base_animation + "idle";
 }
 
 std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), Size::kCharaZ);
 	if (is_right)
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(1, 1, 1), m_side, 300, 0, 0, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(50, 50, 50), m_side, 300, 0, 0, 40, 0.4));
 	return base_animation + "kick_1";
 }
 

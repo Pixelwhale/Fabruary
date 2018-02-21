@@ -21,6 +21,7 @@ Kick::~Kick() {}
 std::vector<std::shared_ptr<Attack>>& AttackSystem::Kick::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
+	attack.clear();
 	return attack;
 }
 
