@@ -35,19 +35,13 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	{
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 100, 0, 0, 0.4f));
 		m_punch_count++;
-		return base_animation + "punch_1";
+		return base_animation + "punch_6";
 	}
 	else if (m_punch_count == 1)
 	{
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 200, 0, 0, 0.4));
 		m_punch_count++;
-		return base_animation + "punch_2";
-	}
-	else if (m_punch_count == 2)
-	{
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 250, 1, 0, 0.4));
-		m_punch_count++;
-		return base_animation + "punch_3";
+		return base_animation + "punch_7";
 	}
 	return base_animation + "idle";
 }
@@ -112,6 +106,16 @@ std::string Programmer::Skill4(std::shared_ptr<AttackSystem::AttackMediator> att
 	return base_animation + "skill_4";
 }
 
+int Programmer::KnockValue()
+{
+	return 0;
+}
+
+int Programmer::GetHp()
+{
+	return m_hp;
+}
+
 void Programmer::Update()
 {
 	if (m_next_combo.IsTime())
@@ -132,14 +136,3 @@ void Programmer::Update()
 		m_next_combo.Update();
 	}
 }
-
-int Programmer::GetHp()
-{
-	return m_hp;
-}
-
-int Programmer::KnockValue()
-{
-	return 0;
-}
-
