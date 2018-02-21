@@ -29,7 +29,7 @@ namespace Character
 		void Initialize(Math::Vector3 position);//初期化
 		void Update();				//更新
 		void Draw();				//モーション
-		void Collide(int damage, int knockback, int knockdown, bool isright);//あたり判定
+		void Collide(const AttackSystem::Attack& atk);//あたり判定
 
 	public:							//取得関連
 		Side	GetSide();			//チームの取得
@@ -46,9 +46,10 @@ namespace Character
 
 	private:						//更新関連
 		void Attack();				//攻撃
+		void Skill();				//スキール
 		void MoveUpdate();			//移動更新
 		void JumpUpdate();			//Jump更新
-		void GageUpdate();			//ゲージ更新
+		void MpUpdate();			//ゲージ更新
 		void MotionUpdate();		//モーションの更新
 		void StateUpdate();			//状態の更新
 		void KnockCntUpdate();		//倒れ値カウント更新
@@ -58,6 +59,8 @@ namespace Character
 		int		m_mp;
 		int		m_knock_value;		//倒れ値
 		int		m_knock_cnt;		//一定時間攻撃を受けないと倒れ値が下がる
+		int		m_skill_num;		//スキール入力段階
+		int		m_skill_cnt;		//スキール入力カウント
 		float	m_speed;
 		int		m_id;
 
@@ -81,6 +84,8 @@ namespace Character
 		std::shared_ptr<Job::JobBase>			m_job;
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
 		System::Gravity							m_gravity;
+
+		
 	};
 
 
