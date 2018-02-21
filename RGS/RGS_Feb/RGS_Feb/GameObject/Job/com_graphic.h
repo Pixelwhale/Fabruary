@@ -15,19 +15,22 @@ namespace Job
 	public :
 		ComputerGraphic(Side side);
 		~ComputerGraphic();
-		virtual void Punch(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Kick(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill1(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill2(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill3(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
-		virtual void Skill4(AttackSystem::AttackManager &attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual std::string Skill4(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right);
+		virtual int KnockValue();
+		virtual int GetHp();
 		virtual void Update();
 
 	private :
-		int m_punch_count_max = 3; // プログラマーのパンチコンボの最大値
+		int m_punch_count_max = 2; // コンピューターグラフィックのパンチコンボの最大値
 		int m_punch_count = 0; // 今は何番のパンチ
 		int m_punch_last_update = 0; // 時間をリセットするために
 		Utility::Timer m_next_combo; // 次のコンボに進めるかの制限時間？
+		int m_hp = 150;
 		Side m_side;
 	};
 }

@@ -6,7 +6,7 @@
 //-------------------------------------------------------
 
 #pragma once
-#include <GameObject\AttackSystem\attack_manager.h>
+#include <GameObject\AttackSystem\attack_mediator.h>
 #include <Def\size.h>
 #include <Utility\timer.h>
 #include <memory>
