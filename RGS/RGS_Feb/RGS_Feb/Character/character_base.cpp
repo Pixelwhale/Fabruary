@@ -70,12 +70,12 @@ void CharacterBase::Update()
 	StateUpdate();	//状態の更新
 	KnockCntUpdate();//倒れ値カウント更新
 	m_job->Update();//Jobの更新
+	PositionUpdate();//位置の更新
 	//死亡更新
-	if (m_hp <= 0)
+	if (m_hp <= 0 && m_motion->IsCurrentMotionEnd())
 	{
 		m_isDead = true;
 	}
-	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
 }
 
 
@@ -83,6 +83,7 @@ void CharacterBase::Update()
 void CharacterBase::Draw()
 {
 	m_motion->Draw();
+	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.y),Math::Vector2(50,0));
 }
 
 
@@ -196,8 +197,8 @@ void CharacterBase::Skill()
 		m_mp >= 300)
 	{
 		//パンチの小技
-		m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
-		m_state = CharacterState::kPunch_1;
+		//m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
+		//m_state = CharacterState::kPunch_1;
 		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 300;
@@ -208,8 +209,8 @@ void CharacterBase::Skill()
 		m_mp >= 300)
 	{
 		//キックの小技
-		m_motion->Play(m_job->Skill3(m_attack_mediator, m_position, m_isRight), 1);
-		m_state = CharacterState::kKick_1;
+		//m_motion->Play(m_job->Skill3(m_attack_mediator, m_position, m_isRight), 1);
+		//m_state = CharacterState::kKick_1;
 		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 300;
@@ -236,8 +237,8 @@ void CharacterBase::Skill()
 		m_mp >= 1500)
 	{
 		//パンチの大技
-		m_motion->Play(m_job->Skill2(m_attack_mediator, m_position, m_isRight), 1);
-		m_state = CharacterState::kPunch_2;
+		//m_motion->Play(m_job->Skill2(m_attack_mediator, m_position, m_isRight), 1);
+		//m_state = CharacterState::kPunch_2;
 		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 1500;
@@ -248,8 +249,8 @@ void CharacterBase::Skill()
 		m_mp >= 1500)
 	{
 		//キックの大技
-		m_motion->Play(m_job->Skill4(m_attack_mediator, m_position, m_isRight), 1);
-		m_state = CharacterState::kKick_2;
+		//m_motion->Play(m_job->Skill4(m_attack_mediator, m_position, m_isRight), 1);
+		//m_state = CharacterState::kKick_2;
 		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 1500;
@@ -315,10 +316,23 @@ void CharacterBase::MoveUpdate()
 			}
 		}
 	}
-	else if (m_velocity.lengthSqrt() == 0 && !m_isStop)
+	if (m_velocity.lengthSqrt() == 0 && !m_isStop)
 	{
 		m_motion->Play("chara_base_anime/idle");
 	}
+}
+
+//位置の更新
+void CharacterBase::PositionUpdate()
+{
+	Math::Vector3 min = Math::Vector3(-WindowDef::kScreenWidth / 2 + Size::kCharaX / 2, -5, 
+										Size::kCharaZ / 2);
+	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 2,  Size::kCharaY * 2,
+								      WindowDef::kScreenHeight  / 2- Size::kCharaZ / 2);
+
+	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
+
+	m_position = m_position.Clamp(m_position,min,max);
 }
 
 //Jump更新
@@ -328,14 +342,14 @@ void CharacterBase::JumpUpdate()
 	{
 		m_state = CharacterState::kJump;
 		m_isJump = true;
-		m_velocity_jump = Math::Vector3(0, 8, 0);
+		m_velocity_jump = Math::Vector3(0, 23, 0);
 		m_isStop = false;
 	}
 	else if (m_position.y < 0)
 	{
 		m_isJump = false;
 		m_velocity_jump = Math::Vector3(0, 0, 0);
-		m_state = CharacterState::kIdle;
+		m_position.y = 0;
 	}
 	if (m_isJump)
 	{

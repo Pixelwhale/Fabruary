@@ -15,6 +15,7 @@
 #include <GameObject\AttackSystem\attack_mediator.h>
 #include <GameObject\AttackSystem\attack.h>
 #include <System\gravity.h>
+#include <Def\window_def.h>
 
 
 namespace Character
@@ -56,6 +57,7 @@ namespace Character
 		void MotionUpdate();		//モーションの更新
 		void StateUpdate();			//状態の更新
 		void KnockCntUpdate();		//倒れ値カウント更新
+		void PositionUpdate();		//位置の更新
 
 	private:
 		int		m_hp;				
