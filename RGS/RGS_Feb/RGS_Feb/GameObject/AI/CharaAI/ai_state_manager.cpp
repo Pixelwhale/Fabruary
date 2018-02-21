@@ -4,6 +4,7 @@
 // 内容　：AiStateを管理するマネージャー
 //-------------------------------------------------------------
 #include <GameObject\AI\CharaAI\ai_state_manager.h>
+#include <GameObject\AI\CharaAI\ComplexState\ai_hit_near.h>
 #include <Character\character_base.h>
 
 using namespace AI;
@@ -46,6 +47,7 @@ std::shared_ptr<Character::AiController> AiStateManager::Controller()
 void AiStateManager::SetCharaInfo(std::shared_ptr<Character::CharacterBase> character) 
 {
 	m_character = character;
+	m_current_state = std::make_shared<HitNear>(m_character);
 }
 
 bool AiStateManager::IsDead()
