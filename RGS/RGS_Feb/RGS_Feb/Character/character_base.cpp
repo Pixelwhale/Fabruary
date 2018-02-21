@@ -49,6 +49,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isRight = true;
 	m_isStop = false;
 	m_isInvincible = false;
+	m_isHit = false;
 	m_velocity_jump = Math::Vector3(0, 0, 0);
 	m_rotation = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
@@ -118,17 +119,18 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 
 	if (from_right)
 	{
-		m_velocity.x = -atk.GetKnockBack();
+		m_velocity =Math::Vector3(-atk.GetKnockBack(),0,0);
 	}
 	if (!from_right)
 	{
-		m_velocity.x = atk.GetKnockBack();
+		m_velocity = Math::Vector3(atk.GetKnockBack(), 0, 0);
 	}
 	m_knock_cnt = 0;
 	m_isStop = true;
+	m_isHit = true;
 
 	//防御の時,防御値が最大値より小さいとダメージを受けない
-	if (m_state == CharacterState::kDefence && 
+	if (m_state == CharacterState::kDefence &&
 		m_isRight == from_right &&
 		m_defence_value < m_defence_max)
 	{
@@ -420,7 +422,7 @@ void CharacterBase::StateUpdate()
 	if (m_isStop)
 	{
 		//Jumpの時は動ける
-		if (!m_isJump)
+		if (!m_isJump && !m_isHit)
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 		}
@@ -429,6 +431,7 @@ void CharacterBase::StateUpdate()
 			m_state = CharacterState::kIdle;
 			m_motion->Play("chara_base_anime/idle");
 			m_isStop = false;
+			m_isHit = false;
 			//Jumpしていると、Jumpモーションに戻る
 			if (m_isJump)
 			{
