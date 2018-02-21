@@ -76,6 +76,8 @@ namespace AttackSystem
 		int m_knockdown;	//倒れる値
 		int m_break;		//防御を崩れる値
 
+		int m_timer;		//アニメーションのため用意する
+
 		bool m_is_end;
 
 		int m_cool_down;		//キャラはフレームことに判定する。重複判定しないスキルは-1に設定する

@@ -20,5 +20,6 @@ Attack::Attack(Vector3 position, Vector3 size, Side side, int dmg, int knockback
 	m_break = dbreak;
 	m_cool_down = cool_down;
 	m_source_dir = source_dir;
+	m_timer = 0;
 	m_is_end = false;
 }
