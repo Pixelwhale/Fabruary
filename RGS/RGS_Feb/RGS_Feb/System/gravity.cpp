@@ -8,5 +8,5 @@ using namespace System;
 
 void Gravity::Update(Math::Vector3& velocity)
 {
-	velocity.y -= kG / 60;
+	velocity.y -= kG / 10;
 }
