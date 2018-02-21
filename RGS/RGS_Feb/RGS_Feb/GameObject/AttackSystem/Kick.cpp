@@ -18,7 +18,7 @@ Kick::Kick(Math::Vector3 position, Math::Vector3 size, Side side, int attack, in
 Kick::~Kick() {}
 
 
-std::vector<std::shared_ptr<Attack>>& AttackSystem::Kick::Collide()
+std::vector<std::shared_ptr<Attack>> AttackSystem::Kick::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();

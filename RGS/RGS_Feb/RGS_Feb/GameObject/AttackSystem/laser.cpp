@@ -17,7 +17,7 @@ Laser::Laser(Math::Vector3 first_position, Math::Vector3 size, Side side, int at
 
 Laser::~Laser() {}
 
-std::vector<std::shared_ptr<Attack>>& Laser::Collide()
+std::vector<std::shared_ptr<Attack>> Laser::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();

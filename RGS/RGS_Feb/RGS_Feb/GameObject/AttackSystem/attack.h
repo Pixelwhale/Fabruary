@@ -33,7 +33,7 @@ namespace AttackSystem
 
 		//キャラに当たる後Attack自身のリアクション
 		//Attacksを後はAttackManagerに入れる。
-		virtual std::vector<std::shared_ptr<Attack>>& Collide() = 0;
+		virtual std::vector<std::shared_ptr<Attack>> Collide() = 0;
 
 		virtual void Update()
 		{

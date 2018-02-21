@@ -17,7 +17,7 @@ Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, 
 // デストラクタ
 Punch::~Punch() {}
 
-std::vector<std::shared_ptr<Attack>>& AttackSystem::Punch::Collide()
+std::vector<std::shared_ptr<Attack>> AttackSystem::Punch::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();

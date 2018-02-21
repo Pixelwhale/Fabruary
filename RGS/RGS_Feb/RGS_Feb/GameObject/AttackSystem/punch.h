@@ -20,7 +20,7 @@ namespace AttackSystem
 		///<param name = "life span">âΩïbÇ…é¿åªÇ≥ÇπÇÈÇÃÇ©ÅH</param>
 		Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer);
 		~Punch();
-		virtual std::vector<std::shared_ptr<Attack>>& Collide();
+		virtual std::vector<std::shared_ptr<Attack>> Collide();
 		virtual void Update();
 		virtual void Draw();
 
