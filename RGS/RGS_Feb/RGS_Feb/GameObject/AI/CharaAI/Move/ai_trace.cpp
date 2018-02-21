@@ -31,6 +31,12 @@ void Trace::GetBattleInfo(MetaAI* meta_ai)
 
 void Trace::Update(std::shared_ptr<Character::AiController> controller)
 {
+	if (m_target == NULL) 
+	{
+		m_end_flag = true;
+		return;
+	}
+
 	if (InRange(30))					//‹ß‚·‚¬‚é‚ÆI—¹
 	{
 		controller->SetVelocity(Math::Vector3());

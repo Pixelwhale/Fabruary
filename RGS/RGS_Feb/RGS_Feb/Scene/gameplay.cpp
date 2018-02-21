@@ -35,7 +35,7 @@ void GamePlay::Update()
 {
 	m_meta_ai->Update();
 	m_character_manager->Update();
-	//m_attack_manager->Update(m_character_manager);
+	m_attack_manager->Update(m_character_manager);
 }
 
 void GamePlay::CheckEnd() 
