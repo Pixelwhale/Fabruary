@@ -8,6 +8,8 @@
 #include <GameObject\Job\com_graphic.h>
 #include <GameObject\AttackSystem\punch.h>
 #include <GameObject\AttackSystem\kick.h>
+#include <GameObject\AttackSystem\laser.h>
+#include <GameObject\AttackSystem\summoning_type.h>
 
 using namespace Job;
 
@@ -98,6 +100,8 @@ std::string ComputerGraphic::Skill2(std::shared_ptr<AttackSystem::AttackMediator
 		plus.x *= -1;
 	}
 	// スキルの追加はここに
+	attack_manager->AddAttack(std::make_shared<AttackSystem::SummoningType>(position + plus, Math::Vector3(20, 20, 20), m_side, 0, 0, 0, 1));
+	// まだ終わってない。
 	return base_animation + "skill_2";
 }
 

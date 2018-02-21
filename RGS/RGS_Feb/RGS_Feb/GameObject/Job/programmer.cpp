@@ -13,7 +13,7 @@
 using namespace Job;
 
 // コンストラクタ
-Programmer::Programmer(Side side) : m_next_combo(0.5)
+Programmer::Programmer(Side side) : m_next_combo(0.7)
 {
 	m_side = side;
 }
@@ -59,6 +59,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 	return base_animation + "kick_1";
 }
 
+// JAVAハンマー
 std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
@@ -67,10 +68,11 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	// スキルの追加はここに
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 0), m_side, 300, 0, 1, 0.4));
 	return base_animation + "skill_1";
 }
 
+// Phyton カメハメハ
 std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
@@ -79,7 +81,6 @@ std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	// python カメハメハ
 	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 300, 0, 0, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
 	return base_animation + "skill_2";
 }
