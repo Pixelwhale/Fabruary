@@ -13,7 +13,7 @@
 using namespace Job;
 
 // コンストラクタ
-Programmer::Programmer(Side side) : m_next_combo(0.7)
+Programmer::Programmer(Side side) : m_next_combo(0.6)
 {
 	m_side = side;
 }
@@ -35,15 +35,15 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 30, 0.4f));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 10, 1, 5, 30, 0.7));
 		m_punch_count++;
 		return base_animation + "punch_6";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 40, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(3, 3, 3), m_side, 10, 1, 5, 40, 0.7));
 		m_punch_count++;
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(40, 40, 40), m_side, 15, 1, 1, 40, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(4, 4, 4), m_side, 15, 2, 20, 40, 0.7));
 		m_punch_count++;
 		return base_animation + "punch_8";
 	}
@@ -59,7 +59,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(45, 45, 45), m_side, 35, 1, 1, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(45, 45, 45), m_side, 35, 2, 30, 40, 0.4));
 	return base_animation + "kick_1";
 }
 
@@ -72,7 +72,7 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 30, 0, 1, 80, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 30, 20, 30, 80, 0.4));
 	return base_animation + "skill_1";
 }
 
@@ -85,7 +85,7 @@ std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> att
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 300, 0, 0, 90, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 30, 0, 50, 90, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
 	return base_animation + "skill_2";
 }
 

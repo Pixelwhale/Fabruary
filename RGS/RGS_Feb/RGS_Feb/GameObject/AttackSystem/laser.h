@@ -25,7 +25,7 @@ namespace AttackSystem
 		///<param name = "life span">âΩïbÇ…é¿åªÇ≥ÇπÇÈÇÃÇ©ÅH</param>
 		Laser(Math::Vector3 first_position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, Math::Vector3 added_position, Math::Vector3 added_size, float life_span_timer);
 		~Laser();
-		virtual std::vector <std::shared_ptr<Attack>>& Collide();
+		virtual std::vector <std::shared_ptr<Attack>> Collide();
 		virtual void Update();
 		virtual void Draw();
 
