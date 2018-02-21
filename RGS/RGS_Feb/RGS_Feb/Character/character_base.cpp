@@ -4,7 +4,6 @@
 // 内容　：キャラクターのベースクラス
 //-------------------------------------------------------
 #include <Character\character_base.h>
-#include <Device\game_device.h>
 
 using namespace Character;
 
@@ -18,30 +17,16 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,
 	m_job = job;
 	m_attack_mediator = attackMediator;
 	m_motion = std::make_shared<MotionSystem::Motion>("Character");
-	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
-	m_position = position;
 	m_size = Math::Vector3(Size::kCharaX, Size::kCharaY, Size::kCharaZ);
-	m_rotation = Math::Vector3(0, 0, 0);
-	m_hp = m_job->GetHp();
-	m_mp = 0;
-	m_speed = 4;
-	m_knock_value = 0;
-	m_knock_cnt = 0;
-	m_isDead = false;
-	m_isJump = false;
-	m_isRight = true;
-	m_isInvincible = false;
-	m_isStop = false;
 	m_side = side;
 	m_id = id;
-	m_state = CharacterState::kIdle;
+	Initialize(position);
 }
 
 CharacterBase::~CharacterBase()
 {
 	m_controller = NULL;
 	m_motion = NULL;
-	m_renderer = NULL;
 	m_job = NULL;
 	m_attack_mediator = NULL;
 }
@@ -55,12 +40,13 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_speed = 4;
 	m_knock_value = 0;
 	m_knock_cnt = 0;
-	m_velocity_y = 0;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
 	m_isStop = false;
 	m_isInvincible = false;
+	m_velocity_jump = Math::Vector3(0, 0, 0);
+	m_rotation = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
@@ -73,6 +59,7 @@ void CharacterBase::Update()
 {
 	Attack();		//攻撃
 	MoveUpdate();	//移動更新
+	JumpUpdate();	//Jump更新
 	GageUpdate();	//ゲージ更新
 	MotionUpdate(); //モーションの更新
 	StateUpdate();	//状態の更新
@@ -83,18 +70,15 @@ void CharacterBase::Update()
 	{
 		m_isDead = true;
 	}
+	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
 }
 
-//倒れ値カウント更新
-void CharacterBase::KnockCntUpdate()
+
+//モーション
+void CharacterBase::Draw()
 {
-	m_knock_cnt++;
-	//180(3秒)を超えたら、倒れ値が下がる
-	if (m_knock_cnt >= 180)
-	{
-		m_knock_value--;
-		m_knock_cnt = 180;
-	}
+	m_motion->Draw();
+	
 }
 
 
@@ -119,7 +103,6 @@ void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRi
 	{
 		m_velocity.x = knockBack;
 	}
-
 	//倒れ値を超えたら、倒れる
 	if (m_knock_value > m_job->KnockValue())
 	{
@@ -136,18 +119,20 @@ void CharacterBase::Collide(int damage,int knockBack, int knockDown, bool fromRi
 	}
 }
 
+#pragma region 更新関連
+
 //攻撃
 void CharacterBase::Attack()
 {
 	//パンチ
-	if (m_controller->IsPunchTrigger())
+	if (m_controller->IsPunchTrigger() && !m_isStop)
 	{
 		m_motion->Play(m_job->Punch(m_attack_mediator, m_position, m_isRight),1);
 		m_state = CharacterState::kPunch;
 		m_isStop = true;
 	}
 	//キック
-	if (m_controller->IsKickTrigger())
+	if (m_controller->IsKickTrigger() && !m_isStop)
 	{
 		m_motion->Play(m_job->Kick(m_attack_mediator, m_position, m_isRight),1);
 		m_state = CharacterState::kKick;
@@ -157,18 +142,23 @@ void CharacterBase::Attack()
 	if (m_controller->IsDefence())
 	{
 		m_state = CharacterState::kDefence;
-		m_motion->Play("chara_base_anime/defence", 1);
+		m_motion->Play("chara_base_anime/defence");
 		m_isStop = true;
 
 	}
 	
 }
 
-//モーション
-void CharacterBase::Draw()
+//倒れ値カウント更新
+void CharacterBase::KnockCntUpdate()
 {
-	m_motion->Draw();
-	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(m_velocity.y, Math::Vector2(100, 0));
+	m_knock_cnt++;
+	//180(3秒)を超えたら、倒れ値が下がる
+	if (m_knock_cnt >= 180)
+	{
+		m_knock_value--;
+		m_knock_cnt = 180;
+	}
 }
 
 //モーションの更新
@@ -176,7 +166,7 @@ void CharacterBase::MotionUpdate()
 {
 	m_motion->Update();
 
-	//向き
+	//向きの更新
 	if (m_velocity.x > 0)
 	{
 		m_isRight = true;
@@ -196,57 +186,69 @@ void CharacterBase::MoveUpdate()
 	if (!m_isStop)
 	{
 		m_velocity = m_controller->Velocity();
-		m_velocity.y = m_velocity_y;
 	}
 	
 	m_speed = 4;
-	if (m_velocity.lengthSqrt() != 0 && !m_isStop)
+	if (m_velocity.lengthSqrt() != 0 && !m_isStop && !m_isJump)
 	{
 		//run
 		if (m_controller->IsRun())
 		{
+			m_speed = 8;
 			m_state = CharacterState::kRun;
 			m_motion->Play("chara_base_anime/run");
-			m_speed = 8;
 		}
 		else
 		{
 			//歩き
+			m_speed = 4;
 			m_state = CharacterState::kWalk;
 			m_motion->Play("chara_base_anime/walk");
-			m_speed = 4;
 		}
 	}
 	else if (m_velocity.lengthSqrt() == 0 && !m_isStop)
 	{
 		m_motion->Play("chara_base_anime/idle");
 	}
-	
+	else if (m_isJump && m_controller->IsRun())
+	{
+		m_speed = 8;
+	}
+}
 
-	//jump
+//Jump更新
+void CharacterBase::JumpUpdate()
+{
 	if (m_controller->IsJumpTrigger() && !m_isJump)
 	{
 		m_state = CharacterState::kJump;
-		m_motion->Play("chara_base_anime/jump",1);
 		m_isJump = true;
-		m_velocity_y = 30;
+		m_velocity_jump = Math::Vector3(0, 8, 0);
+		m_isStop = false;
 	}
-	if (m_position.y <= 0)
+	else if (m_position.y < 0)
 	{
 		m_isJump = false;
-		m_velocity_y = 0;
+		m_velocity_jump = Math::Vector3(0, 0, 0);
+		m_state = CharacterState::kIdle;
 	}
-
-	m_position += m_velocity * m_speed;
+	if (m_isJump)
+	{
+		if (m_state == CharacterState::kJump)
+		{
+			m_motion->Play("chara_base_anime/jump");
+		}
+		m_gravity.Update(m_velocity_jump);
+	}
 }
 
 //ゲージ更新
 void CharacterBase::GageUpdate()
 {
 	++m_mp;
-	if (m_mp >= 3000)
+	if (m_mp >= 6000)
 	{
-		m_mp = 3000;
+		m_mp = 6000;
 	}
 }
 
@@ -266,16 +268,29 @@ void CharacterBase::StateUpdate()
 	//モーションが終わったら、待機状態に
 	if (m_isStop)
 	{
-		m_velocity = Math::Vector3(0, 0, 0);
+		//Jumpの時は動ける
+		if (!m_isJump)
+		{
+			m_velocity = Math::Vector3(0, 0, 0);
+		}
 		if (m_motion->IsCurrentMotionEnd())
 		{
 			m_state = CharacterState::kIdle;
 			m_motion->Play("chara_base_anime/idle");
 			m_isStop = false;
+			//Jumpしていると、Jumpモーションに戻る
+			if (m_isJump)
+			{
+				m_state = CharacterState::kJump;
+			}
 		}
 	}
 }
 
+#pragma endregion
+
+
+// Get、Set関連
 
 //向きを返す
 bool CharacterBase::IsRight()
@@ -336,3 +351,4 @@ Math::CollisionBox CharacterBase::GetBox()
 {
 	return Math::CollisionBox(m_position - Math::Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), m_position + Math::Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
 }
+
