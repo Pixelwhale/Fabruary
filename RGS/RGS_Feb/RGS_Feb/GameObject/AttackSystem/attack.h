@@ -50,7 +50,7 @@ namespace AttackSystem
 
 		const Math::Vector3& GetPosition() const { return m_position; }
 		Side GetSide() const { return m_side; }
-		int GetAtk() const { return m_atk; }
+		int GetDamage() const { return m_dmg; }
 		int GetKnockBack() const { return m_knockback; }
 		int GetKnockDown() const { return m_knockdown; }
 		int GetBreak() const { return m_break; }
