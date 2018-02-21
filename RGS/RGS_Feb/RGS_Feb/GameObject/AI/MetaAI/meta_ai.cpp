@@ -10,6 +10,7 @@ using namespace AI;
 MetaAI::MetaAI(
 	std::shared_ptr<Character::CharacterManager> character_manager,
 	std::shared_ptr<AttackSystem::AttackMediator> attack_manager)
+	:m_character_manager(character_manager), m_attack_manager(attack_manager)
 {
 }
 
@@ -22,13 +23,13 @@ MetaAI::~MetaAI()
 
 void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, int difficulty)
 {
-	AiStateManager ai = AiStateManager(difficulty);						//AI宣言
+	std::shared_ptr<AiStateManager> ai = make_shared<AiStateManager>(difficulty);						//AI宣言
 
 	std::shared_ptr<Character::CharacterBase> character =				//キャラクター生成
 		m_character_manager->Add(
-			position, side, ai.Controller(), job, m_attack_manager);
+			position, side, ai->Controller(), job, m_attack_manager);
 
-	ai.SetCharaInfo(character);											//AIに任す
+	ai->SetCharaInfo(character);											//AIに任す
 
 	m_ai.push_back(ai);													//Listに追加
 }
@@ -45,13 +46,13 @@ void MetaAI::Update()
 	//AI更新
 	for(auto &ai : m_ai)
 	{
-		ai.Update(this);
+		ai->Update(this);
 	}
 
 	//死んだキャラのAIを削除
-	for (std::vector<AiStateManager>::iterator i = m_ai.begin(); i != m_ai.end();) 
+	for (std::vector<std::shared_ptr<AiStateManager>>::iterator i = m_ai.begin(); i != m_ai.end();)
 	{
-		if ((*i).IsDead()) 
+		if ((*i)->IsDead()) 
 		{
 			m_ai.erase(i);
 			continue;
@@ -66,6 +67,9 @@ std::shared_ptr<Character::CharacterBase> MetaAI::FindNear(std::shared_ptr<Chara
 	for (auto &c : m_character_manager->GetCharacterList())
 	{
 		if (c == my_chara)		//同じならContinue
+			continue;
+
+		if (c->GetSide() == my_chara->GetSide())
 			continue;
 
 		if (near_chara == NULL)	//まだ設定してない状態なら設定する
@@ -93,6 +97,9 @@ std::shared_ptr<Character::CharacterBase> MetaAI::FindStrong(std::shared_ptr<Cha
 		if (c == my_chara)			//同じならContinue
 			continue;
 
+		if (c->GetSide() == my_chara->GetSide())
+			continue;
+
 		if (strong_chara == NULL)	//まだ設定してない状態なら設定する
 		{
 			strong_chara = c;
@@ -115,6 +122,9 @@ std::shared_ptr<Character::CharacterBase> MetaAI::FindWeak(std::shared_ptr<Chara
 	for (auto &c : m_character_manager->GetCharacterList())
 	{
 		if (c == my_chara)			//同じならContinue
+			continue;
+
+		if (c->GetSide() == my_chara->GetSide())
 			continue;
 
 		if (weak_chara == NULL)	//まだ設定してない状態なら設定する

@@ -38,6 +38,6 @@ namespace AI
 		std::shared_ptr<Character::CharacterManager> m_character_manager;	//キャラクター管理者
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_manager;		//攻撃管理者
 
-		vector<AiStateManager> m_ai;										//AI
+		vector<std::shared_ptr<AiStateManager>> m_ai;						//AI
 	};
 }

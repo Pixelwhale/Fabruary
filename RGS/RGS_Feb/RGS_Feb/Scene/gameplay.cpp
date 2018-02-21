@@ -25,13 +25,16 @@ void GamePlay::Initialize(SceneType previous)
 
 	m_character_manager->Initialize();
 	m_character_manager->Add(Math::Vector3(), Side::kTeam1, make_shared<Character::KeyboardController>(), make_shared<Job::Programmer>(Side::kTeam1), m_attack_manager);
+
+	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
+	m_meta_ai->AddCom(Math::Vector3(400, 0, 0), Side::kTeam2, make_shared<Job::Programmer>(Side::kTeam2), 9);
+	m_meta_ai->AddCom(Math::Vector3(-400, 0, 0), Side::kTeam3, make_shared<Job::Programmer>(Side::kTeam3), 9);
 }
 
 void GamePlay::Update()
 {
+	m_meta_ai->Update();
 	m_character_manager->Update();
-
-
 }
 
 void GamePlay::CheckEnd() 
