@@ -13,7 +13,9 @@
 #include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
 #include <GameObject\AttackSystem\attack_mediator.h>
+#include <GameObject\AttackSystem\attack.h>
 #include <System\gravity.h>
+
 
 namespace Character
 {
@@ -63,6 +65,7 @@ namespace Character
 		int		m_skill_num;		//スキール入力段階
 		int		m_skill_cnt;		//スキール入力カウント
 		int		m_defence_value;	//防御値
+		int		m_defence_max;		//防御最大値
 		float	m_speed;
 		int		m_id;
 

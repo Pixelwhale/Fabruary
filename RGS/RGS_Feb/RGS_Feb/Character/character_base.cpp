@@ -43,6 +43,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_skill_num = 0;
 	m_skill_cnt = 0;
 	m_defence_value = 0;
+	m_defence_max = 100;
 	m_isDead = false;
 	m_isJump = false;
 	m_isRight = true;
@@ -88,21 +89,24 @@ void CharacterBase::Draw()
 //あたり判定
 void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
-	if (atk.GetSourceDir())
+	bool from_right = (atk.GetSourceDir() == AttackSystem::kRight)
+		|| (atk.GetPosition().x > m_position.x);
+
+	if (from_right)
 	{
 		m_velocity.x = -atk.GetKnockBack();
 	}
-	else if (!atk.GetSourceDir())
+	else if (!from_right)
 	{
 		m_velocity.x = atk.GetKnockBack();
 	}
 	m_knock_cnt = 0;
 	m_isStop = true;
 
-	//防御の時
+	//防御の時,防御値が最大値より小さいとダメージを受けない
 	if (m_state == CharacterState::kDefence && 
-		m_isRight == atk.GetSourceDir() && 
-		m_defence_value < 100)
+		m_isRight == from_right &&
+		m_defence_value < m_defence_max)
 	{
 		m_defence_value += 20;		//引数で受ける
 	}
@@ -270,14 +274,17 @@ void CharacterBase::MotionUpdate()
 {
 	m_motion->Update();
 
-	//向きの更新
-	if (m_velocity.x > 0)
+	//向きの更新(Jumpの時はできない)
+	if (!m_isJump)
 	{
-		m_isRight = true;
-	}
-	if (m_velocity.x < 0)
-	{
-		m_isRight = false;
+		if (m_velocity.x > 0)
+		{
+			m_isRight = true;
+		}
+		if (m_velocity.x < 0)
+		{
+			m_isRight = false;
+		}
 	}
 	m_motion->Flip(m_isRight, false);
 	m_motion->SetPosition(m_position);
@@ -287,36 +294,30 @@ void CharacterBase::MotionUpdate()
 void CharacterBase::MoveUpdate()
 {
 	//攻撃、攻撃を受けた状態ではないと入力による移動可能
-	if (!m_isStop)
+	if (!m_isStop && !m_isJump)
 	{
 		m_velocity = m_controller->Velocity();
-	}
-	
-	m_speed = 4;
-	if (m_velocity.lengthSqrt() != 0 && !m_isStop && !m_isJump)
-	{
-		//run
-		if (m_controller->IsRun())
+		if (m_velocity.lengthSqrt() != 0)
 		{
-			m_speed = 8;
-			m_state = CharacterState::kRun;
-			m_motion->Play("chara_base_anime/run");
-		}
-		else
-		{
-			//歩き
-			m_speed = 4;
-			m_state = CharacterState::kWalk;
-			m_motion->Play("chara_base_anime/walk");
+			//run
+			if (m_controller->IsRun())
+			{
+				m_speed = 8;
+				m_state = CharacterState::kRun;
+				m_motion->Play("chara_base_anime/run");
+			}
+			else
+			{
+				//歩き
+				m_speed = 4;
+				m_state = CharacterState::kWalk;
+				m_motion->Play("chara_base_anime/walk");
+			}
 		}
 	}
 	else if (m_velocity.lengthSqrt() == 0 && !m_isStop)
 	{
 		m_motion->Play("chara_base_anime/idle");
-	}
-	else if (m_isJump && m_controller->IsRun())
-	{
-		m_speed = 8;
 	}
 }
 
