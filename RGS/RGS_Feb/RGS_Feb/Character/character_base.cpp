@@ -56,6 +56,29 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_motion->Play("chara_base_anime/idle");
 	m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_state = CharacterState::kIdle;
+	
+	//Fİ’è
+	if (m_side == Side::kNoTeam)		//”’
+	{
+		m_motion->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
+	}
+	else if (m_side == Side::kTeam1)	//Ô
+	{
+		m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
+	}
+	else if (m_side == Side::kTeam2)	//—Î
+	{
+		m_motion->SetColor(Color(0.0f, 1.0f, 0.0f, 1.0f));
+	}
+	else if (m_side == Side::kTeam3)	//Â
+	{
+		m_motion->SetColor(Color(0.0f, 0.0f, 1.0f, 1.0f));
+	}
+	else if (m_side == Side::kTeam4)	//•
+	{
+		m_motion->SetColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
+	}
+
 }
 
 //XV
