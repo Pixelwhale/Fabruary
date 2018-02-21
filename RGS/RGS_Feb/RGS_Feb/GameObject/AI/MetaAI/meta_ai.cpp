@@ -54,10 +54,10 @@ void MetaAI::Update()
 	{
 		if ((*i)->IsDead()) 
 		{
-			m_ai.erase(i);
+			i = m_ai.erase(i);
 			continue;
 		}
-		i++;
+		++i;
 	}
 }
 
