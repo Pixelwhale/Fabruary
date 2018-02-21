@@ -68,6 +68,9 @@ std::shared_ptr<AiState> HitWeak::NextState(int difficulty)
 
 	float rate = Device::GameDevice::GetInstance()->GetRandom()->NextDouble();
 
+	if (rate < 0.1f)
+		return make_shared<HitNear>(m_character);
+
 	if (m_character->GetMp() > 300 && rate < 0.2f)
 	{
 		attack = std::make_shared<PunchComboWeak>();
