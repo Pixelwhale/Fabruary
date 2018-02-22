@@ -11,7 +11,8 @@
 
 using namespace Scene;
 
-GamePlay::GamePlay()
+GamePlay::GamePlay(std::shared_ptr<GameManager> game_manager)
+	:m_game_manager(game_manager)
 {
 }
 
@@ -20,7 +21,8 @@ void GamePlay::Initialize(SceneType previous)
 	m_is_end = false;
 	m_previous = previous;
 
-	if (previous == SceneType::kPause)
+	if (previous == SceneType::kPause ||
+		previous == SceneType::kGameResult)
 		return;
 
 	m_attack_manager = make_shared<AttackSystem::AttackManager>();
@@ -67,4 +69,11 @@ void GamePlay::Draw()
 
 void GamePlay::Shutdown()
 {
+	if (m_previous == SceneType::kPause ||
+		m_previous == SceneType::kGamePlay)	//Todo: +CharacterSelect
+		return;
+
+	m_meta_ai = NULL;
+	m_character_manager = NULL;
+	m_attack_manager = NULL;
 }
