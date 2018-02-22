@@ -31,7 +31,7 @@ void Trace::GetBattleInfo(MetaAI* meta_ai)
 
 void Trace::Update(std::shared_ptr<Character::AiController> controller)
 {
-	if (m_target == NULL) 
+	if (m_target == NULL || m_target->IsDead()) 
 	{
 		m_end_flag = true;
 		return;
