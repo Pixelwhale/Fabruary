@@ -48,7 +48,7 @@ void AttackManager::Remove()
 	//remove_if‚Í“¯‚¶
 	for (std::vector<shared_ptr<Attack>>::iterator i = m_atk_list.begin(); i != m_atk_list.end();)
 	{
-		if ((*i)->IsEnd() == true) m_atk_list.erase(i);
+		if ((*i)->IsEnd() == true) i = m_atk_list.erase(i);
 		else ++i;
 	}
 }
