@@ -27,7 +27,12 @@ std::vector<std::shared_ptr<Attack>> AttackSystem::Kick::Collide()
 
 void AttackSystem::Kick::Update()
 {
+	Attack::Update();
 	m_life_span_timer.Update();
+	if (m_life_span_timer.IsTime())
+	{
+		m_is_end = true;
+	}
 }
 
 void AttackSystem::Kick::Draw()
