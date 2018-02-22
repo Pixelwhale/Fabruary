@@ -25,7 +25,7 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 {
 	std::string base_animation = "chara_base_anime/";
 
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 2), Size::kCharaZ);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 0, 0);
 	
 	if (is_right)
 	{
@@ -35,7 +35,7 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 10, 1, 5, 30, 0.7));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 1, 5, 30, 0.7));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
