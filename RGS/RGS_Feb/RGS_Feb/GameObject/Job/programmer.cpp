@@ -13,7 +13,7 @@
 using namespace Job;
 
 // コンストラクタ
-Programmer::Programmer(Side side) : m_next_combo(0.6)
+Programmer::Programmer(Side side) : m_next_combo(1)
 {
 	m_side = side;
 }
@@ -37,14 +37,17 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	case 0 :
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(1, 1, 1), m_side, 10, 1, 5, 30, 0.7));
 		m_punch_count++;
+		m_next_combo.Reset();
 		return base_animation + "punch_6";
 	case 1 :
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(3, 3, 3), m_side, 10, 1, 5, 40, 0.7));
 		m_punch_count++;
+		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(4, 4, 4), m_side, 15, 2, 20, 40, 0.7));
-		m_punch_count++;
+		m_punch_count = 0;
+		m_next_combo.Reset();
 		return base_animation + "punch_8";
 	}
 
@@ -129,13 +132,6 @@ void Programmer::Update()
 	{
 		m_next_combo.Reset();
 		m_punch_count = 0;
-		m_punch_last_update = 0;
-	}
-
-	if (m_punch_count != m_punch_last_update)
-	{
-		m_next_combo.Reset();
-		m_punch_last_update = m_punch_count;
 	}
 
 	if (m_punch_count != 0)

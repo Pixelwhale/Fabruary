@@ -12,7 +12,7 @@
 using namespace Job;
 
 // コンストラクタ
-Planner::Planner(Side side) : m_next_combo(0.5)
+Planner::Planner(Side side) : m_next_combo(1)
 {
 	m_side = side;
 }
@@ -36,22 +36,27 @@ std::string Planner::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_
 		case 0 :
 			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 15, 0.4f));
 			m_punch_count++;
+			m_next_combo.Reset();
 			return base_animation + "punch_1";
 		case 1 :
 			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 15, 0.4));
 			m_punch_count++;
+			m_next_combo.Reset();
 			return base_animation + "punch_2";
 		case 2 :
 			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 15, 0.4));
 			m_punch_count++;
+			m_next_combo.Reset();
 			return base_animation + "punch_5";
 		case 3 :
 			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 13, 0, 0, 20, 0.4));
 			m_punch_count++;
+			m_next_combo.Reset();
 			return base_animation + "punch_4";
 		case 4 :
 			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 15, 1, 1, 20, 0.4));
-			m_punch_count++;
+			m_punch_count = 0;
+			m_next_combo.Reset();
 			return base_animation + "punch_7";
 	}
 
@@ -134,13 +139,6 @@ void Planner::Update()
 	{
 		m_next_combo.Reset();
 		m_punch_count = 0;
-		m_punch_last_update = 0;
-	}
-
-	if (m_punch_count != m_punch_last_update)
-	{
-		m_next_combo.Reset();
-		m_punch_last_update = m_punch_count;
 	}
 
 	if (m_punch_count != 0)
