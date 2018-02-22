@@ -71,6 +71,7 @@
     <ClCompile Include="Utility\timer.cpp" />
     <ClCompile Include="Scene\game_manager.cpp" />
     <ClCompile Include="Scene\game_result.cpp" />
+    <ClCompile Include="GameObject\Background\background.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Utility\timer.h" />
     <ClInclude Include="Scene\game_manager.h" />
     <ClInclude Include="Scene\game_result.h" />
+    <ClInclude Include="GameObject\Background\background.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />

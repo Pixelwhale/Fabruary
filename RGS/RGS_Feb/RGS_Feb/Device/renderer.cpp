@@ -60,9 +60,12 @@ std::shared_ptr<DepthSort> Renderer::GetDepthSort()
 
 void Renderer::DrawTexture(std::string texture_name, Math::Vector2 position, float alpha)
 {
-	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
 	DrawGraph((int)position.x, (int)position.y, m_contents->TextureHandle(texture_name), true);
 	SetDrawBright(255, 255, 255);													//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
 }
 
 void Renderer::DrawTexture(

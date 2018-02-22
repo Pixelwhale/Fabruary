@@ -26,6 +26,8 @@ void GamePlay::Initialize(SceneType previous)
 		previous == SceneType::kGamePlay)
 		return;
 
+	m_background = make_shared<Background>();
+
 	m_attack_manager = make_shared<AttackSystem::AttackManager>();
 	m_character_manager = make_shared<Character::CharacterManager>();
 	m_attack_manager->Initialize();
@@ -34,11 +36,15 @@ void GamePlay::Initialize(SceneType previous)
 	m_character_manager->Add(Math::Vector3(0, 128, 0), Side::kTeam1, make_shared<Character::KeyboardController>(), make_shared<Job::Programmer>(Side::kTeam1), m_attack_manager);
 
 	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
-	m_meta_ai->AddCom(Math::Vector3(400, 128, 20), Side::kTeam3, make_shared<Job::Business>(Side::kTeam3), 2);
+	m_meta_ai->AddCom(Math::Vector3(400, 128, 20), Side::kTeam3, make_shared<Job::Business>(Side::kTeam3), 9);
+	m_meta_ai->AddCom(Math::Vector3(-400, 128, 20), Side::kTeam4, make_shared<Job::Planner>(Side::kTeam4), 9);
+	m_meta_ai->AddCom(Math::Vector3(0, 128, 0), Side::kTeam2, make_shared<Job::ComputerGraphic>(Side::kTeam2), 9);
 }
 
 void GamePlay::Update()
 {
+	m_background->Update();
+
 	m_meta_ai->Update();
 	m_character_manager->Update();
 	m_attack_manager->Update(m_character_manager);
@@ -66,13 +72,16 @@ void GamePlay::CheckEnd()
 
 void GamePlay::Draw()
 {
-	m_renderer->DrawOnBloomFilter();
+	m_renderer->DrawOnBloomFilter();		//DrawFilter
 
-	m_renderer->DrawString("GamePlay", Math::Vector2(150, 0));
-	m_character_manager->Draw();
-	m_attack_manager->Draw();
+	m_background->DrawBack();				//”wŒi
 
-	m_renderer->DrawBloom();
+	m_character_manager->Draw();			//Character
+	m_attack_manager->Draw();				//UŒ‚Effect
+
+	m_background->DrawFront();				//‘OŒi
+
+	m_renderer->DrawBloom();				//BloomEffect
 }
 
 void GamePlay::Shutdown()
@@ -88,4 +97,5 @@ void GamePlay::Shutdown()
 	m_meta_ai = NULL;
 	m_character_manager = NULL;
 	m_attack_manager = NULL;
+	m_background = NULL;
 }
