@@ -4,12 +4,12 @@
 	<exportPath></exportPath>
 	<generator>SpriteStudio</generator>
 	<packed>0</packed>
-	<imagePath>../../../../../../../Assets/PNGs/Hammer.png</imagePath>
-	<pixelSize>794 1123</pixelSize>
+	<imagePath>Hammer.png</imagePath>
+	<pixelSize>192 320</pixelSize>
 	<overrideTexSettings>0</overrideTexSettings>
 	<wrapMode>clamp</wrapMode>
 	<filterMode>linear</filterMode>
-	<imagePathAtImport></imagePathAtImport>
+	<imagePathAtImport>C:/Users/叡/Desktop/Character_test/Hammer.png</imagePathAtImport>
 	<packInfoFilePath></packInfoFilePath>
 	<texPackSettings>
 		<maxSize>4096 4096</maxSize>
@@ -21,9 +21,9 @@
 	<cells>
 		<cell>
 			<name>Hammer</name>
-			<pos>120 520</pos>
-			<size>260 404</size>
-			<pivot>0.0115384617820382 -0.0618811883032322</pivot>
+			<pos>0 0</pos>
+			<size>192 320</size>
+			<pivot>0.046875 -0.140625</pivot>
 			<rotated>0</rotated>
 			<orgImageName></orgImageName>
 			<posStable>0</posStable>

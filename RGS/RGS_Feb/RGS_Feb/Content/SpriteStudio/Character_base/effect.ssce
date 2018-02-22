@@ -28,5 +28,14 @@
 			<orgImageName></orgImageName>
 			<posStable>0</posStable>
 		</cell>
+		<cell>
+			<name>slash</name>
+			<pos>0 64</pos>
+			<size>64 64</size>
+			<pivot>0 0</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
 	</cells>
 </SpriteStudioCellMap>

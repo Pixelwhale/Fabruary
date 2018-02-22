@@ -113,6 +113,7 @@
 		<padding>1</padding>
 	</texPackSettings>
 	<cellmapNames>
+		<value>Hammer.ssce</value>
 		<value>chara_base.ssce</value>
 		<value>effect.ssce</value>
 	</cellmapNames>
@@ -120,8 +121,7 @@
 		<value>chara_base_anime.ssae</value>
 	</animepackNames>
 	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
-	<lastAnimeName>dead</lastAnimeName>
-	<lastCellMapFile>effect.ssce</lastCellMapFile>
-	<lastCell>particle</lastCell>
-	<lastPart>particle</lastPart>
+	<lastAnimeName>damage</lastAnimeName>
+	<lastCellMapFile>Hammer.ssce</lastCellMapFile>
+	<lastPart>Hammer_1</lastPart>
 </SpriteStudioProject>
