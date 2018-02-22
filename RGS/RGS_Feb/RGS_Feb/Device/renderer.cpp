@@ -303,11 +303,11 @@ void Renderer::DrawString(
 
 #pragma region Filter関連
 
-void Renderer::DrawFilter() 
+void Renderer::DrawOnGaussFilter()
 {
 	if (m_blur_filter_handle != -1)					//削除されなかったら削除する
 		DeleteGraph(m_blur_filter_handle);
-													//RenderTarget作成
+	//RenderTarget作成
 	m_blur_filter_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, true);
 	SetDrawScreen(m_blur_filter_handle);			//RenderTarget設定
 	ClearDrawScreen();								//Clearする
@@ -319,6 +319,61 @@ void Renderer::GaussFilter(int ratio)
 	SetDrawScreen(DX_SCREEN_BACK);											//バックバッファに描画
 	DrawGraph(0, 0, m_blur_filter_handle, false);							//RenderTarget描画
 	DeleteGraph(m_blur_filter_handle);										//RenderTarget解放
+}
+
+void Renderer::DrawOnBloomFilter()
+{
+	//Nullじゃないなら解放
+	if (m_scene_handle != -1)
+		DeleteGraph(m_scene_handle);
+	if (m_hight_light_handle != -1)
+		DeleteGraph(m_hight_light_handle);
+	if (m_down_scale_handle != -1)
+		DeleteGraph(m_down_scale_handle);
+	if (m_gauss_handle != -1)
+		DeleteGraph(m_gauss_handle);
+
+	//RenderTarget作成
+	m_scene_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+	m_hight_light_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+	m_down_scale_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
+	m_gauss_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
+
+	//RenderTarget設定
+	SetDrawScreen(m_scene_handle);
+	ClearDrawScreen();
+}
+
+void Renderer::DrawBloom()
+{
+	//Filterをかける
+	GraphFilterBlt(m_scene_handle, m_hight_light_handle, DX_GRAPH_FILTER_BRIGHT_CLIP, DX_CMP_LESS, 230, TRUE, GetColor(0, 0, 0), 255);
+	GraphFilterBlt(m_hight_light_handle, m_down_scale_handle, DX_GRAPH_FILTER_DOWN_SCALE, 8);
+	GraphFilterBlt(m_down_scale_handle, m_gauss_handle, DX_GRAPH_FILTER_GAUSS, 16, 1000);
+
+	//BackBufferかBlurシーンに描画
+	SetDrawScreen(DX_SCREEN_BACK);
+	if (m_blur_filter_handle != -1)
+		SetDrawScreen(m_blur_filter_handle);
+
+	//シーンを描画
+	DrawGraph(0, 0, m_scene_handle, FALSE);
+	SetDrawMode(DX_DRAWMODE_BILINEAR);
+	SetDrawBlendMode(DX_BLENDMODE_ADD, 255);
+
+	//高輝度をぼかしたRenderTargetを描画
+	DrawExtendGraph(0, 0, WindowDef::kScreenWidth, WindowDef::kScreenHeight, m_gauss_handle, FALSE);
+	DrawExtendGraph(0, 0, WindowDef::kScreenWidth, WindowDef::kScreenHeight, m_gauss_handle, FALSE);
+
+	//設定を戻す
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
+	SetDrawMode(DX_DRAWMODE_NEAREST);
+
+	//画像解放
+	DeleteGraph(m_scene_handle);
+	DeleteGraph(m_hight_light_handle);
+	DeleteGraph(m_down_scale_handle);
+	DeleteGraph(m_gauss_handle);
 }
 
 #pragma endregion

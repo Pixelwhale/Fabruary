@@ -57,7 +57,7 @@ bool Pause::CheckEnd()
 
 void Pause::Draw()
 {
-	m_renderer->DrawFilter();					//RenderTarget‚É•`‰æ
+	m_renderer->DrawOnGaussFilter();					//RenderTarget‚É•`‰æ
 
 	m_game_play->Draw();						//ƒQ[ƒ€ƒV[ƒ“•`‰æ
 

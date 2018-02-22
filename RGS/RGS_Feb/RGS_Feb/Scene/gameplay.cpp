@@ -66,9 +66,13 @@ void GamePlay::CheckEnd()
 
 void GamePlay::Draw()
 {
+	m_renderer->DrawOnBloomFilter();
+
 	m_renderer->DrawString("GamePlay", Math::Vector2(150, 0));
 	m_character_manager->Draw();
 	m_attack_manager->Draw();
+
+	m_renderer->DrawBloom();
 }
 
 void GamePlay::Shutdown()
