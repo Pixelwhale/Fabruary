@@ -3,7 +3,7 @@
 // ì¬“úF2018.02.05
 //-------------------------------------------------------
 #pragma once
-#include "vector3.h";
+#include "vector3.h"
 
 namespace Math
 {
