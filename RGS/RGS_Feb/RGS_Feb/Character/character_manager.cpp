@@ -54,20 +54,18 @@ void CharacterManager::RemoveDeadCharacters()
 	{
 		return;
 	}
-	else if (isDelete)
+	for (auto c1 : m_character_list)
 	{
-		for (auto c1 : m_character_list)
+		for (auto c2 : m_character_list)
 		{
-			for (auto c2 : m_character_list)
+			if (c1->GetSide() != c2->GetSide())
 			{
-				if (c1->GetSide() != c2->GetSide())
-				{
-					m_isEnd = true;
-				}
+				return;
 			}
 		}
-		
 	}
+	
+	m_isEnd = true;
 }
 
 //XV

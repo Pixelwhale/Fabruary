@@ -85,7 +85,7 @@ namespace Character
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_velocity_jump;		//jump
 		Math::Vector3 m_size;
-		Math::Vector3 m_rotation;
+		//Math::Vector3 m_rotation;
 
 		std::shared_ptr<VirtualController>		m_controller;
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
