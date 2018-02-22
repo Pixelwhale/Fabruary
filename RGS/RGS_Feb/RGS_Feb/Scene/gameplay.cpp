@@ -49,7 +49,7 @@ void GamePlay::Update()
 void GamePlay::CheckEnd()
 {
 	if (m_character_manager->GetEnd() ||
-		m_input->IsKeyTrigger(KEY_INPUT_N))
+		m_input->IsKeyTrigger(KEY_INPUT_N))		//Debug仮のキー
 	{
 		m_is_end = true;
 		m_next = SceneType::kGameResult;
@@ -73,6 +73,10 @@ void GamePlay::Draw()
 
 void GamePlay::Shutdown()
 {
+	//次がPauseだったらShutDownしない
+	//次が勝利シーンだったらShutDownしないが、勝利シーンがShutDownできるように
+	//Initializeの時記録した前のシーンがGamePlay（勝利シーンになる）の場合は
+	//ShutDownする
 	if (m_next == SceneType::kPause ||
 		(m_next == SceneType::kGameResult && m_previous != SceneType::kGamePlay))
 		return;
