@@ -16,6 +16,7 @@ Loading::Loading()
 
 void Loading::LoadContents()
 {
+	m_content->LoadSSFile("Character_base/Character.ssbp");
 }
 
 void Loading::UnloadContents()

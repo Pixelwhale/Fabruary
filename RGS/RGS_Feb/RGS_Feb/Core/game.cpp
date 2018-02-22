@@ -15,8 +15,6 @@ void Game::Initialize()
 
 	m_scene_manager = std::make_shared<Scene::SceneManager>();
 	m_scene_manager->Initialize();
-
-	m_game_device->GetContent()->LoadSSFile("Character_base/Character.ssbp");
 }
 
 //ロードコンテンツ

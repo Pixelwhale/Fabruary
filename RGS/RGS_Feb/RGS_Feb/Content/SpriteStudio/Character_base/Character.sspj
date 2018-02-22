@@ -118,10 +118,12 @@
 		<value>effect.ssce</value>
 	</cellmapNames>
 	<animepackNames>
+		<value>Effect.ssae</value>
 		<value>chara_base_anime.ssae</value>
+		<value>skill_effect.ssae</value>
 	</animepackNames>
-	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
-	<lastAnimeName>damage</lastAnimeName>
-	<lastCellMapFile>Hammer.ssce</lastCellMapFile>
-	<lastPart>Hammer_1</lastPart>
+	<lastAnimeFile>Effect.ssae</lastAnimeFile>
+	<lastAnimeName>slash</lastAnimeName>
+	<lastCellMapFile>effect.ssce</lastCellMapFile>
+	<lastCell>slash</lastCell>
 </SpriteStudioProject>
