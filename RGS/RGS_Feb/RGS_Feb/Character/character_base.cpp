@@ -51,7 +51,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isInvincible = false;
 	m_isHit = false;
 	m_velocity_jump = Math::Vector3(0, 0, 0);
-	m_rotation = Math::Vector3(0, 0, 0);
+	//m_rotation = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
@@ -114,8 +114,15 @@ void CharacterBase::Draw()
 //あたり判定
 void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
-	bool from_right = (atk.GetSourceDir() == AttackSystem::kRight)
-		|| (atk.GetPosition().x > m_position.x);
+	bool from_right;
+	if (atk.GetSourceDir() != AttackSystem::kCenter)
+	{
+		from_right = (atk.GetSourceDir() == AttackSystem::kRight);
+	}
+	else
+	{
+		from_right = (atk.GetPosition().x > m_position.x);
+	}
 
 	if (from_right)
 	{
@@ -140,7 +147,8 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	else
 	{
 		//倒れ値を超えたら、倒れる
-		if (m_knock_value > m_job->KnockValue())
+		if ((m_knock_value > m_job->KnockValue()) ||
+			(m_hp - atk.GetDamage() <= 0))
 		{
 			m_state = CharacterState::kKnockDown;
 			m_motion->Play("chara_base_anime/knock_down",1);
@@ -310,7 +318,7 @@ void CharacterBase::MotionUpdate()
 	m_motion->Update();
 
 	//向きの更新(Jumpの時はできない)
-	if (!m_isJump)
+	if (!m_isJump && !m_isHit)
 	{
 		if (m_velocity.x > 0)
 		{
@@ -359,10 +367,10 @@ void CharacterBase::MoveUpdate()
 //位置の更新
 void CharacterBase::PositionUpdate()
 {
-	Math::Vector3 min = Math::Vector3(-WindowDef::kScreenWidth / 2 + Size::kCharaX / 12, -5, 
-										-WindowDef::kScreenHeight / 2  - Size::kCharaZ);
-	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 12,  Size::kCharaY * 2,
-								      WindowDef::kScreenHeight / 2);
+	Math::Vector3 min = Math::Vector3(-WindowDef::kScreenWidth / 2 + Size::kCharaX / 12, -Size::kCharaY,
+										-WindowDef::kScreenHeight / 2 - Size::kCharaZ * 3);
+	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 12,  Size::kCharaY * 4,
+								      WindowDef::kScreenHeight / 2 - Size::kCharaZ * 2);
 
 	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
 
@@ -379,11 +387,11 @@ void CharacterBase::JumpUpdate()
 		m_velocity_jump = Math::Vector3(0, 23, 0);
 		m_isStop = false;
 	}
-	else if (m_position.y < 0)
+	else if (m_position.y < 128)
 	{
 		m_isJump = false;
 		m_velocity_jump = Math::Vector3(0, 0, 0);
-		m_position.y = 0;
+		m_position.y = 128;
 	}
 	if (m_isJump)
 	{
@@ -409,7 +417,8 @@ void CharacterBase::MpUpdate()
 void CharacterBase::StateUpdate()
 {
 	//防御か倒られた時は無敵
-	if (m_state == CharacterState::kKnockDown)
+	if (m_state == CharacterState::kKnockDown || 
+		m_state == CharacterState::kGetUp)
 	{
 		m_isInvincible = true;
 	}
@@ -428,16 +437,23 @@ void CharacterBase::StateUpdate()
 		}
 		if (m_motion->IsCurrentMotionEnd())
 		{
+			m_velocity = Math::Vector3(0, 0, 0);
+			m_isStop = false;
+			if (m_state == CharacterState::kKnockDown && m_hp < 0)
+			{
+				return;
+			}
 			m_state = CharacterState::kIdle;
 			m_motion->Play("chara_base_anime/idle");
-			m_isStop = false;
 			m_isHit = false;
+			
 			//Jumpしていると、Jumpモーションに戻る
 			if (m_isJump)
 			{
 				m_state = CharacterState::kJump;
 			}
 		}
+		
 	}
 }
 
