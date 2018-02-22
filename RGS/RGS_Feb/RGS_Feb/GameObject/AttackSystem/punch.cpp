@@ -26,6 +26,7 @@ std::vector<std::shared_ptr<Attack>> AttackSystem::Punch::Collide()
 
 void AttackSystem::Punch::Update()
 {
+	Attack::Update();
 	m_life_span_timer.Update();
 }
 
