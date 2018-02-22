@@ -114,12 +114,14 @@
 	</texPackSettings>
 	<cellmapNames>
 		<value>chara_base.ssce</value>
+		<value>effect.ssce</value>
 	</cellmapNames>
 	<animepackNames>
 		<value>chara_base_anime.ssae</value>
 	</animepackNames>
 	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
-	<lastAnimeName>run</lastAnimeName>
-	<lastCellMapFile>chara_base.ssce</lastCellMapFile>
-	<lastCell>foot_left</lastCell>
+	<lastAnimeName>dead</lastAnimeName>
+	<lastCellMapFile>effect.ssce</lastCellMapFile>
+	<lastCell>particle</lastCell>
+	<lastPart>particle</lastPart>
 </SpriteStudioProject>

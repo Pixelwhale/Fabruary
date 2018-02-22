@@ -55,7 +55,7 @@
 				<show>1</show>
 				<locked>0</locked>
 				<expandAttribute>0</expandAttribute>
-				<expandChildren>1</expandChildren>
+				<expandChildren>0</expandChildren>
 			</value>
 			<value>
 				<name>Head</name>
@@ -330,9 +330,325 @@
 				<expandAttribute>0</expandAttribute>
 				<expandChildren>1</expandChildren>
 			</value>
+			<value>
+				<name>Particle</name>
+				<arrayIndex>15</arrayIndex>
+				<parentIndex>0</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle</name>
+				<arrayIndex>16</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_1</name>
+				<arrayIndex>17</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_2</name>
+				<arrayIndex>18</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_10</name>
+				<arrayIndex>19</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_9</name>
+				<arrayIndex>20</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_8</name>
+				<arrayIndex>21</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_7</name>
+				<arrayIndex>22</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_6</name>
+				<arrayIndex>23</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_5</name>
+				<arrayIndex>24</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_4</name>
+				<arrayIndex>25</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_3</name>
+				<arrayIndex>26</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_11</name>
+				<arrayIndex>27</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_12</name>
+				<arrayIndex>28</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>particle_13</name>
+				<arrayIndex>29</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
 		</partList>
 	</Model>
 	<cellmapNames>
+		<value>effect.ssce</value>
 		<value>chara_base.ssce</value>
 	</cellmapNames>
 	<animeList>
@@ -433,7 +749,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -545,7 +861,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -586,7 +902,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -627,7 +943,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -678,7 +994,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -729,7 +1045,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -785,7 +1101,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -831,7 +1147,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -877,7 +1193,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -928,7 +1244,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -984,7 +1300,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -1014,6 +1330,1917 @@
 						</attribute>
 						<attribute tag="PRIO">
 							<key time="0" ipType="deceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+			</partAnimes>
+		</anime>
+		<anime>
+			<name>dead</name>
+			<overrideSettings>1</overrideSettings>
+			<settings>
+				<fps>60</fps>
+				<frameCount>80</frameCount>
+				<sortMode>z</sortMode>
+				<canvasSize>512 256</canvasSize>
+				<pivot>0 0</pivot>
+				<bgColor>FF323232</bgColor>
+				<gridSize>32</gridSize>
+				<gridColor>FF808080</gridColor>
+				<outStartNum>0</outStartNum>
+			</settings>
+			<labels />
+			<partAnimes>
+				<partAnime>
+					<partName>root</partName>
+					<attributes>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Chara</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>-57</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>-56</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>-111</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-3</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>-57</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>-58</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>-117</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>8.54290294647217</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>12.1026468276978</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>89.4410781860352</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="28" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Head</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>Head</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-4</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>56</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>-46.3063278198242</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Body</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Bone</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>0.899999976158142</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>bone_up</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>bone_up</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>60</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>bone_down</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>bone_down</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-30</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>arm_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>arm_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-4.33333206176758</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>44</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-4.76501417160034</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>9.59624099731445</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>hand_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>hand_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-0.0256269033998251</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-39.0582160949707</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-17.4618339538574</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>0.899999976158142</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>leg_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>leg_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-2.33333349227905</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-19.6666679382324</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-2.13983726501465</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>-12.2745571136475</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>-15.7930727005005</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>-0.479470133781433</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>foot_right</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>foot_right</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>-0.382773071527481</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-40.0217170715332</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-0.151779055595398</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>95.4620361328125</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>95.4620361328125</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>4.83152866363525</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>arm_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>arm_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>7</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>45</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-4</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>16.0354404449463</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>-0.831422328948975</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>hand_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>hand_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0.737494826316833</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-38.841739654541</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-5</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>-14.8034467697144</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>0.899999976158142</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>leg_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>leg_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>2.33333349227905</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-20.3333320617676</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-1</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>9.20407009124756</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>2.85316443443298</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>-1.22325372695923</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>-9.08835124969482</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="acceleration">
+								<value>1.10000002384186</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>foot_left</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>1</mapId>
+									<name>foot_left</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="acceleration">
+								<value>0.542533338069916</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="acceleration">
+								<value>-39.4637298583984</value>
+							</key>
+						</attribute>
+						<attribute tag="POSZ">
+							<key time="0" ipType="acceleration">
+								<value>-2</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="acceleration">
+								<value>0.380362629890442</value>
+							</key>
+							<key time="10" ipType="acceleration">
+								<value>78.8079071044922</value>
+							</key>
+							<key time="15" ipType="acceleration">
+								<value>78.8079071044922</value>
+							</key>
+							<key time="28" ipType="acceleration">
+								<value>10.0363473892212</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="acceleration">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Particle</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="28" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-145</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>-206</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-92</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>60</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="55" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_1</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>-72</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>-57</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>-115</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>8</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="32" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="32" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="32" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="58" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_2</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-101</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-138</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-113</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>40</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="57" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_10</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="31" ipType="linear">
+								<value>-175</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>-34</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="31" ipType="linear">
+								<value>-95</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>105</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="31" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="31" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="31" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_9</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-27</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-113</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-117</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>8</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="57" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_8</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>-150</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>-78</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>-115</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>-34</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="33" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="33" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="55" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_7</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>-50</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-107</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>-119</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-11</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="30" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="30" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="57" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_6</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>-92</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>-52</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>-109</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>64</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="32" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="32" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="32" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="58" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_5</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-164</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-177</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-111</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>28</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="29" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="29" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="57" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_4</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-114</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>-79</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-114</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>21</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="35" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="35" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="35" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="56" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_3</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>-76</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>-84</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>-119</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>70</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="33" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="33" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_11</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="31" ipType="linear">
+								<value>-22</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-17</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="31" ipType="linear">
+								<value>-119</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-30</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="31" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="31" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="31" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="57" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_12</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>5</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>21</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>-114</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>-23</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="30" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="30" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="59" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="30" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="59" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_13</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="28" ipType="linear">
+								<value>-215</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>-206</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="28" ipType="linear">
+								<value>-88</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>40</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="28" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="28" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+							<key time="55" ipType="linear">
+								<value>0.100000001490116</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="28" ipType="bezier">
+								<curve syncStartEnd="1">4.89784908294678 0.131578966975212 -11.7526884078979 0.00526315905153751</curve>
+								<value>0</value>
+							</key>
+							<key time="44" ipType="bezier">
+								<curve syncStartEnd="1">11.7526884078979 -0.00526315905153751 -5.83870983123779 0.126315802335739</curve>
+								<value>0.920000016689301</value>
+							</key>
+							<key time="55" ipType="bezier">
+								<curve syncStartEnd="1">5.83870983123779 -0.126315802335739 0 0</curve>
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
 								<value>0</value>
 							</key>
 						</attribute>
@@ -1118,7 +3345,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -1234,7 +3461,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -1276,7 +3503,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -1318,7 +3545,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -1376,7 +3603,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -1434,7 +3661,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -1498,7 +3725,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -1550,7 +3777,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -1602,7 +3829,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -1668,7 +3895,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -1732,7 +3959,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -1818,10 +4045,10 @@
 							<key time="34" ipType="acceleration">
 								<value>20</value>
 							</key>
-							<key time="44" ipType="acceleration">
+							<key time="46" ipType="acceleration">
 								<value>8</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>4</value>
 							</key>
 						</attribute>
@@ -1838,10 +4065,10 @@
 							<key time="34" ipType="acceleration">
 								<value>64</value>
 							</key>
-							<key time="44" ipType="acceleration">
+							<key time="46" ipType="acceleration">
 								<value>27</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>-19</value>
 							</key>
 						</attribute>
@@ -1860,10 +4087,10 @@
 							<key time="34" ipType="acceleration">
 								<value>-40.4382476806641</value>
 							</key>
-							<key time="44" ipType="acceleration">
-								<value>29.2327880859375</value>
+							<key time="46" ipType="acceleration">
+								<value>42.6344566345215</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>-2.67113757133484</value>
 							</key>
 						</attribute>
@@ -1895,7 +4122,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -1919,7 +4146,7 @@
 							<key time="0" ipType="acceleration">
 								<value>24.5629558563232</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>11.7649917602539</value>
 							</key>
 						</attribute>
@@ -2001,7 +4228,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -2039,7 +4266,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -2077,7 +4304,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -2107,10 +4334,10 @@
 							<key time="34" ipType="acceleration">
 								<value>-79.1133422851563</value>
 							</key>
-							<key time="44" ipType="acceleration">
+							<key time="46" ipType="acceleration">
 								<value>-60.7334671020508</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>-13.143611907959</value>
 							</key>
 						</attribute>
@@ -2137,7 +4364,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -2191,7 +4418,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -2218,13 +4445,13 @@
 							<key time="19" ipType="acceleration">
 								<value>-94.3707427978516</value>
 							</key>
-							<key time="34" ipType="acceleration">
+							<key time="27" ipType="acceleration">
 								<value>47.6630058288574</value>
 							</key>
-							<key time="44" ipType="acceleration">
-								<value>-74.1908416748047</value>
+							<key time="46" ipType="acceleration">
+								<value>-87.7855758666992</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>-48.3705596923828</value>
 							</key>
 						</attribute>
@@ -2256,7 +4483,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -2280,7 +4507,7 @@
 							<key time="0" ipType="acceleration">
 								<value>47.3330917358398</value>
 							</key>
-							<key time="34" ipType="acceleration">
+							<key time="27" ipType="acceleration">
 								<value>42.1535148620605</value>
 							</key>
 						</attribute>
@@ -2302,7 +4529,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -2332,10 +4559,10 @@
 							<key time="34" ipType="acceleration">
 								<value>-101.013870239258</value>
 							</key>
-							<key time="44" ipType="acceleration">
+							<key time="46" ipType="acceleration">
 								<value>31.4538383483887</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>38.221752166748</value>
 							</key>
 						</attribute>
@@ -2357,7 +4584,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -2387,10 +4614,10 @@
 							<key time="34" ipType="acceleration">
 								<value>-24.7741165161133</value>
 							</key>
-							<key time="44" ipType="acceleration">
+							<key time="46" ipType="acceleration">
 								<value>-56.5555038452148</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>-42.8001708984375</value>
 							</key>
 						</attribute>
@@ -2417,7 +4644,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -2444,13 +4671,13 @@
 							<key time="19" ipType="acceleration">
 								<value>-127.438789367676</value>
 							</key>
-							<key time="34" ipType="acceleration">
+							<key time="27" ipType="acceleration">
 								<value>80.7822418212891</value>
 							</key>
-							<key time="44" ipType="acceleration">
+							<key time="46" ipType="acceleration">
 								<value>-39.5524635314941</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>24.9703769683838</value>
 							</key>
 						</attribute>
@@ -2482,7 +4709,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -2509,7 +4736,7 @@
 							<key time="19" ipType="acceleration">
 								<value>48.5194931030273</value>
 							</key>
-							<key time="55" ipType="acceleration">
+							<key time="53" ipType="acceleration">
 								<value>22.7588405609131</value>
 							</key>
 						</attribute>
@@ -2611,7 +4838,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -2751,7 +4978,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -2793,7 +5020,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -2835,7 +5062,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -2903,7 +5130,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -2957,7 +5184,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -3025,7 +5252,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -3073,7 +5300,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -3141,7 +5368,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -3195,7 +5422,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -3263,7 +5490,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -3427,7 +5654,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -3600,7 +5827,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -3658,7 +5885,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -3716,7 +5943,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -3790,7 +6017,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -3860,7 +6087,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -3940,7 +6167,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -4008,7 +6235,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -4076,7 +6303,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -4146,7 +6373,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -4226,7 +6453,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -4325,8 +6552,12 @@
 								<value>-1</value>
 							</key>
 							<key time="10" ipType="bezier">
-								<curve syncStartEnd="1">1 0 0 0</curve>
+								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-5</value>
+							</key>
+							<key time="28" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-2</value>
 							</key>
 						</attribute>
 						<attribute tag="POSY">
@@ -4339,8 +6570,12 @@
 								<value>4</value>
 							</key>
 							<key time="10" ipType="bezier">
-								<curve syncStartEnd="1">1 0 0 0</curve>
+								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-1</value>
+							</key>
+							<key time="28" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-3</value>
 							</key>
 						</attribute>
 						<attribute tag="POSZ">
@@ -4386,7 +6621,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -4506,7 +6741,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -4552,7 +6787,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -4598,7 +6833,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -4628,7 +6863,7 @@
 							</key>
 							<key time="15" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
-								<value>9.48024654388428</value>
+								<value>10.6634187698364</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -4656,7 +6891,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -4686,7 +6921,7 @@
 							</key>
 							<key time="15" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
-								<value>-29.5140132904053</value>
+								<value>-41.974723815918</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLY">
@@ -4714,7 +6949,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -4751,8 +6986,12 @@
 								<value>-122.192626953125</value>
 							</key>
 							<key time="26" ipType="bezier">
-								<curve syncStartEnd="1">1 0 0 0</curve>
+								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>-104.68497467041</value>
+							</key>
+							<key time="28" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>-43.0856170654297</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -4786,7 +7025,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -4850,7 +7089,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -4880,7 +7119,7 @@
 							</key>
 							<key time="16" ipType="bezier">
 								<curve syncStartEnd="1">1 0 0 0</curve>
-								<value>37.5842094421387</value>
+								<value>47.2572135925293</value>
 							</key>
 						</attribute>
 						<attribute tag="PRIO">
@@ -4902,7 +7141,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -4960,7 +7199,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -4989,8 +7228,12 @@
 								<value>9.20407009124756</value>
 							</key>
 							<key time="10" ipType="bezier">
-								<curve syncStartEnd="1">1 0 0 0</curve>
+								<curve syncStartEnd="1">1 0 -1 0</curve>
 								<value>3.19279432296753</value>
+							</key>
+							<key time="28" ipType="bezier">
+								<curve syncStartEnd="1">1 0 0 0</curve>
+								<value>12.5493984222412</value>
 							</key>
 						</attribute>
 						<attribute tag="SCLX">
@@ -5024,7 +7267,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -5183,7 +7426,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -5295,7 +7538,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -5333,7 +7576,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -5371,7 +7614,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -5431,7 +7674,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -5482,7 +7725,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -5547,7 +7790,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -5602,7 +7845,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -5657,7 +7900,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -5717,7 +7960,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -5782,7 +8025,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -5925,7 +8168,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -6041,7 +8284,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -6083,7 +8326,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -6125,7 +8368,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -6213,7 +8456,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -6293,7 +8536,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -6361,7 +8604,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -6417,7 +8660,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -6489,7 +8732,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -6547,7 +8790,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -6603,7 +8846,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -6737,7 +8980,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -6869,7 +9112,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -6911,7 +9154,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -6953,7 +9196,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -7041,7 +9284,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -7109,7 +9352,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -7177,7 +9420,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -7233,7 +9476,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -7305,7 +9548,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -7375,7 +9618,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -7431,7 +9674,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -7569,7 +9812,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -7706,7 +9949,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -7752,7 +9995,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -7798,7 +10041,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -7870,7 +10113,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -7942,7 +10185,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -8006,7 +10249,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -8066,7 +10309,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -8122,7 +10365,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -8180,7 +10423,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -8236,7 +10479,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -8371,7 +10614,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -8508,7 +10751,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -8554,7 +10797,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -8600,7 +10843,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -8680,7 +10923,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -8752,7 +10995,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -8816,7 +11059,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -8876,7 +11119,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -8940,7 +11183,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -9010,7 +11253,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -9066,7 +11309,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -9221,7 +11464,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -9370,7 +11613,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -9416,7 +11659,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -9462,7 +11705,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -9542,7 +11785,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -9614,7 +11857,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -9702,7 +11945,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -9778,7 +12021,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -9842,7 +12085,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -9912,7 +12155,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -9980,7 +12223,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -10161,7 +12404,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -10306,7 +12549,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -10352,7 +12595,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -10398,7 +12641,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -10482,7 +12725,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -10554,7 +12797,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -10622,7 +12865,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -10686,7 +12929,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -10738,7 +12981,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -10804,7 +13047,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -10866,7 +13109,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -11021,7 +13264,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -11170,7 +13413,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -11216,7 +13459,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -11270,7 +13513,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -11350,7 +13593,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -11418,7 +13661,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -11490,7 +13733,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -11566,7 +13809,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -11630,7 +13873,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -11700,7 +13943,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -11762,7 +14005,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -11915,7 +14158,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -12043,7 +14286,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -12085,7 +14328,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -12127,7 +14370,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -12207,7 +14450,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -12279,7 +14522,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -12355,7 +14598,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -12411,7 +14654,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -12483,7 +14726,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -12545,7 +14788,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -12610,7 +14853,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -12819,7 +15062,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -12996,7 +15239,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -13070,7 +15313,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -13144,7 +15387,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -13210,7 +15453,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -13264,7 +15507,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -13356,7 +15599,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -13444,7 +15687,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -13505,7 +15748,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -13559,7 +15802,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -13651,7 +15894,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -13773,10 +16016,10 @@
 							<key time="0" ipType="deceleration">
 								<value>50</value>
 							</key>
-							<key time="20" ipType="acceleration">
+							<key time="17" ipType="acceleration">
 								<value>73</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-60</value>
 							</key>
 						</attribute>
@@ -13789,10 +16032,10 @@
 							<key time="0" ipType="deceleration">
 								<value>-64.1251449584961</value>
 							</key>
-							<key time="20" ipType="acceleration">
+							<key time="17" ipType="acceleration">
 								<value>-375.585388183594</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-338.145782470703</value>
 							</key>
 						</attribute>
@@ -13824,7 +16067,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -13833,7 +16076,7 @@
 							<key time="0" ipType="acceleration">
 								<value>-4</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-8.27835083007813</value>
 							</key>
 						</attribute>
@@ -13841,7 +16084,7 @@
 							<key time="0" ipType="acceleration">
 								<value>56</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>48.0190391540527</value>
 							</key>
 						</attribute>
@@ -13854,10 +16097,10 @@
 							<key time="0" ipType="acceleration">
 								<value>0</value>
 							</key>
-							<key time="20" ipType="acceleration">
+							<key time="17" ipType="acceleration">
 								<value>-17.452766418457</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>29.4818553924561</value>
 							</key>
 						</attribute>
@@ -13923,10 +16166,10 @@
 							<key time="6" ipType="linear">
 								<value>-1.48064923286438</value>
 							</key>
-							<key time="23" ipType="linear">
+							<key time="18" ipType="linear">
 								<value>0</value>
 							</key>
-							<key time="27" ipType="linear">
+							<key time="25" ipType="linear">
 								<value>9.7814359664917</value>
 							</key>
 						</attribute>
@@ -13953,7 +16196,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -13975,7 +16218,7 @@
 							<key time="6" ipType="acceleration">
 								<value>-7.13460063934326</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>0</value>
 							</key>
 						</attribute>
@@ -13997,7 +16240,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -14019,7 +16262,7 @@
 							<key time="6" ipType="acceleration">
 								<value>8.43494319915771</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>0</value>
 							</key>
 						</attribute>
@@ -14041,7 +16284,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -14050,7 +16293,7 @@
 							<key time="0" ipType="acceleration">
 								<value>-4.33333206176758</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-11.4202842712402</value>
 							</key>
 						</attribute>
@@ -14058,7 +16301,7 @@
 							<key time="0" ipType="acceleration">
 								<value>44</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>30.6293125152588</value>
 							</key>
 						</attribute>
@@ -14074,10 +16317,10 @@
 							<key time="6" ipType="acceleration">
 								<value>-35.5545883178711</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>-20.7387580871582</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-16.5478649139404</value>
 							</key>
 						</attribute>
@@ -14104,7 +16347,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -14128,10 +16371,10 @@
 							<key time="0" ipType="acceleration">
 								<value>-10.0624380111694</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>-37.929370880127</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-2.35941481590271</value>
 							</key>
 						</attribute>
@@ -14158,7 +16401,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -14185,10 +16428,10 @@
 							<key time="6" ipType="acceleration">
 								<value>23.5490875244141</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>-62.360179901123</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-131.938018798828</value>
 							</key>
 						</attribute>
@@ -14220,7 +16463,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -14244,7 +16487,7 @@
 							<key time="0" ipType="acceleration">
 								<value>19.7668170928955</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>106.161033630371</value>
 							</key>
 						</attribute>
@@ -14266,7 +16509,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -14275,7 +16518,7 @@
 							<key time="0" ipType="acceleration">
 								<value>7</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-1.64854443073273</value>
 							</key>
 						</attribute>
@@ -14283,7 +16526,7 @@
 							<key time="0" ipType="acceleration">
 								<value>45</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>41.8058280944824</value>
 							</key>
 						</attribute>
@@ -14299,7 +16542,7 @@
 							<key time="6" ipType="acceleration">
 								<value>45.4714202880859</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>55.4452857971191</value>
 							</key>
 						</attribute>
@@ -14321,7 +16564,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -14345,10 +16588,10 @@
 							<key time="0" ipType="acceleration">
 								<value>-10.600396156311</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>-54.467586517334</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>-36.2725524902344</value>
 							</key>
 						</attribute>
@@ -14375,7 +16618,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -14402,10 +16645,10 @@
 							<key time="6" ipType="acceleration">
 								<value>43.3001251220703</value>
 							</key>
-							<key time="23" ipType="acceleration">
+							<key time="18" ipType="acceleration">
 								<value>-7.00904321670532</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>18.2616634368896</value>
 							</key>
 						</attribute>
@@ -14437,7 +16680,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
@@ -14461,7 +16704,7 @@
 							<key time="0" ipType="acceleration">
 								<value>18.113489151001</value>
 							</key>
-							<key time="27" ipType="acceleration">
+							<key time="25" ipType="acceleration">
 								<value>44.4622993469238</value>
 							</key>
 						</attribute>
@@ -14619,7 +16862,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>Head</name>
 								</value>
 							</key>
@@ -14785,7 +17028,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_up</name>
 								</value>
 							</key>
@@ -14843,7 +17086,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>bone_down</name>
 								</value>
 							</key>
@@ -14901,7 +17144,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_right</name>
 								</value>
 							</key>
@@ -14979,7 +17222,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_right</name>
 								</value>
 							</key>
@@ -15049,7 +17292,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_right</name>
 								</value>
 							</key>
@@ -15145,7 +17388,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_right</name>
 								</value>
 							</key>
@@ -15221,7 +17464,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>arm_left</name>
 								</value>
 							</key>
@@ -15293,7 +17536,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>hand_left</name>
 								</value>
 							</key>
@@ -15363,7 +17606,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>leg_left</name>
 								</value>
 							</key>
@@ -15459,7 +17702,7 @@
 						<attribute tag="CELL">
 							<key time="0">
 								<value>
-									<mapId>0</mapId>
+									<mapId>1</mapId>
 									<name>foot_left</name>
 								</value>
 							</key>
