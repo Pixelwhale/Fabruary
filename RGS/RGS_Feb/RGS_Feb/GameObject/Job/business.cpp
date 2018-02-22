@@ -24,9 +24,9 @@ std::string Business::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack
 {
 	std::string base_animation = "chara_base_anime/";
 
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 2), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 10, 0);
 
-	if (is_right)
+	if (!is_right)
 	{
 		plus.x *= -1;
 	}
@@ -34,17 +34,17 @@ std::string Business::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 10, 0, 0, 20, 0.4f));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 0, 0, 20, 0.4f));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_3";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(30, 30, 30), m_side, 13, 0, 0, 20, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 13, 0, 0, 20, 0.4));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_4";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(33, 33, 33), m_side, 15, 1, 1, 30, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(20, 20, 20), m_side, 15, 1, 1, 30, 0.4));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
@@ -56,12 +56,12 @@ std::string Business::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack
 std::string Business::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
-	if (is_right)
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), -10, 0);
+	if (!is_right)
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(40, 40, 40), m_side, 35, 0, 0, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 0, 0, 40, 0.4));
 	return base_animation + "kick_1";
 }
 
@@ -69,7 +69,7 @@ std::string Business::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attac
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
-	if (is_right)
+	if (!is_right)
 	{
 		plus.x *= -1;
 	}
@@ -81,7 +81,7 @@ std::string Business::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attac
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
-	if (is_right)
+	if (!is_right)
 	{
 		plus.x *= -1;
 	}
@@ -93,7 +93,7 @@ std::string Business::Skill3(std::shared_ptr<AttackSystem::AttackMediator> attac
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
-	if (is_right)
+	if (!is_right)
 	{
 		plus.x *= -1;
 	}
@@ -105,7 +105,7 @@ std::string Business::Skill4(std::shared_ptr<AttackSystem::AttackMediator> attac
 {
 	std::string base_animation = "chara_base_anime/";
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
-	if (is_right)
+	if (!is_right)
 	{
 		plus.x *= -1;
 	}
