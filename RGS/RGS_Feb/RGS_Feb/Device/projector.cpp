@@ -98,6 +98,7 @@ void Projector::Zoom(float rate)
 
 void Projector::UpdateView() 
 {
+	SetupCamera_Ortho(m_zoom_rate);
 	SetCameraPositionAndTarget_UpVecY(m_position, m_target);		//View‚ğXV
 }
 

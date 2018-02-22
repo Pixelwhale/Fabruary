@@ -1,6 +1,7 @@
 //-------------------------------------------------------
-// 作成者：廖啓勝
-// 作成日：2018.02.05
+// 作成者：林佳叡
+// 作成日：2018.2.22
+// 内容　：GamePlayシーン
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
@@ -20,10 +21,12 @@ namespace Scene
 		void Update();
 		void Draw();
 		void Shutdown();
+
+	private:
 		void CheckEnd();
 
 	private:
-		std::shared_ptr<GameManager> m_game_manager;
+		std::shared_ptr<GameManager> m_game_manager;						//Game Manager
 
 		std::shared_ptr<Character::CharacterManager> m_character_manager;	//Character Manager
 		std::shared_ptr<AttackSystem::AttackManager> m_attack_manager;		//Attacke Manager

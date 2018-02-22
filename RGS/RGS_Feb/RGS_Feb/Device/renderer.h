@@ -172,8 +172,22 @@ namespace Device
 
 #pragma endregion
 
+
+#pragma region Filter関連
+
+		///<summary>RenderTargetを設定</summary>
+		void DrawFilter();
+		///<summary>ぼかし</summary>
+		///<param name="ratio">ぼかしの度合い</param>
+		void GaussFilter(int ratio);
+
+#pragma endregion
+
+
 	private:
 		std::shared_ptr<ContentManager> m_contents;				//Content Manager
 		std::shared_ptr<DepthSort>		m_depth_sort;			//描画順をソートするクラス
+
+		int m_blur_filter_handle = -1;							//BlurのRenderTargetハンドル
 	};
 }

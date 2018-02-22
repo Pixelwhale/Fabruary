@@ -1,6 +1,7 @@
 //-------------------------------------------------------
-// 作成者：廖啓勝
-// 作成日：2018.02.05
+// 作成者：林佳叡
+// 作成日：2018.2.22
+// 内容　：GamePlayシーン
 //-------------------------------------------------------
 #include <Scene\gameplay.h>
 #include <Character\Controller\keyboard_controller.h>
@@ -22,7 +23,7 @@ void GamePlay::Initialize(SceneType previous)
 	m_previous = previous;
 
 	if (previous == SceneType::kPause ||
-		previous == SceneType::kGameResult)
+		previous == SceneType::kGamePlay)
 		return;
 
 	m_attack_manager = make_shared<AttackSystem::AttackManager>();
@@ -34,12 +35,6 @@ void GamePlay::Initialize(SceneType previous)
 
 	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
 	m_meta_ai->AddCom(Math::Vector3(400, 0, 20), Side::kTeam3, make_shared<Job::Business>(Side::kTeam3), 2);
-	//m_meta_ai->AddCom(Math::Vector3(420, 0, 20), Side::kTeam3, make_shared<Job::ComputerGraphic>(Side::kTeam3), 2);
-	//m_meta_ai->AddCom(Math::Vector3(440, 0, 20), Side::kTeam3, make_shared<Job::Planner>(Side::kTeam3), 5);
-	//m_meta_ai->AddCom(Math::Vector3(-400, 0, -20), Side::kTeam2, make_shared<Job::Business>(Side::kTeam2), 9);
-	//m_meta_ai->AddCom(Math::Vector3(-420, 0, -20), Side::kTeam2, make_shared<Job::ComputerGraphic>(Side::kTeam2), 9);
-	//m_meta_ai->AddCom(Math::Vector3(-430, 0, -20), Side::kTeam2, make_shared<Job::Planner>(Side::kTeam2), 8);
-	//m_meta_ai->AddCom(Math::Vector3(0, 0, -100), Side::kTeam4, make_shared<Job::Programmer>(Side::kTeam4), 6);
 }
 
 void GamePlay::Update()
@@ -51,12 +46,21 @@ void GamePlay::Update()
 	CheckEnd();
 }
 
-void GamePlay::CheckEnd() 
+void GamePlay::CheckEnd()
 {
-	if (m_character_manager->GetEnd()) 
+	if (m_character_manager->GetEnd() ||
+		m_input->IsKeyTrigger(KEY_INPUT_N))
 	{
 		m_is_end = true;
-		m_next = SceneType::kTitle;
+		m_next = SceneType::kGameResult;
+		return;
+	}
+
+	if (m_input->IsKeyTrigger(KEY_INPUT_P))
+	{
+		m_is_end = true;
+		m_next = SceneType::kPause;
+		return;
 	}
 }
 
@@ -69,8 +73,8 @@ void GamePlay::Draw()
 
 void GamePlay::Shutdown()
 {
-	if (m_previous == SceneType::kPause ||
-		m_previous == SceneType::kGamePlay)	//Todo: +CharacterSelect
+	if (m_next == SceneType::kPause ||
+		(m_next == SceneType::kGameResult && m_previous != SceneType::kGamePlay))
 		return;
 
 	m_meta_ai = NULL;
