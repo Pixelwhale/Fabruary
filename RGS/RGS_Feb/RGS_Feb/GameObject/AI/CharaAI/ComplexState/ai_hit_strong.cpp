@@ -10,6 +10,7 @@
 #include <GameObject\AI\MetaAI\meta_ai.h>
 #include <GameObject\AI\CharaAI\ComplexState\ai_hit_weak.h>
 #include <GameObject\AI\CharaAI\ComplexState\ai_hit_near.h>
+#include <GameObject\AI\CharaAI\ComplexState\ai_wait.h>
 
 using namespace AI;
 
@@ -59,8 +60,13 @@ void HitStrong::Update(std::shared_ptr<Character::AiController> controller)
 
 std::shared_ptr<AiState> HitStrong::NextState(int difficulty)
 {
-	if (difficulty > 5)
+	int priority = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
+	priority *= difficulty;
+	if (priority > 8 * 3)											//難易度8 2/5の確率
 		return make_shared<HitWeak>(m_character, difficulty);
 
-	return make_shared<HitNear>(m_character, difficulty);
+	if(priority > 3 * 3)											//難易度3 2/5の確率
+		return make_shared<HitNear>(m_character, difficulty);
+
+	return make_shared<Wait>(m_character, 2.0f / difficulty);
 }

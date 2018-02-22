@@ -52,7 +52,7 @@
     <ClCompile Include="Scene\end.cpp" />
     <ClCompile Include="Scene\gameplay.cpp" />
     <ClCompile Include="Scene\loading.cpp" />
-    <ClCompile Include="Scene\pause..cpp" />
+    <ClCompile Include="Scene\pause.cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
     <ClCompile Include="Scene\scene_fader.cpp" />
     <ClCompile Include="Scene\scene_manager.cpp" />
@@ -70,6 +70,7 @@
     <ClCompile Include="System\gravity.cpp" />
     <ClCompile Include="Utility\timer.cpp" />
     <ClCompile Include="Scene\game_manager.cpp" />
+    <ClCompile Include="Scene\game_result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -241,6 +242,7 @@
     <ClInclude Include="System\gravity.h" />
     <ClInclude Include="Utility\timer.h" />
     <ClInclude Include="Scene\game_manager.h" />
+    <ClInclude Include="Scene\game_result.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />

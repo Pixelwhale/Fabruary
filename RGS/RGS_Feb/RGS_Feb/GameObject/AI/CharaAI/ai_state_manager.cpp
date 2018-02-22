@@ -50,7 +50,7 @@ std::shared_ptr<Character::AiController> AiStateManager::Controller()
 void AiStateManager::SetCharaInfo(std::shared_ptr<Character::CharacterBase> character) 
 {
 	m_character = character;
-	m_current_state = std::make_shared<Wait>(m_character, 1.0f);
+	m_current_state = std::make_shared<Wait>(m_character, 0.3f);
 }
 
 bool AiStateManager::IsDead()

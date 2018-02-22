@@ -26,8 +26,8 @@ Renderer::~Renderer()
 void Renderer::Initialize()
 {
 	SetDrawScreen(DX_SCREEN_BACK);					//描画先をBackBufferに設定
-	SetUseZBuffer3D(TRUE);							// Ｚバッファを有効にする
-	SetWriteZBuffer3D(TRUE);						// Ｚバッファへの書き込みを有効にする
+	SetUseZBuffer3D(TRUE);							//Ｚバッファを有効にする
+	SetWriteZBuffer3D(TRUE);						//Ｚバッファへの書き込みを有効にする
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);		//AlphaBlend有効
 	SetUseLighting(false);							//Light無効（計算なし）
 	SetTransColor(0, 0, 0);
@@ -301,4 +301,25 @@ void Renderer::DrawString(
 
 #pragma endregion
 
+#pragma region Filter関連
+
+void Renderer::DrawFilter() 
+{
+	if (m_blur_filter_handle != -1)					//削除されなかったら削除する
+		DeleteGraph(m_blur_filter_handle);
+													//RenderTarget作成
+	m_blur_filter_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, true);
+	SetDrawScreen(m_blur_filter_handle);			//RenderTarget設定
+	ClearDrawScreen();								//Clearする
+}
+
+void Renderer::GaussFilter(int ratio)
+{
+	GraphFilter(m_blur_filter_handle, DX_GRAPH_FILTER_GAUSS, 8, ratio);		//RenderTargetをぼかし
+	SetDrawScreen(DX_SCREEN_BACK);											//バックバッファに描画
+	DrawGraph(0, 0, m_blur_filter_handle, false);							//RenderTarget描画
+	DeleteGraph(m_blur_filter_handle);										//RenderTarget解放
+}
+
+#pragma endregion
 

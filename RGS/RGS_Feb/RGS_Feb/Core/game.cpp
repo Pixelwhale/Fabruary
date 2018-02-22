@@ -11,7 +11,6 @@ using namespace Core;
 void Game::Initialize()
 {
 	m_end_flag = false;
-
 	m_renderer = m_game_device->GetRenderer();
 
 	m_scene_manager = std::make_shared<Scene::SceneManager>();

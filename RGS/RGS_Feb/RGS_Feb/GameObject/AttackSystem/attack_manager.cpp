@@ -78,6 +78,7 @@ void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mg
 {
 	AddAttack();
 
+	if (m_atk_list.empty()) return;
 	for (auto atk : m_atk_list)
 	{
 		atk->Update();

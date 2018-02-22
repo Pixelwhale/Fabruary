@@ -199,8 +199,9 @@
     <ClCompile Include="Scene\end.cpp" />
     <ClCompile Include="Scene\gameplay.cpp" />
     <ClCompile Include="Scene\game_manager.cpp" />
+    <ClCompile Include="Scene\game_result.cpp" />
     <ClCompile Include="Scene\loading.cpp" />
-    <ClCompile Include="Scene\pause..cpp" />
+    <ClCompile Include="Scene\pause.cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
     <ClCompile Include="Scene\scene_fader.cpp" />
     <ClCompile Include="Scene\scene_manager.cpp" />
@@ -356,6 +357,7 @@
     <ClInclude Include="Scene\end.h" />
     <ClInclude Include="Scene\gameplay.h" />
     <ClInclude Include="Scene\game_manager.h" />
+    <ClInclude Include="Scene\game_result.h" />
     <ClInclude Include="Scene\loading.h" />
     <ClInclude Include="Scene\pause.h" />
     <ClInclude Include="Scene\scene_base.h" />

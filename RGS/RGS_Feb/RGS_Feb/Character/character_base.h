@@ -76,6 +76,7 @@ namespace Character
 		bool	m_isRight;
 		bool	m_isInvincible;		//–³“Gƒtƒ‰ƒO
 		bool	m_isStop;			//UŒ‚ó‘Ô‚Æ‚©UŒ‚‚ğó‚¯‚½A“ü—Í‚É‚æ‚éˆÚ“®‚ğ–h‚®
+		bool	m_isHit;			//UŒ‚‚ğó‚¯‚½‚©H
 
 		Side	m_side;
 		CharacterState m_state;
