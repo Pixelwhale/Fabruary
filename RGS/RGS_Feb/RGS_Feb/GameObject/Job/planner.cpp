@@ -34,7 +34,7 @@ std::string Planner::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_
 	switch (m_punch_count)
 	{
 		case 0 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 0, 0, 15, 0.4f));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 0, 0, 15, 0.4));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_1";

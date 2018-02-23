@@ -12,7 +12,10 @@ using namespace AttackSystem;
 Damage::Damage(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer)
 	: Attack (position, size, side, attack, knockdown, knockback, dbreak), m_life_span_timer (life_span_timer)
 {
-
+	m_motion = std::make_shared<MotionSystem::Motion>("Character");
+	m_motion->Initialize();
+	m_motion->Play("Effect/slash", 1);
+	m_motion->SetPosition(m_position + m_size);
 }
 
 // デストラクタ
@@ -34,9 +37,10 @@ void AttackSystem::Damage::Update()
 	{
 		m_is_end = true;
 	}
+	m_motion->Update();
 }
 
 void AttackSystem::Damage::Draw()
 {
-
+	m_motion->Draw();
 }

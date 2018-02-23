@@ -26,6 +26,26 @@ std::vector<std::shared_ptr<Attack>> OmniSlash::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();
-	attack.push_back(std::make_shared<AttackSystem::Damage>
+	attack.push_back(std::make_shared<AttackSystem::Damage>(m_c_position, m_c_size * (1 - m_life_span_timer.Rate()), m_side, m_c_attack, m_c_knockback, m_c_knockdown, m_c_dbreak, m_life_span_timer.GetCurrentTimes()));
+	return attack;
+}
+
+void AttackSystem::OmniSlash::Update()
+{
+	Attack::Update();
+	m_life_span_timer.Update();
+	if (m_life_span_timer.IsTime())
+	{
+		m_is_end = true;
+	}
+	if (m_life_span_timer.GetCurrentTimes() < (0.3 * 60))
+	{
+		Collide();
+	}
+}
+
+void AttackSystem::OmniSlash::Draw()
+{
+
 }
 
