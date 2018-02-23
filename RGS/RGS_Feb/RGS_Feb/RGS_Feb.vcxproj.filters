@@ -74,6 +74,7 @@
     <ClCompile Include="GameObject\Background\background.cpp" />
     <ClCompile Include="GameObject\AttackSystem\damage.cpp" />
     <ClCompile Include="GameObject\AttackSystem\omnislash.cpp" />
+    <ClCompile Include="Scene\chara_select.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -249,6 +250,7 @@
     <ClInclude Include="GameObject\Background\background.h" />
     <ClInclude Include="GameObject\AttackSystem\damage.h" />
     <ClInclude Include="GameObject\AttackSystem\omnislash.h" />
+    <ClInclude Include="Scene\chara_select.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />
