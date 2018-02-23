@@ -198,6 +198,7 @@
     <ClCompile Include="Math\point.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Scene\chara_select.cpp" />
     <ClCompile Include="Scene\end.cpp" />
     <ClCompile Include="Scene\gameplay.cpp" />
     <ClCompile Include="Scene\game_manager.cpp" />
@@ -358,6 +359,7 @@
     <ClInclude Include="Math\point.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Scene\chara_select.h" />
     <ClInclude Include="Scene\end.h" />
     <ClInclude Include="Scene\gameplay.h" />
     <ClInclude Include="Scene\game_manager.h" />
