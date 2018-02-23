@@ -22,6 +22,7 @@ namespace Utility
 		void Reset();
 		///<summary>óÎÇ…Ç»Ç¡ÇΩÇ©ÅH</summary>
 		bool IsTime();
+		int GetCurrentTime() const { return m_current_time; }
 		float Rate();
 
 	private:

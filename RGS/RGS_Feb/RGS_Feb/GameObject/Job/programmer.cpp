@@ -35,17 +35,17 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(0, 0, 0), m_side, 10, 1, 5, 25, 0.3));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 1000, 1, 5, 25, 0.4));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(0, 0, 0), m_side, 10, 1, 5, 25, 0.3));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 1, 5, 25, 0.4));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(0, 0, 0), m_side, 10, 2, 20, 30, 0.3));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(25, 25, 25), m_side, 20, 2, 20, 30, 0.4));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_8";

@@ -183,6 +183,7 @@
     <ClCompile Include="GameObject\AI\CharaAI\Move\ai_trace.cpp" />
     <ClCompile Include="GameObject\AI\MetaAI\meta_ai.cpp" />
     <ClCompile Include="GameObject\AttackSystem\attack.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\damage.cpp" />
     <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
     <ClCompile Include="GameObject\AttackSystem\laser.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
@@ -342,6 +343,7 @@
     <ClInclude Include="GameObject\AI\CharaAI\Move\ai_trace.h" />
     <ClInclude Include="GameObject\AI\MetaAI\meta_ai.h" />
     <ClInclude Include="GameObject\AttackSystem\attack_mediator.h" />
+    <ClInclude Include="GameObject\AttackSystem\damage.h" />
     <ClInclude Include="GameObject\AttackSystem\kick.h" />
     <ClInclude Include="GameObject\AttackSystem\laser.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
