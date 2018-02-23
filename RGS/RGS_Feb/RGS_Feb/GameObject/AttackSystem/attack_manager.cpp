@@ -77,7 +77,6 @@ bool AttackManager::IsCollision(const std::shared_ptr<const Attack> atk, const s
 void AttackManager::Update(std::shared_ptr<Character::CharacterManager> chara_mgr)
 {
 	AddAttack();
-
 	if (m_atk_list.empty()) return;
 	for (auto atk : m_atk_list)
 	{
