@@ -57,6 +57,11 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_motion->Play("chara_base_anime/idle");
 	m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_state = CharacterState::kIdle;
+
+	/*if (m_job == std::shared_ptr<Job::JobBase>())
+	{
+
+	}*/
 	
 	//FÝ’è
 	if (m_side == Side::kNoTeam)		//”’
@@ -110,7 +115,8 @@ void CharacterBase::Update()
 void CharacterBase::Draw()
 {
 	m_motion->Draw();
-	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_ukemi_cnt),Math::Vector2(m_position.x,m_position.z));
+	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
+	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.z),Math::Vector2(m_position.x + 500,50));
 }
 
 
@@ -400,12 +406,27 @@ void CharacterBase::MoveUpdate()
 void CharacterBase::PositionUpdate()
 {
 	Math::Vector3 min = Math::Vector3(-WindowDef::kScreenWidth / 2 + Size::kCharaX / 12, -Size::kCharaY,
-										-WindowDef::kScreenHeight / 2 - Size::kCharaZ * 3);
+										-WindowDef::kScreenHeight / 2 - Size::kCharaZ);
 	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 12,  Size::kCharaY * 4,
-								      WindowDef::kScreenHeight / 2 - Size::kCharaZ * 2);
+								      WindowDef::kScreenHeight / 2 - Size::kCharaZ * 6);
+
+	if (m_position.z > -140)
+	{
+		if (m_position.x < -430)
+		{
+			m_position.x = -430;
+		}
+		if (m_position.x > 440)
+		{
+			m_position.x = 440;
+		}
+	}
+	if ((m_position.x < -430 || m_position.x > 440) && m_position.z > -145)
+	{
+		m_velocity.z = 0;
+	}
 
 	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
-
 	m_position = m_position.Clamp(m_position,min,max);
 }
 
