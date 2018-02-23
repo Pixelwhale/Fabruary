@@ -7,6 +7,7 @@
 #pragma once
 #include <GameObject\AttackSystem\attack.h>
 #include <Utility\timer.h>
+#include <Device\MotionSystem\motion.h>
 
 namespace AttackSystem
 {
@@ -29,12 +30,12 @@ namespace AttackSystem
 		virtual void Draw();
 
 	private:
-		Math::Vector3 m_c_position;
-		Math::Vector3 m_c_size;
 		int m_c_attack;
 		int m_c_knockdown;
 		int m_c_knockback;
 		int m_c_dbreak;
 		Utility::Timer m_life_span_timer; // Ç‹ÇæÇ†Ç¡ÇΩÇƒÇ¢ÇÈÇ©ÅH
+
+		std::shared_ptr<MotionSystem::Motion> m_motion;
 	};
 }

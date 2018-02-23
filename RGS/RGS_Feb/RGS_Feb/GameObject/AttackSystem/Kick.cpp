@@ -27,7 +27,7 @@ std::vector<std::shared_ptr<Attack>> AttackSystem::Kick::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();
-	attack.push_back(std::make_shared<AttackSystem::Damage>(m_position, m_size, m_side, m_c_attack, m_c_knockback, m_c_knockdown, m_c_break, m_life_span_timer.GetCurrentTime()));
+	attack.push_back(std::make_shared<AttackSystem::Damage>(m_position, m_size, m_side, m_c_attack, m_c_knockback, m_c_knockdown, m_c_break, m_life_span_timer.GetCurrentTimes()));
 	return attack;
 }
 
