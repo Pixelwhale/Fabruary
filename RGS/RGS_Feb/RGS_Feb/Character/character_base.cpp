@@ -102,7 +102,7 @@ void CharacterBase::Update()
 		m_job->Update();//Jobの更新
 		PositionUpdate();//位置の更新
 	}
-		MotionUpdate(); //モーションの更新
+	MotionUpdate(); //モーションの更新
 	//死亡更新
 	if (m_hp <= 0 && m_motion->IsCurrentMotionEnd())
 	{
@@ -114,6 +114,7 @@ void CharacterBase::Update()
 //モーション
 void CharacterBase::Draw()
 {
+	m_controller->Draw(m_position);
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.z),Math::Vector2(m_position.x + 500,50));
@@ -277,8 +278,8 @@ void CharacterBase::Skill()
 		m_mp >= 300)
 	{
 		//パンチの小技
-		//m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
-		//m_state = CharacterState::kPunch_1;
+		/*m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kPunch_1;*/
 		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 300;
@@ -434,7 +435,7 @@ void CharacterBase::PositionUpdate()
 void CharacterBase::JumpUpdate()
 {
 	if (m_controller->IsJumpTrigger() && !m_isJump)
-	{
+	{			
 		m_state = CharacterState::kJump;
 		m_isJump = true;
 		m_velocity_jump = Math::Vector3(0, 23, 0);
@@ -442,7 +443,7 @@ void CharacterBase::JumpUpdate()
 	}
 	else if (m_position.y < 128)
 	{
-		m_isJump = false;
+		m_isJump = false;	
 		m_velocity_jump = Math::Vector3(0, 0, 0);
 		m_position.y = 128;
 	}
