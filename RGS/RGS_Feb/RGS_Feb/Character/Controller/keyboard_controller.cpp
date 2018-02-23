@@ -7,9 +7,16 @@
 
 using namespace Character;
 
-KeyboardController::KeyboardController()
+KeyboardController::KeyboardController(int player_num)
 {
 	m_input = Device::GameDevice::GetInstance()->GetInput();
+	m_player_num = player_num;
+
+	m_tag = make_shared<MotionSystem::Motion>("Character");
+	m_tag->Initialize();
+	string asset = "chara_tag/";
+	string player = "p";
+	m_tag->Play((asset + std::to_string(m_player_num) + player));
 }
 
 KeyboardController::KeyboardController(const KeyboardController&)
@@ -19,6 +26,7 @@ KeyboardController::KeyboardController(const KeyboardController&)
 KeyboardController::~KeyboardController()
 {
 	m_input = NULL;
+	m_tag = NULL;
 }
 
 
@@ -50,4 +58,21 @@ bool KeyboardController::IsJumpTrigger()
 bool KeyboardController::IsDefence()
 {
 	return m_input->IsKeyDown(KEY_INPUT_Q);
+}
+
+
+void KeyboardController::Draw(Math::Vector3 draw_pos) 
+{
+	m_tag->SetPosition(draw_pos);
+	m_tag->Draw();
+}
+
+void KeyboardController::SetTagColor(Color color)
+{
+	m_tag->SetColor(color);
+}
+
+void KeyboardController::UpdateMotion() 
+{
+	m_tag->Update();
 }

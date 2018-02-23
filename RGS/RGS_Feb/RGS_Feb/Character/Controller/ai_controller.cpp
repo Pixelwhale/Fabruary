@@ -7,7 +7,7 @@
 
 using namespace Character;
 
-AiController::AiController()
+AiController::AiController(int player_num)
 {
 	m_velocity = Math::Vector3();
 	m_previous_punch = false;
@@ -18,6 +18,12 @@ AiController::AiController()
 	m_previous_jump = false;
 	m_current_jump = false;
 	m_defence = false;
+
+	m_player_num = player_num;
+	m_tag = make_shared<MotionSystem::Motion>("Character");
+	m_tag->Initialize();
+	string asset = "chara_tag/";
+	m_tag->Play((asset + "com"));
 }
 
 AiController::AiController(const AiController&)
@@ -101,4 +107,20 @@ void AiController::Run()
 void AiController::Defence()
 {
 	m_defence = true;
+}
+
+void AiController::Draw(Math::Vector3 draw_pos)
+{
+	m_tag->SetPosition(draw_pos);
+	m_tag->Draw();
+}
+
+void AiController::SetTagColor(Color color)
+{
+	m_tag->SetColor(color);
+}
+
+void AiController::UpdateMotion()
+{
+	m_tag->Update();
 }

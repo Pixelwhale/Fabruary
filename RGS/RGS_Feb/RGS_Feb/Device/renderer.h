@@ -176,10 +176,15 @@ namespace Device
 #pragma region Filter関連
 
 		///<summary>RenderTargetを設定</summary>
-		void DrawFilter();
+		void DrawOnGaussFilter();
 		///<summary>ぼかし</summary>
 		///<param name="ratio">ぼかしの度合い</param>
 		void GaussFilter(int ratio);
+
+		///<summary>BloomのRenderTargetを設定</summary>
+		void DrawOnBloomFilter();
+		///<summary>Bloomしたシーンを描画</summary>
+		void DrawBloom();
 
 #pragma endregion
 
@@ -189,5 +194,10 @@ namespace Device
 		std::shared_ptr<DepthSort>		m_depth_sort;			//描画順をソートするクラス
 
 		int m_blur_filter_handle = -1;							//BlurのRenderTargetハンドル
+
+		int m_scene_handle = -1;								//SceneのRenderTarget
+		int m_hight_light_handle = -1;							//高輝度を取り出すRenderTarget
+		int m_down_scale_handle = -1;							//DownScaleしてよりキレイにぼかす
+		int m_gauss_handle = -1;								//ぼかす
 	};
 }

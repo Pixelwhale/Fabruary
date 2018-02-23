@@ -11,10 +11,10 @@
 
 using namespace AI;
 
-AiStateManager::AiStateManager(int difficulty)
+AiStateManager::AiStateManager(int difficulty, int player_num)
 	:m_difficulty(difficulty)
 {
-	m_controller = std::make_shared<Character::AiController>();
+	m_controller = std::make_shared<Character::AiController>(player_num);
 }
 
 AiStateManager::AiStateManager(const AiStateManager&) 

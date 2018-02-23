@@ -3,7 +3,7 @@
 // 作成日：2018.02.05
 // 内容：CollisionBoxの更新と描画
 //-------------------------------------------------------
-#include "attack_manager.h";
+#include "attack_manager.h"
 #include <Character\character_base.h>
 #include <Character\character_manager.h>
 #include "attack.h"
@@ -45,7 +45,7 @@ void AttackManager::AddAttack()
 
 void AttackManager::Remove()
 {
-	//remove_ifは同じ
+	//remove_ifと同じ
 	for (std::vector<shared_ptr<Attack>>::iterator i = m_atk_list.begin(); i != m_atk_list.end();)
 	{
 		if ((*i)->IsEnd() == true) i = m_atk_list.erase(i);

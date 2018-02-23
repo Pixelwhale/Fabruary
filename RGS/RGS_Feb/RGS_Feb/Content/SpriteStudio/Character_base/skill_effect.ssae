@@ -1,0 +1,2748 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SpriteStudioAnimePack version="1.02.02">
+	<settings>
+		<fps>30</fps>
+		<frameCount>11</frameCount>
+		<sortMode>prio</sortMode>
+		<canvasSize>320 320</canvasSize>
+		<pivot>0 0</pivot>
+		<bgColor>FF323232</bgColor>
+		<gridSize>32</gridSize>
+		<gridColor>FF808080</gridColor>
+		<outStartNum>0</outStartNum>
+	</settings>
+	<name>skill_effect</name>
+	<exportPath></exportPath>
+	<Model>
+		<partList>
+			<value>
+				<name>root</name>
+				<arrayIndex>0</arrayIndex>
+				<parentIndex>-1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>self</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>Effect</name>
+				<arrayIndex>1</arrayIndex>
+				<parentIndex>0</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash</name>
+				<arrayIndex>2</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle</name>
+				<arrayIndex>3</arrayIndex>
+				<parentIndex>2</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_1</name>
+				<arrayIndex>4</arrayIndex>
+				<parentIndex>3</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_2</name>
+				<arrayIndex>5</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_4</name>
+				<arrayIndex>6</arrayIndex>
+				<parentIndex>5</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_5</name>
+				<arrayIndex>7</arrayIndex>
+				<parentIndex>6</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_1</name>
+				<arrayIndex>8</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_2</name>
+				<arrayIndex>9</arrayIndex>
+				<parentIndex>8</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_3</name>
+				<arrayIndex>10</arrayIndex>
+				<parentIndex>9</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_3</name>
+				<arrayIndex>11</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_6</name>
+				<arrayIndex>12</arrayIndex>
+				<parentIndex>11</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_7</name>
+				<arrayIndex>13</arrayIndex>
+				<parentIndex>12</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_4</name>
+				<arrayIndex>14</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_8</name>
+				<arrayIndex>15</arrayIndex>
+				<parentIndex>14</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_9</name>
+				<arrayIndex>16</arrayIndex>
+				<parentIndex>15</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_5</name>
+				<arrayIndex>17</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_10</name>
+				<arrayIndex>18</arrayIndex>
+				<parentIndex>17</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_11</name>
+				<arrayIndex>19</arrayIndex>
+				<parentIndex>18</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_6</name>
+				<arrayIndex>20</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_12</name>
+				<arrayIndex>21</arrayIndex>
+				<parentIndex>20</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_13</name>
+				<arrayIndex>22</arrayIndex>
+				<parentIndex>21</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_7</name>
+				<arrayIndex>23</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_14</name>
+				<arrayIndex>24</arrayIndex>
+				<parentIndex>23</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_15</name>
+				<arrayIndex>25</arrayIndex>
+				<parentIndex>24</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+			<value>
+				<name>slash_8</name>
+				<arrayIndex>26</arrayIndex>
+				<parentIndex>1</parentIndex>
+				<type>null</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_16</name>
+				<arrayIndex>27</arrayIndex>
+				<parentIndex>26</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>mix</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>0</expandChildren>
+			</value>
+			<value>
+				<name>particle_17</name>
+				<arrayIndex>28</arrayIndex>
+				<parentIndex>27</parentIndex>
+				<type>normal</type>
+				<boundsType>none</boundsType>
+				<inheritType>parent</inheritType>
+				<ineheritRates>
+					<ALPH>1</ALPH>
+					<FLPH>0</FLPH>
+					<FLPV>0</FLPV>
+					<HIDE>0</HIDE>
+					<IFLH>0</IFLH>
+					<IFLV>0</IFLV>
+				</ineheritRates>
+				<alphaBlendType>add</alphaBlendType>
+				<show>1</show>
+				<locked>0</locked>
+				<expandAttribute>0</expandAttribute>
+				<expandChildren>1</expandChildren>
+			</value>
+		</partList>
+	</Model>
+	<cellmapNames>
+		<value>effect.ssce</value>
+	</cellmapNames>
+	<animeList>
+		<anime>
+			<name>skill_omnislash</name>
+			<overrideSettings>1</overrideSettings>
+			<settings>
+				<fps>60</fps>
+				<frameCount>130</frameCount>
+				<sortMode>prio</sortMode>
+				<canvasSize>320 512</canvasSize>
+				<pivot>0 0</pivot>
+				<bgColor>FF323232</bgColor>
+				<gridSize>32</gridSize>
+				<gridColor>FF808080</gridColor>
+				<outStartNum>0</outStartNum>
+			</settings>
+			<labels />
+			<partAnimes>
+				<partAnime>
+					<partName>root</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>-128</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>Effect</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>-112</value>
+							</key>
+							<key time="10" ipType="linear">
+								<value>-112</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="38" ipType="linear">
+								<value>-112</value>
+							</key>
+							<key time="48" ipType="linear">
+								<value>-112</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="79" ipType="linear">
+								<value>-112</value>
+							</key>
+							<key time="89" ipType="linear">
+								<value>-112</value>
+							</key>
+							<key time="99" ipType="linear">
+								<value>-15</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="10" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="38" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="48" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="79" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="89" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="99" ipType="linear">
+								<value>-100</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>9.8115177154541</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="10" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="38" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="48" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="79" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="89" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="104" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FFA10000</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_1</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_2</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="4" ipType="linear">
+								<value>73</value>
+							</key>
+							<key time="14" ipType="linear">
+								<value>73</value>
+							</key>
+							<key time="24" ipType="linear">
+								<value>-49</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-49</value>
+							</key>
+							<key time="44" ipType="linear">
+								<value>73</value>
+							</key>
+							<key time="54" ipType="linear">
+								<value>73</value>
+							</key>
+							<key time="64" ipType="linear">
+								<value>-49</value>
+							</key>
+							<key time="69" ipType="linear">
+								<value>-49</value>
+							</key>
+							<key time="77" ipType="linear">
+								<value>73</value>
+							</key>
+							<key time="87" ipType="linear">
+								<value>73</value>
+							</key>
+							<key time="97" ipType="linear">
+								<value>-49</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="4" ipType="linear">
+								<value>287</value>
+							</key>
+							<key time="14" ipType="linear">
+								<value>287</value>
+							</key>
+							<key time="24" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="44" ipType="linear">
+								<value>287</value>
+							</key>
+							<key time="54" ipType="linear">
+								<value>287</value>
+							</key>
+							<key time="64" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="69" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="77" ipType="linear">
+								<value>287</value>
+							</key>
+							<key time="87" ipType="linear">
+								<value>287</value>
+							</key>
+							<key time="97" ipType="linear">
+								<value>-94</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="4" ipType="linear">
+								<value>-9.46288394927979</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="4" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="14" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="29" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="44" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="54" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="69" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="77" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="87" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="102" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="4" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="4">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_4</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FFC4510B</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_5</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_1</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="10" ipType="linear">
+								<value>-19</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>-19</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="64" ipType="linear">
+								<value>-19</value>
+							</key>
+							<key time="74" ipType="linear">
+								<value>-19</value>
+							</key>
+							<key time="84" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="89" ipType="linear">
+								<value>-15</value>
+							</key>
+							<key time="99" ipType="linear">
+								<value>-19</value>
+							</key>
+							<key time="109" ipType="linear">
+								<value>-19</value>
+							</key>
+							<key time="119" ipType="linear">
+								<value>-15</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="10" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="64" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="74" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="84" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="89" ipType="linear">
+								<value>-100</value>
+							</key>
+							<key time="99" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="109" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="119" ipType="linear">
+								<value>-100</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="10" ipType="linear">
+								<value>1.72615301609039</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="10" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="64" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="74" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="89" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="99" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="109" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="124" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="10" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="10">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_2</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FFFFD632</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_3</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_3</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="7" ipType="linear">
+								<value>-68</value>
+							</key>
+							<key time="17" ipType="linear">
+								<value>-68</value>
+							</key>
+							<key time="27" ipType="linear">
+								<value>15</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>15</value>
+							</key>
+							<key time="48" ipType="linear">
+								<value>-68</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>-68</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>15</value>
+							</key>
+							<key time="73" ipType="linear">
+								<value>15</value>
+							</key>
+							<key time="75" ipType="linear">
+								<value>-68</value>
+							</key>
+							<key time="85" ipType="linear">
+								<value>-68</value>
+							</key>
+							<key time="95" ipType="linear">
+								<value>15</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="7" ipType="linear">
+								<value>294</value>
+							</key>
+							<key time="17" ipType="linear">
+								<value>294</value>
+							</key>
+							<key time="27" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="48" ipType="linear">
+								<value>294</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>294</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="73" ipType="linear">
+								<value>-94</value>
+							</key>
+							<key time="75" ipType="linear">
+								<value>294</value>
+							</key>
+							<key time="85" ipType="linear">
+								<value>294</value>
+							</key>
+							<key time="95" ipType="linear">
+								<value>-94</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="7" ipType="linear">
+								<value>6.48283767700195</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="7" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="17" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="32" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="48" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="73" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="75" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="85" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="100" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="7" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="7">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_6</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FFFFD632</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_7</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_4</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="15" ipType="linear">
+								<value>58</value>
+							</key>
+							<key time="25" ipType="linear">
+								<value>58</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-29</value>
+							</key>
+							<key time="40" ipType="linear">
+								<value>-29</value>
+							</key>
+							<key time="61" ipType="linear">
+								<value>58</value>
+							</key>
+							<key time="71" ipType="linear">
+								<value>58</value>
+							</key>
+							<key time="81" ipType="linear">
+								<value>-29</value>
+							</key>
+							<key time="86" ipType="linear">
+								<value>-29</value>
+							</key>
+							<key time="91" ipType="linear">
+								<value>58</value>
+							</key>
+							<key time="101" ipType="linear">
+								<value>58</value>
+							</key>
+							<key time="111" ipType="linear">
+								<value>-29</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="15" ipType="linear">
+								<value>293</value>
+							</key>
+							<key time="25" ipType="linear">
+								<value>293</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="40" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="61" ipType="linear">
+								<value>293</value>
+							</key>
+							<key time="71" ipType="linear">
+								<value>293</value>
+							</key>
+							<key time="81" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="86" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="91" ipType="linear">
+								<value>293</value>
+							</key>
+							<key time="101" ipType="linear">
+								<value>293</value>
+							</key>
+							<key time="111" ipType="linear">
+								<value>-99</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="15" ipType="linear">
+								<value>-18.1416511535645</value>
+							</key>
+							<key time="61" ipType="linear">
+								<value>-5.62131643295288</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="15" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="25" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="40" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="61" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="71" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="86" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="91" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="101" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="116" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="15" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="15">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_8</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FF73E108</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_9</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_5</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="10" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>6</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>6</value>
+							</key>
+							<key time="46" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="66" ipType="linear">
+								<value>6</value>
+							</key>
+							<key time="71" ipType="linear">
+								<value>6</value>
+							</key>
+							<key time="84" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="94" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="104" ipType="linear">
+								<value>6</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="10" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="30" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="46" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="66" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="71" ipType="linear">
+								<value>-99</value>
+							</key>
+							<key time="84" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="94" ipType="linear">
+								<value>273</value>
+							</key>
+							<key time="104" ipType="linear">
+								<value>-99</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="10" ipType="linear">
+								<value>12.6980123519897</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="10" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="20" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="35" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="46" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="56" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="71" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="84" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="94" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="109" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="10" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="10">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_10</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FF51F87F</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_11</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_6</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="23" ipType="linear">
+								<value>18</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>18</value>
+							</key>
+							<key time="43" ipType="linear">
+								<value>-43</value>
+							</key>
+							<key time="52" ipType="linear">
+								<value>-43</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>18</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>18</value>
+							</key>
+							<key time="78" ipType="linear">
+								<value>-43</value>
+							</key>
+							<key time="83" ipType="linear">
+								<value>-43</value>
+							</key>
+							<key time="90" ipType="linear">
+								<value>18</value>
+							</key>
+							<key time="100" ipType="linear">
+								<value>18</value>
+							</key>
+							<key time="110" ipType="linear">
+								<value>-43</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="23" ipType="linear">
+								<value>295</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>295</value>
+							</key>
+							<key time="43" ipType="linear">
+								<value>-98</value>
+							</key>
+							<key time="52" ipType="linear">
+								<value>-98</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>295</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>295</value>
+							</key>
+							<key time="78" ipType="linear">
+								<value>-98</value>
+							</key>
+							<key time="83" ipType="linear">
+								<value>-98</value>
+							</key>
+							<key time="90" ipType="linear">
+								<value>295</value>
+							</key>
+							<key time="100" ipType="linear">
+								<value>295</value>
+							</key>
+							<key time="110" ipType="linear">
+								<value>-98</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="23" ipType="linear">
+								<value>-13.3890419006348</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="23" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="33" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="52" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="58" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="68" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="83" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="90" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="100" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="119" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="23" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="23">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_12</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FF51F87F</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_13</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_7</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="26" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="36" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="46" ipType="linear">
+								<value>87</value>
+							</key>
+							<key time="51" ipType="linear">
+								<value>87</value>
+							</key>
+							<key time="63" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="73" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="83" ipType="linear">
+								<value>87</value>
+							</key>
+							<key time="88" ipType="linear">
+								<value>87</value>
+							</key>
+							<key time="96" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="106" ipType="linear">
+								<value>-82</value>
+							</key>
+							<key time="116" ipType="linear">
+								<value>87</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="26" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="36" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="46" ipType="linear">
+								<value>-101</value>
+							</key>
+							<key time="51" ipType="linear">
+								<value>-101</value>
+							</key>
+							<key time="63" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="73" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="83" ipType="linear">
+								<value>-101</value>
+							</key>
+							<key time="88" ipType="linear">
+								<value>-101</value>
+							</key>
+							<key time="96" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="106" ipType="linear">
+								<value>290</value>
+							</key>
+							<key time="116" ipType="linear">
+								<value>-101</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="26" ipType="linear">
+								<value>27.3364410400391</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="26" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="36" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="51" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="63" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="73" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="88" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="96" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="106" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="121" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="26" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="26">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_14</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FF085BC0</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_15</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>slash_8</partName>
+					<attributes>
+						<attribute tag="POSX">
+							<key time="32" ipType="linear">
+								<value>-28</value>
+							</key>
+							<key time="42" ipType="linear">
+								<value>-28</value>
+							</key>
+							<key time="52" ipType="linear">
+								<value>50</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>50</value>
+							</key>
+							<key time="67" ipType="linear">
+								<value>-28</value>
+							</key>
+							<key time="77" ipType="linear">
+								<value>-28</value>
+							</key>
+							<key time="87" ipType="linear">
+								<value>50</value>
+							</key>
+							<key time="92" ipType="linear">
+								<value>50</value>
+							</key>
+							<key time="102" ipType="linear">
+								<value>-28</value>
+							</key>
+							<key time="112" ipType="linear">
+								<value>-28</value>
+							</key>
+							<key time="122" ipType="linear">
+								<value>50</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="32" ipType="linear">
+								<value>296</value>
+							</key>
+							<key time="42" ipType="linear">
+								<value>296</value>
+							</key>
+							<key time="52" ipType="linear">
+								<value>-105</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>-105</value>
+							</key>
+							<key time="67" ipType="linear">
+								<value>296</value>
+							</key>
+							<key time="77" ipType="linear">
+								<value>296</value>
+							</key>
+							<key time="87" ipType="linear">
+								<value>-105</value>
+							</key>
+							<key time="92" ipType="linear">
+								<value>-105</value>
+							</key>
+							<key time="102" ipType="linear">
+								<value>296</value>
+							</key>
+							<key time="112" ipType="linear">
+								<value>296</value>
+							</key>
+							<key time="122" ipType="linear">
+								<value>-105</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="32" ipType="linear">
+								<value>6.96968650817871</value>
+							</key>
+						</attribute>
+						<attribute tag="ALPH">
+							<key time="32" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="42" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="57" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="67" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="77" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="92" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="102" ipType="linear">
+								<value>0</value>
+							</key>
+							<key time="112" ipType="linear">
+								<value>1</value>
+							</key>
+							<key time="127" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="32" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="32">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_16</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>0.400000005960464</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>5</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="VCOL">
+							<key time="0" ipType="linear">
+								<value>
+									<target>whole</target>
+									<blendType>mix</blendType>
+									<color>
+										<rgba>FF6E08C0</rgba>
+										<rate>1</rate>
+									</color>
+								</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+				<partAnime>
+					<partName>particle_17</partName>
+					<attributes>
+						<attribute tag="CELL">
+							<key time="0">
+								<value>
+									<mapId>0</mapId>
+									<name>particle</name>
+								</value>
+							</key>
+						</attribute>
+						<attribute tag="POSX">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="POSY">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="ROTZ">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLX">
+							<key time="0" ipType="linear">
+								<value>1.20000004768372</value>
+							</key>
+						</attribute>
+						<attribute tag="SCLY">
+							<key time="0" ipType="linear">
+								<value>1</value>
+							</key>
+						</attribute>
+						<attribute tag="PRIO">
+							<key time="0" ipType="linear">
+								<value>0</value>
+							</key>
+						</attribute>
+						<attribute tag="HIDE">
+							<key time="0">
+								<value>0</value>
+							</key>
+						</attribute>
+					</attributes>
+				</partAnime>
+			</partAnimes>
+		</anime>
+	</animeList>
+</SpriteStudioAnimePack>

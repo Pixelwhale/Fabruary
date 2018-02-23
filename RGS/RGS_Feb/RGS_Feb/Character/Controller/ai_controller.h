@@ -11,7 +11,7 @@ namespace Character
 	class AiController : public VirtualController
 	{
 	public:
-		AiController();
+		AiController(int player_num);
 		AiController(const AiController&);
 		~AiController();
 
@@ -27,6 +27,13 @@ namespace Character
 		bool virtual IsJumpTrigger();
 		///<summary>Defenceが押されているか？</summary>
 		bool virtual IsDefence();
+
+		///<summary>操作キャラのヒント描画</summary>
+		void virtual Draw(Math::Vector3 draw_pos);
+		///<summary>タグの色設定（最初行うだけ）</summary>
+		void virtual SetTagColor(Color color);
+		///<summary>タグ更新</summary>
+		void virtual UpdateMotion();
 
 	public:
 		///<summary>Keyを先にUpdate</summary>

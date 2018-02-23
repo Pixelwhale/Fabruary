@@ -17,7 +17,7 @@ namespace AI
 	class AiStateManager 
 	{
 	public:
-		AiStateManager(int difficulty);
+		AiStateManager(int difficulty, int player_num);
 		AiStateManager(const AiStateManager&);
 		~AiStateManager();
 

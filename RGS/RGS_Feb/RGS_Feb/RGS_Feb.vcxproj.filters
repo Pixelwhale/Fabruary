@@ -71,6 +71,7 @@
     <ClCompile Include="Utility\timer.cpp" />
     <ClCompile Include="Scene\game_manager.cpp" />
     <ClCompile Include="Scene\game_result.cpp" />
+    <ClCompile Include="GameObject\Background\background.cpp" />
     <ClCompile Include="GameObject\AttackSystem\damage.cpp" />
     <ClCompile Include="GameObject\AttackSystem\omnislash.cpp" />
   </ItemGroup>
@@ -245,6 +246,7 @@
     <ClInclude Include="Utility\timer.h" />
     <ClInclude Include="Scene\game_manager.h" />
     <ClInclude Include="Scene\game_result.h" />
+    <ClInclude Include="GameObject\Background\background.h" />
     <ClInclude Include="GameObject\AttackSystem\damage.h" />
     <ClInclude Include="GameObject\AttackSystem\omnislash.h" />
   </ItemGroup>

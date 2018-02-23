@@ -30,7 +30,7 @@ void Projector::Initialize()
 
 	m_rotation = 0;
 	SetTarget(Math::Vector3(0.0f, 0.0f, 0.0f));						//目標：原点
-	SetRelativePosition(Math::Vector3(0.0f, 200.0f, -200.0f));		//相対位置設定(左手系座標なのでZは-)
+	SetRelativePosition(Math::Vector3(0.0f, 400.0f, -400.0f));		//相対位置設定(左手系座標なのでZは-)
 }
 
 void Projector::SpriteMode()

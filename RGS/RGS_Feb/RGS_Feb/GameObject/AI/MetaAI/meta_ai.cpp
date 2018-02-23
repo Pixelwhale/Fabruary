@@ -21,9 +21,9 @@ MetaAI::~MetaAI()
 	Clear();
 }
 
-void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, int difficulty)
+void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, int difficulty, int player_num)
 {
-	std::shared_ptr<AiStateManager> ai = make_shared<AiStateManager>(difficulty);						//AI宣言
+	std::shared_ptr<AiStateManager> ai = make_shared<AiStateManager>(difficulty, player_num);						//AI宣言
 
 	std::shared_ptr<Character::CharacterBase> character =				//キャラクター生成
 		m_character_manager->Add(
