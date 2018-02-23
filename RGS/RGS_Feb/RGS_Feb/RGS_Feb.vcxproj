@@ -197,6 +197,7 @@
     <ClCompile Include="GameObject\Job\com_graphic.cpp" />
     <ClCompile Include="GameObject\Job\planner.cpp" />
     <ClCompile Include="GameObject\Job\programmer.cpp" />
+    <ClCompile Include="GameObject\UI\chara_hp_ui.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\point.cpp" />
@@ -360,6 +361,7 @@
     <ClInclude Include="GameObject\Job\job_base.h" />
     <ClInclude Include="GameObject\Job\planner.h" />
     <ClInclude Include="GameObject\Job\programmer.h" />
+    <ClInclude Include="GameObject\UI\chara_hp_ui.h" />
     <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\point.h" />
     <ClInclude Include="Math\vector2.h" />
