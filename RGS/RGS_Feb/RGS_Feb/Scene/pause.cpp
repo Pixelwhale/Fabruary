@@ -4,6 +4,7 @@
 // 内容　：Pauseシーン
 //-------------------------------------------------------
 #include <Scene\pause.h>
+#include <Def\window_def.h>
 
 using namespace Scene;
 
@@ -29,8 +30,8 @@ void Pause::Update()
 	if (m_input->IsKeyTrigger(KEY_INPUT_B))	//DebugKey
 		m_blur_switch = false;
 
-	if(m_game_manager->PauseController()->IsPause())
-		m_blur_switch = false;
+	/*if(m_game_manager->PauseController()->IsPause())
+		m_blur_switch = false;*/
 
 	UpdateEffect();
 }
@@ -39,12 +40,12 @@ void Pause::UpdateEffect()
 {
 	if (m_blur_switch)
 	{
-		m_blur_ratio += 10;
+		m_blur_ratio += 100;
 		m_blur_ratio = (m_blur_ratio >= kBlurMax) ? kBlurMax : m_blur_ratio;
 	}
 	else
 	{
-		m_blur_ratio -= 10;
+		m_blur_ratio -= 100;
 	}
 }
 
@@ -66,7 +67,10 @@ void Pause::Draw()
 
 	m_renderer->GaussFilter(m_blur_ratio);		//Filter効果で描画
 
-	m_renderer->DrawString("Pause", Math::Vector2(640, 360), true);
+	m_renderer->DrawTexture(
+		"pause",
+		Math::Vector2(WindowDef::kScreenWidth / 2 - 256, WindowDef::kScreenHeight / 2 - 128),
+		m_blur_ratio * 1.0f / kBlurMax);
 }
 
 void Pause::Shutdown()

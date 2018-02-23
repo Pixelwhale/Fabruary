@@ -24,6 +24,8 @@ void Loading::LoadContents()
 	m_content->LoadTexture("background_pc_light_back", ".png");
 	m_content->LoadTexture("background_pc_light_front", ".png");
 	m_content->LoadTexture("pc_monitor", ".png");
+
+	m_content->LoadTexture("pause", ".png");
 }
 
 void Loading::UnloadContents()

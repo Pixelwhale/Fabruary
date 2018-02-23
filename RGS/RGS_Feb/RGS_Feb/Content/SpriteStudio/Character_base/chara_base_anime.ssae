@@ -17591,7 +17591,7 @@
 				<fps>60</fps>
 				<frameCount>60</frameCount>
 				<sortMode>z</sortMode>
-				<canvasSize>900 640</canvasSize>
+				<canvasSize>1024 1024</canvasSize>
 				<pivot>0 0</pivot>
 				<bgColor>FF323232</bgColor>
 				<gridSize>32</gridSize>
@@ -17605,12 +17605,12 @@
 					<attributes>
 						<attribute tag="POSX">
 							<key time="0" ipType="linear">
-								<value>128</value>
+								<value>0</value>
 							</key>
 						</attribute>
 						<attribute tag="POSY">
 							<key time="0" ipType="linear">
-								<value>-193</value>
+								<value>0</value>
 							</key>
 						</attribute>
 						<attribute tag="HIDE">

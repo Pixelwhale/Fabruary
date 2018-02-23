@@ -61,7 +61,8 @@ void GamePlay::CheckEnd()
 		return;
 	}
 
-	if (m_game_manager->IsPause())
+	if (m_game_manager->IsPause() || 
+		m_input->IsKeyTrigger(KEY_INPUT_P))
 	{
 		m_is_end = true;
 		m_next = SceneType::kPause;
