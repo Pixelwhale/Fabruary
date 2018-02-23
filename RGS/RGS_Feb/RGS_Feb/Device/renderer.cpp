@@ -68,6 +68,20 @@ void Renderer::DrawTexture(std::string texture_name, Math::Vector2 position, flo
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
 }
 
+void Renderer::DrawTexture(std::string texture_name, Math::Vector2 position,
+	Math::Vector2 rect_start, Math::Vector2 rect_size, float alpha)
+{
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
+
+	DrawRectGraph(position.x, position.y, rect_start.x, rect_start.y,
+		rect_size.x, rect_size.y, m_contents->TextureHandle(texture_name), true, false);
+
+	SetDrawBright(255, 255, 255);						//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
+}
+
 void Renderer::DrawTexture(
 	std::string texture_name, Math::Vector2 position,
 	Math::Vector2 scale, float alpha)
@@ -124,7 +138,8 @@ void Renderer::DrawMotion(std::string texture_name, int index,
 {
 	int bright = 255.0f * alpha;
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
-	SetDrawBright(bright, bright, bright);				//色設定
+	color = color * alpha;						//Alpha適用
+	SetDrawBright(color.r, color.g, color.b);			//色設定
 
 	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(texture_name, index), true);
 

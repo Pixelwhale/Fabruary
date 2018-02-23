@@ -46,8 +46,11 @@ void NormalPunch::Update(std::shared_ptr<Character::AiController> controller)
 	m_timer.Update();				//’x‰„XV
 	if (!m_timer.IsTime())			//’x‰„’†‚ÍˆÈ‰ºŽÀs‚µ‚È‚¢
 		return;
-	if (!IsInAttckRange())			//”ÍˆÍ“à‚©”»’f‚·‚é
-		return;
+
+	if (m_target->GetPosition().x > m_character->GetPosition().x)
+		controller->SetVelocity(Math::Vector3(0.0001f, 0, 0));
+	if (m_target->GetPosition().x < m_character->GetPosition().x)
+		controller->SetVelocity(Math::Vector3(-0.0001f, 0, 0));
 
 	controller->TriggerPunch();		//ƒpƒ“ƒ`‚·‚é
 	m_punch_count--;				//Žw’è‰ñ”‚ðŒ¸‚ç‚·
@@ -69,6 +72,11 @@ void NormalPunch::ResetTimer()
 
 bool NormalPunch::IsInAttckRange() 
 {
+	float z = m_target->GetPosition().z - m_character->GetPosition().z;
+	z = (z < 0) ? -z : z;
+	if (z > Size::kCharaZ)
+		return false;
+
 	float distance = (m_character->GetPosition() - m_target->GetPosition()).lengthSqrt();
-	return distance < (Size::kCharaX * 1.5f) * (Size::kCharaX * 1.5f);
+	return distance < (Size::kCharaX * 1.7f) * (Size::kCharaX * 1.7f);
 }

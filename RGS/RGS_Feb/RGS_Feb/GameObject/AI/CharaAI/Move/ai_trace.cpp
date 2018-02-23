@@ -37,7 +37,7 @@ void Trace::Update(std::shared_ptr<Character::AiController> controller)
 		return;
 	}
 
-	if (InRange(130))					//‹ß‚·‚¬‚é‚ÆI—¹
+	if (InRange(130))							//‹ß‚·‚¬‚é‚ÆI—¹
 	{
 		controller->SetVelocity(Math::Vector3());
 		m_end_flag = true;
@@ -47,19 +47,27 @@ void Trace::Update(std::shared_ptr<Character::AiController> controller)
 	m_end_flag = false;
 
 	Math::Vector3 velocity = m_target->GetPosition() - m_character->GetPosition();
+	velocity.x *= 0.6f;
 	velocity = velocity.normalize();
 	controller->SetVelocity(velocity);
 
-	if (!InRange(200) && m_difficulty > 4)					//‹——£‚ª’·‚¢‚Æ‘–‚é
+	if (!InRange(300) && m_difficulty > 4)		//‹——£‚ª’·‚¢‚Æ‘–‚é
+	{
 		controller->Run();
+	}
 
 	if (InRange(250) &&
-		m_target->GetPosition().y > 160)
+		m_target->GetPosition().y > 200)
 		controller->TriggerJump();
 }
 
 bool Trace::InRange(float distance)
 {
+	float z = m_target->GetPosition().z - m_character->GetPosition().z;
+	z = (z < 0) ? -z : z;
+	if (z > Size::kCharaZ / 3.0f)
+		return false;
+
 	float a = (m_target->GetPosition() - m_character->GetPosition()).lengthSqrt();
 	float b = distance * distance;
 

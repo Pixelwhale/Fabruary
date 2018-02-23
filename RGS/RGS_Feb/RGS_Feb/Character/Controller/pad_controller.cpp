@@ -47,7 +47,7 @@ bool PadController::IsKickTrigger()
 
 bool PadController::IsRun()
 {
-	return m_input->IsPadButtonTrigger(m_pad_id, XINPUT_BUTTON_RIGHT_SHOULDER);
+	return m_input->IsPadButtonDown(m_pad_id, XINPUT_BUTTON_RIGHT_SHOULDER);
 }
 
 bool PadController::IsJumpTrigger()

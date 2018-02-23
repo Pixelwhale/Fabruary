@@ -15,14 +15,23 @@ namespace UI
 		HpUI(const HpUI&);
 		~HpUI();
 
-		void SetColor(Color color);
+		///<summary>色設定</summary>
+		///<param name="icon_color">キャラのアイコン色</param>
+		///<param name="icon_color">チーム色</param>
+		void SetColor(Color icon_color, Color team_color);
+		///<summary>位置設定</summary>
 		void SetPosition(Math::Vector2 position);
-
+		///<summary>描画</summary>
+		///<param name="hp">HPのRate</param>
+		///<param name="mp">MPのRate</param>
+		///<param name="chara_face">キャラのアイコン</param>
 		void Draw(float hp, float mp, int chara_face);
 
 	private:
 		std::shared_ptr<Device::Renderer> m_renderer;	//Renderer
-		Color m_color = Color(1.0f, 1.0f, 1.0f);		//Blending Color
+		Color m_icon_color = Color(1.0f, 1.0f, 1.0f);	//Icon Color
+		Color m_team_color = Color(1.0f, 1.0f, 1.0f);	//team Color
+
 		Math::Vector2 m_position;						//描画位置
 	};
 }

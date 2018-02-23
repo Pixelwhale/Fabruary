@@ -47,7 +47,9 @@ void HitNear::GetBattleInfo(MetaAI* meta_ai)
 void HitNear::Update(std::shared_ptr<Character::AiController> controller)
 {
 	m_trace->Update(controller);
-	m_attack->Update(controller);
+
+	if(m_trace->IsEnd())
+		m_attack->Update(controller);
 
 	//‘å‹Z1500A¬‹Z300i‹L˜^—pj
 	if (m_attack->IsEnd())

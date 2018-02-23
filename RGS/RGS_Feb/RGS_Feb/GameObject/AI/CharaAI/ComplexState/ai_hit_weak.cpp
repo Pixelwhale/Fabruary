@@ -39,8 +39,15 @@ void HitWeak::GetBattleInfo(MetaAI* meta_ai)
 
 	if (m_attack == NULL)		//Punch‚ªÝ’è‚³‚ê‚Ä‚¢‚È‚¢ŽžAÝ’è‚·‚é
 	{
-		int punch_count = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
-		m_attack = std::make_shared<NormalPunch>(m_character, m_target, punch_count);
+		if (Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6) > 3)
+		{
+			m_attack = std::make_shared<NormalKick>(m_character, m_target);
+		}
+		else
+		{
+			int punch_count = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
+			m_attack = std::make_shared<NormalPunch>(m_character, m_target, punch_count);
+		}
 	}
 
 	m_trace = std::make_shared<Trace>(m_character, m_target, m_difficulty);
@@ -49,7 +56,9 @@ void HitWeak::GetBattleInfo(MetaAI* meta_ai)
 void HitWeak::Update(std::shared_ptr<Character::AiController> controller)
 {
 	m_trace->Update(controller);
-	m_attack->Update(controller);
+
+	if (m_trace->IsEnd())
+		m_attack->Update(controller);
 
 	//‘å‹Z1500A¬‹Z300i‹L˜^—pj
 	bool isEnd = m_attack->IsEnd();

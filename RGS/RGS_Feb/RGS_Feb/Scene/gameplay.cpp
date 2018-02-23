@@ -9,6 +9,7 @@
 #include <GameObject\Job\planner.h>
 #include <GameObject\Job\com_graphic.h>
 #include <GameObject\Job\business.h>
+#include <GameObject\UI\chara_hp_ui.h>
 
 using namespace Scene;
 
