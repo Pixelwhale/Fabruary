@@ -51,6 +51,15 @@ namespace Device
 
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="texture_name">Asset–¼</param>
+		///<param name="index">‰½–‡–Ú</param>
+		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="color">F</param>
+		///<param name="alpha">“§–¾“x</param>
+		void DrawMotion(std::string texture_name, int index, 
+			Math::Vector2 position, Color color,float alpha = 1.0f);
+
+		///<summary>Texture‚ğ•`‰æ</summary>
+		///<param name="texture_name">Asset–¼</param>
 		///<param name="position">•`‰æˆÊ’u</param>
 		void DrawTexture(std::string texture_name, Math::Vector2 position, float alpha = 1.0f);
 
@@ -75,7 +84,7 @@ namespace Device
 			Math::Vector2 pivot, Math::Vector2 scale,
 			float angle, Color color, bool horizen_flip = false);
 
-
+		///<summary>Fadeˆ—</summary>
 		void DrawFade(Color color, float alpha = 1.0f);
 
 #pragma endregion
