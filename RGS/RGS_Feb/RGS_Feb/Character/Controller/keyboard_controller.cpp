@@ -66,9 +66,8 @@ bool KeyboardController::IsPause()
 }
 
 
-void KeyboardController::Draw(Math::Vector3 draw_pos) 
+void KeyboardController::Draw() 
 {
-	m_tag->SetPosition(draw_pos);
 	m_tag->Draw();
 }
 
@@ -77,7 +76,8 @@ void KeyboardController::SetTagColor(Color color)
 	m_tag->SetColor(color);
 }
 
-void KeyboardController::UpdateMotion() 
+void KeyboardController::UpdateMotion(Math::Vector3 draw_pos)
 {
+	m_tag->SetPosition(draw_pos);
 	m_tag->Update();
 }

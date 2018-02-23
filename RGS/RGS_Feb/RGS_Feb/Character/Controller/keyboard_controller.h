@@ -32,11 +32,11 @@ namespace Character
 		bool virtual IsPause();
 
 		///<summary>操作キャラのヒント描画</summary>
-		void virtual Draw(Math::Vector3 draw_pos);
+		void virtual Draw();
 		///<summary>タグの色設定（最初行うだけ）</summary>
 		void virtual SetTagColor(Color color);
 		///<summary>タグ更新</summary>
-		void virtual UpdateMotion();
+		void virtual UpdateMotion(Math::Vector3 draw_pos);
 
 	private:
 		std::shared_ptr<Core::InputState> m_input;

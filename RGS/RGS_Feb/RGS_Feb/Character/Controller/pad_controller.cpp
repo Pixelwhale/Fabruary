@@ -66,9 +66,8 @@ bool PadController::IsPause()
 }
 
 
-void PadController::Draw(Math::Vector3 draw_pos)
+void PadController::Draw()
 {
-	m_tag->SetPosition(draw_pos);
 	m_tag->Draw();
 }
 
@@ -77,7 +76,8 @@ void PadController::SetTagColor(Color color)
 	m_tag->SetColor(color);
 }
 
-void PadController::UpdateMotion()
+void PadController::UpdateMotion(Math::Vector3 draw_pos)
 {
+	m_tag->SetPosition(draw_pos);
 	m_tag->Update();
 }
