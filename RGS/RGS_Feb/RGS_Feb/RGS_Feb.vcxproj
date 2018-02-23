@@ -186,6 +186,7 @@
     <ClCompile Include="GameObject\AttackSystem\damage.cpp" />
     <ClCompile Include="GameObject\AttackSystem\kick.cpp" />
     <ClCompile Include="GameObject\AttackSystem\laser.cpp" />
+    <ClCompile Include="GameObject\AttackSystem\omnislash.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
     <ClCompile Include="GameObject\AttackSystem\summoning_type.cpp" />
     <ClCompile Include="GameObject\Job\business.cpp" />
@@ -345,6 +346,7 @@
     <ClInclude Include="GameObject\AttackSystem\damage.h" />
     <ClInclude Include="GameObject\AttackSystem\kick.h" />
     <ClInclude Include="GameObject\AttackSystem\laser.h" />
+    <ClInclude Include="GameObject\AttackSystem\omnislash.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\AttackSystem\summoning_type.h" />
     <ClInclude Include="GameObject\Job\business.h" />
