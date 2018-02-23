@@ -42,10 +42,18 @@ void Background::DrawBack()
 	m_renderer->DrawTexture("background", Math::Vector2());
 	m_renderer->DrawTexture("background_light", Math::Vector2(592, 202), m_light_alpha);
 	m_renderer->DrawTexture("background_pc_light_back", Math::Vector2(), m_pc_light);
+
+	m_renderer->DrawTexture("pc_monitor", Math::Vector2(-13, 215), m_random->NextDouble() + 0.9f);
+	m_renderer->DrawTexture("pc_monitor", Math::Vector2(1084, 203), m_random->NextDouble() + 0.9f);
 }
 
 void Background::DrawFront() 
 {
 	m_renderer->DrawTexture("background_front", Math::Vector2());
 	m_renderer->DrawTexture("background_pc_light_front", Math::Vector2(), m_pc_light);
+
+	m_renderer->DrawTexture("pc_monitor", Math::Vector2(1113, 562), m_random->NextDouble() + 0.9f);
+	m_renderer->DrawTexture("pc_monitor", Math::Vector2(736, 562), m_random->NextDouble() + 0.9f);
+	m_renderer->DrawTexture("pc_monitor", Math::Vector2(359, 562), m_random->NextDouble() + 0.9f);
+	m_renderer->DrawTexture("pc_monitor", Math::Vector2(-7, 562), m_random->NextDouble() + 0.9f);
 }

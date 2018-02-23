@@ -17,7 +17,6 @@ namespace Scene
 	{
 	public:
 		GamePlay(std::shared_ptr<GameManager> game_manager);
-		GamePlay() {}		//Œã‚Åíœ
 		virtual void Initialize(SceneType previous);
 		void Update();
 		void Draw();

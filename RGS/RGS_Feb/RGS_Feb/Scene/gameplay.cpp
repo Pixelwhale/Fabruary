@@ -54,15 +54,14 @@ void GamePlay::Update()
 
 void GamePlay::CheckEnd()
 {
-	if (m_character_manager->GetEnd() ||
-		m_input->IsKeyTrigger(KEY_INPUT_N))		//Debug‰¼‚ÌƒL[
+	if (m_character_manager->GetEnd())
 	{
 		m_is_end = true;
 		m_next = SceneType::kGameResult;
 		return;
 	}
 
-	if (m_input->IsKeyTrigger(KEY_INPUT_P))
+	if (m_game_manager->IsPause())
 	{
 		m_is_end = true;
 		m_next = SceneType::kPause;

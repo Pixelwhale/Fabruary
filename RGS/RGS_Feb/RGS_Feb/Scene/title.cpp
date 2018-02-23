@@ -12,6 +12,13 @@ Title::Title()
 	m_next = kGamePlay;
 }
 
+void Title::Initialize(SceneType previous)
+{
+	SceneBase::Initialize(previous);
+
+	m_background = make_shared<Background>();
+}
+
 void Title::Update()
 {
 	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE))
@@ -19,13 +26,22 @@ void Title::Update()
 		m_is_end = true;
 		m_next = kGamePlay;
 	}
+
+	m_background->Update();					//”wŒiXV
 }
 
 void Title::Draw()
 {
+	m_renderer->DrawOnBloomFilter();		//DrawFilter
+	m_background->DrawBack();				//”wŒi
+
 	m_renderer->DrawString("Title", Math::Vector2(150, 0));
+
+	m_background->DrawFront();				//‘OŒi
+	m_renderer->DrawBloom();				//BloomEffect
 }
 
 void Title::Shutdown()
 {
+	m_background = NULL;
 }

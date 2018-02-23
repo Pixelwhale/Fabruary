@@ -7,8 +7,8 @@
 
 using namespace Scene;
 
-Pause::Pause(std::shared_ptr<SceneBase> game_play)
-	:m_game_play(game_play)
+Pause::Pause(std::shared_ptr<SceneBase> game_play, shared_ptr<GameManager> game_manager)
+	:m_game_play(game_play), m_game_manager(game_manager)
 {
 }
 
@@ -26,7 +26,10 @@ void Pause::Update()
 	if (CheckEnd())
 		return;
 
-	if (m_input->IsKeyTrigger(KEY_INPUT_B))	//ToDo:Pause‚ð‰Ÿ‚µ‚½l‚ª‰ðœ‚·‚é
+	if (m_input->IsKeyTrigger(KEY_INPUT_B))	//DebugKey
+		m_blur_switch = false;
+
+	if(m_game_manager->PauseController()->IsPause())
 		m_blur_switch = false;
 
 	UpdateEffect();
@@ -57,13 +60,13 @@ bool Pause::CheckEnd()
 
 void Pause::Draw()
 {
-	m_renderer->DrawOnGaussFilter();					//RenderTarget‚É•`‰æ
+	m_renderer->DrawOnGaussFilter();			//RenderTarget‚É•`‰æ
 
 	m_game_play->Draw();						//ƒQ[ƒ€ƒV[ƒ“•`‰æ
 
 	m_renderer->GaussFilter(m_blur_ratio);		//FilterŒø‰Ê‚Å•`‰æ
 
-	m_renderer->DrawString("Pause", Math::Vector2(150, 0));
+	m_renderer->DrawString("Pause", Math::Vector2(640, 360), true);
 }
 
 void Pause::Shutdown()

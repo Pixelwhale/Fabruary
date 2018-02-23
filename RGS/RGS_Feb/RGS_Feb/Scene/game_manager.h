@@ -45,7 +45,15 @@ namespace Scene
 		///<summary>Listをクリア</summary>
 		void Clear();
 
+		///<summary>Pauseが押されたか</summary>
+		bool IsPause();
+		///<summary>Pauseを押したキャラ</summary>
+		std::shared_ptr<Character::VirtualController> PauseController();
+
 	private:
-		std::vector<SelectInfo> m_player_info;			//キャラクター選択情報
+		std::vector<SelectInfo> m_player_info;										//キャラクター選択情報
+		std::vector<std::shared_ptr<Character::VirtualController>> m_controller;	//コントローラー
+
+		std::shared_ptr<Character::VirtualController> m_pause_controller;
 	};
 }

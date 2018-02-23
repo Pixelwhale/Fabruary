@@ -28,6 +28,8 @@ namespace Character
 		bool virtual IsJumpTrigger();
 		///<summary>Defence‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©H</summary>
 		bool virtual IsDefence();
+		///<summary>Pause‚ª‰Ÿ‚³‚ê‚½‚©</summary>
+		bool virtual IsPause();
 
 		///<summary>‘€ìƒLƒƒƒ‰‚Ìƒqƒ“ƒg•`‰æ</summary>
 		void virtual Draw(Math::Vector3 draw_pos);

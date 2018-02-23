@@ -5,13 +5,14 @@
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
+#include <Scene\game_manager.h>
 
 namespace Scene
 {
 	class Pause : public SceneBase
 	{
 	public:
-		Pause(std::shared_ptr<SceneBase> game_play);
+		Pause(std::shared_ptr<SceneBase> game_play, shared_ptr<GameManager> game_manager);
 		virtual void Initialize(SceneType previous);
 		void Update();
 		void Draw();
@@ -24,6 +25,7 @@ namespace Scene
 		bool CheckEnd();
 
 	private:
+		shared_ptr<GameManager> m_game_manager;		//GameManager
 		std::shared_ptr<SceneBase> m_game_play;		//GamePlayƒV[ƒ“
 		const int kBlurMax = 1000;					//‚Ú‚©‚µÅ‘å’l
 

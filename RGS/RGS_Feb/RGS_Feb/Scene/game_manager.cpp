@@ -33,6 +33,7 @@ void GameManager::AddSelectCharacter(
 	info.m_controller = controller;
 
 	m_player_info.push_back(info);		//’Ç‰Á
+	m_controller.push_back(controller);
 }
 
 std::vector<SelectInfo> GameManager::GetSelectInfo()
@@ -43,4 +44,25 @@ std::vector<SelectInfo> GameManager::GetSelectInfo()
 void GameManager::Clear() 
 {
 	m_player_info.clear();
+	m_pause_controller = NULL;
+	m_controller.clear();
+}
+
+bool GameManager::IsPause() 
+{
+	for (auto &controller : m_controller) 
+	{
+		if (controller->IsPause()) 
+		{
+			m_pause_controller = controller;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+std::shared_ptr<Character::VirtualController> GameManager::PauseController() 
+{
+	return m_pause_controller;
 }

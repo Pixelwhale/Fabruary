@@ -60,6 +60,12 @@ bool PadController::IsDefence()
 	return m_input->IsPadButtonTrigger(m_pad_id, XINPUT_BUTTON_LEFT_SHOULDER);
 }
 
+bool PadController::IsPause() 
+{
+	return m_input->IsPadButtonTrigger(m_pad_id, XINPUT_BUTTON_START);
+}
+
+
 void PadController::Draw(Math::Vector3 draw_pos)
 {
 	m_tag->SetPosition(draw_pos);

@@ -60,6 +60,11 @@ bool KeyboardController::IsDefence()
 	return m_input->IsKeyDown(KEY_INPUT_Q);
 }
 
+bool KeyboardController::IsPause() 
+{
+	return m_input->IsKeyTrigger(KEY_INPUT_P);
+}
+
 
 void KeyboardController::Draw(Math::Vector3 draw_pos) 
 {

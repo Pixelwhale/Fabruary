@@ -40,29 +40,34 @@ Math::Vector3 AiController::Velocity()
 	return m_velocity;
 }
 
-bool  AiController::IsPunchTrigger()
+bool AiController::IsPunchTrigger()
 {
 	return m_current_punch && !m_previous_punch;
 }
 
-bool  AiController::IsKickTrigger()
+bool AiController::IsKickTrigger()
 {
 	return m_current_kick && !m_previous_kick;
 }
 
-bool  AiController::IsRun()
+bool AiController::IsRun()
 {
 	return m_run;
 }
 
-bool  AiController::IsJumpTrigger()
+bool AiController::IsJumpTrigger()
 {
 	return m_current_jump && !m_previous_jump;
 }
 
-bool  AiController::IsDefence()
+bool AiController::IsDefence()
 {
 	return m_defence;
+}
+
+bool AiController::IsPause() 
+{
+	return false;
 }
 
 
