@@ -210,7 +210,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_hp -= atk.GetDamage();
 		}
 		//倒れ値を超えたら、倒れる
-		else if (m_knock_value > m_job->KnockValue())
+		else if (m_knock_value > -1)
 		{
 			m_state = CharacterState::kKnockDown;
 			m_motion->Play("chara_base_anime/knock_down",1);
@@ -270,13 +270,13 @@ void CharacterBase::Attack()
 	//防御
 	if (m_controller->IsDefence())
 	{
-		if (m_state == CharacterState::kKnockDown)
+		if (m_state == CharacterState::kKnockDown && m_isStop)
 		{
 			m_state = CharacterState::kUkemi;
 			m_motion->Play("chara_base_anime/ukemi", 1);
 			m_isStop = true;
 		}
-		if (m_state != CharacterState::kUkemi)
+		if (m_state != CharacterState::kUkemi && !m_isStop)
 		{
 			m_state = CharacterState::kDefence;
 			m_motion->Play("chara_base_anime/defence");
@@ -533,7 +533,13 @@ void CharacterBase::StateUpdate()
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 		}
-		if (m_motion->IsCurrentMotionEnd())
+		//GetUp
+		if (m_state == CharacterState::kKnockDown &&m_motion->IsCurrentMotionEnd())
+		{
+			m_state = CharacterState::kGetUp;
+			m_motion->Play("chara_base_anime/get_up",1);
+		}
+		else if (m_motion->IsCurrentMotionEnd())
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 			m_isStop = false;
@@ -541,11 +547,9 @@ void CharacterBase::StateUpdate()
 			{
 				return;
 			}
-
 			m_state = CharacterState::kIdle;
 			m_motion->Play("chara_base_anime/idle");
 			m_isHit = false;
-			
 			//Jumpしていると、Jumpモーションに戻る
 			if (m_isJump)
 			{
