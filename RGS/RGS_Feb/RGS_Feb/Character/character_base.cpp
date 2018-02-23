@@ -8,6 +8,8 @@
 #include <GameObject\\Job\business.h>
 #include <GameObject\\Job\planner.h>
 #include <GameObject\\Job\com_graphic.h>
+#include <Color\color.h>
+#include <Def\window_def.h>
 
 using namespace Character;
 
@@ -59,7 +61,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
 	m_state = CharacterState::kIdle;
-
+	//キャラクター画像判定
 	if (typeid(*m_job) == typeid(Job::Programmer))
 	{
 		m_motion->ChangeSpriteSheet("chara_programmer");
@@ -78,6 +80,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	}
 	
 	//色設定
+	Color m_color = Color(1.0f,1.0f,1.0f,1.0f);
 	if (m_side == Side::kNoTeam)		//オレンジ
 	{
 		m_color = Color(220,121,0);
@@ -158,7 +161,6 @@ void CharacterBase::Draw()
 	}
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
-	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.z),Math::Vector2(m_position.x + 500,50));
 }
 
 

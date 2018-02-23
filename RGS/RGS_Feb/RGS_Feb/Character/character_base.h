@@ -15,8 +15,6 @@
 #include <GameObject\AttackSystem\attack_mediator.h>
 #include <GameObject\AttackSystem\attack.h>
 #include <System\gravity.h>
-#include <Def\window_def.h>
-#include <Color\color.h>
 
 namespace Character
 {
@@ -77,8 +75,6 @@ namespace Character
 		bool	m_isInvincible;		//–³“Gƒtƒ‰ƒO
 		bool	m_isStop;			//UŒ‚ó‘Ô‚Æ‚©UŒ‚‚ğó‚¯‚½A“ü—Í‚É‚æ‚éˆÚ“®‚ğ–h‚®
 		bool	m_isHit;			//UŒ‚‚ğó‚¯‚½‚©H
-
-		Color   m_color = Color(1.0f, 1.0f, 1.0f, 1.0f);//Fİ’è
 
 		Side	m_side;
 		CharacterState m_state;
