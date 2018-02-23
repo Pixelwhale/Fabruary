@@ -168,7 +168,7 @@ void CharacterBase::Draw()
 void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
 	bool from_right;
-	float  knockback_adjust = 10;
+	float  knockback_adjust = 14;
 	if (atk.GetDamage() == 0) return;
 	//UŒ‚‚ðŽó‚¯‚½•ûŒü
 	if (atk.GetSourceDir() != AttackSystem::kCenter)
@@ -210,7 +210,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_hp -= atk.GetDamage();
 		}
 		//“|‚ê’l‚ð’´‚¦‚½‚çA“|‚ê‚é
-		else if (m_knock_value > -1)
+		else if (m_knock_value > m_job->KnockValue())
 		{
 			m_state = CharacterState::kKnockDown;
 			m_motion->Play("chara_base_anime/knock_down",1);
@@ -279,10 +279,9 @@ void CharacterBase::Attack()
 		if (m_state != CharacterState::kUkemi && !m_isStop)
 		{
 			m_state = CharacterState::kDefence;
-			m_motion->Play("chara_base_anime/defence");
+			m_motion->Play("chara_base_anime/defence",1);
 			m_isStop = true;
 		}
-
 	}
 }
 
@@ -534,10 +533,15 @@ void CharacterBase::StateUpdate()
 			m_velocity = Math::Vector3(0, 0, 0);
 		}
 		//GetUp
-		if (m_state == CharacterState::kKnockDown &&m_motion->IsCurrentMotionEnd())
+		if (m_state == CharacterState::kKnockDown && m_motion->IsCurrentMotionEnd())
 		{
+			if (m_hp < 0) return;
 			m_state = CharacterState::kGetUp;
 			m_motion->Play("chara_base_anime/get_up",1);
+		}
+		else if (m_state == CharacterState::kDefence && m_controller->IsDefence())
+		{
+			m_velocity = Math::Vector3(0, 0, 0);
 		}
 		else if (m_motion->IsCurrentMotionEnd())
 		{
