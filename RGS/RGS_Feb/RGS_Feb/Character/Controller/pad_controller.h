@@ -13,7 +13,7 @@ namespace Character
 	{
 	public:
 		///<summary>Pad_IDは0～3まで</summary>
-		PadController(int pad_id);
+		PadController(int pad_id, int player_num);
 		PadController(const PadController&);
 		~PadController();
 
@@ -29,6 +29,13 @@ namespace Character
 		bool virtual IsJumpTrigger();
 		///<summary>Defenceが押されているか？</summary>
 		bool virtual IsDefence();
+
+		///<summary>操作キャラのヒント描画</summary>
+		void virtual Draw(Math::Vector3 draw_pos);
+		///<summary>タグの色設定（最初行うだけ）</summary>
+		void virtual SetTagColor(Color color);
+		///<summary>タグ更新</summary>
+		void virtual UpdateMotion();
 
 	private:
 		std::shared_ptr<Core::InputState> m_input;
