@@ -166,7 +166,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_hp -= atk.GetDamage();
 		}
 		//“|‚ê’l‚ğ’´‚¦‚½‚çA“|‚ê‚é
-		else if (m_knock_value > m_job->KnockValue())
+		else if (m_knock_value > 5)
 		{
 			m_state = CharacterState::kKnockDown;
 			m_motion->Play("chara_base_anime/knock_down",1);
@@ -277,8 +277,8 @@ void CharacterBase::Skill()
 		m_mp >= 300)
 	{
 		//ƒpƒ“ƒ`‚Ì¬‹Z
-		//m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
-		//m_state = CharacterState::kPunch_1;
+		m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kPunch_1;
 		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 300;
@@ -299,7 +299,7 @@ void CharacterBase::Skill()
 
 	//‘å‹Z
 	if (m_controller->IsDefence() && 
-		(m_skill_num == 0 || m_skill_num ==1))
+		(m_skill_num == 0 || m_skill_num == 1))
 	{
 		m_skill_num = 5;
 		m_skill_cnt = 60;

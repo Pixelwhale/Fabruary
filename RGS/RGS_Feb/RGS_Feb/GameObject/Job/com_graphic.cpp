@@ -9,6 +9,7 @@
 #include <GameObject\AttackSystem\punch.h>
 #include <GameObject\AttackSystem\kick.h>
 #include <GameObject\AttackSystem\laser.h>
+#include <GameObject\AttackSystem\omnislash.h>
 #include <GameObject\AttackSystem\summoning_type.h>
 
 using namespace Job;
@@ -86,7 +87,8 @@ std::string ComputerGraphic::Skill1(std::shared_ptr<AttackSystem::AttackMediator
 		plus.x *= -1;
 	}
 	// ƒXƒLƒ‹‚Ì’Ç‰Á‚Í‚±‚±‚É
-	return base_animation + "skill_1";
+	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(20, 20, 20), m_side, 15, 0, 0, 30, 1, "skill_effect/skill_omnislash", 0.4));
+	return base_animation + "skill_energy_blast";
 }
 
 std::string ComputerGraphic::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)

@@ -35,17 +35,17 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, -3), m_side, 10, 1, 5, 25, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, 7), m_side, 10, 1, 5, 25, 1));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, -3), m_side, 10, 1, 5, 25, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, 7), m_side, 10, 1, 5, 25, 1));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(0, 0, 0), m_side, 20, 2, 20, 30, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, 7), m_side, 20, 2, 5, 30, 1));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_8";
@@ -62,7 +62,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 2, 30, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 2, 5, 40, 0.4));
 	return base_animation + "kick_1";
 }
 
@@ -76,7 +76,7 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 		plus.x *= -1;
 	}
 	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 30, 20, 30, 80, 0.4));
-	return base_animation + "skill_1";
+	return base_animation + "skill_hammer";
 }
 
 // Phyton ƒJƒƒnƒƒn

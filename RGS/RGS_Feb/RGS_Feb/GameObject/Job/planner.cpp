@@ -84,7 +84,7 @@ std::string Planner::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack
 		plus.x *= -1;
 	}
 	// ƒXƒLƒ‹‚Ì’Ç‰Á‚Í‚±‚±‚É
-	return base_animation + "skill_1";
+	return base_animation + "skill_hammer";
 }
 
 std::string Planner::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
