@@ -56,6 +56,9 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isStop = false;
 	m_isInvincible = false;
 	m_isHit = false;
+	m_isIntro_end = false;
+	m_intro_cnt = 0;
+	m_velocity_intro = Math::Vector3(4,0,0);
 	m_velocity_jump = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
@@ -122,18 +125,25 @@ void CharacterBase::Initialize(Math::Vector3 position)
 //更新
 void CharacterBase::Update()
 {
-	if (m_hp > 0)
+	if (!m_isIntro_end)
 	{
-		Attack();		//攻撃
-		Skill();		//スキール
-		MoveUpdate();	//移動更新
-		JumpUpdate();	//Jump更新
-		MpUpdate();	//ゲージ更新
-		StateUpdate();	//状態の更新
-		KnockCntUpdate();//倒れ値カウント更新
-		m_job->Update();//Jobの更新
-		PositionUpdate();//位置の更新
-		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
+		IntroUpdate();
+	}
+	else
+	{
+		if (m_hp > 0)
+		{
+			Attack();		//攻撃
+			Skill();		//スキール
+			MoveUpdate();	//移動更新
+			JumpUpdate();	//Jump更新
+			MpUpdate();	//ゲージ更新
+			StateUpdate();	//状態の更新
+			KnockCntUpdate();//倒れ値カウント更新
+			m_job->Update();//Jobの更新
+			PositionUpdate();//位置の更新
+			m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
+		}
 	}
 	MotionUpdate(); //モーションの更新
 	//死亡更新
@@ -249,6 +259,23 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 }
 
 #pragma region 更新関連
+//登場更新
+void CharacterBase::IntroUpdate()
+{
+	if (m_position.x > 0)
+	{
+		m_velocity_intro.x *= -1;
+		m_isRight = false;
+	}
+	m_intro_cnt++;
+	m_position += m_velocity_intro;
+	m_motion->Play("chara_base_anime/walk");
+	if (m_intro_cnt > 120)
+	{
+		m_isIntro_end = true;
+		m_motion->Play("chara_base_anime/idle");
+	}
+}
 
 //攻撃
 void CharacterBase::Attack()

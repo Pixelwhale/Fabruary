@@ -47,6 +47,7 @@ namespace Character
 		
 
 	private:						//更新関連
+		void IntroUpdate();			//登場更新
 		void Attack();				//攻撃
 		void Skill();				//スキール
 		void MoveUpdate();			//移動更新
@@ -66,9 +67,11 @@ namespace Character
 		int		m_skill_cnt;		//スキール入力カウント
 		int		m_defence_value;	//防御値
 		int		m_defence_max;		//防御最大値
+		int		m_intro_cnt;		//登場カウント
 		float	m_speed;
 		int		m_id;
 
+		bool	m_isIntro_end;		//登場が終わったか
 		bool	m_isDead;
 		bool	m_isJump;
 		bool	m_isRight;
@@ -82,6 +85,7 @@ namespace Character
 		Math::Vector3 m_position;
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_velocity_jump;		//jump
+		Math::Vector3 m_velocity_intro;		//登場移動量
 		Math::Vector3 m_size;
 
 		std::shared_ptr<VirtualController>		m_controller;
