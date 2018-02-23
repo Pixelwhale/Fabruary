@@ -4,6 +4,10 @@
 // 内容　：キャラクターのベースクラス
 //-------------------------------------------------------
 #include <Character\character_base.h>
+#include <GameObject\\Job\programmer.h>
+#include <GameObject\\Job\business.h>
+#include <GameObject\\Job\planner.h>
+#include <GameObject\\Job\com_graphic.h>
 
 using namespace Character;
 
@@ -51,38 +55,63 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isInvincible = false;
 	m_isHit = false;
 	m_velocity_jump = Math::Vector3(0, 0, 0);
-	//m_rotation = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
-	m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_state = CharacterState::kIdle;
 
-	/*if (m_job == std::shared_ptr<Job::JobBase>())
-	{
-
-	}*/
-	
-	//色設定
-	if (m_side == Side::kNoTeam)		//白
+	/*if (typeid(*m_job) == typeid(Job::Programmer))
 	{
 		m_motion->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 	}
-	else if (m_side == Side::kTeam1)	//赤
+	else if (typeid(*m_job) == typeid(Job::Business))
 	{
 		m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
 	}
-	else if (m_side == Side::kTeam2)	//緑
+	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
 	{
 		m_motion->SetColor(Color(0.0f, 1.0f, 0.0f, 1.0f));
 	}
-	else if (m_side == Side::kTeam3)	//青
+	else 
 	{
 		m_motion->SetColor(Color(0.0f, 0.0f, 1.0f, 1.0f));
-	}
-	else if (m_side == Side::kTeam4)	//黒
+	}*/
+	
+	//色設定
+	if (m_side == Side::kNoTeam)		//オレンジ
 	{
-		m_motion->SetColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
+		m_color = Color(220,121,0);
+		m_motion->SetColor(m_color);
+		m_color = Color(255, 230, 215);
+		m_controller->SetTagColor(m_color);
+	}
+	else if (m_side == Side::kTeam1)	//緑
+	{
+		m_color = Color(36,220,36);
+		m_motion->SetColor(m_color);
+		m_color = Color(219, 255, 219);
+		m_controller->SetTagColor(m_color);
+	}
+	else if (m_side == Side::kTeam2)	//青
+	{
+		m_color = Color(49,220,220);
+		m_motion->SetColor(m_color);
+		m_color = Color(180, 255, 255);
+		m_controller->SetTagColor(m_color);
+	}
+	else if (m_side == Side::kTeam3)	//黄
+	{
+		m_color = Color(220,220,49);
+		m_motion->SetColor(m_color);
+		m_color = Color(255, 255, 180);
+		m_controller->SetTagColor(m_color);
+	}
+	else if (m_side == Side::kTeam4)	//赤
+	{
+		m_color = Color(220,49,16);
+		m_motion->SetColor(m_color);
+		m_color = Color(255,210 ,210);
+		m_controller->SetTagColor(m_color);
 	}
 
 }
@@ -101,6 +130,7 @@ void CharacterBase::Update()
 		KnockCntUpdate();//倒れ値カウント更新
 		m_job->Update();//Jobの更新
 		PositionUpdate();//位置の更新
+		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 	}
 	MotionUpdate(); //モーションの更新
 	//死亡更新
@@ -114,7 +144,10 @@ void CharacterBase::Update()
 //モーション
 void CharacterBase::Draw()
 {
-	m_controller->Draw(m_position);
+	if (m_hp > 0)
+	{
+		m_controller->Draw();
+	}
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.z),Math::Vector2(m_position.x + 500,50));
