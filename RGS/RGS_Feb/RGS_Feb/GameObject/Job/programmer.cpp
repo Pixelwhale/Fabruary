@@ -62,7 +62,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 2, 30, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 2, 3, 40, 0.4));
 	return base_animation + "kick_1";
 }
 

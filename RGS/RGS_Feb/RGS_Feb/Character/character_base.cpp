@@ -8,6 +8,8 @@
 #include <GameObject\\Job\business.h>
 #include <GameObject\\Job\planner.h>
 #include <GameObject\\Job\com_graphic.h>
+#include <Color\color.h>
+#include <Def\window_def.h>
 
 using namespace Character;
 
@@ -59,25 +61,26 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
 	m_state = CharacterState::kIdle;
-
-	/*if (typeid(*m_job) == typeid(Job::Programmer))
+	//キャラクター画像判定
+	if (typeid(*m_job) == typeid(Job::Programmer))
 	{
-		m_motion->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
+		m_motion->ChangeSpriteSheet("chara_programmer");
 	}
 	else if (typeid(*m_job) == typeid(Job::Business))
 	{
-		m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
+		m_motion->ChangeSpriteSheet("chara_bussiness");
 	}
 	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
 	{
-		m_motion->SetColor(Color(0.0f, 1.0f, 0.0f, 1.0f));
+		m_motion->ChangeSpriteSheet("chara_designer");
 	}
 	else 
 	{
-		m_motion->SetColor(Color(0.0f, 0.0f, 1.0f, 1.0f));
-	}*/
+		m_motion->ChangeSpriteSheet("chara_planner");
+	}
 	
 	//色設定
+	Color m_color = Color(1.0f,1.0f,1.0f,1.0f);
 	if (m_side == Side::kNoTeam)		//オレンジ
 	{
 		m_color = Color(220,121,0);
@@ -134,9 +137,17 @@ void CharacterBase::Update()
 	}
 	MotionUpdate(); //モーションの更新
 	//死亡更新
-	if (m_hp <= 0 && m_motion->IsCurrentMotionEnd())
+	if (m_state == CharacterState::kDead)
 	{
-		m_isDead = true;
+		if (m_position.y > 128)
+		{
+			m_gravity.Update(m_velocity_jump);
+			m_position += m_velocity_jump;
+		}
+		if (m_motion->IsCurrentMotionEnd())
+		{
+			m_isDead = true;
+		}
 	}
 }
 
@@ -150,7 +161,6 @@ void CharacterBase::Draw()
 	}
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
-	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.z),Math::Vector2(m_position.x + 500,50));
 }
 
 
