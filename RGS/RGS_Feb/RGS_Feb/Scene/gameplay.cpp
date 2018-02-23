@@ -97,4 +97,5 @@ void GamePlay::Shutdown()
 	m_character_manager = NULL;
 	m_attack_manager = NULL;
 	m_background = NULL;
+	m_game_manager->Clear();
 }
