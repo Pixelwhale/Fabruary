@@ -45,7 +45,7 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, -3), m_side, 20, 2, 20, 30, 0.4));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(0, 0, 0), m_side, 20, 2, 20, 30, 0.4));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_8";
