@@ -60,22 +60,22 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_motion->Play("chara_base_anime/idle");
 	m_state = CharacterState::kIdle;
 
-	/*if (typeid(*m_job) == typeid(Job::Programmer))
+	if (typeid(*m_job) == typeid(Job::Programmer))
 	{
-		m_motion->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
+		m_motion->ChangeSpriteSheet("chara_programmer");
 	}
 	else if (typeid(*m_job) == typeid(Job::Business))
 	{
-		m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
+		m_motion->ChangeSpriteSheet("chara_bussiness");
 	}
 	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
 	{
-		m_motion->SetColor(Color(0.0f, 1.0f, 0.0f, 1.0f));
+		m_motion->ChangeSpriteSheet("chara_designer");
 	}
 	else 
 	{
-		m_motion->SetColor(Color(0.0f, 0.0f, 1.0f, 1.0f));
-	}*/
+		m_motion->ChangeSpriteSheet("chara_planner");
+	}
 	
 	//色設定
 	if (m_side == Side::kNoTeam)		//オレンジ
@@ -134,9 +134,17 @@ void CharacterBase::Update()
 	}
 	MotionUpdate(); //モーションの更新
 	//死亡更新
-	if (m_hp <= 0 && m_motion->IsCurrentMotionEnd())
+	if (m_state == CharacterState::kDead)
 	{
-		m_isDead = true;
+		if (m_position.y > 128)
+		{
+			m_gravity.Update(m_velocity_jump);
+			m_position += m_velocity_jump;
+		}
+		if (m_motion->IsCurrentMotionEnd())
+		{
+			m_isDead = true;
+		}
 	}
 }
 
