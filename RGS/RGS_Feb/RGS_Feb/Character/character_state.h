@@ -13,6 +13,8 @@ enum CharacterState
 	kRun,
 	kDefence,
 	kKnockDown,
+	kDead,
+	kUkemi,
 	kGetUp,
 	kKnockBack,
 	kPunch,

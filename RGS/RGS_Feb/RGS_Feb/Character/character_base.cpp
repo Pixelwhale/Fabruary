@@ -85,16 +85,19 @@ void CharacterBase::Initialize(Math::Vector3 position)
 //更新
 void CharacterBase::Update()
 {
-	Attack();		//攻撃
-	Skill();		//スキール
-	MoveUpdate();	//移動更新
-	JumpUpdate();	//Jump更新
-	MpUpdate();	//ゲージ更新
-	MotionUpdate(); //モーションの更新
-	StateUpdate();	//状態の更新
-	KnockCntUpdate();//倒れ値カウント更新
-	m_job->Update();//Jobの更新
-	PositionUpdate();//位置の更新
+	if (m_hp > 0)
+	{
+		Attack();		//攻撃
+		Skill();		//スキール
+		MoveUpdate();	//移動更新
+		JumpUpdate();	//Jump更新
+		MpUpdate();	//ゲージ更新
+		StateUpdate();	//状態の更新
+		KnockCntUpdate();//倒れ値カウント更新
+		m_job->Update();//Jobの更新
+		PositionUpdate();//位置の更新
+	}
+		MotionUpdate(); //モーションの更新
 	//死亡更新
 	if (m_hp <= 0 && m_motion->IsCurrentMotionEnd())
 	{
@@ -107,7 +110,7 @@ void CharacterBase::Update()
 void CharacterBase::Draw()
 {
 	m_motion->Draw();
-	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.y),Math::Vector2(50,0));
+	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_ukemi_cnt),Math::Vector2(m_position.x,m_position.z));
 }
 
 
@@ -115,6 +118,9 @@ void CharacterBase::Draw()
 void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
 	bool from_right;
+	float  knockback_adjust = 10;
+	if (atk.GetDamage() == 0) return;
+	//攻撃を受けた方向
 	if (atk.GetSourceDir() != AttackSystem::kCenter)
 	{
 		from_right = (atk.GetSourceDir() == AttackSystem::kRight);
@@ -126,11 +132,11 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 
 	if (from_right)
 	{
-		m_velocity =Math::Vector3(-atk.GetKnockBack(),0,0);
+		m_velocity =Math::Vector3(-(float)atk.GetKnockBack() / knockback_adjust,0,0);
 	}
 	if (!from_right)
 	{
-		m_velocity = Math::Vector3(atk.GetKnockBack(), 0, 0);
+		m_velocity = Math::Vector3((float)atk.GetKnockBack() / knockback_adjust, 0, 0);
 	}
 	m_knock_cnt = 0;
 	m_isStop = true;
@@ -146,16 +152,24 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	}
 	else
 	{
+		//死亡
+		if (m_hp - atk.GetDamage() <= 0)
+		{
+			m_state = CharacterState::kDead;
+			m_motion->Play("chara_base_anime/dead", 1);
+			m_hp -= atk.GetDamage();
+		}
 		//倒れ値を超えたら、倒れる
-		if ((m_knock_value > m_job->KnockValue()) ||
-			(m_hp - atk.GetDamage() <= 0))
+		else if (m_knock_value > m_job->KnockValue())
 		{
 			m_state = CharacterState::kKnockDown;
 			m_motion->Play("chara_base_anime/knock_down",1);
 			m_hp -= atk.GetDamage();
 			m_knock_value = 0;
 			m_defence_value = 0;
+			
 		}
+		//攻撃を受けたモーション
 		else
 		{
 			m_state = CharacterState::kKnockBack;
@@ -164,13 +178,22 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_knock_value += atk.GetKnockDown();
 			m_defence_value = 0;
 		}
-		if (from_right)
+		//死んだら、向きの更新しない
+		//攻撃を受けたモーション向きの更新
+		if (m_hp < 0)
 		{
-			m_isRight = true;
+			return;
 		}
 		else
 		{
-			m_isRight = false;
+			if (from_right)
+			{
+				m_isRight = true;
+			}
+			else
+			{
+				m_isRight = false;
+			}
 		}
 	}
 }
@@ -197,9 +220,18 @@ void CharacterBase::Attack()
 	//防御
 	if (m_controller->IsDefence())
 	{
-		m_state = CharacterState::kDefence;
-		m_motion->Play("chara_base_anime/defence");
-		m_isStop = true;
+		if (m_state == CharacterState::kKnockDown)
+		{
+			m_state = CharacterState::kUkemi;
+			m_motion->Play("chara_base_anime/ukemi", 1);
+			m_isStop = true;
+		}
+		if (m_state != CharacterState::kUkemi)
+		{
+			m_state = CharacterState::kDefence;
+			m_motion->Play("chara_base_anime/defence");
+			m_isStop = true;
+		}
 
 	}
 }
@@ -418,7 +450,8 @@ void CharacterBase::StateUpdate()
 {
 	//防御か倒られた時は無敵
 	if (m_state == CharacterState::kKnockDown || 
-		m_state == CharacterState::kGetUp)
+		m_state == CharacterState::kGetUp	  ||
+		m_state == CharacterState::kUkemi)
 	{
 		m_isInvincible = true;
 	}
@@ -439,10 +472,11 @@ void CharacterBase::StateUpdate()
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 			m_isStop = false;
-			if (m_state == CharacterState::kKnockDown && m_hp < 0)
+			if (m_state == CharacterState::kDead && m_hp < 0)
 			{
 				return;
 			}
+
 			m_state = CharacterState::kIdle;
 			m_motion->Play("chara_base_anime/idle");
 			m_isHit = false;
