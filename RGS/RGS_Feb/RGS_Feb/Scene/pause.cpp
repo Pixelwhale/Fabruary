@@ -27,11 +27,8 @@ void Pause::Update()
 	if (CheckEnd())
 		return;
 
-	if (m_input->IsKeyTrigger(KEY_INPUT_B))	//DebugKey
+	if(m_game_manager->PauseController()->IsPause())
 		m_blur_switch = false;
-
-	/*if(m_game_manager->PauseController()->IsPause())
-		m_blur_switch = false;*/
 
 	UpdateEffect();
 }

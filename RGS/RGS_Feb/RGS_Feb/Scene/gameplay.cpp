@@ -10,6 +10,7 @@
 #include <GameObject\Job\com_graphic.h>
 #include <GameObject\Job\business.h>
 #include <GameObject\UI\chara_hp_ui.h>
+#include <Def\start_position.h>
 
 using namespace Scene;
 
@@ -32,14 +33,61 @@ void GamePlay::Initialize(SceneType previous)
 	m_attack_manager = make_shared<AttackSystem::AttackManager>();
 	m_character_manager = make_shared<Character::CharacterManager>();
 	m_attack_manager->Initialize();
-
 	m_character_manager->Initialize();
-	m_character_manager->Add(Math::Vector3(0, 128, 0), Side::kTeam1, make_shared<Character::KeyboardController>(1), make_shared<Job::Programmer>(Side::kTeam1), m_attack_manager);
-
 	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
-	m_meta_ai->AddCom(Math::Vector3(400, 128, 20), Side::kTeam3, make_shared<Job::Business>(Side::kTeam3), 9, 2);
-	m_meta_ai->AddCom(Math::Vector3(-400, 128, 20), Side::kTeam4, make_shared<Job::Planner>(Side::kTeam4), 9, 3);
-	m_meta_ai->AddCom(Math::Vector3(0, 128, 0), Side::kTeam2, make_shared<Job::ComputerGraphic>(Side::kTeam2), 9, 4);
+
+	//--------------------------あとで削除--------------------------------
+	m_game_manager->AddSelectCharacter(
+		make_shared<Job::Programmer>(Side::kTeam1),
+		Side::kTeam1, make_shared<Character::KeyboardController>(1));
+	m_game_manager->AddSelectAI(
+		make_shared<Job::Business>(Side::kTeam3),
+		Side::kTeam3, 2, 9);
+	m_game_manager->AddSelectAI(
+		make_shared<Job::Planner>(Side::kTeam4),
+		Side::kTeam4, 3, 9);
+	m_game_manager->AddSelectAI(
+		make_shared<Job::ComputerGraphic>(Side::kTeam2),
+		Side::kTeam2, 4, 9);
+	//--------------------------あとで削除--------------------------------
+
+	AddCharacter();
+}
+
+void GamePlay::AddCharacter() 
+{
+	vector<int> pos_num = {1, 2, 3, 4};				//使用する位置
+
+	Device::Random* random = Device::GameDevice::GetInstance()->GetRandom();
+
+	for (auto &chara_info : m_game_manager->GetSelectInfo()) 
+	{
+		int pos = 0;								//使用する位置の添え字
+		Math::Vector3 position = Math::Vector3();	//生成位置
+		if (pos_num.size() > 0)						//まだ使っていない位置があれば
+		{
+			pos = random->Next(0, pos_num.size());	//添え字をランダム選出
+			position = StartPosition::GetStartPos(pos_num[pos]);		//位置取得
+			pos_num.erase(pos_num.begin() + pos);	//同じ位置を使われないように削除
+		}
+		else
+		{
+			pos = random->Next(5, 7);				//それ以外は左か右かの位置に設定
+			position = StartPosition::GetStartPos(pos);
+		}
+
+		if (chara_info.m_controller == NULL)		//Comの場合
+		{
+			//Com追加
+			m_meta_ai->AddCom(position, chara_info.m_side, chara_info.m_job, 
+				chara_info.m_difficulty, chara_info.m_player_num);
+			continue;
+		}
+
+		//Player追加
+		m_character_manager->Add(position, chara_info.m_side, 
+			chara_info.m_controller, chara_info.m_job, m_attack_manager);
+	}
 }
 
 void GamePlay::Update()
@@ -62,8 +110,7 @@ void GamePlay::CheckEnd()
 		return;
 	}
 
-	if (m_game_manager->IsPause() || 
-		m_input->IsKeyTrigger(KEY_INPUT_P))
+	if (m_game_manager->IsPause())
 	{
 		m_is_end = true;
 		m_next = SceneType::kPause;

@@ -21,6 +21,8 @@ namespace Scene
 		Side m_side;
 		std::shared_ptr<Job::JobBase> m_job;
 		std::shared_ptr<Character::VirtualController> m_controller;
+		int m_difficulty;
+		int m_player_num;
 	};
 
 	class GameManager
@@ -39,6 +41,17 @@ namespace Scene
 			Side side,
 			std::shared_ptr<Character::VirtualController> controller);
 
+		///<summary>キャラクター選択情報を追加</summary>
+		///<param name="job">ジョッブ、キャラ</param>
+		///<param name="side">Team</param>
+		///<param name="player_num">PlayerNumber</param>
+		///<param name="difficulty">comの強さ（Player設定しても意味がない）</param>
+		void AddSelectAI(
+			std::shared_ptr<Job::JobBase> job,
+			Side side,
+			int player_num,
+			int difficulty);
+
 		///<summary>キャラクター選択情報を取得</summary>
 		std::vector<SelectInfo> GetSelectInfo();
 
@@ -54,6 +67,6 @@ namespace Scene
 		std::vector<SelectInfo> m_player_info;										//キャラクター選択情報
 		std::vector<std::shared_ptr<Character::VirtualController>> m_controller;	//コントローラー
 
-		std::shared_ptr<Character::VirtualController> m_pause_controller;
+		std::shared_ptr<Character::VirtualController> m_pause_controller;			//Pauseを押したコントローラー
 	};
 }

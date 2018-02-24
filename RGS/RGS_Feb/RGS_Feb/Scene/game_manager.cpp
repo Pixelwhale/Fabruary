@@ -29,11 +29,29 @@ void GameManager::AddSelectCharacter(
 {
 	SelectInfo info;					//info宣言
 	info.m_job = job;					//情報設定
-	info.m_side = side;
-	info.m_controller = controller;
+	info.m_side = side;					//Team設定
+	info.m_controller = controller;		//コントローラー設定
+	info.m_difficulty = 0;
+	info.m_player_num = controller->PlayerNum();	//PlayerNumber設定
 
 	m_player_info.push_back(info);		//追加
 	m_controller.push_back(controller);
+}
+
+void GameManager::AddSelectAI(
+	std::shared_ptr<Job::JobBase> job,
+	Side side,
+	int player_num,
+	int difficulty)
+{
+	SelectInfo info;					//info宣言
+	info.m_job = job;					//情報設定
+	info.m_side = side;					//Team設定
+	info.m_controller = NULL;			//コントローラー設定
+	info.m_difficulty = 0;
+	info.m_player_num = player_num;		//PlayerNumber設定
+
+	m_player_info.push_back(info);		//追加
 }
 
 std::vector<SelectInfo> GameManager::GetSelectInfo()

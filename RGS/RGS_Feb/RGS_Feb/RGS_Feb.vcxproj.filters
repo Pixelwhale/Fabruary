@@ -253,6 +253,7 @@
     <ClInclude Include="GameObject\AttackSystem\omnislash.h" />
     <ClInclude Include="Scene\chara_select.h" />
     <ClInclude Include="GameObject\UI\chara_hp_ui.h" />
+    <ClInclude Include="Def\start_position.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />

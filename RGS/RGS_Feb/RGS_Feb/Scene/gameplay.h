@@ -23,7 +23,10 @@ namespace Scene
 		void Shutdown();
 
 	private:
+		///<summary>終了チェック</summary>
 		void CheckEnd();
+		///<summary>キャラ追加</summary>
+		void AddCharacter();
 
 	private:
 		std::shared_ptr<GameManager> m_game_manager;						//Game Manager

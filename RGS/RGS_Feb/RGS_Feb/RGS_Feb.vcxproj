@@ -242,6 +242,7 @@
     <ClInclude Include="Core\game.h" />
     <ClInclude Include="Core\input_state.h" />
     <ClInclude Include="Def\size.h" />
+    <ClInclude Include="Def\start_position.h" />
     <ClInclude Include="Def\window_def.h" />
     <ClInclude Include="Device\content_manager.h" />
     <ClInclude Include="Device\depth_sort.h" />
