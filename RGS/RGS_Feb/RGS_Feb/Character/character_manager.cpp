@@ -96,6 +96,25 @@ void CharacterManager::Draw()
 	}
 }
 
+//Clear
+void CharacterManager::Clear()
+{
+	//m_character_list.clear();
+	//m_add_characters.clear();
+	std::vector<std::shared_ptr<CharacterBase>>::iterator it;
+	for (it = m_character_list.begin(); it != m_character_list.end();)
+	{
+		it = m_character_list.erase(it);
+	}
+	m_character_list.erase(m_character_list.end());
+	for (it = m_add_characters.begin(); it != m_add_characters.end();)
+	{
+		it = m_add_characters.erase(it);
+	}
+	m_add_characters.erase(m_add_characters.end());
+
+}
+
 std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetCharacterList()
 {
 	return m_character_list;

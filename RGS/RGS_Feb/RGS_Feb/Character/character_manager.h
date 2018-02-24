@@ -20,6 +20,7 @@ namespace Character
 			std::shared_ptr<AttackSystem::AttackMediator> attackMediator);	//オブジェクトの追加
 		void Update();						//更新
 		void Draw();						//描画
+		void Clear();						//キャラクターを全員削除
 		bool GetEnd();
 		std::vector<std::shared_ptr<CharacterBase>>& GetCharacterList();//キャラクターリストの取得
 
