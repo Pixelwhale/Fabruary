@@ -203,6 +203,10 @@ namespace Device
 		///<summary>Bloomしたシーンを描画</summary>
 		void DrawBloom();
 
+		///<summary>Resize用のFilter</summary>
+		void DrawOnResizeFilter();
+		///<summary>ResizeしたRenderTargetを描画</summary>
+		void DrawResize(Math::Vector2 position, Math::Vector2 size, Math::Vector2 pivot);
 #pragma endregion
 
 
@@ -216,5 +220,7 @@ namespace Device
 		int m_hight_light_handle = -1;							//高輝度を取り出すRenderTarget
 		int m_down_scale_handle = -1;							//DownScaleしてよりキレイにぼかす
 		int m_gauss_handle = -1;								//ぼかす
+
+		int m_resize_handle = -1;								//Resize用RenderTarget
 	};
 }

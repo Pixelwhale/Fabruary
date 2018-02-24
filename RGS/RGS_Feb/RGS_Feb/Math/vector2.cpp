@@ -14,6 +14,11 @@ Vector2::Vector2()
 {
 }
 
+Vector2::Vector2(float x) 
+	:x(x), y(x)
+{
+}
+
 Vector2::Vector2(float x, float y)
 	: x(x), y(y)
 {
@@ -94,6 +99,15 @@ Vector2 Vector2::Clamp(const Vector2& v, const Vector2& min, const Vector2& max)
 	result.x = (result.x > max.x) ? max.x : result.x;
 	result.y = (result.y < min.y) ? min.y : result.y;
 	result.y = (result.y > max.y) ? max.y : result.y;
+
+	return result;
+}
+
+Vector2 Vector2::Lerp(const Vector2& v1, const Vector2& v2, float rate) 
+{
+	Vector2 result = Vector2();
+	result.x = (v2.x - v1.x) * rate + v1.x;
+	result.y = (v2.y - v1.y) * rate + v1.y;
 
 	return result;
 }

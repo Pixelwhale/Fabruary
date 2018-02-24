@@ -50,7 +50,7 @@ void Background::DrawBack()
 
 	m_renderer->DrawTexture("pc_monitor", Math::Vector2(-13, 215), m_random->NextDouble() + 0.9f);
 	m_renderer->DrawTexture("pc_monitor", Math::Vector2(1084, 203), m_random->NextDouble() + 0.9f);
-	m_renderer->DrawTexture("monitor", Math::Vector2(246, 113), m_random->NextDouble() + 0.9f);
+	m_renderer->DrawTexture("monitor", Math::Vector2(246, 113), m_random->NextDouble() + 0.95f);
 }
 
 void Background::DrawFront() 

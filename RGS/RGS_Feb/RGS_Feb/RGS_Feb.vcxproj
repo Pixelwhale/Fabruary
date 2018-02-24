@@ -193,6 +193,7 @@
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
     <ClCompile Include="GameObject\AttackSystem\summoning_type.cpp" />
     <ClCompile Include="GameObject\Background\background.cpp" />
+    <ClCompile Include="GameObject\Background\change_scene_effect.cpp" />
     <ClCompile Include="GameObject\Job\business.cpp" />
     <ClCompile Include="GameObject\Job\com_graphic.cpp" />
     <ClCompile Include="GameObject\Job\planner.cpp" />
@@ -357,6 +358,7 @@
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\AttackSystem\summoning_type.h" />
     <ClInclude Include="GameObject\Background\background.h" />
+    <ClInclude Include="GameObject\Background\change_scene_effect.h" />
     <ClInclude Include="GameObject\Job\business.h" />
     <ClInclude Include="GameObject\Job\com_graphic.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />

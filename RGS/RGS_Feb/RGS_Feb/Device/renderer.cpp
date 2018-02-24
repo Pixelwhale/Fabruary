@@ -133,8 +133,8 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 	SetDrawBright(255, 255, 255);													//色を戻す
 }
 
-void Renderer::DrawMotion(std::string texture_name, int index, 
-	Math::Vector2 position, Color color,float alpha)
+void Renderer::DrawMotion(std::string texture_name, int index,
+	Math::Vector2 position, Color color, float alpha)
 {
 	int bright = 255.0f * alpha;
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
@@ -386,6 +386,8 @@ void Renderer::DrawBloom()
 	SetDrawScreen(DX_SCREEN_BACK);
 	if (m_blur_filter_handle != -1)
 		SetDrawScreen(m_blur_filter_handle);
+	if (m_resize_handle != -1)
+		SetDrawScreen(m_resize_handle);
 
 	//シーンを描画
 	DrawGraph(0, 0, m_scene_handle, FALSE);
@@ -405,6 +407,33 @@ void Renderer::DrawBloom()
 	DeleteGraph(m_hight_light_handle);
 	DeleteGraph(m_down_scale_handle);
 	DeleteGraph(m_gauss_handle);
+}
+
+void Renderer::DrawOnResizeFilter()
+{
+	//Nullじゃないなら解放
+	if (m_resize_handle != -1)
+		DeleteGraph(m_resize_handle);
+
+	//RenderTarget作成
+	m_resize_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+
+	//RenderTarget設定
+	SetDrawScreen(m_resize_handle);
+	ClearDrawScreen();
+}
+
+void Renderer::DrawResize(Math::Vector2 position, Math::Vector2 size, Math::Vector2 pivot)
+{
+	SetDrawScreen(DX_SCREEN_BACK);											//バックバッファに描画
+	
+	DrawRotaGraph3(
+		position.x, position.y,
+		pivot.x, pivot.y,
+		size.x, size.y,
+		0, m_resize_handle,
+		false, false);
+	DeleteGraph(m_resize_handle);											//RenderTarget解放
 }
 
 #pragma endregion

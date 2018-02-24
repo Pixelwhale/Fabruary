@@ -1,11 +1,12 @@
 //-------------------------------------------------------
-// 作成者：廖啓勝
-// 作成日：2017.12.22
-// 内容　：タイトルのシーン。スタート、ロード、オプション。
+// 作成者：林佳叡
+// 作成日：2018.2.24
+// 内容　：TitleScene, Effect追加
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
 #include <GameObject\Background\background.h>
+#include <GameObject\Background\change_scene_effect.h>
 
 namespace Scene
 {
@@ -17,7 +18,12 @@ namespace Scene
 		void Update();
 		void Draw();
 		void Shutdown();
+
+	private:
+		void CheckEnd();
+
 	private:
 		shared_ptr<Background> m_background;		//背景
+		shared_ptr<SceneEffect> m_scene_effect;		//SceneChangeEffect
 	};
 }

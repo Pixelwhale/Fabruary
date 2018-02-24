@@ -11,6 +11,7 @@ namespace Math
 	{
 	public:
 		Vector2();
+		Vector2(float x);
 		Vector2(float x, float y);
 		Vector2(const Vector2& other);
 
@@ -27,6 +28,7 @@ namespace Math
 		Vector2&  operator /= (float s);
 
 		Vector2 Clamp(const Vector2& v, const Vector2& min, const Vector2& max);
+		Vector2 Lerp(const Vector2& v1, const Vector2& v2, float rate);
 
 		friend const Vector2 operator + (const Vector2& v1, const Vector2& v2)
 		{
