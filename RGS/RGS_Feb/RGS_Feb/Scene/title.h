@@ -7,6 +7,7 @@
 #include <Scene\scene_base.h>
 #include <GameObject\Background\background.h>
 #include <GameObject\Background\change_scene_effect.h>
+#include <GameObject\UI\title_state_manager.h>
 
 namespace Scene
 {
@@ -20,10 +21,13 @@ namespace Scene
 		void Shutdown();
 
 	private:
+		///<summary>終了チェック</summary>
 		void CheckEnd();
 
 	private:
 		shared_ptr<Background> m_background;		//背景
 		shared_ptr<SceneEffect> m_scene_effect;		//SceneChangeEffect
+
+		shared_ptr<UI::TitleStateManager> m_title_menu;		//TitleMenu
 	};
 }

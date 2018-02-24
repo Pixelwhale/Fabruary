@@ -199,6 +199,10 @@
     <ClCompile Include="GameObject\Job\planner.cpp" />
     <ClCompile Include="GameObject\Job\programmer.cpp" />
     <ClCompile Include="GameObject\UI\chara_hp_ui.cpp" />
+    <ClCompile Include="GameObject\UI\title_enter.cpp" />
+    <ClCompile Include="GameObject\UI\title_gameplay.cpp" />
+    <ClCompile Include="GameObject\UI\title_state.cpp" />
+    <ClCompile Include="GameObject\UI\title_state_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
     <ClCompile Include="Math\point.cpp" />
@@ -365,6 +369,10 @@
     <ClInclude Include="GameObject\Job\planner.h" />
     <ClInclude Include="GameObject\Job\programmer.h" />
     <ClInclude Include="GameObject\UI\chara_hp_ui.h" />
+    <ClInclude Include="GameObject\UI\title_enter.h" />
+    <ClInclude Include="GameObject\UI\title_gameplay.h" />
+    <ClInclude Include="GameObject\UI\title_state.h" />
+    <ClInclude Include="GameObject\UI\title_state_manager.h" />
     <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\point.h" />
     <ClInclude Include="Math\vector2.h" />
