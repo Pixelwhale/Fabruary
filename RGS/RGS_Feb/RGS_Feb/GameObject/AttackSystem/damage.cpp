@@ -9,12 +9,12 @@
 using namespace AttackSystem;
 
 // コンストラクタ
-Damage::Damage(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer)
+Damage::Damage(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, std::string animationToPlay, float life_span_timer)
 	: Attack (position, size, side, attack, knockdown, knockback, dbreak), m_life_span_timer (life_span_timer)
 {
 	m_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_motion->Initialize();
-	m_motion->Play("Effect/slash", 1);
+	m_motion->Play(animationToPlay, 1);
 	m_motion->SetPosition(m_position + m_size);
 }
 

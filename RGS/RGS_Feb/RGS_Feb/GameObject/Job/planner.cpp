@@ -34,27 +34,27 @@ std::string Planner::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_
 	switch (m_punch_count)
 	{
 		case 0 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 0, 0, 15, 0.4));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 6, 0, 0, 6, 0.5, 0.2));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_1";
 		case 1 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 0, 0, 15, 0.4));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 6, 0, 0, 9, 0.5, 0.2));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_2";
 		case 2 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 10, 0, 0, 15, 0.4));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(55, 55, 55), m_side, 8, 0, 0, 9, 0.5, 0.2));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_5";
 		case 3 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 13, 0, 0, 20, 0.4));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(58, 58, 58), m_side, 10, 0, 0, 9, 0.5, 0.2));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_4";
 		case 4 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(15, 15, 15), m_side, 15, 1, 1, 20, 0.4));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(60, 60, 60), m_side, 12, 3, 3, 13, 0.5, 0.2));
 			m_punch_count = 0;
 			m_next_combo.Reset();
 			return base_animation + "punch_7";
@@ -71,7 +71,7 @@ std::string Planner::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_m
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 0, 0, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(12, 12, 12), m_side, 35, 0, 0, 20, 0.5));
 	return base_animation + "kick_1";
 }
 
@@ -84,7 +84,7 @@ std::string Planner::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack
 		plus.x *= -1;
 	}
 	// ƒXƒLƒ‹‚Ì’Ç‰Á‚Í‚±‚±‚É
-	return base_animation + "skill_1";
+	return base_animation + "skill_hammer";
 }
 
 std::string Planner::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)

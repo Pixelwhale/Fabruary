@@ -10,19 +10,19 @@
 using namespace AttackSystem;
 
 // コンストラクタ
-Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer)
-	: Attack(position, size, side, 0, 0, 0, 0), m_life_span_timer(life_span_timer)
+Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer, float take_damage_at)
+	: Attack(position, size, side, 0, 0, 0, 0, 0), m_life_span_timer(life_span_timer)
 {	
 	m_timer = 17;
 	m_c_attack = attack;
 	m_c_knockback = knockback;
 	m_c_knockdown = knockdown;
 	m_c_dbreak = dbreak;
-
-	/*m_motion = std::make_shared<MotionSystem::Motion>("Character");
+	m_take_damage_at = take_damage_at;
+	m_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_motion->Initialize();
-	m_motion->Play("skill_effect/skill_omnislash", 1);
-	m_motion->SetPosition(m_position + m_size);*/
+	m_motion->Play("Effect/slash", 1);
+	m_motion->SetPosition(m_position);
 }
 
 // デストラクタ
@@ -32,23 +32,26 @@ std::vector<std::shared_ptr<Attack>> Punch::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();
-	//if (m_life_span_timer.GetCurrentTimes() <= (0.3 * 60))
-		attack.push_back(std::make_shared<AttackSystem::Damage>(m_position, m_size * (1 - m_life_span_timer.Rate()), m_side, m_c_attack, m_c_knockback, m_c_knockdown, m_c_dbreak, m_life_span_timer.GetCurrentTimes()));
+	if (m_life_span_timer.Rate() <= m_take_damage_at)
+	{
+		attack.push_back(std::make_shared<AttackSystem::Damage>(m_position, m_size/* * (1 - m_life_span_timer.Rate())*/, m_side, m_c_attack, m_c_knockback, m_c_knockdown, m_c_dbreak, "Effect/slash", m_life_span_timer.Rate()));
+		m_cool_down = -1;
+	}
 	return attack;
 }
 
 void AttackSystem::Punch::Update()
 {
-	Attack::Update();
+	//Attack::Update();
 	m_life_span_timer.Update();
 	if (m_life_span_timer.IsTime())
 	{
 		m_is_end = true;
 	}
-	//m_motion->Update();
+	m_motion->Update();
 }
 
 void AttackSystem::Punch::Draw()
 {
-	//m_motion->Draw();
+	m_motion->Draw();
 }

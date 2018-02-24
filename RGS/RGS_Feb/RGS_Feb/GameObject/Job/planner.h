@@ -30,7 +30,7 @@ namespace Job
 		int m_punch_count_max = 5; // プランナーのパンチコンボの最大値
 		int m_punch_count = 0; // 今は何番のパンチ
 		Utility::Timer m_next_combo; // 次のコンボに進めるかの制限時間？
-		int m_hp = 125;
+		int m_hp = 550;
 		Side m_side;
 	};
 }
