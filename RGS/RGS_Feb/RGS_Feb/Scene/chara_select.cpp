@@ -13,6 +13,7 @@
 
 using namespace Scene;
 using namespace Job;
+using namespace Math;
 
 CharaSelect::CharaSelect(std::shared_ptr<GameManager> game_mgr)
 {
@@ -84,7 +85,23 @@ void CharaSelect::Update()
 
 void CharaSelect::Draw()
 {
-	m_renderer->DrawString("CharaSelect", Math::Vector2(150, 0));
+	m_renderer->DrawString("CharaSelect", Vector2(0, 0));
+
+	m_renderer->DrawString("keyboard", Vector2(40, 40));
+	m_renderer->DrawString(std::to_string(m_controller[0][0]), Vector2(80, 40));
+	m_renderer->DrawString(std::to_string(m_controller[0][1]), Vector2(120, 40));
+	for (int i = 0;i < 4;++i)
+	{
+		m_renderer->DrawString("pad" + i, Vector2(40, 80 + 40 * i));
+		m_renderer->DrawString(std::to_string(m_controller[i][0]), Vector2(80, 80 + 40 * i));
+		m_renderer->DrawString(std::to_string(m_controller[i][1]), Vector2(120, 80 + 40 * i));
+	}
+
+	for (int p = 0;p < 4;++p)
+	{
+		m_renderer->DrawString("player" + std::to_string(p + 1), Vector2(40, 240 + 40 * p));
+		m_renderer->DrawString(std::to_string(m_job[p]), Vector2(80, 240 + 40 * p));
+	}
 }
 
 void CharaSelect::Shutdown()
