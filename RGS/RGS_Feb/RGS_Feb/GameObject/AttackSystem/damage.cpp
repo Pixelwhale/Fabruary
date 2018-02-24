@@ -15,7 +15,7 @@ Damage::Damage(Math::Vector3 position, Math::Vector3 size, Side side, int attack
 	m_motion = std::make_shared<MotionSystem::Motion>("Character");
 	m_motion->Initialize();
 	m_motion->Play(animationToPlay, 1);
-	m_motion->SetPosition(m_position + m_size);
+	m_motion->SetPosition(m_position);
 }
 
 // デストラクタ

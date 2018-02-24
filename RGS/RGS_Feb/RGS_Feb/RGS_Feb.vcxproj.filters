@@ -40,9 +40,7 @@
     <ClCompile Include="GameObject\AttackSystem\laser.cpp" />
     <ClCompile Include="GameObject\AttackSystem\punch.cpp" />
     <ClCompile Include="GameObject\AttackSystem\summoning_type.cpp" />
-    <ClCompile Include="GameObject\Job\business.cpp" />
     <ClCompile Include="GameObject\Job\com_graphic.cpp" />
-    <ClCompile Include="GameObject\Job\planner.cpp" />
     <ClCompile Include="GameObject\Job\programmer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\collision_box.cpp" />
@@ -77,6 +75,8 @@
     <ClCompile Include="Scene\chara_select.cpp" />
     <ClCompile Include="GameObject\UI\chara_hp_ui.cpp" />
     <ClCompile Include="GameObject\Background\change_scene_effect.cpp" />
+    <ClCompile Include="GameObject\Job\planner.cpp" />
+    <ClCompile Include="GameObject\Job\business.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -204,10 +204,8 @@
     <ClInclude Include="GameObject\AttackSystem\laser.h" />
     <ClInclude Include="GameObject\AttackSystem\punch.h" />
     <ClInclude Include="GameObject\AttackSystem\summoning_type.h" />
-    <ClInclude Include="GameObject\Job\business.h" />
     <ClInclude Include="GameObject\Job\com_graphic.h" />
     <ClInclude Include="GameObject\Job\job_base.h" />
-    <ClInclude Include="GameObject\Job\planner.h" />
     <ClInclude Include="GameObject\Job\programmer.h" />
     <ClInclude Include="Math\collision_box.h" />
     <ClInclude Include="Math\point.h" />
@@ -256,6 +254,8 @@
     <ClInclude Include="GameObject\UI\chara_hp_ui.h" />
     <ClInclude Include="Def\start_position.h" />
     <ClInclude Include="GameObject\Background\change_scene_effect.h" />
+    <ClInclude Include="GameObject\Job\planner.h" />
+    <ClInclude Include="GameObject\Job\business.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />

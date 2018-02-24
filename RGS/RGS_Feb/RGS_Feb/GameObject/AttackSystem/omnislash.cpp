@@ -9,8 +9,8 @@
 
 using namespace AttackSystem;
 
-OmniSlash::OmniSlash(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, int attackCount, std::string animationToPlay, float life_span_timer)
-	: Attack(position, size, side, 0, 0, 0, 0, 0), m_life_span_timer(life_span_timer)
+OmniSlash::OmniSlash(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, int attackCount, std::string animationToPlay, float life_span_timer, Direction source_dir)
+	: Attack(position, size, side, 0, 0, 0, 0, 0, source_dir), m_life_span_timer(life_span_timer)
 {
 	m_c_attack = attack;
 	m_c_knockback = knockback;
