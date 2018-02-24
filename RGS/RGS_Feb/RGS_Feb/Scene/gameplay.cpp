@@ -144,6 +144,7 @@ void GamePlay::Shutdown()
 
 	m_meta_ai = NULL;
 	m_character_manager = NULL;
+	m_attack_manager->Initialize();
 	m_attack_manager = NULL;
 	m_background = NULL;
 	m_game_manager->Clear();

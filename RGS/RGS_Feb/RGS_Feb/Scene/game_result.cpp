@@ -22,6 +22,8 @@ void GameResult::Initialize(SceneType previous)
 
 void GameResult::Update()
 {
+	m_game_scene->Update();
+
 	CheckEnd();
 }
 
