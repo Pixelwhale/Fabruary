@@ -11,18 +11,39 @@ namespace Scene
 {
 	enum State
 	{
-		kControlTypeSelect,
+		kStartAnim,
 		kCharaSelect,
-		kEnd,
+		kPlayerSetCheck,
+		kReturnSelectInfo,
+		kEndAnim,
 	};
 
 	class CharaSelect : public SceneBase
 	{
 	public:
 		CharaSelect();
+		void Initialize(SceneType previous);
 		void Update();
 		void Draw();
 		void Shutdown();
 	private:
+		State m_state;
+		SelectInfo m_select_info[4];
+
+		//éQêÌÇµÇΩÅH
+		//index: [0]:keyboard , [1~4]:gamepad
+		//value: 0: not join yet , 1~4:player num
+		int m_controller[5];
+		int m_player_count;
+
+		//index: [1~4] player num
+		bool m_enter[4];
+		//value: 0:unselect 1:programmer 2:planner 3:CG 4:business
+		int m_job[4];
+
+		int MinIndex();
+		void KbSelect();
+		void PadSelect(int index);
+		void CheckPlayerSet();
 	};
 }

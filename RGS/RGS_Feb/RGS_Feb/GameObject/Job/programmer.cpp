@@ -25,7 +25,7 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 {
 	std::string base_animation = "chara_base_anime/";
 
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 10, 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 10, 0);
 	
 	if (!is_right)
 	{
@@ -35,17 +35,17 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, 7), m_side, 10, 1, 5, 25, 1));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 1, 5, 8, 0.5, 0.2));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, 7), m_side, 10, 1, 5, 25, 1));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 11, 1, 5, 10, 0.5, 0.2));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(7, 7, 7), m_side, 20, 2, 5, 30, 1));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(80, 80, 80), m_side, 13, 2, 5, 15, 0.5, 0.2));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_8";
@@ -57,25 +57,25 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), -10, 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), -10, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 2, 5, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(60, 60, 60), m_side, 35, 2, 3, 40, 0.5));
 	return base_animation + "kick_1";
 }
 
-// JAVAハンマー
+// C++ハンマー
 std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 30, 20, 30, 80, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 100), m_side, 35, 1, 2, 40, 1, 0.41));
 	return base_animation + "skill_hammer";
 }
 
@@ -83,7 +83,7 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
@@ -95,7 +95,7 @@ std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> att
 std::string Programmer::Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
@@ -107,7 +107,7 @@ std::string Programmer::Skill3(std::shared_ptr<AttackSystem::AttackMediator> att
 std::string Programmer::Skill4(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;

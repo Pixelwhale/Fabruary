@@ -23,7 +23,7 @@ namespace AttackSystem
 		///<param name = "knockdown">敵を倒せられるか？</param>
 		///<param name = "knockback">敵を押されるか？</param>
 		///<param name = "life span">何秒に実現させるのか？</param>
-		Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer);
+		Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer, float take_damage_at);
 		~Punch();
 		virtual std::vector<std::shared_ptr<Attack>> Collide();
 		virtual void Update();
@@ -34,6 +34,7 @@ namespace AttackSystem
 		int m_c_knockdown;
 		int m_c_knockback;
 		int m_c_dbreak;
+		float m_take_damage_at; // いつダメージを受けるか？
 		Utility::Timer m_life_span_timer; // まだあったているか？
 
 		std::shared_ptr<MotionSystem::Motion> m_motion;

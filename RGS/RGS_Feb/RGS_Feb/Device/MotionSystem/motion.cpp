@@ -51,6 +51,11 @@ void Motion::Play(string motion_name, int loop)
 	m_motion_player->play(motion_name, loop);
 }
 
+void Motion::ChangeSpriteSheet(string sheet_name) 
+{
+	m_motion_player->setPartCell("Head", sheet_name, "Head");
+}
+
 void Motion::Update()
 {
 	m_motion_player->update(1 / 60.0f);

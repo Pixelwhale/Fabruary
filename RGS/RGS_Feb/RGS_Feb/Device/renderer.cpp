@@ -119,6 +119,19 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 	SetDrawBright(255, 255, 255);													//色を戻す
 }
 
+void Renderer::DrawMotion(std::string texture_name, int index, 
+	Math::Vector2 position, Color color,float alpha)
+{
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
+
+	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(texture_name, index), true);
+
+	SetDrawBright(255, 255, 255);						//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
+}
+
 #pragma endregion
 
 #pragma region 3D Render関連

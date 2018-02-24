@@ -15,8 +15,6 @@
 #include <GameObject\AttackSystem\attack_mediator.h>
 #include <GameObject\AttackSystem\attack.h>
 #include <System\gravity.h>
-#include <Def\window_def.h>
-
 
 namespace Character
 {
@@ -85,15 +83,12 @@ namespace Character
 		Math::Vector3 m_velocity;
 		Math::Vector3 m_velocity_jump;		//jump
 		Math::Vector3 m_size;
-		//Math::Vector3 m_rotation;
 
 		std::shared_ptr<VirtualController>		m_controller;
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
 		std::shared_ptr<Job::JobBase>			m_job;
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
 		System::Gravity							m_gravity;
-
-		
 	};
 
 

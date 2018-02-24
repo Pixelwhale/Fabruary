@@ -26,6 +26,12 @@ void Loading::LoadContents()
 	m_content->LoadTexture("pc_monitor", ".png");
 
 	m_content->LoadTexture("pause", ".png");
+
+	m_content->LoadTexture("chara_face", ".png", 4, 4, 1, 64, 64);
+	m_content->LoadTexture("hp_ui_back", ".png");
+	m_content->LoadTexture("hp_ui_front", ".png");
+	m_content->LoadTexture("hp_ui_hp", ".png");
+	m_content->LoadTexture("hp_ui_mp", ".png");
 }
 
 void Loading::UnloadContents()

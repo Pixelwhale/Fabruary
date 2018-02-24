@@ -4,6 +4,12 @@
 // 内容　：キャラクターのベースクラス
 //-------------------------------------------------------
 #include <Character\character_base.h>
+#include <GameObject\\Job\programmer.h>
+#include <GameObject\\Job\business.h>
+#include <GameObject\\Job\planner.h>
+#include <GameObject\\Job\com_graphic.h>
+#include <Color\color.h>
+#include <Def\window_def.h>
 
 using namespace Character;
 
@@ -51,38 +57,64 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isInvincible = false;
 	m_isHit = false;
 	m_velocity_jump = Math::Vector3(0, 0, 0);
-	//m_rotation = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
-	m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
 	m_state = CharacterState::kIdle;
-
-	/*if (m_job == std::shared_ptr<Job::JobBase>())
+	//キャラクター画像判定
+	if (typeid(*m_job) == typeid(Job::Programmer))
 	{
-
-	}*/
+		m_motion->ChangeSpriteSheet("chara_programmer");
+	}
+	else if (typeid(*m_job) == typeid(Job::Business))
+	{
+		m_motion->ChangeSpriteSheet("chara_bussiness");
+	}
+	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
+	{
+		m_motion->ChangeSpriteSheet("chara_designer");
+	}
+	else 
+	{
+		m_motion->ChangeSpriteSheet("chara_planner");
+	}
 	
 	//色設定
-	if (m_side == Side::kNoTeam)		//白
+	Color m_color = Color(1.0f,1.0f,1.0f,1.0f);
+	if (m_side == Side::kNoTeam)		//オレンジ
 	{
-		m_motion->SetColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
+		m_color = Color(220,121,0);
+		m_motion->SetColor(m_color);
+		m_color = Color(255, 230, 215);
+		m_controller->SetTagColor(m_color);
 	}
-	else if (m_side == Side::kTeam1)	//赤
+	else if (m_side == Side::kTeam1)	//緑
 	{
-		m_motion->SetColor(Color(1.0f, 0.0f, 0.0f, 1.0f));
+		m_color = Color(36,220,36);
+		m_motion->SetColor(m_color);
+		m_color = Color(219, 255, 219);
+		m_controller->SetTagColor(m_color);
 	}
-	else if (m_side == Side::kTeam2)	//緑
+	else if (m_side == Side::kTeam2)	//青
 	{
-		m_motion->SetColor(Color(0.0f, 1.0f, 0.0f, 1.0f));
+		m_color = Color(49,220,220);
+		m_motion->SetColor(m_color);
+		m_color = Color(180, 255, 255);
+		m_controller->SetTagColor(m_color);
 	}
-	else if (m_side == Side::kTeam3)	//青
+	else if (m_side == Side::kTeam3)	//黄
 	{
-		m_motion->SetColor(Color(0.0f, 0.0f, 1.0f, 1.0f));
+		m_color = Color(220,220,49);
+		m_motion->SetColor(m_color);
+		m_color = Color(255, 255, 180);
+		m_controller->SetTagColor(m_color);
 	}
-	else if (m_side == Side::kTeam4)	//黒
+	else if (m_side == Side::kTeam4)	//赤
 	{
-		m_motion->SetColor(Color(0.0f, 0.0f, 0.0f, 1.0f));
+		m_color = Color(220,49,16);
+		m_motion->SetColor(m_color);
+		m_color = Color(255,210 ,210);
+		m_controller->SetTagColor(m_color);
 	}
 
 }
@@ -101,12 +133,21 @@ void CharacterBase::Update()
 		KnockCntUpdate();//倒れ値カウント更新
 		m_job->Update();//Jobの更新
 		PositionUpdate();//位置の更新
+		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 	}
-		MotionUpdate(); //モーションの更新
+	MotionUpdate(); //モーションの更新
 	//死亡更新
-	if (m_hp <= 0 && m_motion->IsCurrentMotionEnd())
+	if (m_state == CharacterState::kDead)
 	{
-		m_isDead = true;
+		if (m_position.y > 128)
+		{
+			m_gravity.Update(m_velocity_jump);
+			m_position += m_velocity_jump;
+		}
+		if (m_motion->IsCurrentMotionEnd())
+		{
+			m_isDead = true;
+		}
 	}
 }
 
@@ -114,9 +155,12 @@ void CharacterBase::Update()
 //モーション
 void CharacterBase::Draw()
 {
+	if (m_hp > 0)
+	{
+		m_controller->Draw();
+	}
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
-	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.z),Math::Vector2(m_position.x + 500,50));
 }
 
 
@@ -124,7 +168,7 @@ void CharacterBase::Draw()
 void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
 	bool from_right;
-	float  knockback_adjust = 10;
+	float  knockback_adjust = 14;
 	if (atk.GetDamage() == 0) return;
 	//攻撃を受けた方向
 	if (atk.GetSourceDir() != AttackSystem::kCenter)
@@ -138,7 +182,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 
 	if (from_right)
 	{
-		m_velocity =Math::Vector3(-(float)atk.GetKnockBack() / knockback_adjust,0,0);
+		m_velocity = Math::Vector3(-(float)atk.GetKnockBack() / knockback_adjust,0,0);
 	}
 	if (!from_right)
 	{
@@ -226,19 +270,18 @@ void CharacterBase::Attack()
 	//防御
 	if (m_controller->IsDefence())
 	{
-		if (m_state == CharacterState::kKnockDown)
+		if (m_state == CharacterState::kKnockDown && m_isStop)
 		{
 			m_state = CharacterState::kUkemi;
 			m_motion->Play("chara_base_anime/ukemi", 1);
 			m_isStop = true;
 		}
-		if (m_state != CharacterState::kUkemi)
+		if (m_state != CharacterState::kUkemi && !m_isStop)
 		{
 			m_state = CharacterState::kDefence;
-			m_motion->Play("chara_base_anime/defence");
+			m_motion->Play("chara_base_anime/defence",1);
 			m_isStop = true;
 		}
-
 	}
 }
 
@@ -434,7 +477,7 @@ void CharacterBase::PositionUpdate()
 void CharacterBase::JumpUpdate()
 {
 	if (m_controller->IsJumpTrigger() && !m_isJump)
-	{
+	{			
 		m_state = CharacterState::kJump;
 		m_isJump = true;
 		m_velocity_jump = Math::Vector3(0, 23, 0);
@@ -442,7 +485,7 @@ void CharacterBase::JumpUpdate()
 	}
 	else if (m_position.y < 128)
 	{
-		m_isJump = false;
+		m_isJump = false;	
 		m_velocity_jump = Math::Vector3(0, 0, 0);
 		m_position.y = 128;
 	}
@@ -489,7 +532,18 @@ void CharacterBase::StateUpdate()
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 		}
-		if (m_motion->IsCurrentMotionEnd())
+		//GetUp
+		if (m_state == CharacterState::kKnockDown && m_motion->IsCurrentMotionEnd())
+		{
+			if (m_hp < 0) return;
+			m_state = CharacterState::kGetUp;
+			m_motion->Play("chara_base_anime/get_up",1);
+		}
+		else if (m_state == CharacterState::kDefence && m_controller->IsDefence())
+		{
+			m_velocity = Math::Vector3(0, 0, 0);
+		}
+		else if (m_motion->IsCurrentMotionEnd())
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 			m_isStop = false;
@@ -497,11 +551,9 @@ void CharacterBase::StateUpdate()
 			{
 				return;
 			}
-
 			m_state = CharacterState::kIdle;
 			m_motion->Play("chara_base_anime/idle");
 			m_isHit = false;
-			
 			//Jumpしていると、Jumpモーションに戻る
 			if (m_isJump)
 			{

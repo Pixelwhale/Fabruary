@@ -22,11 +22,11 @@ namespace Utility
 		void Reset();
 		///<summary>—ë‚É‚È‚Á‚½‚©H</summary>
 		bool IsTime();
-		int GetCurrentTimes() const { return m_current_time; }
+		float GetCurrentTimes() const { return m_current_time; }
 		float Rate();
 
 	private:
-		int m_limit_time;	// ‰½•b‚Å‚·‚©H
-		int m_current_time;	// ŠÔ‚Ì¡‚Ìó‘Ô
+		float m_limit_time = 0;	// ‰½•b‚Å‚·‚©H
+		float m_current_time = 0;	// ŠÔ‚Ì¡‚Ìó‘Ô
 	};
 }

@@ -29,6 +29,8 @@ namespace MotionSystem
 		///<param name="motion_name">ssaeファイル名（拡張子抜き）/ Animation名</param>
 		///<param name="loop">何回ループするか(無限 = 0)</param>
 		void Play(string motion_name, int loop = 0);
+		///<summary>データ解放</summary>
+		void ChangeSpriteSheet(string sheet_name);
 
 		///<summary>更新処理</summary>
 		void Update();

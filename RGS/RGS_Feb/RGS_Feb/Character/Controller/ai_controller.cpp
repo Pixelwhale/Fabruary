@@ -114,9 +114,8 @@ void AiController::Defence()
 	m_defence = true;
 }
 
-void AiController::Draw(Math::Vector3 draw_pos)
+void AiController::Draw()
 {
-	m_tag->SetPosition(draw_pos);
 	m_tag->Draw();
 }
 
@@ -125,7 +124,8 @@ void AiController::SetTagColor(Color color)
 	m_tag->SetColor(color);
 }
 
-void AiController::UpdateMotion()
+void AiController::UpdateMotion(Math::Vector3 draw_pos)
 {
+	m_tag->SetPosition(draw_pos);
 	m_tag->Update();
 }

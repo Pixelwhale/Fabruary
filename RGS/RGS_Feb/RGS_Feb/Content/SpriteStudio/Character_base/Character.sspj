@@ -115,6 +115,10 @@
 	<cellmapNames>
 		<value>Hammer.ssce</value>
 		<value>chara_base.ssce</value>
+		<value>chara_bussiness</value>
+		<value>chara_designer</value>
+		<value>chara_planner</value>
+		<value>chara_programmer.ssce</value>
 		<value>chara_tag.ssce</value>
 		<value>effect.ssce</value>
 	</cellmapNames>
@@ -124,8 +128,9 @@
 		<value>chara_tag.ssae</value>
 		<value>skill_effect.ssae</value>
 	</animepackNames>
-	<lastAnimeFile>chara_tag.ssae</lastAnimeFile>
-	<lastAnimeName>com</lastAnimeName>
-	<lastCellMapFile>chara_tag.ssce</lastCellMapFile>
-	<lastCell>1P</lastCell>
+	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
+	<lastAnimeName>damage</lastAnimeName>
+	<lastCellMapFile>chara_planner</lastCellMapFile>
+	<lastCell>Head</lastCell>
+	<lastPart>Head</lastPart>
 </SpriteStudioProject>
