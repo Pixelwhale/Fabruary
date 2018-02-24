@@ -33,6 +33,12 @@ void NormalKick::GetBattleInfo(MetaAI* meta_ai)
 
 void NormalKick::Update(std::shared_ptr<Character::AiController> controller)
 {
+	if (m_target == NULL || m_target->IsDead()) 
+	{
+		m_end_flag = true;
+		return;
+	}
+
 	if (!IsInAttckRange())			//”ÍˆÍ“à‚©”»’f‚·‚é
 		return;
 
