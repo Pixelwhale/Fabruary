@@ -24,7 +24,7 @@ bool Application::InitWindow()
 	SetOutApplicationLogValidFlag(false);			//Logを書き出ししない
 	SetWindowText(WindowDef::kWindowName);			//Title設定
 	SetGraphMode(
-		WindowDef::kScreenWidth,						//WindowSize
+		WindowDef::kScreenWidth,					//WindowSize
 		WindowDef::kScreenHeight,
 		32, 60);									//Color 32bit  60Frame
 	ChangeWindowMode(WindowDef::kIsWindow);			//全画面設定
@@ -52,13 +52,10 @@ bool Application::InitWindow()
 
 void Application::Run()
 {
-	MSG msg;								//Windowの状態メッセージ
-	ZeroMemory(&msg, sizeof(MSG));			//msg初期化
-
 	Initialize();							//Gameの初期化
 	Load();									//ロードコンテンツ
 
-	while (ProcessMessage()== 0 && !IsEnd())						//終了しない限りGameLoop
+	while (ProcessMessage()== 0 && !IsEnd())//終了しない限りGameLoop
 	{
 		m_input_state->Update();
 
