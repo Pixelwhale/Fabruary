@@ -42,9 +42,9 @@ void CharaSelect::Update()
 	switch (m_scene_state)
 	{
 	case kStartAnim:
-		m_scene_state = kCharaSelect;
+		m_scene_state = kJobSelect;
 		break;
-	case kCharaSelect:
+	case kJobSelect:
 		KbSelect();
 		for (int index = 1;index <= 4;++index)
 		{
@@ -57,7 +57,7 @@ void CharaSelect::Update()
 		if (timer.IsTime()) m_scene_state = kReturnSelectInfo;
 		if (m_controller[0][0] != 1 || m_input->IsKeyTrigger(KEY_INPUT_D))
 		{
-			m_scene_state = kCharaSelect;
+			m_scene_state = kJobSelect;
 			m_controller[0][0] = 0;
 			m_lock[m_controller[0][0]] = false;
 			return;
@@ -66,7 +66,7 @@ void CharaSelect::Update()
 		{
 			if (m_controller[i][0] != 1 || m_input->IsPadButtonTrigger(i - 1, XINPUT_BUTTON_A))
 			{
-				m_scene_state = kCharaSelect;
+				m_scene_state = kJobSelect;
 				m_controller[i][0] = 0;
 				m_lock[m_controller[i][0]] = false;
 				return;
@@ -79,6 +79,7 @@ void CharaSelect::Update()
 		break;
 	case kEndAnim:
 		m_is_end = true;
+		m_next = kGamePlay;
 		break;
 	}
 }
@@ -106,10 +107,14 @@ void CharaSelect::Draw()
 
 void CharaSelect::Shutdown()
 {
-	delete m_controller;
-	delete m_occupied;
-	delete m_lock;
-	delete m_job;
+	for (int i = 0;i < 5;++i)
+	{
+		delete [] m_controller[i];
+	}
+	delete [] m_controller;
+	delete [] m_occupied;
+	delete [] m_lock;
+	delete [] m_job;
 }
 
 int CharaSelect::MinIndex()
@@ -256,6 +261,10 @@ void CharaSelect::AddChara()
 			if (m_controller[i][1] == p && i == 0)
 			{
 				v_controller = make_shared<Character::KeyboardController>(p + 1);
+			}
+			else
+			{
+				v_controller = make_shared<Character::PadController>(i - 1, p+1);
 			}
 		}
 		m_game_mgr->AddSelectCharacter(job, side, v_controller);

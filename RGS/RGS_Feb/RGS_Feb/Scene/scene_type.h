@@ -12,6 +12,7 @@ namespace Scene
 		kLoading,
 		kTitle,
 		kTutorial,
+		kCharaSelect,
 		kGamePlay,
 		kGameResult,
 		kEnd,
