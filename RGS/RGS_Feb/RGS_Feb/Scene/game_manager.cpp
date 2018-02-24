@@ -48,7 +48,7 @@ void GameManager::AddSelectAI(
 	info.m_job = job;					//情報設定
 	info.m_side = side;					//Team設定
 	info.m_controller = NULL;			//コントローラー設定
-	info.m_difficulty = 0;
+	info.m_difficulty = difficulty;
 	info.m_player_num = player_num;		//PlayerNumber設定
 
 	m_player_info.push_back(info);		//追加
