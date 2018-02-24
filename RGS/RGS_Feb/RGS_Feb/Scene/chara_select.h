@@ -9,11 +9,11 @@
 
 namespace Scene
 {
-	enum State
+	enum SceneState
 	{
 		kStartAnim,
 		kCharaSelect,
-		kPlayerSetCheck,
+		kNoFullCheck,
 		kReturnSelectInfo,
 		kEndAnim,
 	};
@@ -27,23 +27,25 @@ namespace Scene
 		void Draw();
 		void Shutdown();
 	private:
-		State m_state;
-		SelectInfo m_select_info[4];
+		SceneState m_scene_state;
 
-		//参戦した？
-		//index: [0]:keyboard , [1~4]:gamepad
-		//value: 0: not join yet , 1~4:player num
-		int m_controller[5];
 		int m_player_count;
 
-		//index: [1~4] player num
-		bool m_enter[4];
-		//value: 0:unselect 1:programmer 2:planner 3:CG 4:business
-		int m_job[4];
+		//参戦した？
+		//first index:controller
+		//second index: state(not join,select,lock)(-1~1) and"1P~4P(0~3) 
+		int **m_controller;
 
-		int MinIndex();
+		//index: [0~3] 1P~4P
+		bool *m_occupied;
+		bool *m_lock;
+		//value: 0:planner 1:business 2:CG 3:programmer
+		int *m_job;
+
+		int MinIndex();		//return 0~3 (1P~4P)
 		void KbSelect();
 		void PadSelect(int index);
 		void CheckPlayerSet();
+		void PressToGo(SceneState enter, SceneState cancel);
 	};
 }
