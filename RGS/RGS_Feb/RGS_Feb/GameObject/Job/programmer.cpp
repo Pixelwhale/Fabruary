@@ -24,28 +24,29 @@ Programmer::~Programmer() {}
 std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-
+	AttackSystem::Direction attack_source = AttackSystem::kRight;
 	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 10, 0);
 	
 	if (!is_right)
 	{
 		plus.x *= -1;
+		attack_source = AttackSystem::kLeft;
 	}
 
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 1, 5, 8, 0.5, 0.2));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 1, 5, 8, 0.5, 0.2, attack_source));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 11, 1, 5, 10, 0.5, 0.2));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 11, 1, 5, 10, 0.5, 0.2, attack_source));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(80, 80, 80), m_side, 13, 2, 5, 15, 0.5, 0.2));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(80, 80, 80), m_side, 13, 2, 5, 15, 0.5, 0.2, attack_source));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_8";
@@ -70,12 +71,14 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
+	AttackSystem::Direction attack_source = AttackSystem::kRight;
 	Math::Vector3 plus = Math::Vector3(Size::kCharaX, 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
+		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 100), m_side, 35, 1, 2, 40, 1, 0.41));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(70, 70, 70), m_side, 35, 1, 2, 40, 1, 0.41, attack_source));
 	return base_animation + "skill_hammer";
 }
 
