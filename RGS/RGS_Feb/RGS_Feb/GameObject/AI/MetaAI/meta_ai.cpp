@@ -150,7 +150,8 @@ bool MetaAI::NeedToDefence(std::shared_ptr<Character::CharacterBase> my_chara)
 		if (a->GetSide() == my_chara->GetSide())
 			continue;
 
-		if ((a->GetPosition() - my_chara->GetPosition()).lengthSqrt() < 128 * 128)
+		if ((a->GetPosition() - my_chara->GetPosition()).lengthSqrt() < 128 * 128 &&
+			a->GetDamage() > 0)
 			return true;
 	}
 
