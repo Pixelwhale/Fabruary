@@ -26,7 +26,7 @@ namespace Job
 		virtual void Update();
 
 	private :
-		int m_punch_count_max = 2; // コンピューターグラフィックのパンチコンボの最大値
+		int m_punch_count_max = 5; // コンピューターグラフィックのパンチコンボの最大値
 		int m_punch_count = 0; // 今は何番のパンチ
 		Utility::Timer m_next_combo; // 次のコンボに進めるかの制限時間？
 		int m_hp = 550;

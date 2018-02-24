@@ -13,7 +13,6 @@ using namespace AttackSystem;
 Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, int knockdown, int knockback, int dbreak, float life_span_timer, float take_damage_at)
 	: Attack(position, size, side, 0, 0, 0, 0, 0), m_life_span_timer(life_span_timer)
 {	
-	m_timer = 17;
 	m_c_attack = attack;
 	m_c_knockback = knockback;
 	m_c_knockdown = knockdown;
@@ -26,7 +25,10 @@ Punch::Punch(Math::Vector3 position, Math::Vector3 size, Side side, int attack, 
 }
 
 // デストラクタ
-Punch::~Punch() {}
+Punch::~Punch() 
+{
+	m_motion = NULL;
+}
 
 std::vector<std::shared_ptr<Attack>> Punch::Collide()
 {

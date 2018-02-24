@@ -29,8 +29,6 @@ namespace AttackSystem
 		virtual void Draw();
 
 	private :
-		Math::Vector3 m_c_position;
-		Math::Vector3 m_c_size;
 		int m_c_attack;
 		int m_c_knockdown;
 		int m_c_knockback;

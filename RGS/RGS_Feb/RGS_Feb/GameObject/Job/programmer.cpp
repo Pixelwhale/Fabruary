@@ -70,7 +70,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
+	Math::Vector3 plus = Math::Vector3(Size::kCharaX, 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
