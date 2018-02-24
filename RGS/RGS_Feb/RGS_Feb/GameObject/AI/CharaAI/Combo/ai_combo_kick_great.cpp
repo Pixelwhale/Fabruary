@@ -21,6 +21,7 @@ KickComboStrong::KickComboStrong(const KickComboStrong&)
 
 KickComboStrong::~KickComboStrong()
 {
+	m_random = NULL;
 }
 
 void KickComboStrong::GetBattleInfo(MetaAI* meta_ai)

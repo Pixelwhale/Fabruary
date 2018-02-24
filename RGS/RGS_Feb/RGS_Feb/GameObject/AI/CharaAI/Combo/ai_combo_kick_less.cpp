@@ -21,6 +21,7 @@ KickComboWeak::KickComboWeak(const KickComboWeak&)
 
 KickComboWeak::~KickComboWeak()
 {
+	m_random = NULL;
 }
 
 void KickComboWeak::GetBattleInfo(MetaAI* meta_ai)

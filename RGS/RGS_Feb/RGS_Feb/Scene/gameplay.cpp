@@ -142,6 +142,7 @@ void GamePlay::Shutdown()
 		(m_next == SceneType::kGameResult && m_previous != SceneType::kGamePlay))
 		return;
 
+	m_meta_ai->Clear();
 	m_meta_ai = NULL;
 	m_character_manager = NULL;
 	m_attack_manager->Initialize();

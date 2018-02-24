@@ -61,8 +61,19 @@ std::vector<SelectInfo> GameManager::GetSelectInfo()
 
 void GameManager::Clear() 
 {
-	m_player_info.clear();
 	m_pause_controller = NULL;
+
+	for (auto &info : m_player_info) 
+	{
+		info.m_controller = NULL;
+		info.m_job = NULL;
+	}
+	m_player_info.clear();
+
+	for (auto &controller : m_controller)
+	{
+		controller = NULL;
+	}
 	m_controller.clear();
 }
 

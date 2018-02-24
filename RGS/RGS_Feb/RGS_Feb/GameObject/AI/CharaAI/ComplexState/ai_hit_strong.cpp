@@ -26,6 +26,10 @@ HitStrong::HitStrong(const HitStrong&)
 
 HitStrong::~HitStrong()
 {
+	m_character = NULL;
+	m_target = NULL;
+	m_attack = NULL;
+	m_trace = NULL;
 }
 
 void HitStrong::GetBattleInfo(MetaAI* meta_ai)

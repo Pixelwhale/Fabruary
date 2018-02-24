@@ -24,6 +24,10 @@ ComboNear::ComboNear(const ComboNear&)
 
 ComboNear::~ComboNear()
 {
+	m_character = NULL;
+	m_target = NULL;
+	m_attack = NULL;
+	m_trace = NULL;
 }
 
 void ComboNear::GetBattleInfo(MetaAI* meta_ai)

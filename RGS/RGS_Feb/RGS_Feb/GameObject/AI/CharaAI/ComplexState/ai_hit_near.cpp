@@ -29,6 +29,10 @@ HitNear::HitNear(const HitNear&)
 
 HitNear::~HitNear()
 {
+	m_character = NULL;
+	m_target = NULL;
+	m_attack = NULL;
+	m_trace = NULL;
 }
 
 void HitNear::GetBattleInfo(MetaAI* meta_ai)

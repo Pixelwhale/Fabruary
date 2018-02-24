@@ -31,6 +31,10 @@ HitWeak::HitWeak(const HitWeak&)
 
 HitWeak::~HitWeak()
 {
+	m_character = NULL;
+	m_target = NULL;
+	m_attack = NULL;
+	m_trace = NULL;
 }
 
 void HitWeak::GetBattleInfo(MetaAI* meta_ai)

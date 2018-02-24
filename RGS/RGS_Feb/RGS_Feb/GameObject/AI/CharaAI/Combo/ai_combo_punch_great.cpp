@@ -21,6 +21,7 @@ PunchComboStrong::PunchComboStrong(const PunchComboStrong&)
 
 PunchComboStrong::~PunchComboStrong()
 {
+	m_random = NULL;
 }
 
 void PunchComboStrong::GetBattleInfo(MetaAI* meta_ai)

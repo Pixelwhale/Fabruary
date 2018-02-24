@@ -21,6 +21,7 @@ PunchComboWeak::PunchComboWeak(const PunchComboWeak&)
 
 PunchComboWeak::~PunchComboWeak()
 {
+	m_random = NULL;
 }
 
 void PunchComboWeak::GetBattleInfo(MetaAI* meta_ai)

@@ -18,6 +18,7 @@ Defence::Defence(const Defence&) {}
 
 Defence::~Defence()
 {
+	m_last_state = NULL;
 }
 
 void Defence::GetBattleInfo(MetaAI* meta_ai)

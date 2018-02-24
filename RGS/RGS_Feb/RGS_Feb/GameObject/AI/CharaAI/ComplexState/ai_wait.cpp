@@ -23,6 +23,7 @@ Wait::Wait(const Wait&)
 
 Wait::~Wait()
 {
+	m_character = NULL;
 }
 
 void Wait::GetBattleInfo(MetaAI* meta_ai)

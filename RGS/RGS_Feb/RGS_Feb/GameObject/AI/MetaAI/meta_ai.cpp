@@ -38,6 +38,11 @@ void MetaAI::Clear()
 {
 	m_character_manager = NULL;
 	m_attack_manager = NULL;
+
+	for (auto &ai : m_ai) 
+	{
+		ai = NULL;
+	}
 	m_ai.clear();
 }
 
@@ -54,6 +59,7 @@ void MetaAI::Update()
 	{
 		if ((*i)->IsDead()) 
 		{
+			(*i) = NULL;
 			i = m_ai.erase(i);
 			continue;
 		}
