@@ -13,7 +13,7 @@ namespace Character
 	class VirtualController 
 	{
 	public:
-		~VirtualController() {}
+		~VirtualController() { m_tag = NULL; }
 
 		///<summary>ˆÚ“®—Ê</summary>
 		Math::Vector3 virtual Velocity()					= 0;
