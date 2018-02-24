@@ -33,6 +33,15 @@ void Loading::LoadContents()
 	m_content->LoadTexture("hp_ui_front", ".png");
 	m_content->LoadTexture("hp_ui_hp", ".png");
 	m_content->LoadTexture("hp_ui_mp", ".png");
+
+	m_content->LoadTexture("select_chara_ui", ".png");
+	m_content->LoadTexture("select_chara_bussiness", ".png");
+	m_content->LoadTexture("select_chara_designer", ".png");
+	m_content->LoadTexture("select_chara_planner", ".png");
+	m_content->LoadTexture("select_chara_programmer", ".png");
+	m_content->LoadTexture("select_chara_button", ".png");
+	m_content->LoadTexture("select_chara_join_button", ".png");
+	m_content->LoadTexture("select_chara_ready", ".png");
 }
 
 void Loading::UnloadContents()

@@ -7,6 +7,7 @@
 #include <Scene\loading.h>
 #include <Scene\title.h>
 #include <Scene\tutorial.h>
+#include <Scene\chara_select.h>
 #include <Scene\gameplay.h>
 #include <Scene\game_result.h>
 #include <Scene\end.h>
@@ -26,8 +27,8 @@ void SceneManager::Initialize()
 	shared_ptr<GameManager> game_manager = make_shared<GameManager>();			//GameManagerê∂ê¨
 	shared_ptr<GamePlay> game_play = make_shared<GamePlay>(game_manager);		//GamePlayScene
 
-	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(),1.0f,1.0f));
-	//Add(kTitle, make_shared<Title>());
+	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(),1.0f,0.0f));
+	Add(kCharaSelect, make_shared<CharaSelect>(game_manager));
 	Add(kTutorial, make_shared<Tutorial>());
 	Add(kGamePlay, game_play);
 	Add(kGameResult, make_shared<SceneFader>(make_shared<GameResult>(game_play), 0.0f, 1.0f));

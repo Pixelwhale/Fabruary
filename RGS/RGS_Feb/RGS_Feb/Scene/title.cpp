@@ -40,7 +40,7 @@ void Title::CheckEnd()
 	if (m_scene_effect->IsEnd(true))
 	{
 		m_is_end = true;
-		m_next = kGamePlay;
+		m_next = kCharaSelect;
 	}
 }
 
