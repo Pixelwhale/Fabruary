@@ -13,7 +13,7 @@ namespace Scene
 	enum SceneState
 	{
 		kStartAnim,
-		kCharaSelect,
+		kJobSelect,
 		kCountToGo,
 		kReturnSelectInfo,
 		kEndAnim,
