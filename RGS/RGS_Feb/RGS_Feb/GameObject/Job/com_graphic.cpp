@@ -15,7 +15,7 @@
 using namespace Job;
 
 // コンストラクタ
-ComputerGraphic::ComputerGraphic(Side side) : m_next_combo(0.5)
+ComputerGraphic::ComputerGraphic(Side side) : m_next_combo(0.7)
 {
 	m_side = side;
 }
@@ -27,7 +27,7 @@ std::string ComputerGraphic::Punch(std::shared_ptr<AttackSystem::AttackMediator>
 {
 	std::string base_animation = "chara_base_anime/";
 
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 10, 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 10, 0);
 
 	if (!is_right)
 	{
@@ -50,17 +50,17 @@ std::string ComputerGraphic::Punch(std::shared_ptr<AttackSystem::AttackMediator>
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(55, 55, 55), m_side, 7, 0, 0, 15, 0.5, 0.2));
 		m_punch_count++;
 		m_next_combo.Reset();
-		return base_animation + "punch_3";
+		return base_animation + "punch_5";
 	case 3 :
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(58, 58, 58), m_side, 8, 0, 0, 20, 0.5, 0.2));
 		m_punch_count++;
 		m_next_combo.Reset();
-		return base_animation + "punch_4";
+		return base_animation + "punch_7";
 	case 4 :
 		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(60, 60, 60), m_side, 10, 1, 1, 30, 0.5, 0.2));
 		m_punch_count = 0;
 		m_next_combo.Reset();
-		return base_animation + "punch_5";
+		return base_animation + "punch_6";
 	}
 
 	return base_animation + "idle";
@@ -69,25 +69,25 @@ std::string ComputerGraphic::Punch(std::shared_ptr<AttackSystem::AttackMediator>
 std::string ComputerGraphic::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), -10, 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), -10, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 1, 1, 40, 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(60, 60, 60), m_side, 35, 1, 1, 40, 0.5));
 	return base_animation + "kick_1";
 }
 
 std::string ComputerGraphic::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
 	}
 	// スキルの追加はここに
-	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(20, 20, 20), m_side, 15, 0, 0, 30, 1, "skill_effect/skill_omnislash", 0.4));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(100, 100, 100), m_side, 15, 0, 0, 30, 5, "Effect/slash", 1));
 	return base_animation + "skill_energy_blast";
 }
 

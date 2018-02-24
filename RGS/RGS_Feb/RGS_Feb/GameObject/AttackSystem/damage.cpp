@@ -19,7 +19,10 @@ Damage::Damage(Math::Vector3 position, Math::Vector3 size, Side side, int attack
 }
 
 // デストラクタ
-Damage::~Damage() {}
+Damage::~Damage() 
+{
+	m_motion = NULL;
+}
 
 std::vector<std::shared_ptr<Attack>> AttackSystem::Damage::Collide()
 {

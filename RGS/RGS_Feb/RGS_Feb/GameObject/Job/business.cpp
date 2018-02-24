@@ -73,7 +73,7 @@ std::string Business::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attac
 	{
 		plus.x *= -1;
 	}
-	// ƒXƒLƒ‹‚Ì’Ç‰Á‚Í‚±‚±‚É
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 100), m_side, 28, 100, 0, 50, 0.5f, 0.2));
 	return base_animation + "skill_hammer";
 }
 
