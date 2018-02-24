@@ -3,11 +3,20 @@
 // çÏê¨ì˙ÅF2018.02.22
 //-------------------------------------------------------
 #include "chara_select.h"
+#include <GameObject\Job\planner.h>
+#include <GameObject\Job\business.h>
+#include <GameObject\Job\com_graphic.h>
+#include <GameObject\Job\programmer.h>
+#include <Character\Controller\keyboard_controller.h>
+#include <Character\Controller\pad_controller.h>
+#include <Character\Controller\ai_controller.h>
 
 using namespace Scene;
+using namespace Job;
 
-CharaSelect::CharaSelect()
+CharaSelect::CharaSelect(std::shared_ptr<GameManager> game_mgr)
 {
+	m_game_mgr = game_mgr;
 }
 
 void CharaSelect::Initialize(SceneType previous)
@@ -42,10 +51,30 @@ void CharaSelect::Update()
 		}
 		CheckPlayerSet();
 		break;
-	case kNoFullCheck:
-		PressToGo(kReturnSelectInfo, kCharaSelect);
+	case kCountToGo:
+		timer.Update();
+		if (timer.IsTime()) m_scene_state = kReturnSelectInfo;
+		if (m_controller[0][0] != 1 || m_input->IsKeyTrigger(KEY_INPUT_D))
+		{
+			m_scene_state = kCharaSelect;
+			m_controller[0][0] = 0;
+			m_lock[m_controller[0][0]] = false;
+			return;
+		}
+		for (int i = 1;i <= 4;++i)
+		{
+			if (m_controller[i][0] != 1 || m_input->IsPadButtonTrigger(i - 1, XINPUT_BUTTON_A))
+			{
+				m_scene_state = kCharaSelect;
+				m_controller[i][0] = 0;
+				m_lock[m_controller[i][0]] = false;
+				return;
+			}
+		}
 		break;
 	case kReturnSelectInfo:
+		AddChara();
+		m_scene_state = kEndAnim;
 		break;
 	case kEndAnim:
 		m_is_end = true;
@@ -123,7 +152,7 @@ void CharaSelect::PadSelect(int pad_index)
 	//join
 	if (m_controller[pad_index][0] == -1 && m_player_count < 4)
 	{
-		if (m_input->IsPadButtonTrigger(pad_index, XINPUT_BUTTON_B))
+		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_B))
 		{
 			m_controller[pad_index][0] = 0;
 			m_controller[pad_index][1] = MinIndex();
@@ -136,15 +165,15 @@ void CharaSelect::PadSelect(int pad_index)
 	if (m_controller[pad_index][0] == 0)
 	{
 		int player_num = m_controller[pad_index][1];
-		if (m_input->IsPadButtonTrigger(pad_index, XINPUT_BUTTON_DPAD_RIGHT))
+		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_DPAD_RIGHT))
 		{
 			++m_job[player_num];
 		}
-		if (m_input->IsPadButtonTrigger(pad_index, XINPUT_BUTTON_DPAD_LEFT))
+		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_DPAD_LEFT))
 		{
 			--m_job[player_num];
 		}
-		if (m_input->IsPadButtonTrigger(pad_index, XINPUT_BUTTON_B))
+		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_B))
 		{
 			m_controller[pad_index][0] = 1;
 			m_lock[player_num] = true;
@@ -153,7 +182,7 @@ void CharaSelect::PadSelect(int pad_index)
 	//lock
 	if (m_controller[pad_index][0] == 1)
 	{
-		if (m_input->IsPadButtonTrigger(pad_index, XINPUT_BUTTON_A))
+		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_A))
 		{
 			m_controller[pad_index][0] = 0;
 			m_lock[m_controller[pad_index][1]] = false;
@@ -167,39 +196,83 @@ void CharaSelect::CheckPlayerSet()
 	{
 		if (m_lock[p] == false) return;
 	}
-	if (m_player_count == 4)
-	{
-		m_scene_state = kReturnSelectInfo;
-		return;
-	}
+	m_scene_state = kReturnSelectInfo;
+	timer = Utility::Timer(3.0f);
+	return;
 }
 
-void CharaSelect::PressToGo(SceneState enter, SceneState cancel)
+void CharaSelect::AddChara()
 {
-	if (m_controller[0] != 0 || m_input->IsKeyTrigger(KEY_INPUT_A))
+	for (int p = 0;p < m_player_count;++p)
 	{
-		m_scene_state = enter;
-		return;
-	}
-	for (int i = 1;i < 5;++i)
-	{
-		if (m_controller[i] != 0 || m_input->IsPadButtonTrigger(i - 1, XINPUT_BUTTON_B))
+		Side side;
+		switch (p)
 		{
-			m_scene_state = enter;
-			return;
+		case 0:
+			side = kTeam1;
+		case 1:
+			side = kTeam2;
+		case 2:
+			side = kTeam3;
+		case 3:
+			side = kTeam4;
 		}
-	}
-	if (m_controller[0] != 0 || m_input->IsKeyTrigger(KEY_INPUT_D))
-	{
-		m_scene_state = cancel;
-		return;
-	}
-	for (int i = 1;i < 5;++i)
-	{
-		if (m_controller[i] != 0 || m_input->IsPadButtonTrigger(i - 1, XINPUT_BUTTON_A))
+		std::shared_ptr<JobBase> job;
+		switch (m_job[0])
 		{
-			m_scene_state = cancel;
-			return;
+		case 0:
+			job = make_shared<Planner>(side);
+			break;
+		case 1:
+			job = make_shared<Business>(side);
+			break;
+		case 2:
+			job = make_shared<ComputerGraphic>(side);
+			break;
+		case 3:
+			job = make_shared<Programmer>(side);
+			break;
 		}
+		shared_ptr<Character::VirtualController> v_controller;
+		for (int i = 0;i < 5;++i)
+		{
+			if (m_controller[i][1] == p && i == 0)
+			{
+				v_controller = make_shared<Character::KeyboardController>(p + 1);
+			}
+		}
+		m_game_mgr->AddSelectCharacter(job, side, v_controller);
+	}
+	for (int p = m_player_count;p < 4;++p)
+	{
+		Side side;
+		switch (p)
+		{
+		case 0:
+			side = kTeam1;
+		case 1:
+			side = kTeam2;
+		case 2:
+			side = kTeam3;
+		case 3:
+			side = kTeam4;
+		}
+		std::shared_ptr<JobBase> job;
+		switch (m_job[0])
+		{
+		case 0:
+			job = make_shared<Planner>(side);
+			break;
+		case 1:
+			job = make_shared<Business>(side);
+			break;
+		case 2:
+			job = make_shared<ComputerGraphic>(side);
+			break;
+		case 3:
+			job = make_shared<Programmer>(side);
+			break;
+		}
+		m_game_mgr->AddSelectAI(job, side, p, 5);
 	}
 }
