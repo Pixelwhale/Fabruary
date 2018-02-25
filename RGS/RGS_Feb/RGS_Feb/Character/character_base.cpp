@@ -128,6 +128,7 @@ void CharacterBase::Update()
 	if (!m_isIntro_end)
 	{
 		IntroUpdate();
+		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 	}
 	else
 	{
@@ -262,7 +263,8 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 //“oêXV
 void CharacterBase::IntroUpdate()
 {
-	if (m_position.x > 0)
+	//“oêƒ‚[ƒVƒ‡ƒ“‚ÌŒü‚«‚ÌÝ’è
+	if (m_position.x > 0 && m_intro_cnt < 1)
 	{
 		m_velocity_intro.x *= -1;
 		m_isRight = false;
@@ -494,6 +496,7 @@ void CharacterBase::PositionUpdate()
 	if ((m_position.x < -430 || m_position.x > 440) && m_position.z > -145)
 	{
 		m_velocity.z = 0;
+		m_position.z = -145;
 	}
 
 	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
