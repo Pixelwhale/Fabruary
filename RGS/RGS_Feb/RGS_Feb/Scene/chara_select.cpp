@@ -24,17 +24,11 @@ void CharaSelect::Initialize(SceneType previous)
 {
 	SceneBase::Initialize(previous);
 	m_scene_state = kStartAnim;
-
-	m_player_count = 0;
-
-	m_controller = new int*[5];
-	for (int p = 0;p < 5;++p)
+	m_player = new Player[4];
+	for (int i = 0;i < 5;++i)
 	{
-		m_controller[p] = new int[2]{ -1,-1 };
+		m_controller[i] = false;
 	}
-	m_occupied = new bool[4]{ false,false,false,false };
-	m_lock = new bool[4]{ false,false,false,false };
-	m_job = new int[4]{ 0,0,0,0 };
 }
 
 void CharaSelect::Update()
@@ -45,31 +39,40 @@ void CharaSelect::Update()
 		m_scene_state = kJobSelect;
 		break;
 	case kJobSelect:
-		KbSelect();
-		for (int index = 1;index <= 4;++index)
+		//check 1P~4P
+		for (int player_num = 0; player_num < 4; ++player_num)
 		{
-			PadSelect(index);
+			JobSelect(player_num);
 		}
-		CheckPlayerSet();
+		//check if join
+		CheckJoin();
+		//check all lock
+		if (CheckAllLock())
+		{
+			m_scene_state = kCountToGo;
+			timer = Utility::Timer(3.0f);
+			timer.Reset();
+		}
 		break;
 	case kCountToGo:
 		timer.Update();
 		if (timer.IsTime()) m_scene_state = kReturnSelectInfo;
-		if (m_controller[0][0] != 1 || m_input->IsKeyTrigger(KEY_INPUT_D))
+		//join
+		if (CheckJoin())
 		{
 			m_scene_state = kJobSelect;
-			m_controller[0][0] = 0;
-			m_lock[m_controller[0][0]] = false;
-			return;
 		}
-		for (int i = 1;i <= 4;++i)
+		//lock‚µ‚½l‚ªunlock‚·‚é
+		for (int player_num = 0; player_num < 4; ++player_num)
 		{
-			if (m_controller[i][0] != 1 || m_input->IsPadButtonTrigger(i - 1, XINPUT_BUTTON_A))
+			if (m_player[player_num].lock == true)
 			{
-				m_scene_state = kJobSelect;
-				m_controller[i][0] = 0;
-				m_lock[m_controller[i][0]] = false;
-				return;
+				if (m_player[player_num].controller_num == 4)
+				{
+					if (CheckKbUnlock(player_num)) m_scene_state = kJobSelect;
+				}
+				else if (CheckPadUnlock(player_num, m_player[player_num].controller_num))
+					m_scene_state = kJobSelect;
 			}
 		}
 		break;
@@ -88,147 +91,157 @@ void CharaSelect::Draw()
 {
 	m_renderer->DrawString("CharaSelect", Vector2(0, 0));
 
-	m_renderer->DrawString("keyboard", Vector2(40, 40));
-	m_renderer->DrawString(std::to_string(m_controller[0][0]), Vector2(80, 40));
-	m_renderer->DrawString(std::to_string(m_controller[0][1]), Vector2(120, 40));
-	for (int i = 0;i < 4;++i)
-	{
-		m_renderer->DrawString("pad" + i, Vector2(40, 80 + 40 * i));
-		m_renderer->DrawString(std::to_string(m_controller[i][0]), Vector2(80, 80 + 40 * i));
-		m_renderer->DrawString(std::to_string(m_controller[i][1]), Vector2(120, 80 + 40 * i));
-	}
-
 	for (int p = 0;p < 4;++p)
 	{
-		m_renderer->DrawString("player" + std::to_string(p + 1), Vector2(40, 240 + 40 * p));
-		m_renderer->DrawString(std::to_string(m_job[p]), Vector2(80, 240 + 40 * p));
+		m_renderer->DrawString("player" + std::to_string(p + 1), Vector2(40, 40 + 40 * p));
+		m_renderer->DrawString(std::to_string(m_player[p].controller_num), Vector2(120, 40 + 40 * p));
+		m_renderer->DrawString(std::to_string(m_player[p].job), Vector2(160, 40 + 40 * p));
+		m_renderer->DrawString(std::to_string(m_player[p].lock), Vector2(200, 40 + 40 * p));
+		m_renderer->DrawString(std::to_string(m_player[p].occupied), Vector2(240, 40 + 40 * p));
 	}
+
+	m_renderer->DrawString(std::to_string(m_scene_state), Vector2(40, 200));
 }
 
 void CharaSelect::Shutdown()
 {
-	for (int i = 0;i < 5;++i)
-	{
-		delete [] m_controller[i];
-	}
-	delete [] m_controller;
-	delete [] m_occupied;
-	delete [] m_lock;
-	delete [] m_job;
+	delete[] m_player;
 }
 
 int CharaSelect::MinIndex()
 {
-	for (int index = 0;index < 4;++index)
+	for (int i = 0;i < 4;++i)
 	{
-		if (m_occupied[index] == false) return index;
+		if (m_player[i].occupied == false) return i;
 	}
 	return -1;
 }
-
-void CharaSelect::KbSelect()
+bool CharaSelect::CheckJoin()
 {
-	//join
-	if (m_controller[0][0] == -1 && m_player_count < 4)
+	int index = MinIndex();
+	if (index == -1) return false;
+	if (m_controller[4] == false && m_input->IsKeyTrigger(KEY_INPUT_A))
 	{
-		if (m_input->IsKeyTrigger(KEY_INPUT_A))
+		m_player[index].controller_num = 4;
+		m_player[index].occupied = true;
+		m_controller[4] = true;
+		return true;
+	}
+	for (int pad_num = 0; pad_num < 3; ++pad_num)
+	{
+		if (m_controller[pad_num] == true) continue;
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_B))
 		{
-			m_controller[0][0] = 0;
-			m_controller[0][1] = MinIndex();
-			m_occupied[MinIndex()] = true;
-			++m_player_count;
+			m_player[index].controller_num = pad_num;
+			m_player[index].occupied = true;
+			m_controller[index] = true;
+			return true;
 		}
 	}
-	//job select
-	//i: controller num, controller[i]: player num
-	if (m_controller[0][0] == 0)
+	return false;
+}
+
+void CharaSelect::JobSelect(int player_num)
+{
+
+	if (m_player[player_num].controller_num == -1) return;
+	else if (m_player[player_num].controller_num == 4)
 	{
-		int player_num = m_controller[0][1];
-		if (m_input->IsKeyTrigger(KEY_INPUT_RIGHT))
-		{
-			++m_job[player_num];
-		}
-		if (m_input->IsKeyTrigger(KEY_INPUT_LEFT))
-		{
-			--m_job[player_num];
-		}
-		if (m_input->IsKeyTrigger(KEY_INPUT_A))
-		{
-			m_controller[0][0] = 1;
-			m_lock[player_num] = true;
-		}
+		KbSelect(player_num);
 	}
-	//lock
-	if (m_controller[0][0] == 1)
+	else
+	{
+		PadSelect(player_num, m_player[player_num].controller_num);
+	}
+}
+void CharaSelect::KbSelect(int player_num)
+{
+	if (m_player[player_num].lock == false)
 	{
 		if (m_input->IsKeyTrigger(KEY_INPUT_D))
 		{
-			m_controller[0][0] = 0;
-			m_lock[m_controller[0][1]] = false;
+			m_player[player_num].controller_num = -1;
+			m_player[player_num].occupied = false;
+			m_controller[4] = false;
+		}
+		if (m_input->IsKeyTrigger(KEY_INPUT_RIGHT))
+		{
+			++m_player[player_num].job;
+		}
+		if (m_input->IsKeyTrigger(KEY_INPUT_LEFT))
+		{
+			--m_player[player_num].job;
+		}
+		if (m_input->IsKeyTrigger(KEY_INPUT_A))
+		{
+			m_player[player_num].lock = true;
 		}
 	}
+	else CheckKbUnlock(player_num);
+}
+bool CharaSelect::CheckKbUnlock(int player_num)
+{
+	if (m_player[player_num].lock == true && m_input->IsKeyTrigger(KEY_INPUT_D))
+	{
+		m_player[player_num].lock = false;
+		return true;
+	}
+	return false;
+}
+void CharaSelect::PadSelect(int player_num, int pad_num)
+{
+	if (m_player[player_num].lock == false)
+	{
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_A))
+		{
+			m_player[player_num].controller_num = -1;
+			m_player[player_num].occupied = false;
+			m_controller[pad_num] = false;
+		}
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_RIGHT))
+		{
+			++m_player[player_num].job;
+		}
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT))
+		{
+			--m_player[player_num].job;
+		}
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_B))
+		{
+			m_player[player_num].lock = true;
+		}
+	}
+	else CheckPadUnlock(player_num, pad_num);
+}
+bool CharaSelect::CheckPadUnlock(int player_num, int pad_num)
+{
+	if (m_player[player_num].lock == true && m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_A))
+	{
+		m_player[player_num].lock = false;
+		return true;
+	}
+	return false;
 }
 
-void CharaSelect::PadSelect(int pad_index)
+bool CharaSelect::CheckAllLock()
 {
-	//join
-	if (m_controller[pad_index][0] == -1 && m_player_count < 4)
+	int player_count = 0;
+	for (int player_num = 0; player_num < 4; ++player_num)
 	{
-		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_B))
-		{
-			m_controller[pad_index][0] = 0;
-			m_controller[pad_index][1] = MinIndex();
-			m_occupied[MinIndex()] = true;
-			++m_player_count;
-		}
+		if (!m_player[player_num].occupied) continue;
+		++player_count;
+		if (!m_player[player_num].lock) return false;
 	}
-	//job select
-	//i: controller num, controller[i]: player num
-	if (m_controller[pad_index][0] == 0)
-	{
-		int player_num = m_controller[pad_index][1];
-		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_DPAD_RIGHT))
-		{
-			++m_job[player_num];
-		}
-		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_DPAD_LEFT))
-		{
-			--m_job[player_num];
-		}
-		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_B))
-		{
-			m_controller[pad_index][0] = 1;
-			m_lock[player_num] = true;
-		}
-	}
-	//lock
-	if (m_controller[pad_index][0] == 1)
-	{
-		if (m_input->IsPadButtonTrigger(pad_index - 1, XINPUT_BUTTON_A))
-		{
-			m_controller[pad_index][0] = 0;
-			m_lock[m_controller[pad_index][1]] = false;
-		}
-	}
-}
-
-void CharaSelect::CheckPlayerSet()
-{
-	for (int p = 0;p < 4;++p)
-	{
-		if (m_lock[p] == false) return;
-	}
-	m_scene_state = kReturnSelectInfo;
-	timer = Utility::Timer(3.0f);
-	return;
+	if (player_count == 0) return false;
+	return true;
 }
 
 void CharaSelect::AddChara()
 {
-	for (int p = 0;p < m_player_count;++p)
+	for (int player_num = 0; player_num < 4; ++player_num)
 	{
 		Side side;
-		switch (p)
+		switch (player_num)
 		{
 		case 0:
 			side = kTeam1;
@@ -240,7 +253,7 @@ void CharaSelect::AddChara()
 			side = kTeam4;
 		}
 		std::shared_ptr<JobBase> job;
-		switch (m_job[0])
+		switch (m_player[player_num].job % 4)
 		{
 		case 0:
 			job = make_shared<Planner>(side);
@@ -255,50 +268,20 @@ void CharaSelect::AddChara()
 			job = make_shared<Programmer>(side);
 			break;
 		}
-		shared_ptr<Character::VirtualController> v_controller;
-		for (int i = 0;i < 5;++i)
+		if (m_player[player_num].controller_num != -1)
 		{
-			if (m_controller[i][1] == p && i == 0)
+			shared_ptr<Character::VirtualController> v_controller;
+			switch (m_player[player_num].controller_num)
 			{
-				v_controller = make_shared<Character::KeyboardController>(p + 1);
+			case 4:
+				v_controller = make_shared<Character::KeyboardController>(player_num);
+				break;
+			default:
+				v_controller = make_shared<Character::PadController>(m_player[player_num].controller_num, player_num + 1);
+				break;
 			}
-			else
-			{
-				v_controller = make_shared<Character::PadController>(i - 1, p+1);
-			}
+			m_game_mgr->AddSelectCharacter(job, side, v_controller);
 		}
-		m_game_mgr->AddSelectCharacter(job, side, v_controller);
-	}
-	for (int p = m_player_count;p < 4;++p)
-	{
-		Side side;
-		switch (p)
-		{
-		case 0:
-			side = kTeam1;
-		case 1:
-			side = kTeam2;
-		case 2:
-			side = kTeam3;
-		case 3:
-			side = kTeam4;
-		}
-		std::shared_ptr<JobBase> job;
-		switch (m_job[0])
-		{
-		case 0:
-			job = make_shared<Planner>(side);
-			break;
-		case 1:
-			job = make_shared<Business>(side);
-			break;
-		case 2:
-			job = make_shared<ComputerGraphic>(side);
-			break;
-		case 3:
-			job = make_shared<Programmer>(side);
-			break;
-		}
-		m_game_mgr->AddSelectAI(job, side, p, 5);
+		else m_game_mgr->AddSelectAI(job, side, player_num, 5);
 	}
 }
