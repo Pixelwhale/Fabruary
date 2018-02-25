@@ -85,9 +85,23 @@ void MenuQuit::CheckEnd()
 
 void MenuQuit::Draw()
 {
+	Math::Vector2 start_pos =
+		Math::Vector2(WindowDef::kScreenWidth / 2 - 256, WindowDef::kScreenHeight - 390);
+	int height = 85;
+
 	m_renderer->DrawTexture(
-		"select_chara_join_button",
-		Math::Vector2(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight - 100),
+		"menu_start_game",
+		start_pos,
+		m_push_alpha - 0.3f);
+
+	m_renderer->DrawTexture(
+		"menu_tutorial",
+		start_pos + Math::Vector2(0, height),
+		m_push_alpha - 0.3f);
+
+	m_renderer->DrawTexture(
+		"menu_quit",
+		start_pos + Math::Vector2(0, 2 * height),
 		m_push_alpha);
 }
 

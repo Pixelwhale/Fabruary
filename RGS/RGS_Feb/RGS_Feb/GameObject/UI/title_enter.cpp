@@ -45,7 +45,7 @@ void TitleEnter::UpdateAlpha()
 
 	if (m_push_alpha_switch)		//フェイドイン
 	{
-		m_push_alpha += 0.007f;
+		m_push_alpha += 0.07f;
 		if (m_push_alpha >= 1.0f)
 			m_push_alpha_switch = false;
 		return;
@@ -75,7 +75,7 @@ void TitleEnter::Draw()
 {
 	m_renderer->DrawTexture(
 		"select_chara_join_button", 
-		Math::Vector2(WindowDef::kScreenWidth / 2 - 256, WindowDef::kScreenHeight - 300),
+		Math::Vector2(WindowDef::kScreenWidth / 2 - 256, WindowDef::kScreenHeight - 400),
 		m_push_alpha);
 }
 
