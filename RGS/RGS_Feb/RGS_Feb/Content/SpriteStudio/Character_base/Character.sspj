@@ -115,6 +115,8 @@
 	<cellmapNames>
 		<value>Brush.ssce</value>
 		<value>Hammer.ssce</value>
+		<value>Money_Bag.ssce</value>
+		<value>Roar.ssce</value>
 		<value>chara_base.ssce</value>
 		<value>chara_bussiness</value>
 		<value>chara_designer</value>
@@ -130,7 +132,8 @@
 		<value>skill_effect.ssae</value>
 	</animepackNames>
 	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
-	<lastAnimeName>skill_mammonite</lastAnimeName>
-	<lastCellMapFile>chara_base.ssce</lastCellMapFile>
-	<lastCell>hand_left</lastCell>
+	<lastAnimeName>skill_roar</lastAnimeName>
+	<lastCellMapFile>effect.ssce</lastCellMapFile>
+	<lastCell>slash</lastCell>
+	<lastPart>part_1</lastPart>
 </SpriteStudioProject>
