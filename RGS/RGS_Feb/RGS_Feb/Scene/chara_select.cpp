@@ -38,6 +38,12 @@ void CharaSelect::Update()
 		m_scene_state = kJobSelect;
 		break;
 	case kJobSelect:
+		if (CheckBackToTitle())
+		{
+			m_is_end = true;
+			m_next = kTitle;
+			return;
+		}
 		//check 1P~4P
 		for (int player_num = 0; player_num < 4; ++player_num)
 		{
@@ -90,22 +96,11 @@ void CharaSelect::Draw()
 {
 	m_renderer->DrawString("CharaSelect", Vector2(0, 0));
 
-	/*
-	for (int p = 0;p < 4;++p)
-	{
-		m_renderer->DrawString("player" + std::to_string(p + 1), Vector2(40, 40 + 40 * p));
-		m_renderer->DrawString(std::to_string(m_player[p].controller_num), Vector2(120, 40 + 40 * p));
-		m_renderer->DrawString(std::to_string(m_player[p].job), Vector2(160, 40 + 40 * p));
-		m_renderer->DrawString(std::to_string(m_player[p].lock), Vector2(200, 40 + 40 * p));
-		m_renderer->DrawString(std::to_string(m_player[p].occupied), Vector2(240, 40 + 40 * p));
-	}
-	*/
-
 	m_renderer->DrawTexture("select_chara_ui", Vector2(0, 0));
 	for (int player_num = 0; player_num < 4; ++player_num)
 	{
-		int x = 107 +(player_num % 2) * 560;
-		int y = 128 +(player_num / 2) * 246;
+		int x = 107 + (player_num % 2) * 560;
+		int y = 128 + (player_num / 2) * 246;
 		if (m_player[player_num].controller_num == -1)
 		{
 			m_renderer->DrawTexture("select_chara_join_button", Vector2(x, y));
@@ -113,23 +108,23 @@ void CharaSelect::Draw()
 		else
 		{
 			m_renderer->DrawTexture("select_chara_button", Vector2(x, y));
-			switch (m_player[player_num].job%4)
+			switch (m_player[player_num].job % 4)
 			{
 			case 0:
 				m_renderer->DrawTexture("select_chara_planner", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 0, Vector2(x+225, y+140));
+				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140));
 				break;
 			case 1:
-				m_renderer->DrawTexture("select_chara_bussiness", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 1, Vector2(x, y));
+				m_renderer->DrawTexture("select_chara_business", Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140));
 				break;
 			case 2:
 				m_renderer->DrawTexture("select_chara_designer", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 2, Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140));
 				break;
 			case 3:
 				m_renderer->DrawTexture("select_chara_programmer", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 3, Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140));
 				break;
 			}
 			if (m_player[player_num].lock)
@@ -143,6 +138,20 @@ void CharaSelect::Draw()
 void CharaSelect::Shutdown()
 {
 	delete[] m_player;
+}
+
+bool CharaSelect::CheckBackToTitle()
+{
+	for (int i = 0;i < 5;++i)
+	{
+		if (m_controller[i] == true) return false;
+	}
+	if (m_input->IsKeyTrigger(KEY_INPUT_A)) return true;
+	for (int pad_num = 0;pad_num < 4;++pad_num)
+	{
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_B)) return true;
+	}
+	return false;
 }
 
 int CharaSelect::MinIndex()
@@ -171,7 +180,7 @@ bool CharaSelect::CheckJoin()
 		{
 			m_player[index].controller_num = pad_num;
 			m_player[index].occupied = true;
-			m_controller[index] = true;
+			m_controller[pad_num] = true;
 			return true;
 		}
 	}
@@ -207,7 +216,7 @@ void CharaSelect::KbSelect(int player_num)
 		}
 		if (m_input->IsKeyTrigger(KEY_INPUT_LEFT))
 		{
-			--m_player[player_num].job;
+			m_player[player_num].job += 3;
 		}
 		if (m_input->IsKeyTrigger(KEY_INPUT_A))
 		{
@@ -241,7 +250,7 @@ void CharaSelect::PadSelect(int player_num, int pad_num)
 		}
 		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT) || m_input->IsPadStickTrigger(pad_num, Vector2(-0.7f, 0)))
 		{
-			--m_player[player_num].job;
+			m_player[player_num].job += 3;
 		}
 		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_B))
 		{

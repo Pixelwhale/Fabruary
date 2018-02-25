@@ -44,6 +44,7 @@ namespace Scene
 
 		Utility::Timer timer;
 
+		bool CheckBackToTitle();
 		int MinIndex();		//return 0~3 (1P~4P)
 		bool CheckJoin();
 		void JobSelect(int player_num);
