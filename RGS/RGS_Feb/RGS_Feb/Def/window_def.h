@@ -16,5 +16,5 @@ namespace WindowDef
 	static const bool kIsWindow = true;
 
 	//Window名
-	static const LPCSTR kWindowName = "ゲームタイトルまだ決めてない";
+	static const LPCSTR kWindowName = "Who's Your Boss";
 }

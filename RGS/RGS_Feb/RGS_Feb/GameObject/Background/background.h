@@ -27,10 +27,12 @@ private:
 private:
 	Device::Random* m_random;					//Random
 	shared_ptr<Device::Renderer> m_renderer;	//Renderer
-	shared_ptr<MotionSystem::Motion> m_programmer;		//programmer motion;
-	shared_ptr<MotionSystem::Motion> m_damage;			//damage motion;
-	shared_ptr<MotionSystem::Motion> m_walk;			//walk motion;
-	shared_ptr<MotionSystem::Motion> m_designer;		//designer motion;
+	shared_ptr<MotionSystem::Motion> m_programmer;		//programmer motion
+	shared_ptr<MotionSystem::Motion> m_damage;			//damage motion
+	shared_ptr<MotionSystem::Motion> m_damage_center;	//damage motion
+	shared_ptr<MotionSystem::Motion> m_damage_left;		//damage motion
+	shared_ptr<MotionSystem::Motion> m_walk;			//walk motion
+	shared_ptr<MotionSystem::Motion> m_designer;		//designer motion
 
 	float m_light_alpha;						//Light‚Ì–¾“x
 	float m_pc_light = 0.5f;					//PcLight‚Ì–¾“x
