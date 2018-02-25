@@ -36,22 +36,6 @@ void GamePlay::Initialize(SceneType previous)
 	m_character_manager->Initialize();
 	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
 
-	////--------------------------‚ ‚Æ‚Åíœ--------------------------------
-	//m_game_manager->Clear();
-	//m_game_manager->AddSelectCharacter(
-	//	make_shared<Job::Programmer>(Side::kTeam1),
-	//	Side::kTeam1, make_shared<Character::KeyboardController>(1));
-	//m_game_manager->AddSelectAI(
-	//	make_shared<Job::Business>(Side::kTeam3),
-	//	Side::kTeam3, make_shared<Character::AiController>(2), 9);
-	//m_game_manager->AddSelectAI(
-	//	make_shared<Job::Planner>(Side::kTeam4),
-	//	Side::kTeam4, make_shared<Character::AiController>(3), 9);
-	//m_game_manager->AddSelectAI(
-	//	make_shared<Job::ComputerGraphic>(Side::kTeam2),
-	//	Side::kTeam2, make_shared<Character::AiController>(4), 9);
-	////--------------------------‚ ‚Æ‚Åíœ--------------------------------
-
 	AddCharacter();
 }
 

@@ -43,24 +43,20 @@ void Renderer::Initialize()
 		DeleteGraph(m_down_scale_handle);
 	if (m_gauss_handle != -1)
 		DeleteGraph(m_gauss_handle);
-
-	//RenderTargetì¬
-	m_scene_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
-	m_hight_light_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
-	m_down_scale_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
-	m_gauss_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
-
-	//íœ‚³‚ê‚È‚©‚Á‚½‚çíœ‚·‚é
 	if (m_blur_filter_handle != -1)
 		DeleteGraph(m_blur_filter_handle);
-	//RenderTargetì¬
-	m_blur_filter_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, true);
-
-	//Null‚¶‚á‚È‚¢‚È‚ç‰ğ•ú
 	if (m_resize_handle != -1)
 		DeleteGraph(m_resize_handle);
 
 	//RenderTargetì¬
+	//Bloom
+	m_scene_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+	m_hight_light_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+	m_down_scale_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
+	m_gauss_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
+	//Blur
+	m_blur_filter_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, true);
+	//Resize
 	m_resize_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
 
 #pragma endregion
