@@ -56,9 +56,9 @@ void Motion::ChangeSpriteSheet(string sheet_name)
 	m_motion_player->setPartCell("Head", sheet_name, "Head");
 }
 
-void Motion::Update()
+void Motion::Update(float frame)
 {
-	m_motion_player->update(1 / 60.0f);
+	m_motion_player->update(frame);
 }
 
 void Motion::Draw()
@@ -102,4 +102,9 @@ void  Motion::Flip(bool x, bool y)
 bool Motion::IsCurrentMotionEnd()
 {
 	return m_motion_player->getFrameNo() >= m_motion_player->getMaxFrame() - 1;
+}
+
+void  Motion::SetFrame(int frame)
+{
+	m_motion_player->setFrameNo(frame);
 }

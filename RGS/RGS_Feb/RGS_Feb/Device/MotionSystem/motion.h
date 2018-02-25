@@ -33,7 +33,7 @@ namespace MotionSystem
 		void ChangeSpriteSheet(string sheet_name);
 
 		///<summary>更新処理</summary>
-		void Update();
+		void Update(float frame = 1 / 60.0f);
 		///<summary>描画処理</summary>
 		void Draw();
 
@@ -49,6 +49,9 @@ namespace MotionSystem
 		void Flip(bool x, bool y);
 		///<summary>アニメーション再生終了か（無限ループは無効）</summary>
 		bool IsCurrentMotionEnd();
+
+		///<summary>Frame数設定</summary>
+		void SetFrame(int frame);
 
 	private:
 		ss::Player* m_motion_player;						//motion Player
