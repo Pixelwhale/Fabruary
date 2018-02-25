@@ -62,39 +62,35 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_velocity_intro = Math::Vector3(4,0,0);
 	m_velocity_jump = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
-	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
-	m_motion->Play("chara_base_anime/idle");
-	m_state = CharacterState::kIdle;
 	m_ui = make_shared<UI::HpUI>();
 	ChangeSheet();			//キャラクターシート判定
 	SetColor();				//色設定
+	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
+	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
+	m_motion->SetPosition(m_position);
+	m_motion->Play("chara_base_anime/idle");
+	m_state = CharacterState::kIdle;
 }
 
 //更新
 void CharacterBase::Update()
 {
-	if (!m_isIntro_end)
+	
+	IntroUpdate();
+	MotionUpdate(); //モーションの更新
+	if (m_hp > 0)
 	{
-		IntroUpdate();
+		Attack();		//攻撃
+		Skill();		//スキール
+		MoveUpdate();	//移動更新
+		JumpUpdate();	//Jump更新
+		MpUpdate();	//ゲージ更新
+		StateUpdate();	//状態の更新
+		KnockCntUpdate();//倒れ値カウント更新
+		m_job->Update();//Jobの更新
+		PositionUpdate();//位置の更新
 		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 	}
-	else
-	{
-		if (m_hp > 0)
-		{
-			Attack();		//攻撃
-			Skill();		//スキール
-			MoveUpdate();	//移動更新
-			JumpUpdate();	//Jump更新
-			MpUpdate();	//ゲージ更新
-			StateUpdate();	//状態の更新
-			KnockCntUpdate();//倒れ値カウント更新
-			m_job->Update();//Jobの更新
-			PositionUpdate();//位置の更新
-			m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
-		}
-	}
-	MotionUpdate(); //モーションの更新
 	//死亡更新
 	if (m_state == CharacterState::kDead)
 	{
@@ -118,7 +114,7 @@ void CharacterBase::Draw()
 	{
 		m_controller->Draw();
 	}
-	m_ui->Draw((float)m_hp / (float)(m_job->GetHp()), (float)m_mp / 6000.0f,m_character_face);
+	m_ui->Draw((float)m_hp / (float)(m_job->GetHp()) + 0.1f, (float)m_mp / 6000.0f,m_character_face);
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
 }
@@ -290,6 +286,8 @@ void CharacterBase::SetColor()
 //登場更新
 void CharacterBase::IntroUpdate()
 {
+	//登場したら、
+	if (m_isIntro_end = true) return;
 	//登場モーションの向きの設定
 	if (m_position.x > 0 && m_intro_cnt < 1)
 	{
@@ -304,6 +302,7 @@ void CharacterBase::IntroUpdate()
 		m_isIntro_end = true;
 		m_motion->Play("chara_base_anime/idle");
 	}
+	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 }
 
 //攻撃
@@ -329,6 +328,7 @@ void CharacterBase::Attack()
 		if (m_state == CharacterState::kKnockDown && m_isStop)
 		{
 			m_state = CharacterState::kUkemi;
+			m_velocity = Math::Vector3(0, 0, 0);
 			m_motion->Play("chara_base_anime/ukemi", 1);
 			m_isStop = true;
 		}
@@ -376,9 +376,9 @@ void CharacterBase::Skill()
 		m_mp >= 300)
 	{
 		//パンチの小技
-		/*m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
-		m_state = CharacterState::kPunch_1;*/
 		m_isStop = true;
+		m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
+		m_state = CharacterState::kPunch_1;
 		m_skill_num = 0;
 		m_mp -= 300;
 	}
@@ -388,9 +388,9 @@ void CharacterBase::Skill()
 		m_mp >= 300)
 	{
 		//キックの小技
+		m_isStop = true;
 		//m_motion->Play(m_job->Skill3(m_attack_mediator, m_position, m_isRight), 1);
 		//m_state = CharacterState::kKick_1;
-		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 300;
 	}
@@ -416,9 +416,9 @@ void CharacterBase::Skill()
 		m_mp >= 1500)
 	{
 		//パンチの大技
+		m_isStop = true;
 		//m_motion->Play(m_job->Skill2(m_attack_mediator, m_position, m_isRight), 1);
 		//m_state = CharacterState::kPunch_2;
-		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 1500;
 	}
@@ -428,9 +428,9 @@ void CharacterBase::Skill()
 		m_mp >= 1500)
 	{
 		//キックの大技
+		m_isStop = true;
 		//m_motion->Play(m_job->Skill4(m_attack_mediator, m_position, m_isRight), 1);
 		//m_state = CharacterState::kKick_2;
-		m_isStop = true;
 		m_skill_num = 0;
 		m_mp -= 1500;
 	}
@@ -574,7 +574,11 @@ void CharacterBase::StateUpdate()
 	//防御か倒られた時は無敵
 	if (m_state == CharacterState::kKnockDown || 
 		m_state == CharacterState::kGetUp	  ||
-		m_state == CharacterState::kUkemi)
+		m_state == CharacterState::kUkemi	  ||
+		m_state == CharacterState::kKick_1	  ||
+		m_state == CharacterState::kKick_2    ||
+		m_state == CharacterState::kPunch_1 ||
+		m_state == CharacterState::kPunch_2)
 	{
 		m_isInvincible = true;
 	}
