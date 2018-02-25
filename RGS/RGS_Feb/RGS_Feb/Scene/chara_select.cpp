@@ -146,10 +146,10 @@ bool CharaSelect::CheckBackToTitle()
 	{
 		if (m_controller[i] == true) return false;
 	}
-	if (m_input->IsKeyTrigger(KEY_INPUT_A)) return true;
+	if (m_input->IsKeyTrigger(KEY_INPUT_D)) return true;
 	for (int pad_num = 0;pad_num < 4;++pad_num)
 	{
-		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_B)) return true;
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_A)) return true;
 	}
 	return false;
 }
