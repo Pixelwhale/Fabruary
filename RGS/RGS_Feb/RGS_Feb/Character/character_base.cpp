@@ -482,21 +482,23 @@ void CharacterBase::PositionUpdate()
 	Math::Vector3 max = Math::Vector3(WindowDef::kScreenWidth / 2 - Size::kCharaX / 12,  Size::kCharaY * 4,
 								      WindowDef::kScreenHeight / 2 - Size::kCharaZ * 6);
 
-	if (m_position.z > -140)
+	if (m_position.x < -430 || m_position.x > 440)
 	{
-		if (m_position.x < -430)
+		if (m_position.z > -140)
 		{
-			m_position.x = -430;
+			if (m_position.x < -430)
+			{
+				m_position.x = -430;
+			}
+			if (m_position.x > 440)
+			{
+				m_position.x = 440;
+			}
 		}
-		if (m_position.x > 440)
+		else if (m_position.z + m_velocity.z > -150)
 		{
-			m_position.x = 440;
+			m_position.z = -150;
 		}
-	}
-	if ((m_position.x < -430 || m_position.x > 440) && m_position.z > -145)
-	{
-		m_velocity.z = 0;
-		m_position.z = -145;
 	}
 
 	m_position += Math::Vector3(m_velocity.x * m_speed, m_velocity_jump.y, m_velocity.z * m_speed);
