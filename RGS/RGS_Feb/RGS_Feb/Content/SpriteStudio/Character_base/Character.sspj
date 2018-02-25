@@ -132,8 +132,8 @@
 		<value>skill_effect.ssae</value>
 	</animepackNames>
 	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
-	<lastAnimeName>skill_roar</lastAnimeName>
-	<lastCellMapFile>chara_business.ssce</lastCellMapFile>
-	<lastCell>Head</lastCell>
-	<lastPart>part_1</lastPart>
+	<lastAnimeName>skill_roar_R</lastAnimeName>
+	<lastCellMapFile>Roar.ssce</lastCellMapFile>
+	<lastCell>Yare !</lastCell>
+	<lastPart>Release_wind</lastPart>
 </SpriteStudioProject>
