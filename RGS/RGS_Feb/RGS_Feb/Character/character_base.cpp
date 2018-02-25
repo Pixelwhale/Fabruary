@@ -75,28 +75,22 @@ void CharacterBase::Initialize(Math::Vector3 position)
 //更新
 void CharacterBase::Update()
 {
-	if (!m_isIntro_end)
+	
+	IntroUpdate();
+	MotionUpdate(); //モーションの更新
+	if (m_hp > 0)
 	{
-		IntroUpdate();
+		Attack();		//攻撃
+		Skill();		//スキール
+		MoveUpdate();	//移動更新
+		JumpUpdate();	//Jump更新
+		MpUpdate();	//ゲージ更新
+		StateUpdate();	//状態の更新
+		KnockCntUpdate();//倒れ値カウント更新
+		m_job->Update();//Jobの更新
+		PositionUpdate();//位置の更新
 		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 	}
-	else
-	{
-		if (m_hp > 0)
-		{
-			Attack();		//攻撃
-			Skill();		//スキール
-			MoveUpdate();	//移動更新
-			JumpUpdate();	//Jump更新
-			MpUpdate();	//ゲージ更新
-			StateUpdate();	//状態の更新
-			KnockCntUpdate();//倒れ値カウント更新
-			m_job->Update();//Jobの更新
-			PositionUpdate();//位置の更新
-			m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
-		}
-	}
-	MotionUpdate(); //モーションの更新
 	//死亡更新
 	if (m_state == CharacterState::kDead)
 	{
@@ -292,6 +286,8 @@ void CharacterBase::SetColor()
 //登場更新
 void CharacterBase::IntroUpdate()
 {
+	//登場したら、
+	if (m_isIntro_end = true) return;
 	//登場モーションの向きの設定
 	if (m_position.x > 0 && m_intro_cnt < 1)
 	{
@@ -306,6 +302,7 @@ void CharacterBase::IntroUpdate()
 		m_isIntro_end = true;
 		m_motion->Play("chara_base_anime/idle");
 	}
+	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 }
 
 //攻撃
