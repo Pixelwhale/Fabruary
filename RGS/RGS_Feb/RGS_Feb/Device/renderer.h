@@ -214,6 +214,9 @@ namespace Device
 		std::shared_ptr<ContentManager> m_contents;				//Content Manager
 		std::shared_ptr<DepthSort>		m_depth_sort;			//描画順をソートするクラス
 
+		bool m_is_blur = false;									//Filterかけているか
+		bool m_is_resize = false;								//Filterかけているか
+
 		int m_blur_filter_handle = -1;							//BlurのRenderTargetハンドル
 
 		int m_scene_handle = -1;								//SceneのRenderTarget

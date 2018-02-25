@@ -31,12 +31,58 @@ void Renderer::Initialize()
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);		//AlphaBlend有効
 	SetUseLighting(false);							//Light無効（計算なし）
 	SetTransColor(0, 0, 0);
+
+#pragma region RenderTarget
+
+	//Nullじゃないなら解放
+	if (m_scene_handle != -1)
+		DeleteGraph(m_scene_handle);
+	if (m_hight_light_handle != -1)
+		DeleteGraph(m_hight_light_handle);
+	if (m_down_scale_handle != -1)
+		DeleteGraph(m_down_scale_handle);
+	if (m_gauss_handle != -1)
+		DeleteGraph(m_gauss_handle);
+
+	//RenderTarget作成
+	m_scene_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+	m_hight_light_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+	m_down_scale_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
+	m_gauss_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
+
+	//削除されなかったら削除する
+	if (m_blur_filter_handle != -1)
+		DeleteGraph(m_blur_filter_handle);
+	//RenderTarget作成
+	m_blur_filter_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, true);
+
+	//Nullじゃないなら解放
+	if (m_resize_handle != -1)
+		DeleteGraph(m_resize_handle);
+
+	//RenderTarget作成
+	m_resize_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
+
+#pragma endregion
 }
 
 void Renderer::Release()
 {
 	m_depth_sort->Clear();
 	m_depth_sort = 0;
+
+#pragma region RenderTarget
+
+	//画像解放
+	DeleteGraph(m_scene_handle);
+	DeleteGraph(m_hight_light_handle);
+	DeleteGraph(m_down_scale_handle);
+	DeleteGraph(m_gauss_handle);
+
+	DeleteGraph(m_blur_filter_handle);
+	DeleteGraph(m_resize_handle);
+
+#pragma endregion
 }
 
 void Renderer::Clear(int r, int g, int b)
@@ -336,12 +382,9 @@ void Renderer::DrawString(
 
 void Renderer::DrawOnGaussFilter()
 {
-	if (m_blur_filter_handle != -1)					//削除されなかったら削除する
-		DeleteGraph(m_blur_filter_handle);
-	//RenderTarget作成
-	m_blur_filter_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, true);
 	SetDrawScreen(m_blur_filter_handle);			//RenderTarget設定
 	ClearDrawScreen();								//Clearする
+	m_is_blur = true;
 }
 
 void Renderer::GaussFilter(int ratio)
@@ -349,27 +392,11 @@ void Renderer::GaussFilter(int ratio)
 	GraphFilter(m_blur_filter_handle, DX_GRAPH_FILTER_GAUSS, 8, ratio);		//RenderTargetをぼかし
 	SetDrawScreen(DX_SCREEN_BACK);											//バックバッファに描画
 	DrawGraph(0, 0, m_blur_filter_handle, false);							//RenderTarget描画
-	DeleteGraph(m_blur_filter_handle);										//RenderTarget解放
+	m_is_blur = false;
 }
 
 void Renderer::DrawOnBloomFilter()
 {
-	//Nullじゃないなら解放
-	if (m_scene_handle != -1)
-		DeleteGraph(m_scene_handle);
-	if (m_hight_light_handle != -1)
-		DeleteGraph(m_hight_light_handle);
-	if (m_down_scale_handle != -1)
-		DeleteGraph(m_down_scale_handle);
-	if (m_gauss_handle != -1)
-		DeleteGraph(m_gauss_handle);
-
-	//RenderTarget作成
-	m_scene_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
-	m_hight_light_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
-	m_down_scale_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
-	m_gauss_handle = MakeScreen(WindowDef::kScreenWidth / 8, WindowDef::kScreenHeight / 8, false);
-
 	//RenderTarget設定
 	SetDrawScreen(m_scene_handle);
 	ClearDrawScreen();
@@ -384,9 +411,9 @@ void Renderer::DrawBloom()
 
 	//BackBufferかBlurシーンに描画
 	SetDrawScreen(DX_SCREEN_BACK);
-	if (m_blur_filter_handle != -1)
+	if (m_is_blur)
 		SetDrawScreen(m_blur_filter_handle);
-	if (m_resize_handle != -1)
+	if (m_is_resize)
 		SetDrawScreen(m_resize_handle);
 
 	//シーンを描画
@@ -401,26 +428,14 @@ void Renderer::DrawBloom()
 	//設定を戻す
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
 	SetDrawMode(DX_DRAWMODE_NEAREST);
-
-	//画像解放
-	DeleteGraph(m_scene_handle);
-	DeleteGraph(m_hight_light_handle);
-	DeleteGraph(m_down_scale_handle);
-	DeleteGraph(m_gauss_handle);
 }
 
 void Renderer::DrawOnResizeFilter()
 {
-	//Nullじゃないなら解放
-	if (m_resize_handle != -1)
-		DeleteGraph(m_resize_handle);
-
-	//RenderTarget作成
-	m_resize_handle = MakeScreen(WindowDef::kScreenWidth, WindowDef::kScreenHeight, false);
-
 	//RenderTarget設定
 	SetDrawScreen(m_resize_handle);
 	ClearDrawScreen();
+	m_is_resize = true;
 }
 
 void Renderer::DrawResize(Math::Vector2 position, Math::Vector2 size, Math::Vector2 pivot)
@@ -433,7 +448,8 @@ void Renderer::DrawResize(Math::Vector2 position, Math::Vector2 size, Math::Vect
 		size.x, size.y,
 		0, m_resize_handle,
 		false, false);
-	DeleteGraph(m_resize_handle);											//RenderTarget解放
+
+	m_is_resize = false;
 }
 
 #pragma endregion
