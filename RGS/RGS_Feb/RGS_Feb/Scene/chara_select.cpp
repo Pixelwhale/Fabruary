@@ -90,6 +90,7 @@ void CharaSelect::Draw()
 {
 	m_renderer->DrawString("CharaSelect", Vector2(0, 0));
 
+	/*
 	for (int p = 0;p < 4;++p)
 	{
 		m_renderer->DrawString("player" + std::to_string(p + 1), Vector2(40, 40 + 40 * p));
@@ -98,8 +99,45 @@ void CharaSelect::Draw()
 		m_renderer->DrawString(std::to_string(m_player[p].lock), Vector2(200, 40 + 40 * p));
 		m_renderer->DrawString(std::to_string(m_player[p].occupied), Vector2(240, 40 + 40 * p));
 	}
+	*/
 
-	m_renderer->DrawString(std::to_string(m_scene_state), Vector2(40, 200));
+	m_renderer->DrawTexture("select_chara_ui", Vector2(0, 0));
+	for (int player_num = 0; player_num < 4; ++player_num)
+	{
+		int x = 107 +(player_num % 2) * 560;
+		int y = 128 +(player_num / 2) * 246;
+		if (m_player[player_num].controller_num == -1)
+		{
+			m_renderer->DrawTexture("select_chara_join_button", Vector2(x, y));
+		}
+		else
+		{
+			m_renderer->DrawTexture("select_chara_button", Vector2(x, y));
+			switch (m_player[player_num].job%4)
+			{
+			case 0:
+				m_renderer->DrawTexture("select_chara_planner", Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 0, Vector2(x+225, y+140));
+				break;
+			case 1:
+				m_renderer->DrawTexture("select_chara_bussiness", Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 1, Vector2(x, y));
+				break;
+			case 2:
+				m_renderer->DrawTexture("select_chara_designer", Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 2, Vector2(x, y));
+				break;
+			case 3:
+				m_renderer->DrawTexture("select_chara_programmer", Vector2(x, y));
+				m_renderer->DrawMotion("chara_face", 3, Vector2(x, y));
+				break;
+			}
+			if (m_player[player_num].lock)
+			{
+				m_renderer->DrawTexture("select_chara_ready", Vector2(x, y));
+			}
+		}
+	}
 }
 
 void CharaSelect::Shutdown()
@@ -197,11 +235,11 @@ void CharaSelect::PadSelect(int player_num, int pad_num)
 			m_player[player_num].occupied = false;
 			m_controller[pad_num] = false;
 		}
-		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_RIGHT))
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_RIGHT) || m_input->IsPadStickTrigger(pad_num, Vector2(0.7f, 0)))
 		{
 			++m_player[player_num].job;
 		}
-		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT))
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT) || m_input->IsPadStickTrigger(pad_num, Vector2(-0.7f, 0)))
 		{
 			--m_player[player_num].job;
 		}
