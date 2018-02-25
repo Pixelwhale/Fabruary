@@ -268,20 +268,21 @@ void CharaSelect::AddChara()
 			job = make_shared<Programmer>(side);
 			break;
 		}
-		if (m_player[player_num].controller_num != -1)
+		shared_ptr<Character::VirtualController> v_controller;
+		switch (m_player[player_num].controller_num)
 		{
-			shared_ptr<Character::VirtualController> v_controller;
-			switch (m_player[player_num].controller_num)
-			{
-			case 4:
-				v_controller = make_shared<Character::KeyboardController>(player_num);
-				break;
-			default:
-				v_controller = make_shared<Character::PadController>(m_player[player_num].controller_num, player_num + 1);
-				break;
-			}
+		case 4:
+			v_controller = make_shared<Character::KeyboardController>(player_num + 1);
 			m_game_mgr->AddSelectCharacter(job, side, v_controller);
+			break;
+		case -1:
+			v_controller = make_shared < Character::AiController>(player_num + 1);
+			m_game_mgr->AddSelectAI(job, side, v_controller, 5);
+			break;
+		default:
+			v_controller = make_shared<Character::PadController>(m_player[player_num].controller_num, player_num + 1);
+			m_game_mgr->AddSelectCharacter(job, side, v_controller);
+			break;
 		}
-		else m_game_mgr->AddSelectAI(job, side, player_num, 5);
 	}
 }
