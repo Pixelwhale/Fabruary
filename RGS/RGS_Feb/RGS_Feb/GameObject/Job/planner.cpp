@@ -81,13 +81,15 @@ std::string Planner::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_m
 std::string Planner::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 0, 0);
+	AttackSystem::Direction attack_source = AttackSystem::kRight;
 	if (!is_right)
 	{
 		plus.x *= -1;
+		attack_source = AttackSystem::kLeft;
 	}
-	// ƒXƒLƒ‹‚Ì’Ç‰Á‚Í‚±‚±‚É
-	return base_animation + "skill_hammer";
+	attack_manager->AddAttack(std::make_shared <AttackSystem::Punch>(position + plus, Math::Vector3(400, 400, 400), m_side, 50, 0, 30, 30, 0.83, 0.4, attack_source));
+	return base_animation + "skill_roar";
 }
 
 std::string Planner::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
