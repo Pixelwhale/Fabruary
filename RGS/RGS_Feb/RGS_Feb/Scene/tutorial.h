@@ -4,6 +4,7 @@
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
+#include <GameObject\Background\background.h>
 
 namespace Scene
 {
@@ -11,9 +12,12 @@ namespace Scene
 	{
 	public:
 		Tutorial();
+		void Initialize(SceneType previous);
 		void Update();
 		void Draw();
 		void Shutdown();
+
 	private:
+		std::shared_ptr<Background> m_background;	//îwåi
 	};
 }

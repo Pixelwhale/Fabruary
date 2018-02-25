@@ -6,6 +6,8 @@
 #include <GameObject\UI\title_state_manager.h>
 #include <GameObject\UI\title_enter.h>
 #include <GameObject\UI\title_gameplay.h>
+#include <GameObject\UI\title_tutorial.h>
+#include <GameObject\UI\title_quit.h>
 
 using namespace UI;
 
@@ -25,6 +27,8 @@ void TitleStateManager::Initialize()
 {
 	m_states[MenuState::kTitle] = make_shared<TitleEnter>();
 	m_states[MenuState::kGamePlay] = make_shared<MenuGamePlay>();
+	m_states[MenuState::kTutorial] = make_shared<MenuTutorial>();
+	m_states[MenuState::kQuit] = make_shared<MenuQuit>();
 
 	m_current_menu = MenuState::kTitle;
 	m_current_state = m_states[m_current_menu];

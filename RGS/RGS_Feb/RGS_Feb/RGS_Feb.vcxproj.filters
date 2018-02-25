@@ -81,6 +81,8 @@
     <ClCompile Include="GameObject\UI\title_enter.cpp" />
     <ClCompile Include="GameObject\UI\title_state_manager.cpp" />
     <ClCompile Include="GameObject\UI\title_gameplay.cpp" />
+    <ClCompile Include="GameObject\UI\title_tutorial.cpp" />
+    <ClCompile Include="GameObject\UI\title_quit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -264,6 +266,8 @@
     <ClInclude Include="GameObject\UI\title_enter.h" />
     <ClInclude Include="GameObject\UI\title_state_manager.h" />
     <ClInclude Include="GameObject\UI\title_gameplay.h" />
+    <ClInclude Include="GameObject\UI\title_tutorial.h" />
+    <ClInclude Include="GameObject\UI\title_quit.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />

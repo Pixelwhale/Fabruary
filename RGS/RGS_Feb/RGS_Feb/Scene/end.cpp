@@ -16,7 +16,7 @@ void End::Update()
 
 void End::Draw()
 {
-	m_renderer->DrawString("End", Math::Vector2(150, 0));
+	m_renderer->DrawFade(Color(0, 0, 0));
 }
 
 void End::Shutdown()

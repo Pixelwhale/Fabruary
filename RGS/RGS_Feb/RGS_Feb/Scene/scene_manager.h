@@ -18,6 +18,9 @@ namespace Scene
 
 		void Update();
 		void Draw();
+
+		bool IsEnd();
+
 	private:
 		std::map<SceneType, std::shared_ptr<SceneBase>> m_map;
 		SceneType m_current_type;

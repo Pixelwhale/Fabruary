@@ -1,19 +1,19 @@
 //-------------------------------------------------------
 // 作成者：林佳叡
 // 作成日：2018.2.25
-// 内容　：GamePlayを選択した時のState
+// 内容　：Tutorialを選択した時のState
 //-------------------------------------------------------
 #pragma once
 #include <GameObject\UI\title_state.h>
 
 namespace UI
 {
-	class MenuGamePlay : public TitleState
+	class MenuTutorial : public TitleState
 	{
 	public:
-		MenuGamePlay();
-		MenuGamePlay(const MenuGamePlay&);
-		~MenuGamePlay();
+		MenuTutorial();
+		MenuTutorial(const MenuTutorial&);
+		~MenuTutorial();
 
 		///<summary>初期化</summary>
 		virtual void Initialize(MenuState previous_state);

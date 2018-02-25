@@ -10,15 +10,29 @@ Tutorial::Tutorial()
 {
 }
 
+void Tutorial::Initialize(SceneType previous) 
+{
+	SceneBase::Initialize(previous);
+
+	m_background = make_shared<Background>();
+}
+
 void Tutorial::Update()
 {
+	m_background->Update();
 }
 
 void Tutorial::Draw()
 {
-	m_renderer->DrawString("Tutorial", Math::Vector2(150, 0));
+	m_renderer->DrawOnBloomFilter();		//DrawFilter
+	m_background->DrawBack();				//”wŒi
+	m_background->DrawFront();				//‘OŒi
+
+
+	m_renderer->DrawBloom();				//BloomEffect
 }
 
 void Tutorial::Shutdown()
 {
+	m_background = NULL;
 }

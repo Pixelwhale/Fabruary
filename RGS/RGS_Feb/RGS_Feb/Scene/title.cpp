@@ -28,13 +28,14 @@ void Title::Update()
 {
 	m_background->Update();					//背景更新
 	m_scene_effect->Update();				//Effect更新
-	m_title_menu->Update();
+	m_title_menu->Update();					//Menu更新
 
-	CheckEnd();
+	CheckEnd();								//終了チェック
 }
 
 void Title::CheckEnd()
 {
+	//Effectが終わったら終了
 	if (m_scene_effect->IsEnd(true))
 	{
 		m_is_end = true;
@@ -43,7 +44,16 @@ void Title::CheckEnd()
 
 	if (m_title_menu->IsEnd())
 	{
-		m_scene_effect->Zoom(true);
+		//CharacterSelectならはEffect入る
+		if (m_title_menu->NextScene() == SceneType::kCharaSelect) 
+		{
+			m_scene_effect->Zoom(true);
+			return;
+		}
+
+		//CharacterSelect以外はEffect入らない
+		m_is_end = true;
+		m_next = m_title_menu->NextScene();
 		return;
 	}
 }

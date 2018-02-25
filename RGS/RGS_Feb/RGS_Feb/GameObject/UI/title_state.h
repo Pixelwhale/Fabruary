@@ -42,6 +42,20 @@ namespace UI
 		bool IsEnd();
 
 	protected:
+		///<summary>特定のKeyが押されたか</summary>
+		///<param name="key_input">Keyboard</param>
+		///<param name="xinput_button">XboxController</param>
+		bool TriggerKey(unsigned int key_input, unsigned char xinput_button);
+		///<summary>確認ボタンが押されたか</summary>
+		bool Enter();
+		///<summary>戻るボタンが押されたか</summary>
+		bool Cancel();
+		///<summary>↓ボタンが押されたか</summary>
+		bool Down();
+		///<summary>↑ボタンが押されたか</summary>
+		bool Up();
+
+	protected:
 		std::shared_ptr<Device::Renderer> m_renderer;	//Renderer
 		std::shared_ptr<Core::InputState> m_input;		//Input
 

@@ -1,45 +1,45 @@
 //-------------------------------------------------------
 // 作成者：林佳叡
 // 作成日：2018.2.25
-// 内容　：GamePlayを選択した時のState
+// 内容　：Quitを選択した時のState
 //-------------------------------------------------------
-#include <GameObject\UI\title_gameplay.h>
+#include <GameObject\UI\title_quit.h>
 #include <Def\window_def.h>
 
 using namespace UI;
 
-MenuGamePlay::MenuGamePlay()
+MenuQuit::MenuQuit()
 {
 }
 
-MenuGamePlay::MenuGamePlay(const MenuGamePlay&)
+MenuQuit::MenuQuit(const MenuQuit&)
 {
 }
 
-MenuGamePlay::~MenuGamePlay()
+MenuQuit::~MenuQuit()
 {
 }
 
-void MenuGamePlay::Initialize(MenuState previous_state)
+void MenuQuit::Initialize(MenuState previous_state)
 {
 	m_end_flag = false;
 	m_next_flag = false;
 	m_push_alpha = 1.0f;
 
-	if(previous_state == MenuState::kTitle)
+	if (previous_state == MenuState::kTitle)
 		m_push_alpha = 0.0f;
 }
 
-void MenuGamePlay::Update()
+void MenuQuit::Update()
 {
 	UpdateAlpha();
 
 	CheckEnd();
 }
 
-void MenuGamePlay::UpdateAlpha()
+void MenuQuit::UpdateAlpha()
 {
-	if (!m_next_flag) 
+	if (!m_next_flag)
 	{
 		m_push_alpha += 0.1f;
 		if (m_push_alpha >= 1.0f)
@@ -53,7 +53,7 @@ void MenuGamePlay::UpdateAlpha()
 	return;
 }
 
-void MenuGamePlay::CheckEnd()
+void MenuQuit::CheckEnd()
 {
 	if (m_next_flag && m_push_alpha <= 0.0f)	//次へ行ける
 		m_end_flag = true;
@@ -75,7 +75,7 @@ void MenuGamePlay::CheckEnd()
 		return;
 	}
 
-	if (Down())									//TutorialStateへ
+	if (Up())									//TutorialStateへ
 	{
 		m_end_flag = true;
 		m_next_state = MenuState::kTutorial;
@@ -83,20 +83,20 @@ void MenuGamePlay::CheckEnd()
 	}
 }
 
-void MenuGamePlay::Draw()
+void MenuQuit::Draw()
 {
 	m_renderer->DrawTexture(
 		"select_chara_join_button",
-		Math::Vector2(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight - 300),
+		Math::Vector2(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight - 100),
 		m_push_alpha);
 }
 
-MenuState MenuGamePlay::NextState()
+MenuState MenuQuit::NextState()
 {
 	return m_next_state;
 }
 
-Scene::SceneType MenuGamePlay::NextScene()
+Scene::SceneType MenuQuit::NextScene()
 {
-	return Scene::kCharaSelect;
+	return Scene::kEnd;
 }

@@ -64,18 +64,10 @@ void TitleEnter::CheckEnd()
 	if (m_next_flag)							//ŽŸ‚Ös‚­“r’†‚ÍInput‘€ì‚Å‚«‚È‚¢
 		return;
 
-	if (m_input->IsKeyTrigger(KEY_INPUT_A))
+	if (Enter()) 
 	{
 		m_next_flag = true;
 		return;
-	}
-	for (int i = 0; i < 4; ++i)
-	{
-		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_B)) 
-		{
-			m_next_flag = true;
-			return;
-		}
 	}
 }
 

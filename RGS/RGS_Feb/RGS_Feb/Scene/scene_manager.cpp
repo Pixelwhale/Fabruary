@@ -70,3 +70,8 @@ void SceneManager::Draw()
 {
 	m_current_scene.lock()->Draw();
 }
+
+bool SceneManager::IsEnd() 
+{
+	return m_current_type == SceneType::kEnd;
+}

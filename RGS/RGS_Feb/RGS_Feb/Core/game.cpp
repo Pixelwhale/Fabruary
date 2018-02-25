@@ -35,6 +35,9 @@ void Game::Update()
 		m_end_flag = true;
 
 	m_scene_manager->Update();
+
+	if(m_scene_manager->IsEnd())
+		m_end_flag = true;
 }
 
 //•`‰æˆ—

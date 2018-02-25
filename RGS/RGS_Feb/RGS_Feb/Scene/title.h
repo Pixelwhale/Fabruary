@@ -25,8 +25,8 @@ namespace Scene
 		void CheckEnd();
 
 	private:
-		shared_ptr<Background> m_background;		//îwåi
-		shared_ptr<SceneEffect> m_scene_effect;		//SceneChangeEffect
+		shared_ptr<Background> m_background;				//îwåi
+		shared_ptr<SceneEffect> m_scene_effect;				//SceneChangeEffect
 
 		shared_ptr<UI::TitleStateManager> m_title_menu;		//TitleMenu
 	};
