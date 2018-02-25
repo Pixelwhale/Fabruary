@@ -90,7 +90,7 @@ std::string ComputerGraphic::Skill1(std::shared_ptr<AttackSystem::AttackMediator
 		attack_source = AttackSystem::Direction::kLeft;
 	}
 	// ƒXƒLƒ‹‚Ì’Ç‰Á‚Í‚±‚±‚É
-	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(200, 200, 200), m_side, 8, 0, 0, 30, 5, "Effect/slash", 1, attack_source));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(400, 400, 400), m_side, 8, 0, 0, 30, 5, "Effect/slash", 1, attack_source));
 	return base_animation + "skill_color_slash";
 }
 
