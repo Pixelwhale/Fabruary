@@ -12,6 +12,8 @@ Background::Background()
 	m_light_alpha = 0;
 	m_pc_light = 0.5f;
 	m_pc_alpha_switch = true;
+
+	m_motion = make_shared<MotionSystem::Motion>("Character");
 }
 
 Background::Background(const Background&) 
@@ -22,6 +24,7 @@ Background::~Background()
 {
 	m_renderer = NULL;
 	m_random = NULL;
+	m_motion = NULL;
 }
 
 void Background::Update() 

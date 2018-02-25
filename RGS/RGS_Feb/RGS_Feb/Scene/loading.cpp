@@ -34,8 +34,10 @@ void Loading::LoadContents()
 	m_content->LoadTexture("hp_ui_hp", ".png");
 	m_content->LoadTexture("hp_ui_mp", ".png");
 
+	m_content->LoadTexture("panel_number", ".png", 10, 10, 1, 64, 64);
+
 	m_content->LoadTexture("select_chara_ui", ".png");
-	m_content->LoadTexture("select_chara_bussiness", ".png");
+	m_content->LoadTexture("select_chara_business", ".png");
 	m_content->LoadTexture("select_chara_designer", ".png");
 	m_content->LoadTexture("select_chara_planner", ".png");
 	m_content->LoadTexture("select_chara_programmer", ".png");

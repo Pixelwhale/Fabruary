@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <SpriteStudioCellMap version="1.00.02">
-	<name>chara_bussiness</name>
+	<name>chara_business</name>
 	<exportPath></exportPath>
 	<generator>SpriteStudio</generator>
 	<packed>0</packed>
-	<imagePath>chara_bussiness.png</imagePath>
+	<imagePath>chara_business.png</imagePath>
 	<pixelSize>128 256</pixelSize>
 	<overrideTexSettings>0</overrideTexSettings>
 	<wrapMode>clamp</wrapMode>
 	<filterMode>linear</filterMode>
-	<imagePathAtImport>C:/Users/叡/Desktop/Character_test/chara_bussiness.png</imagePathAtImport>
+	<imagePathAtImport>D:/作品/RGS Feb/RGS/RGS_Feb/RGS_Feb/Content/SpriteStudio/Character_base/chara_business.png</imagePathAtImport>
 	<packInfoFilePath></packInfoFilePath>
 	<texPackSettings>
 		<maxSize>4096 4096</maxSize>

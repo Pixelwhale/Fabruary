@@ -5,6 +5,7 @@
 //-------------------------------------------------------------
 #pragma once
 #include <Device\game_device.h>
+#include <Device\MotionSystem\motion.h>
 
 class Background
 {
@@ -23,6 +24,7 @@ public:
 private:
 	Device::Random* m_random;					//Random
 	shared_ptr<Device::Renderer> m_renderer;	//Renderer
+	shared_ptr<MotionSystem::Motion> m_motion;	//motion;
 
 	float m_light_alpha;						//Light‚Ì–¾“x
 	float m_pc_light = 0.5f;					//PcLight‚Ì–¾“x
