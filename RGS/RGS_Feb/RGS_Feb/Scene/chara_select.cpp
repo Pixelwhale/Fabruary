@@ -197,11 +197,11 @@ void CharaSelect::PadSelect(int player_num, int pad_num)
 			m_player[player_num].occupied = false;
 			m_controller[pad_num] = false;
 		}
-		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_RIGHT))
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_RIGHT) || m_input->IsPadStickTrigger(pad_num, Vector2(0.7f, 0)))
 		{
 			++m_player[player_num].job;
 		}
-		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT))
+		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT) || m_input->IsPadStickTrigger(pad_num, Vector2(-0.7f, 0)))
 		{
 			--m_player[player_num].job;
 		}
