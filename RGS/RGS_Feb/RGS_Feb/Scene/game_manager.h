@@ -22,7 +22,7 @@ namespace Scene
 		Side m_side;
 		std::shared_ptr<Job::JobBase> m_job;
 		std::shared_ptr<Character::VirtualController> m_controller;
-		std::shared_ptr<Character::AiController> m_ai_controller;
+		std::shared_ptr<Character::VirtualController> m_ai_controller;
 		int m_difficulty;
 	};
 
@@ -50,7 +50,7 @@ namespace Scene
 		void AddSelectAI(
 			std::shared_ptr<Job::JobBase> job,
 			Side side,
-			std::shared_ptr<Character::AiController> controller,
+			std::shared_ptr<Character::VirtualController> controller,
 			int difficulty);
 
 		///<summary>キャラクター選択情報を取得</summary>

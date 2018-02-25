@@ -17,7 +17,7 @@ namespace AI
 	class AiStateManager 
 	{
 	public:
-		AiStateManager(int difficulty, std::shared_ptr<Character::AiController> controller);
+		AiStateManager(int difficulty, std::shared_ptr<Character::VirtualController> controller);
 		AiStateManager(const AiStateManager&);
 		~AiStateManager();
 

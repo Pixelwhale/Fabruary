@@ -11,8 +11,8 @@
 
 using namespace AI;
 
-AiStateManager::AiStateManager(int difficulty, std::shared_ptr<Character::AiController> controller)
-	:m_difficulty(difficulty), m_controller(controller)
+AiStateManager::AiStateManager(int difficulty, std::shared_ptr<Character::VirtualController> controller)
+	:m_difficulty(difficulty), m_controller(std::static_pointer_cast<Character::AiController>(controller))
 {
 }
 

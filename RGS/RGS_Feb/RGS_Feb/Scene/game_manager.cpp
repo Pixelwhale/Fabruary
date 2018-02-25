@@ -41,7 +41,7 @@ void GameManager::AddSelectCharacter(
 void GameManager::AddSelectAI(
 	std::shared_ptr<Job::JobBase> job,
 	Side side,
-	std::shared_ptr<Character::AiController> controller,
+	std::shared_ptr<Character::VirtualController> controller,
 	int difficulty)
 {
 	SelectInfo info;					//infoéŒ¾

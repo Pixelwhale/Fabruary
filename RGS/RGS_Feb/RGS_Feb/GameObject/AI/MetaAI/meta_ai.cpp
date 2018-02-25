@@ -22,7 +22,7 @@ MetaAI::~MetaAI()
 }
 
 void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, 
-	std::shared_ptr<Character::AiController>controller, int difficulty)
+	std::shared_ptr<Character::VirtualController>controller, int difficulty)
 {
 	std::shared_ptr<AiStateManager> ai = make_shared<AiStateManager>(difficulty, controller);						//AIéŒ¾
 
