@@ -25,10 +25,9 @@ void CharaSelect::Initialize(SceneType previous)
 	SceneBase::Initialize(previous);
 	m_scene_state = kStartAnim;
 	m_player = new Player[4];
-	for (int i = 0;i < 5;++i)
-	{
-		m_controller[i] = false;
-	}
+
+	//note: 値を変更したいなら、&が必要
+	for (auto &c : m_controller) c = false;
 }
 
 void CharaSelect::Update()
@@ -245,12 +244,16 @@ void CharaSelect::AddChara()
 		{
 		case 0:
 			side = kTeam1;
+			break;
 		case 1:
 			side = kTeam2;
+			break;
 		case 2:
 			side = kTeam3;
+			break;
 		case 3:
 			side = kTeam4;
+			break;
 		}
 		std::shared_ptr<JobBase> job;
 		switch (m_player[player_num].job % 4)
