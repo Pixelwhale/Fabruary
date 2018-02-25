@@ -12,6 +12,7 @@
 #include <Character\Controller\character_controller.h>
 #include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
+#include <GameObject\UI\chara_hp_ui.h>
 #include <GameObject\AttackSystem\attack_mediator.h>
 #include <GameObject\AttackSystem\attack.h>
 #include <System\gravity.h>
@@ -57,6 +58,9 @@ namespace Character
 		void StateUpdate();			//状態の更新
 		void KnockCntUpdate();		//倒れ値カウント更新
 		void PositionUpdate();		//位置の更新
+			
+		void ChangeSheet();			//キャラクター画像判定
+		void SetColor();			//色設定
 
 	private:
 		int		m_hp;				
@@ -70,6 +74,7 @@ namespace Character
 		int		m_intro_cnt;		//登場カウント
 		float	m_speed;
 		int		m_id;
+		int		m_character_face;	//UI用
 
 		bool	m_isIntro_end;		//登場が終わったか
 		bool	m_isDead;
@@ -92,6 +97,7 @@ namespace Character
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
 		std::shared_ptr<Job::JobBase>			m_job;
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
+		std::shared_ptr<UI::HpUI>				m_ui;
 		System::Gravity							m_gravity;
 	};
 
