@@ -35,6 +35,7 @@ CharacterBase::~CharacterBase()
 	m_motion = NULL;
 	m_job = NULL;
 	m_attack_mediator = NULL;
+	m_ui = NULL;
 }
 
 //初期化
@@ -64,62 +65,9 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_motion->SetScale(Math::Vector2(1.0f, 1.0f));
 	m_motion->Play("chara_base_anime/idle");
 	m_state = CharacterState::kIdle;
-	//キャラクター画像判定
-	if (typeid(*m_job) == typeid(Job::Programmer))
-	{
-		m_motion->ChangeSpriteSheet("chara_programmer");
-	}
-	else if (typeid(*m_job) == typeid(Job::Business))
-	{
-		m_motion->ChangeSpriteSheet("chara_bussiness");
-	}
-	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
-	{
-		m_motion->ChangeSpriteSheet("chara_designer");
-	}
-	else 
-	{
-		m_motion->ChangeSpriteSheet("chara_planner");
-	}
-	
-	//色設定
-	Color m_color = Color(1.0f,1.0f,1.0f,1.0f);
-	if (m_side == Side::kNoTeam)		//オレンジ
-	{
-		m_color = Color(220,121,0);
-		m_motion->SetColor(m_color);
-		m_color = Color(255, 230, 215);
-		m_controller->SetTagColor(m_color);
-	}
-	else if (m_side == Side::kTeam1)	//緑
-	{
-		m_color = Color(36,220,36);
-		m_motion->SetColor(m_color);
-		m_color = Color(219, 255, 219);
-		m_controller->SetTagColor(m_color);
-	}
-	else if (m_side == Side::kTeam2)	//青
-	{
-		m_color = Color(49,220,220);
-		m_motion->SetColor(m_color);
-		m_color = Color(180, 255, 255);
-		m_controller->SetTagColor(m_color);
-	}
-	else if (m_side == Side::kTeam3)	//黄
-	{
-		m_color = Color(220,220,49);
-		m_motion->SetColor(m_color);
-		m_color = Color(255, 255, 180);
-		m_controller->SetTagColor(m_color);
-	}
-	else if (m_side == Side::kTeam4)	//赤
-	{
-		m_color = Color(220,49,16);
-		m_motion->SetColor(m_color);
-		m_color = Color(255,210 ,210);
-		m_controller->SetTagColor(m_color);
-	}
-
+	m_ui = make_shared<UI::HpUI>();
+	ChangeSheet();			//キャラクターシート判定
+	SetColor();				//色設定
 }
 
 //更新
@@ -170,6 +118,7 @@ void CharacterBase::Draw()
 	{
 		m_controller->Draw();
 	}
+	m_ui->Draw((float)m_hp / (float)(m_job->GetHp()), (float)m_mp / 6000.0f,m_character_face);
 	m_motion->Draw();
 	//Device::GameDevice::GetInstance()->GetRenderer()->DrawString(std::to_string(m_position.x), Math::Vector2(m_position.x + 500, 0));
 }
@@ -258,6 +207,84 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 		}
 	}
 }
+
+//キャラクター画像判定
+void CharacterBase::ChangeSheet()
+{
+	if (typeid(*m_job) == typeid(Job::Programmer))
+	{
+		m_character_face = 3;
+		m_motion->ChangeSpriteSheet("chara_programmer");
+	}
+	else if (typeid(*m_job) == typeid(Job::Business))
+	{
+		m_character_face = 1;
+		m_motion->ChangeSpriteSheet("chara_bussiness");
+	}
+	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
+	{
+		m_character_face = 2;
+		m_motion->ChangeSpriteSheet("chara_designer");
+	}
+	else
+	{
+		m_character_face = 0;
+		m_motion->ChangeSpriteSheet("chara_planner");
+	}
+}
+
+//色設定
+void CharacterBase::SetColor()
+{
+	Color m_color_character = Color(1.0f, 1.0f, 1.0f, 1.0f);
+	Color m_color_team = Color(1.0f, 1.0f, 1.0f, 1.0f);
+	if (m_side == Side::kNoTeam)		//オレンジ
+	{
+		m_color_character = Color(220, 121, 0);
+		m_color_team = Color(255, 230, 215);
+		m_motion->SetColor(m_color_character);
+		m_ui->SetColor(m_color_character, m_color_team);
+		m_ui->SetPosition(Math::Vector2(-100,0));
+		m_controller->SetTagColor(m_color_team);
+	}
+	else if (m_side == Side::kTeam1)	//緑
+	{
+		m_color_character = Color(36, 220, 36);
+		m_color_team = Color(219, 255, 219);
+		m_motion->SetColor(m_color_character);
+		m_ui->SetColor(m_color_character, m_color_team);
+		m_ui->SetPosition(Math::Vector2(0, 0));
+		m_controller->SetTagColor(m_color_team);
+	}
+	else if (m_side == Side::kTeam2)	//青
+	{
+		m_color_character = Color(49, 220, 220);
+		m_color_team = Color(180, 255, 255);
+		m_motion->SetColor(m_color_character);
+		m_ui->SetColor(m_color_character, m_color_team);
+		m_ui->SetPosition(Math::Vector2(300, 0));
+		m_controller->SetTagColor(m_color_team);
+	}
+	else if (m_side == Side::kTeam3)	//黄
+	{
+		m_color_character = Color(220, 220, 49);
+		m_color_team = Color(255, 255, 180);
+		m_motion->SetColor(m_color_character);
+		m_ui->SetColor(m_color_character, m_color_team);
+		m_ui->SetPosition(Math::Vector2(600, 0));
+		m_controller->SetTagColor(m_color_team);
+	}
+	else if (m_side == Side::kTeam4)	//赤
+	{
+		m_color_character = Color(220, 49, 16);
+		m_color_team = Color(255, 210, 210);
+		m_motion->SetColor(m_color_character);
+		m_ui->SetColor(m_color_character, m_color_team);
+		m_ui->SetPosition(Math::Vector2(900, 0));
+		m_controller->SetTagColor(m_color_team);
+	}
+}
+
 
 #pragma region 更新関連
 //登場更新
