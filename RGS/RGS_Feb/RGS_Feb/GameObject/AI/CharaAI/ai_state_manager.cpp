@@ -11,10 +11,9 @@
 
 using namespace AI;
 
-AiStateManager::AiStateManager(int difficulty, int player_num)
-	:m_difficulty(difficulty)
+AiStateManager::AiStateManager(int difficulty, std::shared_ptr<Character::AiController> controller)
+	:m_difficulty(difficulty), m_controller(controller)
 {
-	m_controller = std::make_shared<Character::AiController>(player_num);
 }
 
 AiStateManager::AiStateManager(const AiStateManager&) 
@@ -42,10 +41,6 @@ void AiStateManager::Update(MetaAI* meta_ai)
 	}
 }
 
-std::shared_ptr<Character::AiController> AiStateManager::Controller() 
-{
-	return m_controller;
-}
 
 void AiStateManager::SetCharaInfo(std::shared_ptr<Character::CharacterBase> character) 
 {

@@ -21,13 +21,14 @@ MetaAI::~MetaAI()
 	Clear();
 }
 
-void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, int difficulty, int player_num)
+void MetaAI::AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, 
+	std::shared_ptr<Character::AiController>controller, int difficulty)
 {
-	std::shared_ptr<AiStateManager> ai = make_shared<AiStateManager>(difficulty, player_num);						//AI宣言
+	std::shared_ptr<AiStateManager> ai = make_shared<AiStateManager>(difficulty, controller);						//AI宣言
 
 	std::shared_ptr<Character::CharacterBase> character =				//キャラクター生成
 		m_character_manager->Add(
-			position, side, ai->Controller(), job, m_attack_manager);
+			position, side, controller, job, m_attack_manager);
 
 	ai->SetCharaInfo(character);										//AIに任す
 

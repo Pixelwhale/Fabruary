@@ -17,15 +17,13 @@ namespace AI
 	class AiStateManager 
 	{
 	public:
-		AiStateManager(int difficulty, int player_num);
+		AiStateManager(int difficulty, std::shared_ptr<Character::AiController> controller);
 		AiStateManager(const AiStateManager&);
 		~AiStateManager();
 
 		///<summary>Aiの操作更新</summary>
 		void Update(MetaAI* meta_ai);
 
-		///<summary>キャラ生成する時に必要なコントローラー</summary>
-		std::shared_ptr<Character::AiController> Controller();
 		///<summary>実機状態を取得できるように設定</summary>
 		void SetCharaInfo(std::shared_ptr<Character::CharacterBase> character);
 

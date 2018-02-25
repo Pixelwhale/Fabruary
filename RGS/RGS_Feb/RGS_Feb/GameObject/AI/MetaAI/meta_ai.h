@@ -24,7 +24,8 @@ namespace AI
 		///<param name="side">チーム</param>
 		///<param name="job">ジョッブ</param>
 		///<param name="difficulty">難易度</param>
-		void AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, int difficulty, int player_num);
+		void AddCom(Math::Vector3 position, Side side, std::shared_ptr<Job::JobBase> job, 
+			std::shared_ptr<Character::AiController>controller, int difficulty);
 		///<summary>解放処理</summary>
 		void Clear();
 		///<summary>更新処理</summary>

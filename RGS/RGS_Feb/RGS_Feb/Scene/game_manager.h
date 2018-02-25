@@ -5,6 +5,7 @@
 //-------------------------------------------------------------
 #pragma once
 #include <Character\Controller\character_controller.h>
+#include <Character\Controller\ai_controller.h>
 #include <Character\side.h>
 #include <memory>
 #include <vector>
@@ -21,8 +22,8 @@ namespace Scene
 		Side m_side;
 		std::shared_ptr<Job::JobBase> m_job;
 		std::shared_ptr<Character::VirtualController> m_controller;
+		std::shared_ptr<Character::AiController> m_ai_controller;
 		int m_difficulty;
-		int m_player_num;
 	};
 
 	class GameManager
@@ -49,7 +50,7 @@ namespace Scene
 		void AddSelectAI(
 			std::shared_ptr<Job::JobBase> job,
 			Side side,
-			int player_num,
+			std::shared_ptr<Character::AiController> controller,
 			int difficulty);
 
 		///<summary>キャラクター選択情報を取得</summary>
