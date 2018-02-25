@@ -6,6 +6,7 @@
 #pragma once
 #include <DX\DXLib\DxLib.h>
 #include <Math\vector3.h>
+#include <Math\vector2.h>
 
 namespace Core
 {
@@ -55,6 +56,11 @@ namespace Core
 		///	<summary>Left Stickの倒し具合(ゲーム対応でX、Z軸にした)</summary>
 		/// <param name="pad_num">Pad番号（0～3）</param>
 		Math::Vector3 GetLeftStick(int pad_num);
+
+		///	<summary>Left Stickが特定の方向にどれくらい変化したか</summary>
+		/// <param name="pad_num">Pad番号（0～3）</param>
+		/// <param name="dir_amount">前フレームとの方向差</param>
+		bool IsPadStickTrigger(int pad_num, Math::Vector2 dir_amount);
 
 #pragma endregion
 

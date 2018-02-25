@@ -140,4 +140,27 @@ Math::Vector3 InputState::GetLeftStick(int pad_num)
 	return Math::Vector3(x, 0, y);
 }
 
+bool InputState::IsPadStickTrigger(int pad_num, Math::Vector2 dir_amount) 
+{
+	float current_x = m_current_pad_state[pad_num].ThumbLX / 32767.0f;
+	float current_y = m_current_pad_state[pad_num].ThumbLY / 32767.0f;
+	float previous_x = m_previous_pad_state[pad_num].ThumbLX / 32767.0f;
+	float previous_y = m_previous_pad_state[pad_num].ThumbLY / 32767.0f;
+
+	float diff_x = current_x - previous_x;
+	float diff_y = current_y - previous_y;
+
+	if (dir_amount.x > 0 && diff_x > dir_amount.x)
+		return true;
+	if (dir_amount.y > 0 && diff_y > dir_amount.y)
+		return true;
+
+	if (dir_amount.x < 0 && diff_x < dir_amount.x)
+		return true;
+	if (dir_amount.y < 0 && diff_y < dir_amount.y)
+		return true;
+
+	return false;
+}
+
 #pragma endregion
