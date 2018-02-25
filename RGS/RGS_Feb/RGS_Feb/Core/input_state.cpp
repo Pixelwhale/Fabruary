@@ -59,12 +59,12 @@ bool InputState::IsKeyTrigger(unsigned int key_input)
 }
 
 //KeyboardのVelocityを取得
-Math::Vector3 InputState::GetKeyBoardVelocity() 
+Math::Vector3 InputState::GetKeyBoardVelocity()
 {
 	Math::Vector3 velocity = Math::Vector3();
 	if (IsKeyDown(KEY_INPUT_UP))
 		velocity.z += 1;
-	if(IsKeyDown(KEY_INPUT_DOWN))
+	if (IsKeyDown(KEY_INPUT_DOWN))
 		velocity.z -= 1;
 	if (IsKeyDown(KEY_INPUT_RIGHT))
 		velocity.x += 1;
@@ -79,12 +79,12 @@ Math::Vector3 InputState::GetKeyBoardVelocity()
 #pragma region Pad
 
 //PadState更新
-void InputState::UpdatePad() 
+void InputState::UpdatePad()
 {
 #pragma region 旧パッドState更新
-	for (int i = 0; i < 4; i++) 
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 16; j++) 
+		for (int j = 0; j < 16; j++)
 		{
 			m_previous_pad_state[i].Buttons[j] = m_current_pad_state[i].Buttons[j];
 		}
@@ -106,25 +106,25 @@ void InputState::UpdatePad()
 }
 
 //現在接続しているパッド数
-int InputState::CurrentPadCount() 
+int InputState::CurrentPadCount()
 {
 	return GetJoypadNum();
 }
 
 //指定のパッドのボタンが押されているか
-bool InputState::IsPadButtonDown(int pad_num, unsigned char xinput_button) 
+bool InputState::IsPadButtonDown(int pad_num, unsigned char xinput_button)
 {
 	return m_current_pad_state[pad_num].Buttons[xinput_button] == 1;
 }
 
 //指定のボタンがこのフレームで押されているか
-bool InputState::IsPadButtonTrigger(int pad_num, unsigned char xinput_button) 
+bool InputState::IsPadButtonTrigger(int pad_num, unsigned char xinput_button)
 {
 	return m_previous_pad_state[pad_num].Buttons[xinput_button] == 0 && IsPadButtonDown(pad_num, xinput_button);
 }
 
 //Left Stickの倒し具合
-Math::Vector3 InputState::GetLeftStick(int pad_num) 
+Math::Vector3 InputState::GetLeftStick(int pad_num)
 {
 	float x = m_current_pad_state[pad_num].ThumbLX / 32767.0f;
 	float y = m_current_pad_state[pad_num].ThumbLY / 32767.0f;
@@ -140,27 +140,32 @@ Math::Vector3 InputState::GetLeftStick(int pad_num)
 	return Math::Vector3(x, 0, y);
 }
 
-bool InputState::IsPadStickTrigger(int pad_num, Math::Vector2 dir_amount) 
+bool InputState::IsPadStickTrigger(int pad_num, Math::Vector2 dir_amount)
 {
 	float current_x = m_current_pad_state[pad_num].ThumbLX / 32767.0f;
 	float current_y = m_current_pad_state[pad_num].ThumbLY / 32767.0f;
 	float previous_x = m_previous_pad_state[pad_num].ThumbLX / 32767.0f;
 	float previous_y = m_previous_pad_state[pad_num].ThumbLY / 32767.0f;
 
-	float diff_x = current_x - previous_x;
-	float diff_y = current_y - previous_y;
+	float abs_x = dir_amount.x > 0 ? dir_amount.x : -dir_amount.x;
+	float abs_y = dir_amount.y > 0 ? dir_amount.y : -dir_amount.y;
 
-	if (dir_amount.x > 0 && diff_x > dir_amount.x)
-		return true;
-	if (dir_amount.y > 0 && diff_y > dir_amount.y)
-		return true;
+	//指定のX変化量がYより多い
+	if (abs_x > abs_y)
+	{
+		//指定のXが正数の場合、このフレームが超える、前のフレームは小なり
+		if (dir_amount.x > 0)
+			return current_x > dir_amount.x && previous_x < dir_amount.x;
 
-	if (dir_amount.x < 0 && diff_x < dir_amount.x)
-		return true;
-	if (dir_amount.y < 0 && diff_y < dir_amount.y)
-		return true;
+		//指定のXが負数の場合、このフレームが小なり、前のフレームは大なり
+		return current_x < dir_amount.x && previous_x > dir_amount.x;
+	}
 
-	return false;
+	//Y変化を求める場合
+	if (dir_amount.y > 0)
+		return current_y > dir_amount.y && previous_y < dir_amount.y;
+
+	return current_y < dir_amount.y && previous_y > dir_amount.y;
 }
 
 #pragma endregion

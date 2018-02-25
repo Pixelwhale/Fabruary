@@ -69,11 +69,7 @@ bool TitleState::Down()
 		{
 			return true;
 		}
-		/*if (m_input->GetLeftStick(i).z < -0.95f)
-		{
-			return true;
-		}*/
-		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, -0.4f)))
+		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, -0.7f)))
 			return true;
 	}
 	return false;
@@ -92,11 +88,7 @@ bool TitleState::Up()
 		{
 			return true;
 		}
-		//if (m_input->GetLeftStick(i).z > 0.95f)
-		//{
-		//	return true;
-		//}
-		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, 0.4f)))
+		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, 0.7f)))
 			return true;
 	}
 	return false;
