@@ -4,6 +4,7 @@
 // 内容　：キャラクターマネージャー
 //-------------------------------------------------------
 #include<Character\character_manager.h>
+#include<Def\character_color.h>
 
 using namespace Character;
 
@@ -16,6 +17,8 @@ void CharacterManager::Initialize()
 {
 	m_character_list.clear();
 	m_add_characters.clear();
+	m_ui_list.clear();
+	m_hp_ui = std::make_shared<UI::HpUI>();
 }
 
 std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Side side,
@@ -27,6 +30,7 @@ std::shared_ptr<CharacterBase> CharacterManager::Add(Math::Vector3 position, Sid
 											(position, side, m_id,controller,job, attackMediator);
 	character->Initialize(position);
 	m_add_characters.push_back(character);
+	m_ui_list.push_back(character);
 	m_id++;
 	return character;
 }
@@ -99,25 +103,43 @@ void CharacterManager::Draw()
 	{
 		c->Draw();
 	}
+	for (auto c : m_ui_list)
+	{
+		m_hp_ui->SetPosition(CharacterColor::GetUIPosition(c->GetSide()));
+		m_hp_ui->SetColor(CharacterColor::GetTeamColor(c->GetSide()),
+			              CharacterColor::GetIconColor(c->GetSide()));
+		if (c->IsDead())
+		{
+			Color colorDead = Color(88,88,88);
+			m_hp_ui->SetColor(colorDead,colorDead);
+		}
+		m_hp_ui->Draw((float)c->GetHp() / (float)c->GetMaxHp(),
+					  (float)c->GetMp() / 6000.0f, c->GetFaceNum());
+	}
+	
 }
 
 //Clear
 void CharacterManager::Clear()
 {
-	//m_character_list.clear();
-	//m_add_characters.clear();
 	std::vector<std::shared_ptr<CharacterBase>>::iterator it;
 	for (it = m_character_list.begin(); it != m_character_list.end();)
 	{
-		it = m_character_list.erase(it);
+		(*it) = NULL;
 	}
-	m_character_list.erase(m_character_list.end());
+	m_character_list.clear();
 	for (it = m_add_characters.begin(); it != m_add_characters.end();)
 	{
-		it = m_add_characters.erase(it);
+		(*it) = NULL;
 	}
-	m_add_characters.erase(m_add_characters.end());
+	m_add_characters.clear();
+	for (it = m_ui_list.begin(); it != m_ui_list.end();)
+	{
+		(*it) = NULL;
+	}
+	m_ui_list.clear();
 
+	m_hp_ui = NULL;
 }
 
 //キャラクターリストの取得
