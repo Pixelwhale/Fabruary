@@ -45,7 +45,7 @@ void CharaSelect::Update()
 	{
 	case kStartAnim:
 		m_timer.Update();
-		m_ui_alpha = m_timer.Rate();
+		m_ui_alpha = 1 - m_timer.Rate();
 		if (m_timer.IsTime()) m_scene_state = kJobSelect;
 		break;
 	case kJobSelect:
@@ -98,7 +98,7 @@ void CharaSelect::Update()
 		break;
 	case kEndAnim:
 		m_timer.Update();
-		m_ui_alpha = 1 - m_timer.Rate();
+		m_ui_alpha = m_timer.Rate();
 		if (m_timer.IsTime())
 		{
 			m_is_end = true;
