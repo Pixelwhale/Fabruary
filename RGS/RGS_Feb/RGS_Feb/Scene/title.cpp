@@ -4,6 +4,7 @@
 // 内容　：TitleScene, Effect追加
 //-------------------------------------------------------
 #include <Scene\title.h>
+#include <Def\window_def.h>
 
 using namespace Scene;
 
@@ -16,6 +17,8 @@ Title::Title(shared_ptr<Background> background, std::shared_ptr<SceneEffect> sce
 void Title::Initialize(SceneType previous)
 {
 	SceneBase::Initialize(previous);
+	m_title_alpha = 0.0f;
+	m_title_switch = true;
 
 	InitSceneEffect();
 	SetWinner();
@@ -33,7 +36,6 @@ void Title::InitMenu()
 
 void Title::InitSceneEffect()
 {
-	//m_scene_effect = make_shared<SceneEffect>();
 	m_scene_effect->Zoom(false);
 
 	if (m_previous == SceneType::kCharaSelect)
@@ -52,7 +54,22 @@ void Title::Update()
 	m_scene_effect->Update();				//Effect更新
 	m_title_menu->Update();					//Menu更新
 
+	UpdateTitle();
+
 	CheckEnd();								//終了チェック
+}
+
+void Title::UpdateTitle() 
+{
+	if (m_title_switch)
+	{
+		m_title_alpha += 0.07f;
+		m_title_alpha = (m_title_alpha >= 1.0f) ? 1.0f : m_title_alpha;
+	}
+	else
+	{
+		m_title_alpha -= 0.07f;
+	}
 }
 
 void Title::CheckEnd()
@@ -66,10 +83,20 @@ void Title::CheckEnd()
 
 	if (m_title_menu->IsEnd())
 	{
+		m_title_switch = false;
+
 		//CharacterSelectならはEffect入る
 		if (m_title_menu->NextScene() == SceneType::kCharaSelect)
 		{
 			m_scene_effect->Zoom(true);
+			return;
+		}
+
+		if (m_title_menu->NextScene() == SceneType::kTutorial)
+		{
+			m_next = m_title_menu->NextScene();
+			if(m_title_alpha <= 0.0f)
+				m_is_end = true;
 			return;
 		}
 
@@ -88,6 +115,8 @@ void Title::Draw()
 	m_background->DrawFront();				//前景
 
 	m_title_menu->Draw();
+	m_renderer->DrawTexture("title",
+		Math::Vector2(WindowDef::kScreenWidth / 2 - 320, 60), m_title_alpha);
 
 	m_renderer->DrawBloom();				//BloomEffect
 	m_scene_effect->DrawEffect();			//DrawSceneChangeEffect
@@ -97,6 +126,4 @@ void Title::Shutdown()
 {
 	m_title_menu->Clear();
 	m_title_menu = NULL;
-
-	//m_scene_effect = NULL;
 }

@@ -16,6 +16,8 @@ Loading::Loading()
 
 void Loading::LoadContents()
 {
+	m_content->LoadTexture("title", ".png");
+
 	m_content->LoadTexture("background", ".png");
 	m_content->LoadTexture("background_light", ".png");
 	m_content->LoadTexture("background_front", ".png");

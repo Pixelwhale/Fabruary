@@ -31,6 +31,8 @@ namespace Scene
 		void InitMenu();
 		///<summary>Winner‚ğ”wŒi‚Éİ’è</summary>
 		void SetWinner();
+		///<summary>Title‰æ‘œXV</summary>
+		void UpdateTitle();
 
 	private:
 		std::shared_ptr<GameManager> m_game_manager;		//GameManager
@@ -38,5 +40,8 @@ namespace Scene
 		shared_ptr<SceneEffect> m_scene_effect;				//SceneChangeEffect
 
 		shared_ptr<UI::TitleStateManager> m_title_menu;		//TitleMenu
+
+		float m_title_alpha;
+		bool m_title_switch = true;
 	};
 }
