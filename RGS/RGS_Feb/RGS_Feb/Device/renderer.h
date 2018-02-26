@@ -53,6 +53,16 @@ namespace Device
 		///<param name="texture_name">Asset名</param>
 		///<param name="index">何枚目</param>
 		///<param name="position">描画位置</param>
+		///<param name="size">大きさ</param>
+		///<param name="alpha">透明度</param>
+		void DrawMotion(std::string texture_name, int index, 
+			Math::Vector2 position, Math::Vector2 size,float alpha = 1.0f);
+
+
+		///<summary>Textureを描画</summary>
+		///<param name="texture_name">Asset名</param>
+		///<param name="index">何枚目</param>
+		///<param name="position">描画位置</param>
 		///<param name="color">色</param>
 		///<param name="alpha">透明度</param>
 		void DrawMotion(std::string texture_name, int index, 

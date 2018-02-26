@@ -179,6 +179,29 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 }
 
 void Renderer::DrawMotion(std::string texture_name, int index,
+	Math::Vector2 position, Math::Vector2 size, float alpha = 1.0f)
+{
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
+
+	int texture_pivot_x, texture_pivot_y;
+	GetGraphSize(m_contents->MotionHandle(texture_name, index), 
+		&texture_pivot_x, &texture_pivot_y);
+
+	size.x *= texture_pivot_x;
+	size.y *= texture_pivot_y;
+	texture_pivot_x /= 2;
+	texture_pivot_y /= 2;
+
+	DrawRotaGraph3((int)position.x, (int)position.y, texture_pivot_x, texture_pivot_y,
+		size.x, size.y, 0, m_contents->MotionHandle(texture_name, index), true, false);
+
+	SetDrawBright(255, 255, 255);						//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
+}
+
+void Renderer::DrawMotion(std::string texture_name, int index,
 	Math::Vector2 position, Color color, float alpha)
 {
 	int bright = 255.0f * alpha;
