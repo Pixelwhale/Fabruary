@@ -33,6 +33,8 @@ namespace Scene
 		GameManager(const GameManager&);
 		~GameManager();
 
+#pragma region キャラクター選択関連
+
 		///<summary>キャラクター選択情報を追加</summary>
 		///<param name="job">ジョッブ、キャラ</param>
 		///<param name="side">Team</param>
@@ -58,16 +60,33 @@ namespace Scene
 
 		///<summary>Listをクリア</summary>
 		void Clear();
+#pragma endregion
+
+#pragma region Pause関連
 
 		///<summary>Pauseが押されたか</summary>
 		bool IsPause();
 		///<summary>Pauseを押したキャラ</summary>
 		std::shared_ptr<Character::VirtualController> PauseController();
 
+#pragma endregion
+
+#pragma region Winner関連
+
+		///<summary>勝利者を設定</summary>
+		void SetWinner(std::vector<shared_ptr<MotionSystem::Motion>> motion);
+		///<summary>勝利者のモーションを取得</summary>
+		std::vector<shared_ptr<MotionSystem::Motion>> WinnerMotion();
+		///<summary>モーションを削除</summary>
+		void ClearWinnerMotion();
+
+#pragma endregion
+
 	private:
 		std::vector<SelectInfo> m_player_info;										//キャラクター選択情報
 		std::vector<std::shared_ptr<Character::VirtualController>> m_controller;	//コントローラー
 
 		std::shared_ptr<Character::VirtualController> m_pause_controller;			//Pauseを押したコントローラー
+		std::vector<shared_ptr<MotionSystem::Motion>> m_winner_motion;				//WinnerMotion
 	};
 }

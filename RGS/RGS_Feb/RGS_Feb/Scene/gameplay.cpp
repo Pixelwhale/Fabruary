@@ -14,8 +14,8 @@
 
 using namespace Scene;
 
-GamePlay::GamePlay(std::shared_ptr<GameManager> game_manager)
-	:m_game_manager(game_manager)
+GamePlay::GamePlay(shared_ptr<Background> background, std::shared_ptr<GameManager> game_manager)
+	:m_background(background), m_game_manager(game_manager)
 {
 }
 
@@ -28,7 +28,6 @@ void GamePlay::Initialize(SceneType previous)
 		previous == SceneType::kGamePlay)
 		return;
 
-	m_background = make_shared<Background>();
 	m_scene_effect = make_shared<SceneEffect>();
 	m_scene_effect->Zoom(false);
 	m_scene_effect->SetZoomRate(5.0f);
@@ -144,7 +143,6 @@ void GamePlay::Shutdown()
 	m_character_manager = NULL;
 	m_attack_manager->Initialize();
 	m_attack_manager = NULL;
-	m_background = NULL;
 	m_scene_effect = NULL;
 	m_game_manager->Clear();
 }

@@ -7,7 +7,8 @@
 
 using namespace Scene;
 
-Title::Title()
+Title::Title(shared_ptr<Background> background, std::shared_ptr<GameManager> game_manager)
+	:m_background(background), m_game_manager(game_manager)
 {
 	m_next = kGamePlay;
 }
@@ -16,7 +17,6 @@ void Title::Initialize(SceneType previous)
 {
 	SceneBase::Initialize(previous);
 
-	m_background = make_shared<Background>();
 	InitSceneEffect();
 
 	m_title_menu = make_shared<UI::TitleStateManager>();
@@ -84,6 +84,5 @@ void Title::Shutdown()
 	m_title_menu->Clear();
 	m_title_menu = NULL;
 
-	m_background = NULL;
 	m_scene_effect = NULL;
 }

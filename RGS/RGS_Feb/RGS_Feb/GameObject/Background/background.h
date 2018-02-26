@@ -21,6 +21,8 @@ public:
 	///<summary>前景を描画</summary>
 	void DrawFront();
 
+	void SetWinner(vector<shared_ptr<MotionSystem::Motion>> winners);
+
 private:
 	void InitializeMotion();
 
@@ -37,4 +39,6 @@ private:
 	float m_light_alpha;						//Lightの明度
 	float m_pc_light = 0.5f;					//PcLightの明度
 	bool m_pc_alpha_switch = true;				//点滅のFlag
+
+	vector<shared_ptr<MotionSystem::Motion>> m_winner_motion;		//前回勝った人の勝利ポーズ
 };

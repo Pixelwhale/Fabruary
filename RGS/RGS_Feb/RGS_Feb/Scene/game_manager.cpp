@@ -22,6 +22,8 @@ GameManager::~GameManager()
 	Clear();
 }
 
+#pragma region キャラクター選択関連
+
 void GameManager::AddSelectCharacter(
 	std::shared_ptr<Job::JobBase> job,
 	Side side,
@@ -77,6 +79,10 @@ void GameManager::Clear()
 	m_controller.clear();
 }
 
+#pragma endregion
+
+#pragma region Pause関連
+
 bool GameManager::IsPause() 
 {
 	for (auto &controller : m_controller) 
@@ -95,3 +101,25 @@ std::shared_ptr<Character::VirtualController> GameManager::PauseController()
 {
 	return m_pause_controller;
 }
+
+#pragma endregion
+
+#pragma region Winner関連
+
+
+void GameManager::SetWinner(std::vector<shared_ptr<MotionSystem::Motion>> motion)
+{
+	m_winner_motion = motion;
+}
+
+std::vector<shared_ptr<MotionSystem::Motion>> GameManager::WinnerMotion() 
+{
+	return m_winner_motion;
+}
+
+void GameManager::ClearWinnerMotion() 
+{
+	m_winner_motion.clear();
+}
+
+#pragma endregion

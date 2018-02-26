@@ -98,6 +98,11 @@ void Background::InitializeMotion()
 
 void Background::Update()
 {
+	for (auto &winner : m_winner_motion)
+	{
+		winner->Update();		//TodoFPose•ÏX
+	}
+
 	m_light_alpha = m_random->NextDouble() + 0.7f;
 
 	if (m_pc_alpha_switch)
@@ -121,6 +126,14 @@ void Background::Update()
 	m_designer->Update();
 }
 
+void Background::SetWinner(vector<shared_ptr<MotionSystem::Motion>> winners)
+{
+	if (winners.size() <= 0)		//‚È‚¢ê‡‚Íã‘‚«‚µ‚È‚¢
+		return;
+
+	m_winner_motion = winners;
+}
+
 void Background::DrawBack()
 {
 	m_renderer->DrawTexture("background", Math::Vector2());
@@ -133,6 +146,11 @@ void Background::DrawBack()
 
 	m_designer->Draw();
 	m_walk->Draw();
+
+	for (auto &winner : m_winner_motion) 
+	{
+		winner->Draw();
+	}
 }
 
 void Background::DrawFront()

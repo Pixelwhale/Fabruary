@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #pragma once
 #include <Scene\scene_base.h>
+#include <Scene\game_manager.h>
 #include <GameObject\Background\background.h>
 #include <GameObject\Background\change_scene_effect.h>
 #include <GameObject\UI\title_state_manager.h>
@@ -14,7 +15,8 @@ namespace Scene
 	class Title : public SceneBase
 	{
 	public:
-		Title();
+		Title(shared_ptr<Background> background, 
+			std::shared_ptr<GameManager> game_manager);
 		void Initialize(SceneType previous);
 		void Update();
 		void Draw();
@@ -27,6 +29,7 @@ namespace Scene
 		void InitSceneEffect();
 
 	private:
+		std::shared_ptr<GameManager> m_game_manager;		//GameManager
 		shared_ptr<Background> m_background;				//îwåi
 		shared_ptr<SceneEffect> m_scene_effect;				//SceneChangeEffect
 
