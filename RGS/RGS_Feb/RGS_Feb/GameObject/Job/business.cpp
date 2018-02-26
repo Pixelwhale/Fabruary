@@ -35,17 +35,17 @@ std::string Business::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 0, 0, 20, 0.5f, 0.2, attack_source));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 7, 0, 1, 20, 0.5f, 0.2, attack_source));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_3";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 13, 0, 0, 20, 0.5f, 0.2, attack_source));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 2, 2, 20, 0.5f, 0.2, attack_source));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_4";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 20, 1, 2, 30, 0.5f, 0.2, attack_source));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 13, 2, 2, 30, 0.5f, 0.2, attack_source));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
@@ -62,7 +62,7 @@ std::string Business::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 35, 1, 2, 40, 0.5));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(18, 18, 18), m_side, 20, 2, 3, 13, 0.5));
 	return base_animation + "kick_1";
 }
 
@@ -70,13 +70,13 @@ std::string Business::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attac
 {
 	std::string base_animation = "chara_base_anime/";
 	AttackSystem::Direction attack_source = AttackSystem::kRight;
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
+	Math::Vector3 plus = Math::Vector3(0, 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 100), m_side, 28, 100, 100, 0, 0.8f, 0.4, attack_source));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(150, 150, 150), m_side, 20, 0, 10, 50, 0.8f, 0.4, attack_source));
 	return base_animation + "skill_mammonite";
 }
 
@@ -118,7 +118,7 @@ std::string Business::Skill4(std::shared_ptr<AttackSystem::AttackMediator> attac
 
 int Business::KnockValue()
 {
-	return 0;
+	return 9;
 }
 
 int Business::GetHp()

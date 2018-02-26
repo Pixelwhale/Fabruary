@@ -36,17 +36,17 @@ std::string Programmer::Punch(std::shared_ptr<AttackSystem::AttackMediator> atta
 	switch (m_punch_count)
 	{
 	case 0 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 1, 5, 8, 0.5, 0.2, attack_source));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 10, 1, 1, 8, 0.5, 0.2, attack_source));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_6";
 	case 1 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 11, 1, 5, 10, 0.5, 0.2, attack_source));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 11, 1, 1, 10, 0.5, 0.2, attack_source));
 		m_punch_count++;
 		m_next_combo.Reset();
 		return base_animation + "punch_7";
 	case 2 :
-		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(80, 80, 80), m_side, 13, 2, 5, 15, 0.5, 0.2, attack_source));
+		attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(80, 80, 80), m_side, 10, 2, 3, 15, 0.5, 0.2, attack_source));
 		m_punch_count = 0;
 		m_next_combo.Reset();
 		return base_animation + "punch_8";
@@ -63,7 +63,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 	{
 		plus.x *= -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(60, 60, 60), m_side, 35, 2, 3, 40, 0.5));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(65, 65, 65), m_side, 20, 2, 3, 13, 0.5));
 	return base_animation + "kick_1";
 }
 
@@ -78,7 +78,7 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(70, 70, 70), m_side, 35, 1, 2, 40, 1, 0.41, attack_source));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 100), m_side, 18, 0, 9, 18, 1, 0.41, attack_source));
 	return base_animation + "skill_hammer";
 }
 
@@ -121,7 +121,7 @@ std::string Programmer::Skill4(std::shared_ptr<AttackSystem::AttackMediator> att
 
 int Programmer::KnockValue()
 {
-	return 0;
+	return 9;
 }
 
 int Programmer::GetHp()
