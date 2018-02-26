@@ -27,6 +27,7 @@ namespace Scene
 		bool occupied = false;
 		int job = 0;
 		bool lock = false;
+		Side side;
 	};
 
 	class CharaSelect : public SceneBase
