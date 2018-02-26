@@ -34,6 +34,8 @@ void CharaSelect::Initialize(SceneType previous)
 
 	//note: 値を変更したいなら、&が必要
 	for (auto &c : m_controller) c = false;
+
+	m_back_to_title = false;
 }
 
 void CharaSelect::Update()
@@ -49,8 +51,9 @@ void CharaSelect::Update()
 	case kJobSelect:
 		if (CheckBackToTitle())
 		{
-			m_is_end = true;
-			m_next = kTitle;
+			m_back_to_title = true;
+			m_scene_state = kEndAnim;
+			m_timer = Utility::Timer(0.5f);
 			return;
 		}
 		//check 1P~4P
@@ -100,7 +103,8 @@ void CharaSelect::Update()
 		if (m_timer.IsTime())
 		{
 			m_is_end = true;
-			m_next = kGamePlay;
+			if (m_back_to_title) m_next = kTitle;
+			else m_next = kGamePlay;
 		}
 		break;
 	}

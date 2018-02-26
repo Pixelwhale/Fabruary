@@ -48,6 +48,7 @@ namespace Scene
 		bool m_controller[5];	//check if controller is bind. (avoid repeat bind)
 
 		Utility::Timer m_timer;
+		bool m_back_to_title;
 
 		bool CheckBackToTitle();
 		int MinIndex();		//return 0~3 (1P~4P)
