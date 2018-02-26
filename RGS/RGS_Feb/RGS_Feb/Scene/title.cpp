@@ -30,8 +30,17 @@ void Title::InitMenu()
 	m_title_menu = make_shared<UI::TitleStateManager>();
 	m_title_menu->Initialize();
 
-	if (m_previous == SceneType::kCharaSelect)
+	if (m_previous == SceneType::kCharaSelect) 
+	{
 		m_title_menu->ChangeState(UI::MenuState::kGamePlay);
+		return;
+	}
+
+	if (m_previous == SceneType::kTutorial) 
+	{
+		m_title_menu->ChangeState(UI::MenuState::kTutorial);
+		return;
+	}
 }
 
 void Title::InitSceneEffect()
