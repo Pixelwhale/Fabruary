@@ -32,6 +32,8 @@ namespace Character
 		std::vector<std::shared_ptr<CharacterBase>> m_character_list;	//キャラクターリスト
 		std::vector<std::shared_ptr<CharacterBase>> m_add_characters;	//追加キャラクター
 		std::vector<std::shared_ptr<CharacterBase>> m_winner_list;		//勝利キャラクター
+		std::vector<std::shared_ptr<CharacterBase>> m_ui_list;			//HP,MPのUI用キャラクターリスト
+		std::shared_ptr<UI::HpUI>					m_hp_ui;			//HP,MPのUIリスト
 
 		bool m_isEnd;
 		int m_id;

@@ -248,6 +248,7 @@
     <ClInclude Include="Core\application.h" />
     <ClInclude Include="Core\game.h" />
     <ClInclude Include="Core\input_state.h" />
+    <ClInclude Include="Def\character_color.h" />
     <ClInclude Include="Def\size.h" />
     <ClInclude Include="Def\start_position.h" />
     <ClInclude Include="Def\window_def.h" />

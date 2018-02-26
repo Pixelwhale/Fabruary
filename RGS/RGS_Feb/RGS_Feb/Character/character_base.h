@@ -39,13 +39,14 @@ namespace Character
 		int		GetMaxHp();			//MAXHpの取得
 		int		GetMp();			//Mpの取得
 		int		GetID();			//IDの取得
+		int		GetFaceNum();		//キャラクター画像順番取得
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
 		bool	IsInvincible();		//無敵フラグ
 		void	SetPosition(Math::Vector3 position);//位置の設定
 		Math::Vector3					GetPosition();//位置の取得
 		Math::CollisionBox				GetBox();
-		std::shared_ptr<Job::JobBase>	GetCharacterJob();	  //Jobの取得
+		std::shared_ptr<Job::JobBase>	GetCharacterJob();//Jobの取得
 		
 	private:						//更新関連
 		void IntroUpdate();			//登場更新
@@ -97,7 +98,6 @@ namespace Character
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
 		std::shared_ptr<Job::JobBase>			m_job;
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
-		std::shared_ptr<UI::HpUI>				m_ui;
 		std::shared_ptr<System::Gravity>		m_gravity;
 	};
 
