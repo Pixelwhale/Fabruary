@@ -24,6 +24,12 @@ void CharaSelect::Initialize(SceneType previous)
 {
 	SceneBase::Initialize(previous);
 	m_scene_state = kStartAnim;
+
+	m_background = new Background();
+	m_scene_effect = new SceneEffect();
+	m_scene_effect->Zoom(true);
+	m_scene_effect->SetZoomRate(5.0f);
+
 	m_player = new Player[4];
 
 	//note: 値を変更したいなら、&が必要
@@ -32,6 +38,7 @@ void CharaSelect::Initialize(SceneType previous)
 
 void CharaSelect::Update()
 {
+	m_scene_effect->Update();
 	switch (m_scene_state)
 	{
 	case kStartAnim:
@@ -94,6 +101,9 @@ void CharaSelect::Update()
 
 void CharaSelect::Draw()
 {
+	m_scene_effect->DrawOnEffect();
+	m_background->DrawBack();
+	m_scene_effect->DrawEffect();
 	m_renderer->DrawString("CharaSelect", Vector2(0, 0));
 
 	m_renderer->DrawTexture("select_chara_ui", Vector2(0, 0));
@@ -138,6 +148,8 @@ void CharaSelect::Draw()
 void CharaSelect::Shutdown()
 {
 	delete[] m_player;
+	delete m_background;
+	delete m_scene_effect;
 }
 
 bool CharaSelect::CheckBackToTitle()

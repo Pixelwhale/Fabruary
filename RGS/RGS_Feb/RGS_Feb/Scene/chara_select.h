@@ -7,6 +7,8 @@
 #include "scene_base.h"
 #include "game_manager.h"
 #include <Utility\timer.h>
+#include <GameObject\Background\background.h>
+#include <GameObject\Background\change_scene_effect.h>
 
 namespace Scene
 {
@@ -38,6 +40,8 @@ namespace Scene
 	private:
 		SceneState m_scene_state;
 		std::shared_ptr<GameManager> m_game_mgr;
+		Background* m_background;
+		SceneEffect* m_scene_effect;
 
 		Player *m_player;
 		bool m_controller[5];	//check if controller is bind. (avoid repeat bind)
@@ -52,7 +56,6 @@ namespace Scene
 		void PadSelect(int player_num, int pad_num);
 		bool CheckKbUnlock(int player_num);
 		bool CheckPadUnlock(int player_num, int pad_num);
-
 
 		bool CheckAllLock();
 		void AddChara();
