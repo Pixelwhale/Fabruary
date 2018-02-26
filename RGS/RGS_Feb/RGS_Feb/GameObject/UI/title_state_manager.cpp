@@ -65,6 +65,18 @@ void TitleStateManager::Update()
 	}
 }
 
+void TitleStateManager::ChangeState(MenuState state)
+{
+	MenuState previous_menu = m_current_menu;				//前のStateを記録
+	m_current_menu = state;									//次のStateを記録
+
+	if (m_current_menu == MenuState::kEnd)					//終了であればReturn
+		return;
+
+	m_current_state = m_states[m_current_menu];				//State変更
+	m_current_state.lock()->Initialize(previous_menu);		//次のStateを初期化
+}
+
 void TitleStateManager::Draw()
 {
 	m_current_state.lock()->Draw();

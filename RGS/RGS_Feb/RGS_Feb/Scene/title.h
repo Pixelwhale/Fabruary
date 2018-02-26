@@ -27,6 +27,8 @@ namespace Scene
 		void CheckEnd();
 		///<summary>SceneChangeEffect‚ğ‰Šú‰»</summary>
 		void InitSceneEffect();
+		///<summary>Menu‚ğ‰Šú‰»</summary>
+		void InitMenu();
 		///<summary>Winner‚ğ”wŒi‚Éİ’è</summary>
 		void SetWinner();
 

@@ -24,6 +24,8 @@ namespace UI
 		void Update();
 		///<summary>•`‰æ</summary>
 		void Draw();
+		///<summary>ó‘Ô•ÏX</summary>
+		void ChangeState(MenuState state);
 
 		///<summary>I—¹‚·‚é‚©</summary>
 		bool IsEnd();
