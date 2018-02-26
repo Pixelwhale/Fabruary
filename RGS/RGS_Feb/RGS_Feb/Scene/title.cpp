@@ -44,6 +44,12 @@ void Title::InitMenu()
 		m_title_menu->ChangeState(UI::MenuState::kTutorial);
 		return;
 	}
+
+	if (m_previous == SceneType::kCredit)
+	{
+		m_title_menu->ChangeState(UI::MenuState::kCredit);
+		return;
+	}
 }
 
 void Title::InitSceneEffect()
@@ -104,7 +110,8 @@ void Title::CheckEnd()
 			return;
 		}
 
-		if (m_title_menu->NextScene() == SceneType::kTutorial)
+		if (m_title_menu->NextScene() == SceneType::kTutorial ||
+			m_title_menu->NextScene() == SceneType::kCredit)
 		{
 			m_next = m_title_menu->NextScene();
 			if(m_title_alpha <= 0.0f)
@@ -129,6 +136,10 @@ void Title::Draw()
 	m_title_menu->Draw();
 	m_renderer->DrawTexture("title",
 		Math::Vector2(WindowDef::kScreenWidth / 2 - 320, 60), m_title_alpha);
+	m_renderer->DrawTextureBlend("title",
+		Math::Vector2(WindowDef::kScreenWidth / 2 - 320, 60), 
+		DX_BLENDMODE_ADD, 
+		m_title_alpha * Device::GameDevice::GetInstance()->GetRandom()->Next(3, 7) / 10.0f);
 
 	m_renderer->DrawBloom();				//BloomEffect
 	m_scene_effect->DrawEffect();			//DrawSceneChangeEffect

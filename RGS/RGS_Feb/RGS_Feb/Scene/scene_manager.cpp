@@ -7,6 +7,7 @@
 #include <Scene\loading.h>
 #include <Scene\title.h>
 #include <Scene\tutorial.h>
+#include <Scene\credit.h>
 #include <Scene\chara_select.h>
 #include <Scene\gameplay.h>
 #include <Scene\game_result.h>
@@ -32,6 +33,7 @@ void SceneManager::Initialize()
 	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(background, scene_effect, game_manager), 1.0f, 0.0f));
 	Add(kCharaSelect, make_shared<CharaSelect>(background, scene_effect, game_manager));
 	Add(kTutorial, make_shared<Tutorial>(background));
+	Add(kCredit, make_shared<Credit>(background));
 	Add(kGamePlay, game_play);
 	Add(kGameResult, make_shared<SceneFader>(make_shared<GameResult>(game_play), 0.0f, 1.0f));
 	Add(kEnd, make_shared<End>());

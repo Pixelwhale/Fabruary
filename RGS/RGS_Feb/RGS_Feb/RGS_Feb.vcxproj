@@ -199,6 +199,7 @@
     <ClCompile Include="GameObject\Job\planner.cpp" />
     <ClCompile Include="GameObject\Job\programmer.cpp" />
     <ClCompile Include="GameObject\UI\chara_hp_ui.cpp" />
+    <ClCompile Include="GameObject\UI\title_credit.cpp" />
     <ClCompile Include="GameObject\UI\title_enter.cpp" />
     <ClCompile Include="GameObject\UI\title_gameplay.cpp" />
     <ClCompile Include="GameObject\UI\title_quit.cpp" />
@@ -211,6 +212,7 @@
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\chara_select.cpp" />
+    <ClCompile Include="Scene\credit.cpp" />
     <ClCompile Include="Scene\end.cpp" />
     <ClCompile Include="Scene\gameplay.cpp" />
     <ClCompile Include="Scene\game_manager.cpp" />
@@ -372,6 +374,7 @@
     <ClInclude Include="GameObject\Job\planner.h" />
     <ClInclude Include="GameObject\Job\programmer.h" />
     <ClInclude Include="GameObject\UI\chara_hp_ui.h" />
+    <ClInclude Include="GameObject\UI\title_credit.h" />
     <ClInclude Include="GameObject\UI\title_enter.h" />
     <ClInclude Include="GameObject\UI\title_gameplay.h" />
     <ClInclude Include="GameObject\UI\title_quit.h" />
@@ -383,6 +386,7 @@
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\chara_select.h" />
+    <ClInclude Include="Scene\credit.h" />
     <ClInclude Include="Scene\end.h" />
     <ClInclude Include="Scene\gameplay.h" />
     <ClInclude Include="Scene\game_manager.h" />

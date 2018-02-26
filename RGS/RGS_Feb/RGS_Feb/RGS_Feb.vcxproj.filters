@@ -83,6 +83,8 @@
     <ClCompile Include="GameObject\UI\title_gameplay.cpp" />
     <ClCompile Include="GameObject\UI\title_tutorial.cpp" />
     <ClCompile Include="GameObject\UI\title_quit.cpp" />
+    <ClCompile Include="GameObject\UI\title_credit.cpp" />
+    <ClCompile Include="Scene\credit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\character_base.h" />
@@ -269,6 +271,8 @@
     <ClInclude Include="GameObject\UI\title_tutorial.h" />
     <ClInclude Include="GameObject\UI\title_quit.h" />
     <ClInclude Include="Def\character_color.h" />
+    <ClInclude Include="GameObject\UI\title_credit.h" />
+    <ClInclude Include="Scene\credit.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\SpriteStudio\Character_base\chara_base.png" />

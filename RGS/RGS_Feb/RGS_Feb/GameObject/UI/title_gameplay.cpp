@@ -87,7 +87,7 @@ void MenuGamePlay::Draw()
 {
 	Math::Vector2 start_pos = 
 		Math::Vector2(WindowDef::kScreenWidth / 2 - 256, WindowDef::kScreenHeight - 390);
-	int height = 85;
+	int height = 75;
 
 	m_renderer->DrawTexture(
 		"menu_start_game",
@@ -100,8 +100,13 @@ void MenuGamePlay::Draw()
 		m_push_alpha - 0.3f);
 
 	m_renderer->DrawTexture(
-		"menu_quit",
+		"menu_credit",
 		start_pos + Math::Vector2(0, 2 * height),
+		m_push_alpha - 0.3f);
+
+	m_renderer->DrawTexture(
+		"menu_quit",
+		start_pos + Math::Vector2(0, 3 * height),
 		m_push_alpha - 0.3f);
 }
 

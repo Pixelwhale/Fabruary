@@ -13,6 +13,7 @@ namespace Scene
 		kTitle,
 		kTutorial,
 		kCharaSelect,
+		kCredit,
 		kGamePlay,
 		kGameResult,
 		kEnd,

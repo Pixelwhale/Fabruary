@@ -15,6 +15,7 @@ namespace UI
 		kTitle = 0,
 		kGamePlay,
 		kTutorial,
+		kCredit,
 		kQuit,
 		kEnd,
 	};

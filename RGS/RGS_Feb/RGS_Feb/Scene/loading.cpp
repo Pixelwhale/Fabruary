@@ -47,6 +47,7 @@ void Loading::LoadContents()
 
 	m_content->LoadTexture("menu_start_game", ".png");
 	m_content->LoadTexture("menu_tutorial", ".png");
+	m_content->LoadTexture("menu_credit", ".png");
 	m_content->LoadTexture("menu_quit", ".png");
 
 	m_content->LoadSE("ƒSƒ“ƒO_onjin", ".mp3");

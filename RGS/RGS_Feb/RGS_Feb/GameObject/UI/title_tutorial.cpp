@@ -61,7 +61,7 @@ void MenuTutorial::CheckEnd()
 	if (m_next_flag)							//ŽŸ‚Ös‚­“r’†‚ÍInput‘€ì‚Å‚«‚È‚¢
 		return;
 
-	if (Enter())								//SelectCharacter‚Ö
+	if (Enter())								//Tutorial‚Ö
 	{
 		m_next_flag = true;
 		m_next_state = MenuState::kEnd;
@@ -82,10 +82,10 @@ void MenuTutorial::CheckEnd()
 		return;
 	}
 
-	if (Down())									//QuitState‚Ö
+	if (Down())									//CreditState‚Ö
 	{
 		m_end_flag = true;
-		m_next_state = MenuState::kQuit;
+		m_next_state = MenuState::kCredit;
 		return;
 	}
 }
@@ -94,7 +94,7 @@ void MenuTutorial::Draw()
 {
 	Math::Vector2 start_pos =
 		Math::Vector2(WindowDef::kScreenWidth / 2 - 256, WindowDef::kScreenHeight - 390);
-	int height = 85;
+	int height = 75;
 
 	m_renderer->DrawTexture(
 		"menu_start_game",
@@ -107,8 +107,13 @@ void MenuTutorial::Draw()
 		m_push_alpha);
 
 	m_renderer->DrawTexture(
-		"menu_quit",
+		"menu_credit",
 		start_pos + Math::Vector2(0, 2 * height),
+		m_push_alpha - 0.3f);
+
+	m_renderer->DrawTexture(
+		"menu_quit",
+		start_pos + Math::Vector2(0, 3 * height),
 		m_push_alpha - 0.3f);
 }
 

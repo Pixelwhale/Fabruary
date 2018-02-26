@@ -27,7 +27,8 @@ void SceneFader::Initialize(SceneType previous)
 void SceneFader::ResetFadeIn() 
 {
 	if (m_previous == SceneType::kCharaSelect ||
-		m_previous == SceneType::kTutorial)
+		m_previous == SceneType::kTutorial ||
+		m_previous == SceneType::kCredit)
 		return;
 
 	m_fade_in.Reset();

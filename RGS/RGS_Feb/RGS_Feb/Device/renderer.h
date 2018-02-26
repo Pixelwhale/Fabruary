@@ -76,6 +76,14 @@ namespace Device
 		///<summary>Texture‚ð•`‰æ</summary>
 		///<param name="texture_name">Asset–¼</param>
 		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="dx_blendmode">DX_BLENDMODE_ + Mode</param>
+		void DrawTextureBlend(std::string texture_name, Math::Vector2 position, 
+			int dx_blendmode, float alpha = 1.0f);
+
+
+		///<summary>Texture‚ð•`‰æ</summary>
+		///<param name="texture_name">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
 		///<param name="rect_start">Asset•`‰æŠJŽnˆÊ’u</param>
 		///<param name="rect_end">Asset•`‰æƒTƒCƒY</param>
 		void DrawTexture(std::string texture_name, Math::Vector2 position, 
