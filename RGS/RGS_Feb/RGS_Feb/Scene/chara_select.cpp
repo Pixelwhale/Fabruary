@@ -10,6 +10,7 @@
 #include <Character\Controller\keyboard_controller.h>
 #include <Character\Controller\pad_controller.h>
 #include <Character\Controller\ai_controller.h>
+#include <Def\window_def.h>
 
 using namespace Scene;
 using namespace Job;
@@ -154,6 +155,14 @@ void CharaSelect::Draw()
 			}
 		}
 	}
+	if (m_scene_state == kCountToGo) DrawCount();
+}
+
+void CharaSelect::DrawCount()
+{
+	int num = m_timer.Rate() * 4;
+	float size = 10*((int)(m_timer.Rate()*100)%25)/25.0f;
+	m_renderer->DrawMotion("panel_number", num, Vector2(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight / 2), Vector2(size, size));
 }
 
 void CharaSelect::Shutdown()
