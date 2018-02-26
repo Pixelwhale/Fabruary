@@ -36,6 +36,7 @@ CharacterBase::~CharacterBase()
 	m_job = NULL;
 	m_attack_mediator = NULL;
 	m_ui = NULL;
+	m_gravity = NULL;
 }
 
 //初期化
@@ -62,7 +63,8 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_velocity_intro = Math::Vector3(4,0,0);
 	m_velocity_jump = Math::Vector3(0, 0, 0);
 	m_motion->Initialize();
-	m_ui = make_shared<UI::HpUI>();
+	m_ui =		std::make_shared<UI::HpUI>();
+	m_gravity = std::make_shared<System::Gravity>();
 	ChangeSheet();			//キャラクターシート判定
 	SetColor();				//色設定
 	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
@@ -96,7 +98,7 @@ void CharacterBase::Update()
 	{
 		if (m_position.y > 128)
 		{
-			m_gravity.Update(m_velocity_jump);
+			m_gravity->Update(m_velocity_jump);
 			m_position += m_velocity_jump;
 		}
 		if (m_motion->IsCurrentMotionEnd())
@@ -363,7 +365,6 @@ void CharacterBase::Attack()
 void CharacterBase::Skill()
 {
 	if (m_state == CharacterState::kSkill && !m_motion->IsCurrentMotionEnd()) return;
-
 	m_skill_cnt--;
 	if (m_skill_cnt <= 0)
 	{
@@ -578,7 +579,7 @@ void CharacterBase::JumpUpdate()
 		{
 			m_motion->Play("chara_base_anime/jump");
 		}
-		m_gravity.Update(m_velocity_jump);
+		m_gravity->Update(m_velocity_jump);
 	}
 }
 
@@ -716,5 +717,10 @@ bool CharacterBase::IsInvincible()
 Math::CollisionBox CharacterBase::GetBox()
 {
 	return Math::CollisionBox(m_position - Math::Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2), m_position + Math::Vector3(Size::kCharaX / 2, Size::kCharaY / 2, Size::kCharaZ / 2));
+}
+
+std::shared_ptr<Job::JobBase> CharacterBase::GetCharacterJob()
+{
+	return m_job;
 }
 

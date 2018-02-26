@@ -64,7 +64,12 @@ void CharacterManager::RemoveDeadCharacters()
 			}
 		}
 	}
-	
+
+	for (auto c : m_character_list)
+	{
+		m_winner_list.push_back(c);
+	}
+
 	m_isEnd = true;
 }
 
@@ -115,9 +120,16 @@ void CharacterManager::Clear()
 
 }
 
+//キャラクターリストの取得
 std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetCharacterList()
 {
 	return m_character_list;
+}
+
+//勝利キャラクターリストの取得
+std::vector<std::shared_ptr<CharacterBase>>& CharacterManager::GetWinnerList()
+{
+	return m_winner_list;
 }
 
 bool CharacterManager::GetEnd()
