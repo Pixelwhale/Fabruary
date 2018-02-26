@@ -23,4 +23,5 @@ enum CharacterState
 	kKick,
 	kKick_1,
 	kKick_2,
+	kSkill,
 };

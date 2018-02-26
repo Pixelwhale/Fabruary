@@ -78,7 +78,7 @@ void CharacterBase::Update()
 	
 	IntroUpdate();
 	MotionUpdate(); //モーションの更新
-	if (m_hp > 0)
+	if (m_hp > 0 && m_isIntro_end)
 	{
 		Attack();		//攻撃
 		Skill();		//スキール
@@ -126,6 +126,19 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	bool from_right;
 	float  knockback_adjust = 14;
 	if (atk.GetDamage() == 0) return;
+	//スキール中の時は、ダメージを受けるだけ
+	if (m_state == CharacterState::kSkill)
+	{
+		// 死亡
+		if (m_hp - atk.GetDamage() <= 0)
+		{
+			m_state = CharacterState::kDead;
+			m_motion->Play("chara_base_anime/dead", 1);
+			m_hp -= atk.GetDamage();
+		}
+		m_hp -= atk.GetDamage();
+		return;
+	}
 	//攻撃を受けた方向
 	if (atk.GetSourceDir() != AttackSystem::kCenter)
 	{
@@ -135,7 +148,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	{
 		from_right = (atk.GetPosition().x > m_position.x);
 	}
-
+	//knockbackによるずれる処理
 	if (from_right)
 	{
 		m_velocity =Math::Vector3(-(float)atk.GetKnockBack() / knockback_adjust,0,0);
@@ -165,6 +178,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_motion->Play("chara_base_anime/dead", 1);
 			m_hp -= atk.GetDamage();
 		}
+		
 		//倒れ値を超えたら、倒れる
 		else if (m_knock_value > m_job->KnockValue())
 		{
@@ -173,7 +187,6 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_hp -= atk.GetDamage();
 			m_knock_value = 0;
 			m_defence_value = 0;
-			
 		}
 		//攻撃を受けたモーション
 		else
@@ -287,7 +300,7 @@ void CharacterBase::SetColor()
 void CharacterBase::IntroUpdate()
 {
 	//登場したら、
-	if (m_isIntro_end = true) return;
+	if (m_isIntro_end) return;
 	//登場モーションの向きの設定
 	if (m_position.x > 0 && m_intro_cnt < 1)
 	{
@@ -296,11 +309,16 @@ void CharacterBase::IntroUpdate()
 	}
 	m_intro_cnt++;
 	m_position += m_velocity_intro;
-	m_motion->Play("chara_base_anime/walk");
-	if (m_intro_cnt > 120)
+	m_motion->Play("chara_base_anime/walk_intro");
+	if (m_intro_cnt > 120 && m_intro_cnt < 150)
 	{
-		m_isIntro_end = true;
+		m_velocity_intro.x = 0;
 		m_motion->Play("chara_base_anime/idle");
+	}
+	else if (m_intro_cnt >= 150)
+	{
+		m_intro_cnt = 0;
+		m_isIntro_end = true;
 	}
 	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 }
@@ -344,6 +362,8 @@ void CharacterBase::Attack()
 //スキール
 void CharacterBase::Skill()
 {
+	if (m_state == CharacterState::kSkill && !m_motion->IsCurrentMotionEnd()) return;
+
 	m_skill_cnt--;
 	if (m_skill_cnt <= 0)
 	{
@@ -378,7 +398,8 @@ void CharacterBase::Skill()
 		//パンチの小技
 		m_isStop = true;
 		m_motion->Play(m_job->Skill1(m_attack_mediator, m_position, m_isRight), 1);
-		m_state = CharacterState::kPunch_1;
+		//m_state = CharacterState::kPunch_1;
+		m_state = CharacterState::kSkill;
 		m_skill_num = 0;
 		m_mp -= 300;
 	}
@@ -391,6 +412,7 @@ void CharacterBase::Skill()
 		m_isStop = true;
 		//m_motion->Play(m_job->Skill3(m_attack_mediator, m_position, m_isRight), 1);
 		//m_state = CharacterState::kKick_1;
+		//m_state = CharacterState::kSkill;
 		m_skill_num = 0;
 		m_mp -= 300;
 	}
@@ -419,6 +441,7 @@ void CharacterBase::Skill()
 		m_isStop = true;
 		//m_motion->Play(m_job->Skill2(m_attack_mediator, m_position, m_isRight), 1);
 		//m_state = CharacterState::kPunch_2;
+		//m_state = CharacterState::kSkill;
 		m_skill_num = 0;
 		m_mp -= 1500;
 	}
@@ -431,6 +454,7 @@ void CharacterBase::Skill()
 		m_isStop = true;
 		//m_motion->Play(m_job->Skill4(m_attack_mediator, m_position, m_isRight), 1);
 		//m_state = CharacterState::kKick_2;
+		//m_state = CharacterState::kSkill;
 		m_skill_num = 0;
 		m_mp -= 1500;
 	}
@@ -574,11 +598,7 @@ void CharacterBase::StateUpdate()
 	//防御か倒られた時は無敵
 	if (m_state == CharacterState::kKnockDown || 
 		m_state == CharacterState::kGetUp	  ||
-		m_state == CharacterState::kUkemi	  ||
-		m_state == CharacterState::kKick_1	  ||
-		m_state == CharacterState::kKick_2    ||
-		m_state == CharacterState::kPunch_1 ||
-		m_state == CharacterState::kPunch_2)
+		m_state == CharacterState::kUkemi)
 	{
 		m_isInvincible = true;
 	}
