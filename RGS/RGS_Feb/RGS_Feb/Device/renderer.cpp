@@ -179,7 +179,7 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 }
 
 void Renderer::DrawMotion(std::string texture_name, int index,
-	Math::Vector2 position, Math::Vector2 size, float alpha = 1.0f)
+	Math::Vector2 position, Math::Vector2 size, float alpha)
 {
 	int bright = 255.0f * alpha;
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend—LŒø

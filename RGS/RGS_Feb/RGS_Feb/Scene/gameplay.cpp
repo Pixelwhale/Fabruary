@@ -12,6 +12,7 @@
 #include <GameObject\UI\chara_hp_ui.h>
 #include <Def\start_position.h>
 #include <Def\window_def.h>
+#include <Def\character_color.h>
 
 using namespace Scene;
 
@@ -127,7 +128,7 @@ void GamePlay::SetWinner()
 		motion->Play("chara_base_anime/skill_energy_blast");
 		motion->ChangeSpriteSheet("chara_programmer");
 		motion->SetPosition(winner_position);
-		motion->SetColor(Color(0.4f, 0.8f, 0.4f));
+		motion->SetColor(CharacterColor::GetTeamColor(character->GetSide()));
 		motion->Update();
 
 		winner_motion.push_back(motion);
