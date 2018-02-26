@@ -6,6 +6,7 @@
 #pragma once
 #include <Device\game_device.h>
 #include <Character\character_base.h>
+#include <GameObject\UI\chara_hp_ui.h>
 #include <Math\vector3.h>
 
 namespace Character
