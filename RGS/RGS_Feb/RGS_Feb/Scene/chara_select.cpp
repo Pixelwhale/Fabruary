@@ -12,6 +12,7 @@
 #include <Character\Controller\ai_controller.h>
 #include <Def\window_def.h>
 #include <Def\character_color.h>
+#include <Device\game_device.h>
 
 using namespace Scene;
 using namespace Job;
@@ -33,6 +34,10 @@ void CharaSelect::Initialize(SceneType previous)
 	m_scene_effect->SetZoomRate(5.0f);
 
 	m_player = new Player[4];
+	m_player[0].side = kTeam1;
+	m_player[1].side = kTeam2;
+	m_player[2].side = kTeam3;
+	m_player[3].side = kTeam4;
 
 	//note: 値を変更したいなら、&が必要
 	for (auto &c : m_controller) c = false;
@@ -135,19 +140,19 @@ void CharaSelect::Draw()
 			{
 			case 0:
 				m_renderer->DrawTexture("select_chara_planner", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam1), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(m_player[player_num].side), m_ui_alpha);
 				break;
 			case 1:
 				m_renderer->DrawTexture("select_chara_business", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam2), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(m_player[player_num].side), m_ui_alpha);
 				break;
 			case 2:
 				m_renderer->DrawTexture("select_chara_designer", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam3), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(m_player[player_num].side), m_ui_alpha);
 				break;
 			case 3:
 				m_renderer->DrawTexture("select_chara_programmer", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam4), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(m_player[player_num].side), m_ui_alpha);
 				break;
 			}
 			if (m_player[player_num].lock)
@@ -317,22 +322,11 @@ void CharaSelect::AddChara()
 {
 	for (int player_num = 0; player_num < 4; ++player_num)
 	{
-		Side side;
-		switch (player_num)
+		if (m_player[player_num].controller_num == -1)
 		{
-		case 0:
-			side = kTeam1;
-			break;
-		case 1:
-			side = kTeam2;
-			break;
-		case 2:
-			side = kTeam3;
-			break;
-		case 3:
-			side = kTeam4;
-			break;
+			m_player[player_num].job = Device::GameDevice::GetInstance()->GetRandom()->Next(4);
 		}
+		Side side = m_player[player_num].side;
 		std::shared_ptr<JobBase> job;
 		switch (m_player[player_num].job % 4)
 		{
@@ -358,7 +352,7 @@ void CharaSelect::AddChara()
 			break;
 		case -1:
 			v_controller = make_shared < Character::AiController>(player_num + 1);
-			m_game_mgr->AddSelectAI(job, side, v_controller, 5);
+			m_game_mgr->AddSelectAI(job, side, v_controller, 9);
 			break;
 		default:
 			v_controller = make_shared<Character::PadController>(m_player[player_num].controller_num, player_num + 1);
