@@ -563,7 +563,8 @@ void CharacterBase::StateUpdate()
 	if (m_isStop)
 	{
 		//Jump‚ÌŽž‚Í“®‚¯‚é
-		if (!m_isJump && !m_isHit)
+		if ((!m_isJump && !m_isHit) ||
+			 m_state == CharacterState::kSkill)
 		{
 			m_velocity = Math::Vector3(0, 0, 0);
 		}

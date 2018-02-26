@@ -12,7 +12,6 @@
 #include <Character\Controller\character_controller.h>
 #include <Character\character_state.h>
 #include <GameObject\Job\job_base.h>
-#include <GameObject\UI\chara_hp_ui.h>
 #include <GameObject\AttackSystem\attack_mediator.h>
 #include <GameObject\AttackSystem\attack.h>
 #include <System\gravity.h>
