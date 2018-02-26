@@ -7,8 +7,8 @@
 
 using namespace Scene;
 
-Title::Title(shared_ptr<Background> background, std::shared_ptr<GameManager> game_manager)
-	:m_background(background), m_game_manager(game_manager)
+Title::Title(shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect, std::shared_ptr<GameManager> game_manager)
+	:m_background(background), m_scene_effect(scene_effect), m_game_manager(game_manager)
 {
 	m_next = kGamePlay;
 }
@@ -26,10 +26,10 @@ void Title::Initialize(SceneType previous)
 
 void Title::InitSceneEffect()
 {
-	m_scene_effect = make_shared<SceneEffect>();
+	//m_scene_effect = make_shared<SceneEffect>();
 	m_scene_effect->Zoom(false);
 
-	if (m_previous == SceneType::kCharaSelect) 
+	if (m_previous == SceneType::kCharaSelect)
 		m_scene_effect->SetZoomRate(5.0f);
 }
 
@@ -60,7 +60,7 @@ void Title::CheckEnd()
 	if (m_title_menu->IsEnd())
 	{
 		//CharacterSelect‚È‚ç‚ÍEffect“ü‚é
-		if (m_title_menu->NextScene() == SceneType::kCharaSelect) 
+		if (m_title_menu->NextScene() == SceneType::kCharaSelect)
 		{
 			m_scene_effect->Zoom(true);
 			return;
@@ -91,5 +91,5 @@ void Title::Shutdown()
 	m_title_menu->Clear();
 	m_title_menu = NULL;
 
-	m_scene_effect = NULL;
+	//m_scene_effect = NULL;
 }

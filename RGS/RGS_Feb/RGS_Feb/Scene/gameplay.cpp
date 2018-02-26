@@ -15,8 +15,8 @@
 
 using namespace Scene;
 
-GamePlay::GamePlay(shared_ptr<Background> background, std::shared_ptr<GameManager> game_manager)
-	:m_background(background), m_game_manager(game_manager)
+GamePlay::GamePlay(shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect, std::shared_ptr<GameManager> game_manager)
+	:m_background(background), m_scene_effect(scene_effect), m_game_manager(game_manager)
 {
 }
 
@@ -29,7 +29,7 @@ void GamePlay::Initialize(SceneType previous)
 		previous == SceneType::kGamePlay)
 		return;
 
-	m_scene_effect = make_shared<SceneEffect>();
+	//m_scene_effect = make_shared<SceneEffect>();
 	m_scene_effect->Zoom(false);
 	m_scene_effect->SetZoomRate(5.0f);
 
@@ -42,13 +42,13 @@ void GamePlay::Initialize(SceneType previous)
 	AddCharacter();
 }
 
-void GamePlay::AddCharacter() 
+void GamePlay::AddCharacter()
 {
-	vector<int> pos_num = {1, 2, 3, 4};				//使用する位置
+	vector<int> pos_num = { 1, 2, 3, 4 };				//使用する位置
 
 	Device::Random* random = Device::GameDevice::GetInstance()->GetRandom();
 
-	for (auto &chara_info : m_game_manager->GetSelectInfo()) 
+	for (auto &chara_info : m_game_manager->GetSelectInfo())
 	{
 		int pos = 0;								//使用する位置の添え字
 		Math::Vector3 position = Math::Vector3();	//生成位置
@@ -67,13 +67,13 @@ void GamePlay::AddCharacter()
 		if (chara_info.m_controller == NULL)		//Comの場合
 		{
 			//Com追加
-			m_meta_ai->AddCom(position, chara_info.m_side, chara_info.m_job, 
+			m_meta_ai->AddCom(position, chara_info.m_side, chara_info.m_job,
 				chara_info.m_ai_controller, chara_info.m_difficulty);
 			continue;
 		}
 
 		//Player追加
-		m_character_manager->Add(position, chara_info.m_side, 
+		m_character_manager->Add(position, chara_info.m_side,
 			chara_info.m_controller, chara_info.m_job, m_attack_manager);
 	}
 }
@@ -110,15 +110,15 @@ void GamePlay::CheckEnd()
 	}
 }
 
-void GamePlay::SetWinner() 
+void GamePlay::SetWinner()
 {
 	m_game_manager->ClearWinnerMotion();
 	vector<std::shared_ptr<MotionSystem::Motion>> winner_motion;
 	Math::Vector3 winner_position = Math::Vector3(
-		100, 128, 
+		100, 128,
 		WindowDef::kScreenHeight / 2 - Size::kCharaZ * 6);
 
-	for (auto &character : m_character_manager->GetWinnerList()) 
+	for (auto &character : m_character_manager->GetWinnerList())
 	{
 		std::shared_ptr<MotionSystem::Motion> motion =
 			make_shared<MotionSystem::Motion>("Character");
@@ -139,7 +139,7 @@ void GamePlay::SetWinner()
 
 void GamePlay::Draw()
 {
-	if(!m_scene_effect->IsEnd(false))		//SceneChangeEffect中か
+	if (!m_scene_effect->IsEnd(false))		//SceneChangeEffect中か
 		m_scene_effect->DrawOnEffect();
 
 	m_renderer->DrawOnBloomFilter();		//DrawFilter
@@ -172,6 +172,6 @@ void GamePlay::Shutdown()
 	m_character_manager = NULL;
 	m_attack_manager->Initialize();
 	m_attack_manager = NULL;
-	m_scene_effect = NULL;
+	//m_scene_effect = NULL;
 	m_game_manager->Clear();
 }

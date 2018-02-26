@@ -15,7 +15,7 @@ namespace Scene
 	class Title : public SceneBase
 	{
 	public:
-		Title(shared_ptr<Background> background, 
+		Title(shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect,
 			std::shared_ptr<GameManager> game_manager);
 		void Initialize(SceneType previous);
 		void Update();

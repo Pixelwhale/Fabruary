@@ -32,7 +32,7 @@ namespace Scene
 	class CharaSelect : public SceneBase
 	{
 	public:
-		CharaSelect(std::shared_ptr<GameManager> game_mgr, std::shared_ptr<Background> background);
+		CharaSelect(std::shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect, std::shared_ptr<GameManager> game_mgr);
 		void Initialize(SceneType previous);
 		void Update();
 		void Draw();
@@ -41,7 +41,7 @@ namespace Scene
 		SceneState m_scene_state;
 		std::shared_ptr<GameManager> m_game_mgr;
 		std::shared_ptr<Background> m_background;
-		SceneEffect* m_scene_effect;
+		std::shared_ptr<SceneEffect> m_scene_effect;
 		float m_ui_alpha;
 
 		Player *m_player;

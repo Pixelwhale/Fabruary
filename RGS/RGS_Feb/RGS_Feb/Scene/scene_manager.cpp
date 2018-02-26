@@ -26,10 +26,11 @@ void SceneManager::Initialize()
 {
 	shared_ptr<GameManager> game_manager = make_shared<GameManager>();					//GameManagerê∂ê¨
 	shared_ptr<Background> background = make_shared<Background>();
-	shared_ptr<GamePlay> game_play = make_shared<GamePlay>(background, game_manager);	//GamePlayScene
+	shared_ptr<SceneEffect> scene_effect = make_shared<SceneEffect>();
+	shared_ptr<GamePlay> game_play = make_shared<GamePlay>(background, scene_effect, game_manager);	//GamePlayScene
 
-	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(background, game_manager),1.0f,0.0f));
-	Add(kCharaSelect, make_shared<CharaSelect>(game_manager, background));
+	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(background, scene_effect, game_manager), 1.0f, 0.0f));
+	Add(kCharaSelect, make_shared<CharaSelect>(background, scene_effect, game_manager));
 	Add(kTutorial, make_shared<Tutorial>());
 	Add(kGamePlay, game_play);
 	Add(kGameResult, make_shared<SceneFader>(make_shared<GameResult>(game_play), 0.0f, 1.0f));
@@ -72,7 +73,7 @@ void SceneManager::Draw()
 	m_current_scene.lock()->Draw();
 }
 
-bool SceneManager::IsEnd() 
+bool SceneManager::IsEnd()
 {
 	return m_current_type == SceneType::kEnd;
 }

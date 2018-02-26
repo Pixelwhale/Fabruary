@@ -15,10 +15,9 @@ using namespace Scene;
 using namespace Job;
 using namespace Math;
 
-CharaSelect::CharaSelect(std::shared_ptr<GameManager> game_mgr, std::shared_ptr<Background> background)
+CharaSelect::CharaSelect(std::shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect, std::shared_ptr<GameManager> game_mgr)
+	: m_background(background), m_scene_effect(scene_effect), m_game_mgr(game_mgr)
 {
-	m_game_mgr = game_mgr;
-	m_background = background;
 }
 
 void CharaSelect::Initialize(SceneType previous)
@@ -28,7 +27,6 @@ void CharaSelect::Initialize(SceneType previous)
 	m_ui_alpha = 0;
 	m_timer = Utility::Timer(0.5f);
 
-	m_scene_effect = new SceneEffect();
 	m_scene_effect->Zoom(true);
 	m_scene_effect->SetZoomRate(5.0f);
 
@@ -157,7 +155,6 @@ void CharaSelect::Draw()
 void CharaSelect::Shutdown()
 {
 	delete[] m_player;
-	delete m_scene_effect;
 }
 
 bool CharaSelect::CheckBackToTitle()

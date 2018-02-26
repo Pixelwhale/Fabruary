@@ -17,7 +17,7 @@ namespace Scene
 	class GamePlay : public SceneBase
 	{
 	public:
-		GamePlay(shared_ptr<Background> background, 
+		GamePlay(shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect,
 			std::shared_ptr<GameManager> game_manager);
 		virtual void Initialize(SceneType previous);
 		void Update();
