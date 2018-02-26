@@ -23,6 +23,7 @@ namespace Character
 		void Clear();						//キャラクターを全員削除
 		bool GetEnd();
 		std::vector<std::shared_ptr<CharacterBase>>& GetCharacterList();//キャラクターリストの取得
+		std::vector<std::shared_ptr<CharacterBase>>& GetWinnerList();	//勝利キャラクターリストの取得
 
 	private:
 		void RemoveDeadCharacters();		//死亡キャラを削除
@@ -30,6 +31,7 @@ namespace Character
 	private:
 		std::vector<std::shared_ptr<CharacterBase>> m_character_list;	//キャラクターリスト
 		std::vector<std::shared_ptr<CharacterBase>> m_add_characters;	//追加キャラクター
+		std::vector<std::shared_ptr<CharacterBase>> m_winner_list;		//勝利キャラクター
 
 		bool m_isEnd;
 		int m_id;
