@@ -10,6 +10,7 @@
 #include <GameObject\AttackSystem\attack_manager.h>
 #include <GameObject\AI\MetaAI\meta_ai.h>
 #include <GameObject\Background\background.h>
+#include <GameObject\Background\change_scene_effect.h>
 
 namespace Scene
 {
@@ -36,5 +37,6 @@ namespace Scene
 		std::shared_ptr<AI::MetaAI> m_meta_ai;								//MetaAI
 
 		std::shared_ptr<Background> m_background;							//îwåistage
+		std::shared_ptr<SceneEffect> m_scene_effect;						//Change Scene Effect
 	};
 }

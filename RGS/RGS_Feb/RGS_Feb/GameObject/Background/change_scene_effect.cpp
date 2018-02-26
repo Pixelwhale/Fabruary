@@ -70,5 +70,5 @@ bool SceneEffect::IsEnd(bool zoom_in)
 	if (zoom_in)
 		return m_rate >= 5.0f;
 
-	return m_rate <= 0.0f;
+	return m_rate <= 1.0f;
 }

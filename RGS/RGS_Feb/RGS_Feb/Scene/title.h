@@ -23,6 +23,8 @@ namespace Scene
 	private:
 		///<summary>終了チェック</summary>
 		void CheckEnd();
+		///<summary>SceneChangeEffectを初期化</summary>
+		void InitSceneEffect();
 
 	private:
 		shared_ptr<Background> m_background;				//背景

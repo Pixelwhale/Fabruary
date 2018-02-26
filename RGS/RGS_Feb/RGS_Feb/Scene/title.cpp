@@ -17,11 +17,19 @@ void Title::Initialize(SceneType previous)
 	SceneBase::Initialize(previous);
 
 	m_background = make_shared<Background>();
-	m_scene_effect = make_shared<SceneEffect>();
-	m_scene_effect->Zoom(false);
+	InitSceneEffect();
 
 	m_title_menu = make_shared<UI::TitleStateManager>();
 	m_title_menu->Initialize();
+}
+
+void Title::InitSceneEffect()
+{
+	m_scene_effect = make_shared<SceneEffect>();
+	m_scene_effect->Zoom(false);
+
+	if (m_previous == SceneType::kCharaSelect) 
+		m_scene_effect->SetZoomRate(5.0f);
 }
 
 void Title::Update()

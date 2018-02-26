@@ -23,6 +23,11 @@ namespace Scene
 		void Update();
 		void Draw();
 		void Shutdown();
+
+	private:
+		void ResetFadeIn();
+		void ResetFadeOut();
+
 	private:
 		FadeState state;
 		std::shared_ptr<SceneBase> m_scene;

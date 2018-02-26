@@ -19,7 +19,22 @@ void SceneFader::Initialize(SceneType previous)
 	state = kIn;
 	SceneBase::Initialize(previous);
 	m_scene->Initialize(previous);
+
+	ResetFadeIn();
+	ResetFadeOut();
+}
+
+void SceneFader::ResetFadeIn() 
+{
+	if (m_previous == SceneType::kCharaSelect ||
+		m_previous == SceneType::kTutorial)
+		return;
+
 	m_fade_in.Reset();
+}
+
+void SceneFader::ResetFadeOut() 
+{
 	m_fade_out.Reset();
 }
 

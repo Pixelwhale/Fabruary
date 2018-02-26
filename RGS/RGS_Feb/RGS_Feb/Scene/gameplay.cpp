@@ -29,6 +29,9 @@ void GamePlay::Initialize(SceneType previous)
 		return;
 
 	m_background = make_shared<Background>();
+	m_scene_effect = make_shared<SceneEffect>();
+	m_scene_effect->Zoom(false);
+	m_scene_effect->SetZoomRate(5.0f);
 
 	m_attack_manager = make_shared<AttackSystem::AttackManager>();
 	m_character_manager = make_shared<Character::CharacterManager>();
@@ -78,6 +81,9 @@ void GamePlay::AddCharacter()
 void GamePlay::Update()
 {
 	m_background->Update();
+	m_scene_effect->Update();
+	if (!m_scene_effect->IsEnd(false))
+		return;
 
 	m_meta_ai->Update();
 	m_character_manager->Update();
@@ -105,6 +111,9 @@ void GamePlay::CheckEnd()
 
 void GamePlay::Draw()
 {
+	if(!m_scene_effect->IsEnd(false))		//SceneChangeEffect’†‚©
+		m_scene_effect->DrawOnEffect();
+
 	m_renderer->DrawOnBloomFilter();		//DrawFilter
 
 	m_background->DrawBack();				//”wŒi
@@ -115,6 +124,9 @@ void GamePlay::Draw()
 	m_background->DrawFront();				//‘OŒi
 
 	m_renderer->DrawBloom();				//BloomEffect
+
+	if (!m_scene_effect->IsEnd(false))		//SceneChangeEffect’†‚©
+		m_scene_effect->DrawEffect();
 }
 
 void GamePlay::Shutdown()
@@ -133,5 +145,6 @@ void GamePlay::Shutdown()
 	m_attack_manager->Initialize();
 	m_attack_manager = NULL;
 	m_background = NULL;
+	m_scene_effect = NULL;
 	m_game_manager->Clear();
 }
