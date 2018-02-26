@@ -60,5 +60,6 @@ namespace Scene
 		bool CheckPadUnlock(int player_num, int pad_num);
 		bool CheckAllLock();
 		void AddChara();
+		void DrawCount();
 	};
 }

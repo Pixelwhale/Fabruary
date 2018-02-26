@@ -189,8 +189,6 @@ void Renderer::DrawMotion(std::string texture_name, int index,
 	GetGraphSize(m_contents->MotionHandle(texture_name, index), 
 		&texture_pivot_x, &texture_pivot_y);
 
-	size.x *= texture_pivot_x;
-	size.y *= texture_pivot_y;
 	texture_pivot_x /= 2;
 	texture_pivot_y /= 2;
 
