@@ -30,8 +30,6 @@ void GameResult::Update()
 void GameResult::Draw()
 {
 	m_game_scene->Draw();
-
-	m_renderer->DrawString("Vector", Math::Vector2());
 }
 
 void GameResult::Shutdown()
@@ -45,5 +43,34 @@ void GameResult::CheckEnd()
 	{
 		m_is_end = true;
 		m_next = SceneType::kTitle;
+		return;
+	}
+
+	for (int i = 0; i < m_input->CurrentPadCount(); ++i) 
+	{
+		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_B))
+		{
+			m_is_end = true;
+			m_next = SceneType::kTitle;
+			return;
+		}
+		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_A))
+		{
+			m_is_end = true;
+			m_next = SceneType::kTitle;
+			return;
+		}
+		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_X))
+		{
+			m_is_end = true;
+			m_next = SceneType::kTitle;
+			return;
+		}
+		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_START))
+		{
+			m_is_end = true;
+			m_next = SceneType::kTitle;
+			return;
+		}
 	}
 }

@@ -24,7 +24,6 @@ void GamePlay::Initialize(SceneType previous)
 		previous == SceneType::kGamePlay)
 		return;
 
-	//m_scene_effect = make_shared<SceneEffect>();
 	m_scene_effect->Zoom(false);
 	m_scene_effect->SetZoomRate(5.0f);
 
