@@ -420,12 +420,13 @@ void CharacterBase::Skill()
 //倒れ値カウント更新
 void CharacterBase::KnockCntUpdate()
 {
+	if (m_isHit)return;
 	m_knock_cnt++;
 	//180(3秒)を超えたら、倒れ値が下がる
 	if (m_knock_cnt >= 180)
 	{
 		m_knock_value--;
-		m_knock_cnt = 180;
+		m_knock_cnt = 120;
 	}
 }
 
@@ -576,6 +577,7 @@ void CharacterBase::StateUpdate()
 		if (m_state == CharacterState::kKnockDown && m_motion->IsCurrentMotionEnd())
 		{
 			if (m_hp < 0) return;
+			m_velocity = Math::Vector3(0, 0, 0);
 			m_state = CharacterState::kGetUp;
 			m_motion->Play("chara_base_anime/get_up",1);
 		}
