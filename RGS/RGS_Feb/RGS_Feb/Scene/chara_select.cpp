@@ -11,6 +11,7 @@
 #include <Character\Controller\pad_controller.h>
 #include <Character\Controller\ai_controller.h>
 #include <Def\window_def.h>
+#include <Def\character_color.h>
 
 using namespace Scene;
 using namespace Job;
@@ -134,19 +135,19 @@ void CharaSelect::Draw()
 			{
 			case 0:
 				m_renderer->DrawTexture("select_chara_planner", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam1), m_ui_alpha);
 				break;
 			case 1:
 				m_renderer->DrawTexture("select_chara_business", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam2), m_ui_alpha);
 				break;
 			case 2:
 				m_renderer->DrawTexture("select_chara_designer", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam3), m_ui_alpha);
 				break;
 			case 3:
 				m_renderer->DrawTexture("select_chara_programmer", Vector2(x, y), m_ui_alpha);
-				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140), CharacterColor::GetTeamColor(kTeam4), m_ui_alpha);
 				break;
 			}
 			if (m_player[player_num].lock)
@@ -161,7 +162,7 @@ void CharaSelect::Draw()
 void CharaSelect::DrawCount()
 {
 	int num = m_timer.Rate() * 4;
-	float size = 10*((int)(m_timer.Rate()*100)%25)/25.0f;
+	float size = 10 * ((int)(m_timer.Rate() * 100) % 25) / 25.0f;
 	m_renderer->DrawMotion("panel_number", num, Vector2(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight / 2), Vector2(size, size));
 }
 
