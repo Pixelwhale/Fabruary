@@ -81,9 +81,9 @@ void GamePlay::AddCharacter()
 
 void GamePlay::Update()
 {
-	m_background->Update();
-	m_scene_effect->Update();
-	if (!m_scene_effect->IsEnd(false))
+	m_background->Update();							//”wŒiXV
+	m_scene_effect->Update();						//SceneChangeXV
+	if (!m_scene_effect->IsEnd(false))				//SceneChange’†
 		return;
 
 	m_meta_ai->Update();
@@ -173,6 +173,5 @@ void GamePlay::Shutdown()
 	m_character_manager = NULL;
 	m_attack_manager->Initialize();
 	m_attack_manager = NULL;
-	//m_scene_effect = NULL;
 	m_game_manager->Clear();
 }
