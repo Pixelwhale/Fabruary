@@ -48,6 +48,10 @@ void Loading::LoadContents()
 	m_content->LoadTexture("menu_start_game", ".png");
 	m_content->LoadTexture("menu_tutorial", ".png");
 	m_content->LoadTexture("menu_quit", ".png");
+
+	m_content->LoadSE("ゴング_onjin", ".mp3");
+	m_content->LoadSE("手足・殴る、蹴る09_on jin", ".mp3");
+	m_content->LoadSE("衝突・衝撃（鉄）01_onjin", ".mp3");
 }
 
 void Loading::UnloadContents()

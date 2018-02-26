@@ -7,6 +7,7 @@
 #include <Def\window_def.h>
 #include <Def\start_position.h>
 #include <Def\character_color.h>
+#include <Device\game_device.h>
 
 using namespace Scene;
 
@@ -34,6 +35,10 @@ void GamePlay::Initialize(SceneType previous)
 	m_meta_ai = make_shared<AI::MetaAI>(m_character_manager, m_attack_manager);
 
 	AddCharacter();
+
+	m_is_fight = false;
+	m_fight_se_timer = Utility::Timer(2.0f);
+	m_fight_se_timer.Reset();
 }
 
 void GamePlay::AddCharacter()
@@ -79,11 +84,27 @@ void GamePlay::Update()
 	if (!m_scene_effect->IsEnd(false))				//SceneChange’†
 		return;
 
+	PlayFightSE();
+
 	m_meta_ai->Update();
 	m_character_manager->Update();
 	m_attack_manager->Update(m_character_manager);
 
 	CheckEnd();
+}
+
+void GamePlay::PlayFightSE()
+{
+	if (m_is_fight)
+		return;
+
+
+	m_fight_se_timer.Update();
+	if (m_fight_se_timer.IsTime())
+	{
+		m_is_fight = true;
+		Device::GameDevice::GetInstance()->GetSound()->PlaySE("ƒSƒ“ƒO_onjin");
+	}
 }
 
 void GamePlay::CheckEnd()

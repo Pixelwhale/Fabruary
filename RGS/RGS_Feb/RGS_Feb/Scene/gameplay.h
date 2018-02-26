@@ -32,6 +32,8 @@ namespace Scene
 		///<summary>Ÿ—˜Ò‚ğ‹L˜^</summary>
 		void SetWinner();
 
+		void PlayFightSE();
+
 	private:
 		std::shared_ptr<GameManager> m_game_manager;						//Game Manager
 
@@ -41,5 +43,8 @@ namespace Scene
 
 		std::shared_ptr<Background> m_background;							//”wŒistage
 		std::shared_ptr<SceneEffect> m_scene_effect;						//Change Scene Effect
+
+		bool m_is_fight;
+		Utility::Timer m_fight_se_timer;
 	};
 }
