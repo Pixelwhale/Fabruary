@@ -4,14 +4,8 @@
 // 内容　：GamePlayシーン
 //-------------------------------------------------------
 #include <Scene\gameplay.h>
-#include <Character\Controller\keyboard_controller.h>
-#include <GameObject\Job\programmer.h>
-#include <GameObject\Job\planner.h>
-#include <GameObject\Job\com_graphic.h>
-#include <GameObject\Job\business.h>
-#include <GameObject\UI\chara_hp_ui.h>
-#include <Def\start_position.h>
 #include <Def\window_def.h>
+#include <Def\start_position.h>
 #include <Def\character_color.h>
 
 using namespace Scene;
@@ -126,7 +120,7 @@ void GamePlay::SetWinner()
 
 		motion->Initialize();
 		motion->Play("chara_base_anime/skill_energy_blast");
-		motion->ChangeSpriteSheet("chara_programmer");
+		motion->ChangeSpriteSheet(character->GetSheetName());
 		motion->SetPosition(winner_position);
 		motion->SetColor(CharacterColor::GetTeamColor(character->GetSide()));
 		motion->Update();
