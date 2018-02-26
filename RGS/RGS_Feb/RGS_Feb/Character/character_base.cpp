@@ -169,6 +169,23 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 	}
 	else
 	{
+		//死んだら、向きの更新しない
+		//攻撃を受けたモーション向きの更新
+		if (m_hp < 0)
+		{
+			return;
+		}
+		else
+		{
+			if (from_right)
+			{
+				m_motion->Flip(true, false);
+			}
+			else
+			{
+				m_motion->Flip(false, false);
+			}
+		}
 		//死亡
 		if (m_hp - atk.GetDamage() <= 0)
 		{
@@ -195,23 +212,6 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_knock_value += atk.GetKnockDown();
 			m_defence_value = 0;
 		}
-		//死んだら、向きの更新しない
-		//攻撃を受けたモーション向きの更新
-		if (m_hp < 0)
-		{
-			return;
-		}
-		else
-		{
-			if (from_right)
-			{
-				m_isRight = true;
-			}
-			else
-			{
-				m_isRight = false;
-			}
-		}
 	}
 }
 
@@ -227,8 +227,8 @@ void CharacterBase::ChangeSheet()
 	else if (typeid(*m_job) == typeid(Job::Business))
 	{
 		m_character_face = 1;
-		m_motion->ChangeSpriteSheet("chara_bussiness");
-		m_sheet_name = "chara_bussiness";
+		m_motion->ChangeSpriteSheet("chara_business");
+		m_sheet_name = "chara_business";
 	}
 	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
 	{
