@@ -42,6 +42,7 @@ namespace Character
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
 		bool	IsInvincible();		//無敵フラグ
+		string  GetSheetName();		//sheet名取得
 		void	SetPosition(Math::Vector3 position);//位置の設定
 		Math::Vector3					GetPosition();//位置の取得
 		Math::CollisionBox				GetBox();
@@ -83,6 +84,8 @@ namespace Character
 		bool	m_isInvincible;		//無敵フラグ
 		bool	m_isStop;			//攻撃状態とか攻撃を受けた時、入力による移動を防ぐ
 		bool	m_isHit;			//攻撃を受けたか？
+
+		string  m_sheet_name;		//sheet名
 
 		Side	m_side;
 		CharacterState m_state;

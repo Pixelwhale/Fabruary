@@ -222,21 +222,25 @@ void CharacterBase::ChangeSheet()
 	{
 		m_character_face = 3;
 		m_motion->ChangeSpriteSheet("chara_programmer");
+		m_sheet_name = "chara_programmer";
 	}
 	else if (typeid(*m_job) == typeid(Job::Business))
 	{
 		m_character_face = 1;
 		m_motion->ChangeSpriteSheet("chara_bussiness");
+		m_sheet_name = "chara_bussiness";
 	}
 	else if (typeid(*m_job) == typeid(Job::ComputerGraphic))
 	{
 		m_character_face = 2;
 		m_motion->ChangeSpriteSheet("chara_designer");
+		m_sheet_name = "chara_designer";
 	}
 	else
 	{
 		m_character_face = 0;
 		m_motion->ChangeSpriteSheet("chara_planner");
+		m_sheet_name = "chara_planner";
 	}
 }
 
@@ -664,6 +668,12 @@ int CharacterBase::GetID()
 int CharacterBase::GetFaceNum()
 {
 	return m_character_face;
+}
+
+//sheet–¼Žæ“¾
+string CharacterBase::GetSheetName()
+{
+	return m_sheet_name;
 }
 
 //–³“Gƒtƒ‰ƒO
