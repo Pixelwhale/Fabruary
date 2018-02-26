@@ -16,8 +16,6 @@ Loading::Loading()
 
 void Loading::LoadContents()
 {
-	m_content->LoadSSFile("Character_base/Character.ssbp");
-
 	m_content->LoadTexture("background", ".png");
 	m_content->LoadTexture("background_light", ".png");
 	m_content->LoadTexture("background_front", ".png");

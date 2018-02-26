@@ -18,7 +18,7 @@ using namespace Math;
 CharaSelect::CharaSelect(std::shared_ptr<GameManager> game_mgr, std::shared_ptr<Background> background)
 {
 	m_game_mgr = game_mgr;
-	m_background = m_background;
+	m_background = background;
 }
 
 void CharaSelect::Initialize(SceneType previous)
