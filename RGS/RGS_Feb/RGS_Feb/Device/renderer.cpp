@@ -170,9 +170,12 @@ void Renderer::DrawFade(Color color, float alpha)
 
 void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 position, float alpha)
 {
-	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+	int bright = 255.0f * alpha;
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
+	SetDrawBright(bright, bright, bright);				//色設定
 	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(texture_name, index), true);
-	SetDrawBright(255, 255, 255);													//色を戻す
+	SetDrawBright(255, 255, 255);						//色を戻す
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);			//AlphaBlend有効
 }
 
 void Renderer::DrawMotion(std::string texture_name, int index,
@@ -180,7 +183,7 @@ void Renderer::DrawMotion(std::string texture_name, int index,
 {
 	int bright = 255.0f * alpha;
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, bright);		//AlphaBlend有効
-	color = color * alpha;						//Alpha適用
+	color = color * alpha;								//Alpha適用
 	SetDrawBright(color.r, color.g, color.b);			//色設定
 
 	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(texture_name, index), true);
