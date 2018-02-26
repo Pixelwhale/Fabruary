@@ -15,17 +15,19 @@ using namespace Scene;
 using namespace Job;
 using namespace Math;
 
-CharaSelect::CharaSelect(std::shared_ptr<GameManager> game_mgr)
+CharaSelect::CharaSelect(std::shared_ptr<GameManager> game_mgr, std::shared_ptr<Background> background)
 {
 	m_game_mgr = game_mgr;
+	m_background = m_background;
 }
 
 void CharaSelect::Initialize(SceneType previous)
 {
 	SceneBase::Initialize(previous);
 	m_scene_state = kStartAnim;
+	m_ui_alpha = 0;
+	m_timer = Utility::Timer(0.5f);
 
-	m_background = new Background();
 	m_scene_effect = new SceneEffect();
 	m_scene_effect->Zoom(true);
 	m_scene_effect->SetZoomRate(5.0f);
@@ -42,7 +44,9 @@ void CharaSelect::Update()
 	switch (m_scene_state)
 	{
 	case kStartAnim:
-		m_scene_state = kJobSelect;
+		m_timer.Update();
+		m_ui_alpha = m_timer.Rate();
+		if (m_timer.IsTime()) m_scene_state = kJobSelect;
 		break;
 	case kJobSelect:
 		if (CheckBackToTitle())
@@ -62,13 +66,12 @@ void CharaSelect::Update()
 		if (CheckAllLock())
 		{
 			m_scene_state = kCountToGo;
-			timer = Utility::Timer(3.0f);
-			timer.Reset();
+			m_timer = Utility::Timer(3.0f);
 		}
 		break;
 	case kCountToGo:
-		timer.Update();
-		if (timer.IsTime()) m_scene_state = kReturnSelectInfo;
+		m_timer.Update();
+		if (m_timer.IsTime()) m_scene_state = kReturnSelectInfo;
 		//join
 		if (CheckJoin())
 		{
@@ -91,10 +94,16 @@ void CharaSelect::Update()
 	case kReturnSelectInfo:
 		AddChara();
 		m_scene_state = kEndAnim;
+		m_timer = Utility::Timer(0.5f);
 		break;
 	case kEndAnim:
-		m_is_end = true;
-		m_next = kGamePlay;
+		m_timer.Update();
+		m_ui_alpha = 1 - m_timer.Rate();
+		if (m_timer.IsTime())
+		{
+			m_is_end = true;
+			m_next = kGamePlay;
+		}
 		break;
 	}
 }
@@ -106,40 +115,40 @@ void CharaSelect::Draw()
 	m_scene_effect->DrawEffect();
 	m_renderer->DrawString("CharaSelect", Vector2(0, 0));
 
-	m_renderer->DrawTexture("select_chara_ui", Vector2(0, 0));
+	m_renderer->DrawTexture("select_chara_ui", Vector2(0, 0), m_ui_alpha);
 	for (int player_num = 0; player_num < 4; ++player_num)
 	{
 		int x = 107 + (player_num % 2) * 560;
 		int y = 128 + (player_num / 2) * 246;
 		if (m_player[player_num].controller_num == -1)
 		{
-			m_renderer->DrawTexture("select_chara_join_button", Vector2(x, y));
+			m_renderer->DrawTexture("select_chara_join_button", Vector2(x, y), m_ui_alpha);
 		}
 		else
 		{
-			m_renderer->DrawTexture("select_chara_button", Vector2(x, y));
+			m_renderer->DrawTexture("select_chara_button", Vector2(x, y), m_ui_alpha);
 			switch (m_player[player_num].job % 4)
 			{
 			case 0:
-				m_renderer->DrawTexture("select_chara_planner", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140));
+				m_renderer->DrawTexture("select_chara_planner", Vector2(x, y), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 0, Vector2(x + 225, y + 140), m_ui_alpha);
 				break;
 			case 1:
-				m_renderer->DrawTexture("select_chara_business", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140));
+				m_renderer->DrawTexture("select_chara_business", Vector2(x, y), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 1, Vector2(x + 225, y + 140), m_ui_alpha);
 				break;
 			case 2:
-				m_renderer->DrawTexture("select_chara_designer", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140));
+				m_renderer->DrawTexture("select_chara_designer", Vector2(x, y), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 2, Vector2(x + 225, y + 140), m_ui_alpha);
 				break;
 			case 3:
-				m_renderer->DrawTexture("select_chara_programmer", Vector2(x, y));
-				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140));
+				m_renderer->DrawTexture("select_chara_programmer", Vector2(x, y), m_ui_alpha);
+				m_renderer->DrawMotion("chara_face", 3, Vector2(x + 225, y + 140), m_ui_alpha);
 				break;
 			}
 			if (m_player[player_num].lock)
 			{
-				m_renderer->DrawTexture("select_chara_ready", Vector2(x, y));
+				m_renderer->DrawTexture("select_chara_ready", Vector2(x, y), m_ui_alpha);
 			}
 		}
 	}
@@ -148,7 +157,6 @@ void CharaSelect::Draw()
 void CharaSelect::Shutdown()
 {
 	delete[] m_player;
-	delete m_background;
 	delete m_scene_effect;
 }
 

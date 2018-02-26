@@ -32,7 +32,7 @@ namespace Scene
 	class CharaSelect : public SceneBase
 	{
 	public:
-		CharaSelect(std::shared_ptr<GameManager> game_mgr);
+		CharaSelect(std::shared_ptr<GameManager> game_mgr, std::shared_ptr<Background> background);
 		void Initialize(SceneType previous);
 		void Update();
 		void Draw();
@@ -40,13 +40,14 @@ namespace Scene
 	private:
 		SceneState m_scene_state;
 		std::shared_ptr<GameManager> m_game_mgr;
-		Background* m_background;
+		std::shared_ptr<Background> m_background;
 		SceneEffect* m_scene_effect;
+		float m_ui_alpha;
 
 		Player *m_player;
 		bool m_controller[5];	//check if controller is bind. (avoid repeat bind)
 
-		Utility::Timer timer;
+		Utility::Timer m_timer;
 
 		bool CheckBackToTitle();
 		int MinIndex();		//return 0~3 (1P~4P)
@@ -56,7 +57,6 @@ namespace Scene
 		void PadSelect(int player_num, int pad_num);
 		bool CheckKbUnlock(int player_num);
 		bool CheckPadUnlock(int player_num, int pad_num);
-
 		bool CheckAllLock();
 		void AddChara();
 	};
