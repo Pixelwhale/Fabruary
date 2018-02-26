@@ -18,7 +18,7 @@ Sound::~Sound()
 #pragma region BGMŠÖ˜A
 
 //BGM‚ð—¬‚ê‚·
-void Sound::PlayBGM(std::string bgm_name) 
+void Sound::PlayBGM(std::string bgm_name, int volume)
 {
 	if (bgm_name != m_current_bgm) 
 	{
@@ -30,6 +30,7 @@ void Sound::PlayBGM(std::string bgm_name)
 	if (CheckMusic() == 1)					//1‚ÍÄ¶’†
 		return;
 
+	ChangeVolumeSoundMem(volume, handle);
 	PlayMusicMem(handle, DX_PLAYTYPE_LOOP);
 }
 
@@ -50,10 +51,11 @@ void  Sound::StopBGM()
 #pragma region SE
 
 //SE‚ð—¬‚·
-void Device::Sound::PlaySE(std::string se_name)
+void Device::Sound::PlaySE(std::string se_name, int volume)
 {
 	int handle = DuplicateSoundMem(m_contents->SEHandle(se_name));
 
+	ChangeVolumeSoundMem(volume, handle);
 	PlaySoundMem(handle, DX_PLAYTYPE_BACK);
 	SetPlayFinishDeleteSoundMem(true, handle);
 }

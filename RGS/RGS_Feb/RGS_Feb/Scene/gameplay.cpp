@@ -37,7 +37,7 @@ void GamePlay::Initialize(SceneType previous)
 	AddCharacter();
 
 	m_is_fight = false;
-	m_fight_se_timer = Utility::Timer(2.0f);
+	m_fight_se_timer = Utility::Timer(2.2f);
 	m_fight_se_timer.Reset();
 }
 
@@ -100,7 +100,6 @@ void GamePlay::PlayFightSE()
 	if (m_is_fight)
 		return;
 
-
 	m_fight_se_timer.Update();
 	if (m_fight_se_timer.IsTime())
 	{
@@ -162,6 +161,11 @@ void GamePlay::Draw()
 	m_renderer->DrawOnBloomFilter();		//DrawFilter
 
 	m_background->DrawBack();				//”wŒi
+
+	if (!m_is_fight)
+		m_renderer->DrawMotion("panel_number", 
+			(m_fight_se_timer.GetCurrentTimes() + 60) / 60,
+			Math::Vector2(345, 160));
 
 	m_character_manager->Draw();			//Character
 	m_attack_manager->Draw();				//UŒ‚Effect

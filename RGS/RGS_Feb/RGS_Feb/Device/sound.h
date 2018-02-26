@@ -19,7 +19,7 @@ namespace Device
 #pragma region BGMŠÖ˜A
 
 		///<summary>BGM‚ð—¬‚·</summary>
-		void PlayBGM(std::string bgm_name);
+		void PlayBGM(std::string bgm_name, int volume = 255 * 75 / 100);
 
 		///<summary>BGM‚ð’âŽ~</summary>
 		void StopBGM();
@@ -29,7 +29,7 @@ namespace Device
 #pragma region SEŠÖ˜A
 
 		///<summary>SE‚ð—¬‚·</summary>
-		void PlaySE(std::string se_name);
+		void PlaySE(std::string se_name, int volume = 255);
 
 #pragma endregion
 
