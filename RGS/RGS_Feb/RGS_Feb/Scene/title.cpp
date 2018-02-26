@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #include <Scene\title.h>
 #include <Def\window_def.h>
+#include <Device\game_device.h>
 
 using namespace Scene;
 
@@ -23,6 +24,8 @@ void Title::Initialize(SceneType previous)
 	InitSceneEffect();
 	SetWinner();
 	InitMenu();
+
+	Device::GameDevice::GetInstance()->GetInstance()->GetSound()->PlayBGM("tw071");
 }
 
 void Title::InitMenu() 

@@ -7,13 +7,13 @@
 #include <Def\window_def.h>
 #include <Def\start_position.h>
 #include <Def\character_color.h>
-#include <Device\game_device.h>
 
 using namespace Scene;
 
 GamePlay::GamePlay(shared_ptr<Background> background, std::shared_ptr<SceneEffect> scene_effect, std::shared_ptr<GameManager> game_manager)
 	:m_background(background), m_scene_effect(scene_effect), m_game_manager(game_manager)
 {
+	m_sound = Device::GameDevice::GetInstance()->GetInstance()->GetSound();
 }
 
 void GamePlay::Initialize(SceneType previous)
@@ -79,6 +79,8 @@ void GamePlay::AddCharacter()
 
 void GamePlay::Update()
 {
+	m_sound->PlayBGM("tw052");
+
 	m_background->Update();							//”wŒiXV
 	m_scene_effect->Update();						//SceneChangeXV
 	if (!m_scene_effect->IsEnd(false))				//SceneChange’†

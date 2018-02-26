@@ -35,6 +35,7 @@ namespace Scene
 		void PlayFightSE();
 
 	private:
+		std::shared_ptr<Device::Sound> m_sound;
 		std::shared_ptr<GameManager> m_game_manager;						//Game Manager
 
 		std::shared_ptr<Character::CharacterManager> m_character_manager;	//Character Manager

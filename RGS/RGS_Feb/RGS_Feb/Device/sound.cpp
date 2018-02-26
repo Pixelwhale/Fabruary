@@ -27,7 +27,7 @@ void Sound::PlayBGM(std::string bgm_name)
 	}
 
 	int handle = m_contents->BGMHandle(bgm_name);
-	if (CheckMusicMem(handle) == 1)					//1‚ÍÄ¶’†
+	if (CheckMusic() == 1)					//1‚ÍÄ¶’†
 		return;
 
 	PlayMusicMem(handle, DX_PLAYTYPE_LOOP);
@@ -38,7 +38,7 @@ void  Sound::StopBGM()
 {
 	int handle = m_contents->BGMHandle(m_current_bgm);
 
-	if (CheckMusicMem(handle) == 1)					//1‚ÍÄ¶’†
+	if (CheckMusic() == 1)					//1‚ÍÄ¶’†
 	{
 		StopMusicMem(handle);
 		m_current_bgm.clear();

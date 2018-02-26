@@ -52,6 +52,10 @@ void Loading::LoadContents()
 	m_content->LoadSE("ƒSƒ“ƒO_onjin", ".mp3");
 	m_content->LoadSE("Žè‘«E‰£‚éAR‚é09_on jin", ".mp3");
 	m_content->LoadSE("Õ“ËEÕŒ‚i“Sj01_onjin", ".mp3");
+
+	m_content->LoadBGM("stlp6", ".mp3");
+	m_content->LoadBGM("tw052", ".mp3");
+	m_content->LoadBGM("tw071", ".mp3");
 }
 
 void Loading::UnloadContents()
