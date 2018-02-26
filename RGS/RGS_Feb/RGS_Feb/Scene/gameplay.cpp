@@ -11,6 +11,7 @@
 #include <GameObject\Job\business.h>
 #include <GameObject\UI\chara_hp_ui.h>
 #include <Def\start_position.h>
+#include <Def\window_def.h>
 
 using namespace Scene;
 
@@ -95,6 +96,7 @@ void GamePlay::CheckEnd()
 {
 	if (m_character_manager->GetEnd())
 	{
+		SetWinner();
 		m_is_end = true;
 		m_next = SceneType::kGameResult;
 		return;
@@ -106,6 +108,33 @@ void GamePlay::CheckEnd()
 		m_next = SceneType::kPause;
 		return;
 	}
+}
+
+void GamePlay::SetWinner() 
+{
+	m_game_manager->ClearWinnerMotion();
+	vector<std::shared_ptr<MotionSystem::Motion>> winner_motion;
+	Math::Vector3 winner_position = Math::Vector3(
+		100, 128, 
+		WindowDef::kScreenHeight / 2 - Size::kCharaZ * 6);
+
+	for (auto &character : m_character_manager->GetWinnerList()) 
+	{
+		std::shared_ptr<MotionSystem::Motion> motion =
+			make_shared<MotionSystem::Motion>("Character");
+
+		motion->Initialize();
+		motion->Play("chara_base_anime/skill_energy_blast");
+		motion->ChangeSpriteSheet("chara_programmer");
+		motion->SetPosition(winner_position);
+		motion->SetColor(Color(0.4f, 0.8f, 0.4f));
+		motion->Update();
+
+		winner_motion.push_back(motion);
+		winner_position += Math::Vector3(Size::kCharaX, 0, 0);
+	}
+
+	m_game_manager->SetWinner(winner_motion);
 }
 
 void GamePlay::Draw()

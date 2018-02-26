@@ -29,6 +29,8 @@ namespace Scene
 		void CheckEnd();
 		///<summary>ƒLƒƒƒ‰’Ç‰Á</summary>
 		void AddCharacter();
+		///<summary>Ÿ—˜Ò‚ğ‹L˜^</summary>
+		void SetWinner();
 
 	private:
 		std::shared_ptr<GameManager> m_game_manager;						//Game Manager

@@ -30,6 +30,12 @@ Background::~Background()
 	m_damage_center = NULL;
 	m_damage_left = NULL;
 	m_walk = NULL;
+
+	for (auto &motion : m_winner_motion)
+	{
+		motion = NULL;
+	}
+	m_winner_motion.clear();
 }
 
 void Background::InitializeMotion()
@@ -130,6 +136,12 @@ void Background::SetWinner(vector<shared_ptr<MotionSystem::Motion>> winners)
 {
 	if (winners.size() <= 0)		//‚È‚¢ê‡‚Íã‘‚«‚µ‚È‚¢
 		return;
+
+	for (auto &motion : m_winner_motion) 
+	{
+		motion = NULL;
+	}
+	m_winner_motion.clear();
 
 	m_winner_motion = winners;
 }

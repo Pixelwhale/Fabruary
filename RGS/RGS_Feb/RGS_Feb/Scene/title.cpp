@@ -18,6 +18,7 @@ void Title::Initialize(SceneType previous)
 	SceneBase::Initialize(previous);
 
 	InitSceneEffect();
+	SetWinner();
 
 	m_title_menu = make_shared<UI::TitleStateManager>();
 	m_title_menu->Initialize();
@@ -30,6 +31,12 @@ void Title::InitSceneEffect()
 
 	if (m_previous == SceneType::kCharaSelect) 
 		m_scene_effect->SetZoomRate(5.0f);
+}
+
+void Title::SetWinner()
+{
+	m_background->SetWinner(m_game_manager->WinnerMotion());
+	m_game_manager->ClearWinnerMotion();
 }
 
 void Title::Update()

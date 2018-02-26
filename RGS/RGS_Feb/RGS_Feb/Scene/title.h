@@ -27,6 +27,8 @@ namespace Scene
 		void CheckEnd();
 		///<summary>SceneChangeEffect‚ğ‰Šú‰»</summary>
 		void InitSceneEffect();
+		///<summary>Winner‚ğ”wŒi‚Éİ’è</summary>
+		void SetWinner();
 
 	private:
 		std::shared_ptr<GameManager> m_game_manager;		//GameManager

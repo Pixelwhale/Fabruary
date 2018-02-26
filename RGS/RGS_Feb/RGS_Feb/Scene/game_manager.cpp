@@ -119,6 +119,10 @@ std::vector<shared_ptr<MotionSystem::Motion>> GameManager::WinnerMotion()
 
 void GameManager::ClearWinnerMotion() 
 {
+	for (auto &motion : m_winner_motion)
+	{
+		motion = NULL;
+	}
 	m_winner_motion.clear();
 }
 
