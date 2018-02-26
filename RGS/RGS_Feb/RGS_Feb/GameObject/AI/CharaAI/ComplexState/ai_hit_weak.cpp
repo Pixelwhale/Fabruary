@@ -75,9 +75,12 @@ std::shared_ptr<AiState> HitWeak::NextState(int difficulty)
 	if (m_target == NULL || m_target->IsDead())
 		return make_shared<HitWeak>(m_character, difficulty);
 
+	if (difficulty < 3)
+		return make_shared<Wait>(m_character, 1.5f / difficulty);
+
 	std::shared_ptr<AiState> attack = std::make_shared<NormalKick>(m_character, m_target);
 
-	if (difficulty < 3)
+	if (difficulty < 5)
 		return make_shared<ComboNear>(m_character, attack, difficulty);
 
 	float rate = Device::GameDevice::GetInstance()->GetRandom()->NextDouble();

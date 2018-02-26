@@ -50,7 +50,7 @@ std::shared_ptr<AiState> ComboNear::NextState(int difficulty)
 {
 	int priority = Device::GameDevice::GetInstance()->GetRandom()->Next(1, 6);
 	priority *= difficulty;
-	if (priority > 8 * 3)											//難易度8 2/5の確率
+	if (priority > 8 * 4)											//難易度8 1/5の確率
 		return make_shared<HitWeak>(m_character, difficulty);
 
 	return make_shared<Wait>(m_character, 2.0f / difficulty);
