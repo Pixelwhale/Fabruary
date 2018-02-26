@@ -10,6 +10,7 @@
 #include <GameObject\\Job\com_graphic.h>
 #include <Color\color.h>
 #include <Def\window_def.h>
+#include <Def\character_color.h>
 
 using namespace Character;
 
@@ -35,7 +36,6 @@ CharacterBase::~CharacterBase()
 	m_motion = NULL;
 	m_job = NULL;
 	m_attack_mediator = NULL;
-	//m_ui = NULL;
 	m_gravity = NULL;
 }
 
@@ -243,43 +243,8 @@ void CharacterBase::ChangeSheet()
 //FÝ’è
 void CharacterBase::SetColor()
 {
-	Color m_color_character = Color(1.0f, 1.0f, 1.0f, 1.0f);
-	Color m_color_team = Color(1.0f, 1.0f, 1.0f, 1.0f);
-	if (m_side == Side::kNoTeam)		//ƒIƒŒƒ“ƒW
-	{
-		m_color_character = Color(220, 121, 0);
-		m_color_team = Color(255, 230, 215);
-		m_motion->SetColor(m_color_character);
-		m_controller->SetTagColor(m_color_team);
-	}
-	else if (m_side == Side::kTeam1)	//—Î
-	{
-		m_color_character = Color(36, 220, 36);
-		m_color_team = Color(219, 255, 219);
-		m_motion->SetColor(m_color_character);
-		m_controller->SetTagColor(m_color_team);
-	}
-	else if (m_side == Side::kTeam2)	//Â
-	{
-		m_color_character = Color(49, 220, 220);
-		m_color_team = Color(180, 255, 255);
-		m_motion->SetColor(m_color_character);
-		m_controller->SetTagColor(m_color_team);
-	}
-	else if (m_side == Side::kTeam3)	//‰©
-	{
-		m_color_character = Color(220, 220, 49);
-		m_color_team = Color(255, 255, 180);
-		m_motion->SetColor(m_color_character);
-		m_controller->SetTagColor(m_color_team);
-	}
-	else if (m_side == Side::kTeam4)	//Ô
-	{
-		m_color_character = Color(220, 49, 16);
-		m_color_team = Color(255, 210, 210);
-		m_motion->SetColor(m_color_character);
-		m_controller->SetTagColor(m_color_team);
-	}
+	m_motion->SetColor(CharacterColor::GetTeamColor(m_side));
+	m_controller->SetTagColor(CharacterColor::GetIconColor(m_side));
 }
 
 
