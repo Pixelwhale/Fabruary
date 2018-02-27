@@ -56,8 +56,11 @@ void Title::InitSceneEffect()
 {
 	m_scene_effect->Zoom(false);
 
-	if (m_previous == SceneType::kCharaSelect)
+	if (m_previous == SceneType::kCharaSelect) 
+	{
 		m_scene_effect->SetZoomRate(5.0f);
+		Device::GameDevice::GetInstance()->GetInstance()->GetSound()->PlaySE("se_screen_out");
+	}
 }
 
 void Title::SetWinner()
@@ -107,6 +110,7 @@ void Title::CheckEnd()
 		if (m_title_menu->NextScene() == SceneType::kCharaSelect)
 		{
 			m_scene_effect->Zoom(true);
+			//Device::GameDevice::GetInstance()->GetInstance()->GetSound()->PlaySE("se_screen_in");
 			return;
 		}
 

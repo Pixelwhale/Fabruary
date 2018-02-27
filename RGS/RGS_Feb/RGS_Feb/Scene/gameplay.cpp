@@ -27,6 +27,7 @@ void GamePlay::Initialize(SceneType previous)
 
 	m_scene_effect->Zoom(false);
 	m_scene_effect->SetZoomRate(5.0f);
+	Device::GameDevice::GetInstance()->GetSound()->PlaySE("se_screen_out");
 
 	m_attack_manager = make_shared<AttackSystem::AttackManager>();
 	m_character_manager = make_shared<Character::CharacterManager>();
