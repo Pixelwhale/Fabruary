@@ -197,7 +197,23 @@ void GamePlay::DrawMonitor()
 
 	if (m_is_end == true && m_next == SceneType::kGameResult)
 	{
+		if (m_fight_string_timer.GetCurrentTimes() % 20 > 15)
+			return;
+		int player_num = 1;
+		for (auto &character : m_character_manager->GetWinnerList())
+		{
+			player_num = character->GetPlayerNum();
+			break;
+		}
 
+		m_renderer->DrawTexture("boss",
+			Math::Vector2(380, 190), Math::Vector2(256, 128),
+			Math::Vector2(0.5f, 0.5f), 0, Color(1.0f, 1.0f, 1.0f));
+
+		m_renderer->DrawMotion("panel_number", player_num,
+			Math::Vector2(320, 190));
+		m_renderer->DrawMotion("panel_number", 10,
+			Math::Vector2(360, 190));
 		return;
 	}
 
