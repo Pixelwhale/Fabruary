@@ -91,7 +91,7 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 		size.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus + size, size + Math::Vector3(0, 128, 128), m_side, "Kamehameha/anime_1", 100, 10, 5, 90, 3, 3, 2, attack_source));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus + size, size + Math::Vector3(0, 128, 128), m_side, "Kamehameha/anime_1", 100, 10, 5, 90, 3, 3, 0.66, attack_source));
 	return base_animation + "skill_energy_blast";
 }
 

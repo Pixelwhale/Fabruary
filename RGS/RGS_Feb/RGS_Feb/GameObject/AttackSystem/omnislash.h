@@ -7,6 +7,7 @@
 #pragma once
 #include <GameObject\AttackSystem\attack.h>
 #include <Utility\timer.h>
+#include <Device\MotionSystem\motion.h>
 
 namespace AttackSystem
 {
@@ -38,6 +39,8 @@ namespace AttackSystem
 		std::string m_animationToPlay;
 
 		Utility::Timer m_life_span_timer;
+
+		std::shared_ptr<MotionSystem::Motion> m_motion;
 	};
 }
 

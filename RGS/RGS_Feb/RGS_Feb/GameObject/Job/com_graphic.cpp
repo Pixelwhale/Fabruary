@@ -90,22 +90,24 @@ std::string ComputerGraphic::Skill1(std::shared_ptr<AttackSystem::AttackMediator
 		attack_source = AttackSystem::Direction::kLeft;
 	}
 	// スキルの追加はここに
-	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(350, 350, 0), m_side, 3, 1, 0, 30, 5, "Effect/slash", 1, attack_source));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(350, 350, 0), m_side, 3, 1, 0, 30, 5, "Effect/wind_blow", 1, attack_source));
 	return base_animation + "skill_color_slash";
 }
 
 std::string ComputerGraphic::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), (Size::kCharaY / 3), 0);
+	AttackSystem::Direction attack_source = AttackSystem::Direction::kRight;
+	Math::Vector3 plus = Math::Vector3(0, 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
+		attack_source = AttackSystem::Direction::kLeft;
 	}
 	// スキルの追加はここに
-	attack_manager->AddAttack(std::make_shared<AttackSystem::SummoningType>(position + plus, Math::Vector3(20, 20, 20), m_side, 0, 0, 0, 1));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::OmniSlash>(position + plus, Math::Vector3(350, 350, 100), m_side, 10, 1, 0, 0, 5, "skill_effect/skill_omnislash", 1, attack_source));
 	// まだ終わってない。
-	return base_animation + "skill_2";
+	return base_animation + "skill_energy_blast";
 }
 
 std::string ComputerGraphic::Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
