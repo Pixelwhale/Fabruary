@@ -24,6 +24,7 @@ CharacterBase::CharacterBase(Math::Vector3 position,Side side,int id,
 	m_job = job;
 	m_attack_mediator = attackMediator;
 	m_motion = std::make_shared<MotionSystem::Motion>("Character");
+	m_sound = Device::GameDevice::GetInstance()->GetSound();
 	m_size = Math::Vector3(Size::kCharaX, Size::kCharaY, Size::kCharaZ);
 	m_side = side;
 	m_id = id;
@@ -37,6 +38,7 @@ CharacterBase::~CharacterBase()
 	m_job = NULL;
 	m_attack_mediator = NULL;
 	m_gravity = NULL;
+	m_sound = NULL;
 }
 
 //初期化
@@ -114,7 +116,11 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 {
 	bool from_right;
 	float  knockback_adjust = 14;
-	if (atk.GetDamage() == 0) m_isStop = true;
+	if (atk.GetDamage() == 0) 
+	{ 
+		m_isStop = true; 
+		return;
+	}
 	//スキール中の時は、ダメージを受けるだけ
 	if (m_state == CharacterState::kSkill)
 	{
@@ -184,12 +190,12 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 			m_motion->Play("chara_base_anime/dead", 1);
 			m_hp -= atk.GetDamage();
 		}
-		
 		//倒れ値を超えたら、倒れる
 		else if (m_knock_value > m_job->KnockValue())
 		{
 			m_state = CharacterState::kKnockDown;
 			m_motion->Play("chara_base_anime/knock_down",1);
+			m_sound->PlaySE("se_down");
 			m_hp -= atk.GetDamage();
 			m_knock_value = 0;
 			m_defence_value = 0;
@@ -199,6 +205,7 @@ void CharacterBase::Collide(const AttackSystem::Attack& atk)
 		{
 			m_state = CharacterState::kKnockBack;
 			m_motion->Play("chara_base_anime/damage",1);
+			m_sound->PlaySE("se_hit");
 			m_hp -= atk.GetDamage();
 			m_knock_value += atk.GetKnockDown();
 			m_defence_value = 0;
@@ -279,6 +286,7 @@ void CharacterBase::Attack()
 	{
 		m_motion->Play(m_job->Punch(m_attack_mediator, m_position, m_isRight),1);
 		m_state = CharacterState::kPunch;
+		m_sound->PlaySE("se_punch");
 		m_isStop = true;
 	}
 	//キック
@@ -286,6 +294,7 @@ void CharacterBase::Attack()
 	{
 		m_motion->Play(m_job->Kick(m_attack_mediator, m_position, m_isRight),1);
 		m_state = CharacterState::kKick;
+		m_sound->PlaySE("se_kick");
 		m_isStop = true;
 	}
 	//防御
@@ -296,6 +305,7 @@ void CharacterBase::Attack()
 			m_state = CharacterState::kUkemi;
 			m_velocity = Math::Vector3(0, 0, 0);
 			m_motion->Play("chara_base_anime/ukemi", 1);
+			m_sound->PlaySE("se_ukemi");
 			m_isStop = true;
 		}
 		if (m_state != CharacterState::kUkemi && !m_isStop)
