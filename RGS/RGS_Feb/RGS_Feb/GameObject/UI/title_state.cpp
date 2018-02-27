@@ -72,16 +72,21 @@ bool TitleState::Down()
 	//For文を一回だけ回すためTriggerKey（）使わない
 	if (m_input->IsKeyTrigger(KEY_INPUT_DOWN))
 	{
+		m_sound->PlaySE("se_updown");
 		return true;
 	}
 	for (int i = 0; i < 4; ++i)
 	{
 		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_DPAD_DOWN))
 		{
+			m_sound->PlaySE("se_updown");
 			return true;
 		}
-		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, -0.7f)))
+		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, -0.7f))) 
+		{
+			m_sound->PlaySE("se_updown");
 			return true;
+		}
 	}
 	return false;
 }
@@ -91,16 +96,21 @@ bool TitleState::Up()
 	//For文を一回だけ回すためTriggerKey（）使わない
 	if (m_input->IsKeyTrigger(KEY_INPUT_UP))
 	{
+		m_sound->PlaySE("se_updown");
 		return true;
 	}
 	for (int i = 0; i < 4; ++i)
 	{
 		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_DPAD_UP))
 		{
+			m_sound->PlaySE("se_updown");
 			return true;
 		}
-		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, 0.7f)))
+		if (m_input->IsPadStickTrigger(i, Math::Vector2(0, 0.7f))) 
+		{
+			m_sound->PlaySE("se_updown");
 			return true;
+		}
 	}
 	return false;
 }
