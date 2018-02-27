@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #include <Scene\scene_manager.h>
 #include <Scene\loading.h>
+#include <Scene\logo.h>
 #include <Scene\title.h>
 #include <Scene\tutorial.h>
 #include <Scene\credit.h>
@@ -30,6 +31,7 @@ void SceneManager::Initialize()
 	shared_ptr<SceneEffect> scene_effect = make_shared<SceneEffect>();
 	shared_ptr<GamePlay> game_play = make_shared<GamePlay>(background, scene_effect, game_manager);	//GamePlayScene
 
+	Add(kLogo, make_shared<Logo>());
 	Add(kTitle, make_shared<SceneFader>(make_shared<Title>(background, scene_effect, game_manager), 1.0f, 0.0f));
 	Add(kCharaSelect, make_shared<CharaSelect>(background, scene_effect, game_manager));
 	Add(kTutorial, make_shared<Tutorial>(background));

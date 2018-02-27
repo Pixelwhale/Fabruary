@@ -10,13 +10,14 @@ using namespace Scene;
 Loading::Loading()
 {
 	m_content = Device::GameDevice::GetInstance()->GetContent();
-	m_next = kTitle;
+	m_next = kLogo;
 	m_is_end = false;
 }
 
 void Loading::LoadContents()
 {
 	m_content->LoadTexture("title", ".png");
+	m_content->LoadTexture("NEEC1280black", ".png");
 
 	m_content->LoadTexture("background", ".png");
 	m_content->LoadTexture("background_light", ".png");

@@ -10,6 +10,7 @@ namespace Scene
 	enum SceneType
 	{
 		kLoading,
+		kLogo,
 		kTitle,
 		kTutorial,
 		kCharaSelect,

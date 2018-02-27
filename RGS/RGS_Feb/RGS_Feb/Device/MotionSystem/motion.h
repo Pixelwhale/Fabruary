@@ -36,6 +36,8 @@ namespace MotionSystem
 		void Update(float frame = 1 / 60.0f);
 		///<summary>•`‰æˆ—</summary>
 		void Draw();
+		///<summary>•`‰æˆ—</summary>
+		void Draw2D();
 
 		///<summary>ˆÊ’uİ’è</summary>
 		void SetPosition(Math::Vector3 position);

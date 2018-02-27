@@ -14,6 +14,7 @@ void Game::Initialize()
 	m_renderer = m_game_device->GetRenderer();
 	
 	m_game_device->GetContent()->LoadSSFile("Character_base/Character.ssbp");
+	m_game_device->GetContent()->LoadSSFile("Logo/Logo.ssbp");
 	m_scene_manager = std::make_shared<Scene::SceneManager>();
 	m_scene_manager->Initialize();
 }

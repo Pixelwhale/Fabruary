@@ -68,6 +68,13 @@ void Motion::Draw()
 	m_projector->PopSetting();
 }
 
+void Motion::Draw2D()
+{
+	m_projector->SpriteMode();
+	m_motion_player->draw();
+	m_projector->PopSetting();
+}
+
 void Motion::SetPosition(Math::Vector3 position)
 {
 	m_position = position;
@@ -104,7 +111,7 @@ bool Motion::IsCurrentMotionEnd()
 	return m_motion_player->getFrameNo() >= m_motion_player->getMaxFrame() - 1;
 }
 
-void  Motion::SetFrame(int frame)
+void Motion::SetFrame(int frame)
 {
 	m_motion_player->setFrameNo(frame);
 }
