@@ -1,0 +1,14 @@
+２Dアクションゲーム
+
+Spaceキーでgameplaｙに
+
+A：　パンチ（連続打撃可能）
+D：　キック
+Q：　防御　（KnockDown中押すと、受け身）
+E：　ダッシュ
+Space　：　Jump
+P：　一時停止
+skill :  A A Q A 
+
+最後に一人が残るとゲームオーバー
+Spaceキーでタイトルへ
