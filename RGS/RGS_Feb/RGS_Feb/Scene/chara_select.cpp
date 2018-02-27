@@ -80,7 +80,8 @@ void CharaSelect::Update()
 		{
 			m_scene_state = kCountToGo;
 			m_timer = Utility::Timer(4.0f);
-			m_sound->PlaySE("se_countdown");
+			//bug here!
+			//m_sound->PlaySE("se_countdown");
 		}
 		break;
 	case kCountToGo:
@@ -213,6 +214,7 @@ bool CharaSelect::CheckJoin()
 		m_player[index].controller_num = 4;
 		m_player[index].occupied = true;
 		m_controller[4] = true;
+		m_sound->PlaySE("se_select");
 		return true;
 	}
 	for (int pad_num = 0; pad_num < 3; ++pad_num)
@@ -223,6 +225,7 @@ bool CharaSelect::CheckJoin()
 			m_player[index].controller_num = pad_num;
 			m_player[index].occupied = true;
 			m_controller[pad_num] = true;
+			m_sound->PlaySE("se_select");
 			return true;
 		}
 	}
@@ -251,18 +254,22 @@ void CharaSelect::KbSelect(int player_num)
 			m_player[player_num].controller_num = -1;
 			m_player[player_num].occupied = false;
 			m_controller[4] = false;
+			m_sound->PlaySE("se_cancel");
 		}
 		if (m_input->IsKeyTrigger(KEY_INPUT_RIGHT))
 		{
 			++m_player[player_num].job;
+			m_sound->PlaySE("se_updown");
 		}
 		if (m_input->IsKeyTrigger(KEY_INPUT_LEFT))
 		{
 			m_player[player_num].job += 3;
+			m_sound->PlaySE("se_updown");
 		}
 		if (m_input->IsKeyTrigger(KEY_INPUT_A))
 		{
 			m_player[player_num].lock = true;
+			m_sound->PlaySE("se_select");
 		}
 	}
 	else CheckKbUnlock(player_num);
@@ -272,6 +279,7 @@ bool CharaSelect::CheckKbUnlock(int player_num)
 	if (m_player[player_num].lock == true && m_input->IsKeyTrigger(KEY_INPUT_D))
 	{
 		m_player[player_num].lock = false;
+		m_sound->PlaySE("se_cancel");
 		return true;
 	}
 	return false;
@@ -285,18 +293,22 @@ void CharaSelect::PadSelect(int player_num, int pad_num)
 			m_player[player_num].controller_num = -1;
 			m_player[player_num].occupied = false;
 			m_controller[pad_num] = false;
+			m_sound->PlaySE("se_cancel");
 		}
 		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_RIGHT) || m_input->IsPadStickTrigger(pad_num, Vector2(0.7f, 0)))
 		{
 			++m_player[player_num].job;
+			m_sound->PlaySE("se_updown");
 		}
 		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_DPAD_LEFT) || m_input->IsPadStickTrigger(pad_num, Vector2(-0.7f, 0)))
 		{
 			m_player[player_num].job += 3;
+			m_sound->PlaySE("se_updown");
 		}
 		if (m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_B))
 		{
 			m_player[player_num].lock = true;
+			m_sound->PlaySE("se_select");
 		}
 	}
 	else CheckPadUnlock(player_num, pad_num);
@@ -306,6 +318,7 @@ bool CharaSelect::CheckPadUnlock(int player_num, int pad_num)
 	if (m_player[player_num].lock == true && m_input->IsPadButtonTrigger(pad_num, XINPUT_BUTTON_A))
 	{
 		m_player[player_num].lock = false;
+		m_sound->PlaySE("se_cancel");
 		return true;
 	}
 	return false;
