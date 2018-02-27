@@ -344,6 +344,9 @@ void CharaSelect::AddChara()
 			break;
 		}
 		shared_ptr<Character::VirtualController> v_controller;
+		int difficulty = 0;
+		difficulty = Device::GameDevice::GetInstance()->
+			GetRandom()->Next(1, 10);
 		switch (m_player[player_num].controller_num)
 		{
 		case 4:
@@ -352,7 +355,7 @@ void CharaSelect::AddChara()
 			break;
 		case -1:
 			v_controller = make_shared < Character::AiController>(player_num + 1);
-			m_game_mgr->AddSelectAI(job, side, v_controller, 9);
+			m_game_mgr->AddSelectAI(job, side, v_controller, difficulty);
 			break;
 		default:
 			v_controller = make_shared<Character::PadController>(m_player[player_num].controller_num, player_num + 1);
