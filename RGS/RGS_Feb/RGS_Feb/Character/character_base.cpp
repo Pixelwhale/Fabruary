@@ -621,24 +621,11 @@ void CharacterBase::DeadUpdate()
 void CharacterBase::WinnerUpdate()
 {
 	if (!m_isWinner)return;
-	/*Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
-	switch (rand->Next(0,2))
-	{
-	case 0:
-		m_motion->Play("chara_base_anime/win_pose_1");
-		break;
-	case 1:
-		m_motion->Play("chara_base_anime/win_pose_2");
-		break;
-	default:
-		break;
-	}
-	rand = NULL;*/
-	m_motion->Play("chara_base_anime/run");//テスト用
+	Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
+	//m_motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(0,2)));
+	rand = NULL;
 	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 }
-
-
 
 #pragma endregion
 
