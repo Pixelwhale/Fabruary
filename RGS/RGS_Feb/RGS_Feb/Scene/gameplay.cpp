@@ -39,6 +39,9 @@ void GamePlay::Initialize(SceneType previous)
 	m_is_fight = false;
 	m_fight_se_timer = Utility::Timer(2.2f);
 	m_fight_se_timer.Reset();
+
+	m_fight_string_timer = Utility::Timer(1);
+	m_fight_string_timer.Reset();
 }
 
 void GamePlay::AddCharacter()
@@ -86,7 +89,7 @@ void GamePlay::Update()
 	if (!m_scene_effect->IsEnd(false))				//SceneChange’†
 		return;
 
-	PlayFightSE();
+	UpdateMonitor();
 
 	m_meta_ai->Update();
 	m_character_manager->Update();
@@ -95,10 +98,15 @@ void GamePlay::Update()
 	CheckEnd();
 }
 
-void GamePlay::PlayFightSE()
+void GamePlay::UpdateMonitor()
 {
 	if (m_is_fight)
+	{
+		m_fight_string_timer.Update();
+		if (m_fight_string_timer.IsTime())
+			m_fight_string_timer.Reset();
 		return;
+	}
 
 	m_fight_se_timer.Update();
 	if (m_fight_se_timer.IsTime())
@@ -134,13 +142,14 @@ void GamePlay::SetWinner()
 		100, 128,
 		WindowDef::kScreenHeight / 2 - Size::kCharaZ * 6);
 
+	Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
 	for (auto &character : m_character_manager->GetWinnerList())
 	{
 		std::shared_ptr<MotionSystem::Motion> motion =
 			make_shared<MotionSystem::Motion>("Character");
 
 		motion->Initialize();
-		motion->Play("chara_base_anime/skill_energy_blast");
+		motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(1, 3)));
 		motion->ChangeSpriteSheet(character->GetSheetName());
 		motion->SetPosition(winner_position);
 		motion->SetColor(CharacterColor::GetTeamColor(character->GetSide()));
@@ -149,6 +158,7 @@ void GamePlay::SetWinner()
 		winner_motion.push_back(motion);
 		winner_position += Math::Vector3(Size::kCharaX, 0, 0);
 	}
+	rand = NULL;
 
 	m_game_manager->SetWinner(winner_motion);
 }
@@ -185,11 +195,16 @@ void GamePlay::DrawMonitor()
 		return;
 	}
 
-	if (m_is_end == true && m_next == SceneType::kGameResult) 
+	if (m_is_end == true && m_next == SceneType::kGameResult)
 	{
 
 		return;
 	}
+
+	if (m_fight_string_timer.GetCurrentTimes() % 20 < 10)
+		m_renderer->DrawTexture("fight",
+			Math::Vector2(380, 190), Math::Vector2(256, 128),
+			Math::Vector2(0.5f, 0.5f), 0, Color(1.0f, 1.0f, 1.0f));
 }
 
 void GamePlay::Shutdown()

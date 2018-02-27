@@ -48,6 +48,7 @@ void Loading::LoadContents()
 	m_content->LoadTexture("select_chara_button", ".png");
 	m_content->LoadTexture("select_chara_join_button", ".png");
 	m_content->LoadTexture("select_chara_ready", ".png");
+	m_content->LoadTexture("fight", ".png");
 
 	m_content->LoadTexture("menu_start_game", ".png");
 	m_content->LoadTexture("menu_tutorial", ".png");

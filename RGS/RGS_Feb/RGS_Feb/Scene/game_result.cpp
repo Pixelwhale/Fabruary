@@ -39,7 +39,9 @@ void GameResult::Shutdown()
 
 void GameResult::CheckEnd()
 {
-	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE)) 
+	if (m_input->IsKeyTrigger(KEY_INPUT_SPACE) ||
+		m_input->IsKeyTrigger(KEY_INPUT_A) ||
+		m_input->IsKeyTrigger(KEY_INPUT_D))
 	{
 		m_is_end = true;
 		m_next = SceneType::kTitle;
@@ -48,25 +50,10 @@ void GameResult::CheckEnd()
 
 	for (int i = 0; i < m_input->CurrentPadCount(); ++i) 
 	{
-		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_B))
-		{
-			m_is_end = true;
-			m_next = SceneType::kTitle;
-			return;
-		}
-		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_A))
-		{
-			m_is_end = true;
-			m_next = SceneType::kTitle;
-			return;
-		}
-		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_X))
-		{
-			m_is_end = true;
-			m_next = SceneType::kTitle;
-			return;
-		}
-		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_START))
+		if (m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_B) ||
+			m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_A) ||
+			m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_X) ||
+			m_input->IsPadButtonTrigger(i, XINPUT_BUTTON_START))
 		{
 			m_is_end = true;
 			m_next = SceneType::kTitle;

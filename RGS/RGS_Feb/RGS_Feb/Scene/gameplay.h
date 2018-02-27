@@ -32,7 +32,7 @@ namespace Scene
 		///<summary>勝利者を記録</summary>
 		void SetWinner();
 		///<summary>戦闘開始の音</summary>
-		void PlayFightSE();
+		void UpdateMonitor();
 		///<summary>モニターを描画</summary>
 		void DrawMonitor();
 
@@ -49,5 +49,6 @@ namespace Scene
 
 		bool m_is_fight;
 		Utility::Timer m_fight_se_timer;
+		Utility::Timer m_fight_string_timer;
 	};
 }
