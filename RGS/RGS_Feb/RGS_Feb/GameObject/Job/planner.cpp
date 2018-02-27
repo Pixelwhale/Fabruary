@@ -8,6 +8,7 @@
 #include <GameObject\Job\planner.h>
 #include <GameObject\AttackSystem\punch.h>
 #include <GameObject\AttackSystem\kick.h>
+#include <Device\game_device.h>
 
 using namespace Job;
 
@@ -15,6 +16,8 @@ using namespace Job;
 Planner::Planner(Side side) : m_next_combo(1)
 {
 	m_side = side;
+	m_sound = Device::GameDevice::GetInstance()->GetSound();
+	m_sound_storage.clear();
 }
 
 // デストラクタ
@@ -35,27 +38,27 @@ std::string Planner::Punch(std::shared_ptr<AttackSystem::AttackMediator> attack_
 	switch (m_punch_count)
 	{
 		case 0 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 4, 0, 0, 6, 0.5, 0.2, attack_source));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 4, 1, 0, 6, 0.5, 0.2, attack_source));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_1";
 		case 1 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 5, 0, 0, 9, 0.5, 0.2, attack_source));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(50, 50, 50), m_side, 5, 1, 0, 9, 0.5, 0.2, attack_source));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_2";
 		case 2 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(55, 55, 55), m_side, 5, 0, 1, 9, 0.5, 0.2, attack_source));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(55, 55, 55), m_side, 5, 2, 1, 9, 0.5, 0.2, attack_source));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_5";
 		case 3 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(58, 58, 58), m_side, 7, 0, 1, 9, 0.5, 0.2, attack_source));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(58, 58, 58), m_side, 7, 3, 1, 9, 0.5, 0.2, attack_source));
 			m_punch_count++;
 			m_next_combo.Reset();
 			return base_animation + "punch_4";
 		case 4 :
-			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(60, 60, 60), m_side, 8, 3, 1, 13, 0.5, 0.2, attack_source));
+			attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(60, 60, 60), m_side, 8, 4, 1, 13, 0.5, 0.2, attack_source));
 			m_punch_count = 0;
 			m_next_combo.Reset();
 			return base_animation + "punch_7";
@@ -74,7 +77,7 @@ std::string Planner::Kick(std::shared_ptr<AttackSystem::AttackMediator> attack_m
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(65, 65, 65), m_side, 20, 2, 3, 13, 0.5));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Kick>(position + plus, Math::Vector3(65, 65, 65), m_side, 15, 10, 3, 13, 0.5));
 	return base_animation + "kick_1";
 }
 
@@ -88,7 +91,7 @@ std::string Planner::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared <AttackSystem::Punch>(position + plus, Math::Vector3(400, 400, 0), m_side, 17, 0, 30, 30, 0.83, 0.4, attack_source));
+	attack_manager->AddAttack(std::make_shared <AttackSystem::Punch>(position + plus, Math::Vector3(400, 400, 0), m_side, 17, 15, 5, 30, 0.83, 0.4, attack_source));
 	if (!is_right) return base_animation + "skill_roar_L";
 	else return base_animation + "skill_roar_R";
 }
@@ -145,6 +148,26 @@ void Planner::Update()
 	{
 		m_next_combo.Reset();
 		m_punch_count = 0;
+	}
+
+	for (auto &se : m_sound_storage)
+	{
+		se.play_time.Update();
+
+		if (se.play_time.IsTime())
+		{
+			m_sound->PlaySE(se.sound_name);
+		}
+	}
+
+	for (std::vector<SoundEffectStorage>::iterator i = m_sound_storage.begin(); i != m_sound_storage.end();)
+	{
+		if ((*i).play_time.IsTime())
+		{
+			i = m_sound_storage.erase(i);
+			continue;
+		}
+		++i;
 	}
 
 	if (m_punch_count != 0)

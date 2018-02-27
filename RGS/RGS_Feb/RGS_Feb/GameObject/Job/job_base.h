@@ -14,6 +14,12 @@
 
 namespace Job
 {
+	struct SoundEffectStorage
+	{
+		Utility::Timer play_time;
+		std::string sound_name;
+	};
+
 	class JobBase
 	{
 	public:
@@ -26,5 +32,9 @@ namespace Job
 		virtual int KnockValue() = 0;
 		virtual int GetHp() = 0;
 		virtual void Update() = 0;
+
+
+	protected:
+		std::vector<SoundEffectStorage> m_sound_storage;
 	};
 }

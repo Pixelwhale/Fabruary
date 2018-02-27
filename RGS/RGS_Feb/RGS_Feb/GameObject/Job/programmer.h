@@ -7,6 +7,7 @@
 #pragma once
 #include <GameObject\Job\job_base.h>
 #include <Character\side.h>
+#include <Device/sound.h>
 
 namespace Job
 {
@@ -31,5 +32,7 @@ namespace Job
 		Utility::Timer m_next_combo; // 次のコンボに進めるかの制限時間？
 		int m_hp = 550;
 		Side m_side;
+
+		std::shared_ptr<Device::Sound> m_sound;
 	};
 }
