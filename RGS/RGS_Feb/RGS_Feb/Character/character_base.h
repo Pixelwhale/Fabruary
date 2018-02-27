@@ -105,6 +105,7 @@ namespace Character
 		std::shared_ptr<VirtualController>		m_controller;
 		std::shared_ptr<MotionSystem::Motion>	m_motion;
 		std::shared_ptr<Job::JobBase>			m_job;
+		std::shared_ptr<Device::Sound>			m_sound;
 		std::shared_ptr<AttackSystem::AttackMediator> m_attack_mediator;
 		std::shared_ptr<System::Gravity>		m_gravity;
 	};
