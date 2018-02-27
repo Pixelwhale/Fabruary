@@ -41,6 +41,7 @@ namespace Scene
 	private:
 		SceneState m_scene_state;
 		std::shared_ptr<GameManager> m_game_mgr;
+		std::shared_ptr<Device::Sound> m_sound;
 		std::shared_ptr<Background> m_background;
 		std::shared_ptr<SceneEffect> m_scene_effect;
 		float m_ui_alpha;
