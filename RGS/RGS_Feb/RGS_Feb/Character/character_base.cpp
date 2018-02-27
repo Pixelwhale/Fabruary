@@ -720,3 +720,8 @@ void CharacterBase::SetWinner(bool isWinner)
 {
 	m_isWinner = isWinner;
 }
+
+int CharacterBase::GetPlayerNum()
+{
+	return m_controller->PlayerNum();
+}
