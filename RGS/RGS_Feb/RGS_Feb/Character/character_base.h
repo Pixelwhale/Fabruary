@@ -39,6 +39,7 @@ namespace Character
 		int		GetMp();			//Mpの取得
 		int		GetID();			//IDの取得
 		int		GetFaceNum();		//キャラクター画像順番取得
+		int		GetPlayerNum();		//
 		bool	IsRight();			//向きを返す
 		bool	IsDead();			//死んだか？
 		bool	IsInvincible();		//無敵フラグ

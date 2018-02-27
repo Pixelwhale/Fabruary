@@ -622,7 +622,7 @@ void CharacterBase::WinnerUpdate()
 {
 	if (!m_isWinner)return;
 	Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
-	//m_motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(0,2)));
+	m_motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(0,2)));
 	rand = NULL;
 	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 }
@@ -719,4 +719,9 @@ std::shared_ptr<Job::JobBase> CharacterBase::GetCharacterJob()
 void CharacterBase::SetWinner(bool isWinner)
 {
 	m_isWinner = isWinner;
+}
+
+int CharacterBase::GetPlayerNum()
+{
+	return m_controller->PlayerNum();
 }
