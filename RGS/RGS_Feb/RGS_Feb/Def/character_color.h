@@ -11,10 +11,10 @@
 namespace CharacterColor
 {
 	static const Color kColor_NoTeam = Color(220, 121, 0);	//ÉIÉåÉìÉW
-	static const Color kColor_Team1  = Color(36, 220, 36);	//óŒ
+	static const Color kColor_Team1  = Color(220, 49, 16);	//ê‘
 	static const Color kColor_Team2  = Color(49, 220, 220);	//ê¬
 	static const Color kColor_Team3  = Color(220, 220, 49);	//â©
-	static const Color kColor_Team4  = Color(220, 49, 16);	//ê‘
+	static const Color kColor_Team4  = Color(36, 220, 36);	//óŒ
 	static const Color kColor_NoTeam_Icon = Color(255, 230, 215);
 	static const Color kColor_Team1_Icon  = Color(219, 255, 219);
 	static const Color kColor_Team2_Icon  = Color(180, 255, 255);

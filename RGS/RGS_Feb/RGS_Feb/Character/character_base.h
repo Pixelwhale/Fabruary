@@ -89,6 +89,7 @@ namespace Character
 		bool	m_isStop;			//攻撃状態とか攻撃を受けた時、入力による移動を防ぐ
 		bool	m_isHit;			//攻撃を受けたか？
 		bool	m_isWinner;			//勝利したか？
+		bool	m_isEnd;			//終わったか？
 
 		string  m_sheet_name;		//sheet名
 

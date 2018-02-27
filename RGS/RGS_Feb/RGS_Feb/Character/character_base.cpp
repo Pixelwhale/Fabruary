@@ -60,6 +60,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isHit = false;
 	m_isIntro_end = false;
 	m_isWinner = false;
+	m_isEnd = false;
 	m_intro_cnt = 0;
 	m_velocity_intro = Math::Vector3(4,0,0);
 	m_velocity_jump = Math::Vector3(0, 0, 0);
@@ -238,7 +239,7 @@ void CharacterBase::ChangeSheet()
 void CharacterBase::SetColor()
 {
 	m_motion->SetColor(CharacterColor::GetTeamColor(m_side));
-	m_controller->SetTagColor(CharacterColor::GetIconColor(m_side));
+	m_controller->SetTagColor(CharacterColor::GetTeamColor(m_side));
 }
 
 
@@ -621,10 +622,12 @@ void CharacterBase::DeadUpdate()
 void CharacterBase::WinnerUpdate()
 {
 	if (!m_isWinner)return;
+	if (m_isEnd)return;
 	Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
-	m_motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(0,2)));
+	m_motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(1,3)));
 	rand = NULL;
 	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
+	m_isEnd = true;
 }
 
 #pragma endregion
