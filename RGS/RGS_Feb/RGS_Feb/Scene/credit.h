@@ -24,5 +24,8 @@ namespace Scene
 
 	private:
 		shared_ptr<Background> m_background;				//îwåi
+
+		float m_credit_alpha;
+		bool m_alpha_switch;
 	};
 }

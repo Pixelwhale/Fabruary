@@ -22,5 +22,8 @@ namespace Scene
 
 	private:
 		std::shared_ptr<Background> m_background;	//îwåi
+
+		float m_tutorial_alpha;
+		bool m_alpha_switch;
 	};
 }

@@ -19,6 +19,9 @@ void Loading::LoadContents()
 	m_content->LoadTexture("title", ".png");
 	m_content->LoadTexture("NEEC1280black", ".png");
 
+	m_content->LoadTexture("tutorial", ".png");
+	m_content->LoadTexture("credit", ".png");
+
 	m_content->LoadTexture("background", ".png");
 	m_content->LoadTexture("background_light", ".png");
 	m_content->LoadTexture("background_front", ".png");
