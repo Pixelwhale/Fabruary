@@ -52,8 +52,11 @@ void Loading::LoadContents()
 	m_content->LoadTexture("menu_quit", ".png");
 
 	m_content->LoadSE("ƒSƒ“ƒO_onjin", ".mp3");
-	m_content->LoadSE("Žè‘«E‰£‚éAR‚é09_on jin", ".mp3");
-	m_content->LoadSE("Õ“ËEÕŒ‚i“Sj01_onjin", ".mp3");
+	m_content->LoadSE("se_hit", ".mp3");
+	m_content->LoadSE("se_select", ".mp3");
+	m_content->LoadSE("se_skill_bn", ".mp3");
+	m_content->LoadSE("se_skill_cg", ".mp3");
+	m_content->LoadSE("se_skill_pg", ".mp3");
 
 	m_content->LoadBGM("stlp6", ".mp3");
 	m_content->LoadBGM("tw052", ".mp3");
