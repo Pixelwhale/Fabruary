@@ -70,7 +70,7 @@ std::string Programmer::Kick(std::shared_ptr<AttackSystem::AttackMediator> attac
 // C++ハンマー
 std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
-	std::string base_animation = "chara_base_anime/";
+	/*std::string base_animation = "chara_base_anime/";
 	AttackSystem::Direction attack_source = AttackSystem::kRight;
 	Math::Vector3 plus = Math::Vector3(Size::kCharaX, 0, 0);
 	if (!is_right)
@@ -78,21 +78,36 @@ std::string Programmer::Skill1(std::shared_ptr<AttackSystem::AttackMediator> att
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(100, 100, 100), m_side, 18, 0, 9, 18, 1, 0.41, attack_source));
-	return base_animation + "skill_hammer";
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(325, 325, 325), m_side, 23, 0, 7, 25, 1, 0.41, attack_source));
+	return base_animation + "skill_hammer";*/
+
+	std::string base_animation = "chara_base_anime/";
+	AttackSystem::Direction attack_source = AttackSystem::kRight;
+	Math::Vector3 plus = Math::Vector3(Size::kCharaX / 3 - 64, 0, 0);
+	Math::Vector3 size = Math::Vector3(160, 0, 0);
+	if (!is_right)
+	{
+		plus.x *= -1;
+		size.x *= -1;
+		attack_source = AttackSystem::kLeft;
+	}
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus + size, size + Math::Vector3(0, 128, 128), m_side, "Kamehameha/anime_1", 100, 10, 5, 90, 3, 3, 2, attack_source));
+	return base_animation + "skill_energy_blast";
 }
 
 // Phyton カメハメハ
 std::string Programmer::Skill2(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
 {
 	std::string base_animation = "chara_base_anime/";
-	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 4), 0, 0);
+	Math::Vector3 plus = Math::Vector3((Size::kCharaX / 2), 0, 0);
+	Math::Vector3 size = Math::Vector3(1, 0, 0);
 	if (!is_right)
 	{
 		plus.x *= -1;
+		size.x != -1;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(20, 20, 20), m_side, 30, 0, 50, 90, Math::Vector3(2, 0, 0), Math::Vector3(0, 0, 0), 2));
-	return base_animation + "skill_2";
+	//attack_manager->AddAttack(std::make_shared<AttackSystem::Laser>(position + plus, Math::Vector3(0, 64, 64), add_size, m_side, "Kamehameha/anime_1", 50, 10, 5, 90, 3, 3, 2, attack_source));
+	return base_animation + "skill_energy_blast";
 }
 
 std::string Programmer::Skill3(std::shared_ptr<AttackSystem::AttackMediator> attack_manager, Math::Vector3 position, bool is_right)
