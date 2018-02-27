@@ -31,8 +31,10 @@ namespace Scene
 		void AddCharacter();
 		///<summary>勝利者を記録</summary>
 		void SetWinner();
-
+		///<summary>戦闘開始の音</summary>
 		void PlayFightSE();
+		///<summary>モニターを描画</summary>
+		void DrawMonitor();
 
 	private:
 		std::shared_ptr<Device::Sound> m_sound;

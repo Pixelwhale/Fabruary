@@ -11,6 +11,7 @@ TitleState::TitleState()
 {
 	m_renderer = Device::GameDevice::GetInstance()->GetRenderer();
 	m_input = Device::GameDevice::GetInstance()->GetInput();
+	m_sound = Device::GameDevice::GetInstance()->GetSound();
 
 	m_end_flag = false;
 }
@@ -48,7 +49,12 @@ bool TitleState::TriggerKey(unsigned int key_input, unsigned char xinput_button)
 
 bool TitleState::Enter()
 {
-	return TriggerKey(KEY_INPUT_A, XINPUT_BUTTON_B);
+	if (TriggerKey(KEY_INPUT_A, XINPUT_BUTTON_B)) 
+	{
+		m_sound->PlaySE("se_select");
+		return true;
+	}
+	return false;
 }
 
 bool TitleState::Cancel()

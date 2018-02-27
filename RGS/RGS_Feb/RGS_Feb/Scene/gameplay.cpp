@@ -162,10 +162,7 @@ void GamePlay::Draw()
 
 	m_background->DrawBack();				//”wŒi
 
-	if (!m_is_fight)
-		m_renderer->DrawMotion("panel_number", 
-			(m_fight_se_timer.GetCurrentTimes() + 60) / 60,
-			Math::Vector2(345, 160));
+	DrawMonitor();							//Monitor•`‰æ
 
 	m_character_manager->Draw();			//Character
 	m_attack_manager->Draw();				//UŒ‚Effect
@@ -176,6 +173,23 @@ void GamePlay::Draw()
 
 	if (!m_scene_effect->IsEnd(false))		//SceneChangeEffect’†‚©
 		m_scene_effect->DrawEffect();
+}
+
+void GamePlay::DrawMonitor()
+{
+	if (!m_is_fight)
+	{
+		m_renderer->DrawTexture("select_chara_ready",
+			Math::Vector2(380, 170), Math::Vector2(256, 128),
+			Math::Vector2(0.5f, 0.5f), 0, Color(1.0f, 1.0f, 1.0f));
+		return;
+	}
+
+	if (m_is_end == true && m_next == SceneType::kGameResult) 
+	{
+
+		return;
+	}
 }
 
 void GamePlay::Shutdown()

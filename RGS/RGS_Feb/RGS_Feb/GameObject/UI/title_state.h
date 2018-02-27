@@ -59,6 +59,7 @@ namespace UI
 	protected:
 		std::shared_ptr<Device::Renderer> m_renderer;	//Renderer
 		std::shared_ptr<Core::InputState> m_input;		//Input
+		std::shared_ptr<Device::Sound> m_sound;			//Sound
 
 		bool m_end_flag;								//I—¹Flag
 	};
