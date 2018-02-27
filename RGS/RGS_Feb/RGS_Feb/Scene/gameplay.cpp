@@ -149,7 +149,7 @@ void GamePlay::SetWinner()
 			make_shared<MotionSystem::Motion>("Character");
 
 		motion->Initialize();
-		motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(1, 3)));
+		motion->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(1, 3)), 1);
 		motion->ChangeSpriteSheet(character->GetSheetName());
 		motion->SetPosition(winner_position);
 		motion->SetColor(CharacterColor::GetTeamColor(character->GetSide()));

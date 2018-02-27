@@ -106,7 +106,12 @@ void Background::Update()
 {
 	for (auto &winner : m_winner_motion)
 	{
-		winner->Update();		//TodoFPose•ÏX
+		winner->Update();
+		if (winner->IsCurrentMotionEnd()) 
+		{
+			Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
+			winner->Play("chara_base_anime/win_pose_" + std::to_string(rand->Next(1, 3)), 1);
+		}
 	}
 
 	m_light_alpha = m_random->NextDouble() + 0.7f;
