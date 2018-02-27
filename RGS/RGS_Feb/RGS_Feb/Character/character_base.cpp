@@ -506,14 +506,19 @@ void CharacterBase::PositionUpdate()
 //JumpXV
 void CharacterBase::JumpUpdate()
 {
-	if (m_controller->IsJumpTrigger() && !m_isJump)
-	{			
-		m_state = CharacterState::kJump;
-		m_isJump = true;
-		m_velocity_jump = Math::Vector3(0, 23, 0);
-		m_isStop = false;
+	if (m_state == CharacterState::kIdle ||
+		m_state == CharacterState::kRun	 ||
+		m_state == CharacterState::kWalk)
+	{
+		if (m_controller->IsJumpTrigger() && !m_isJump)
+		{
+			m_state = CharacterState::kJump;
+			m_isJump = true;
+			m_velocity_jump = Math::Vector3(0, 23, 0);
+			m_isStop = false;
+		}
 	}
-	else if (m_position.y < 128)
+	if (m_position.y < 128)
 	{
 		m_isJump = false;	
 		m_velocity_jump = Math::Vector3(0, 0, 0);
