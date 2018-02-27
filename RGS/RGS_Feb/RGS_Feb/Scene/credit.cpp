@@ -46,6 +46,7 @@ void  Credit::CheckEnd()
 	{
 		m_next = SceneType::kTitle;
 		m_is_end = true;
+		Device::GameDevice::GetInstance()->GetSound()->PlaySE("se_cancel");
 		return;
 	}
 

@@ -214,7 +214,7 @@ void GamePlay::DrawMonitor()
 		m_renderer->DrawMotion("panel_number", player_num,
 			Math::Vector2(320, 190));
 		m_renderer->DrawMotion("panel_number", 10,
-			Math::Vector2(360, 190));
+			Math::Vector2(370, 190));
 		return;
 	}
 

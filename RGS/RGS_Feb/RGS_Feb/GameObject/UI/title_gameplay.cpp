@@ -65,6 +65,7 @@ void MenuGamePlay::CheckEnd()
 	{
 		m_next_flag = true;
 		m_next_state = MenuState::kEnd;
+		Device::GameDevice::GetInstance()->GetInstance()->GetSound()->PlaySE("se_screen_in");
 		return;
 	}
 

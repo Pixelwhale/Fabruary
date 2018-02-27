@@ -110,7 +110,6 @@ void Title::CheckEnd()
 		if (m_title_menu->NextScene() == SceneType::kCharaSelect)
 		{
 			m_scene_effect->Zoom(true);
-			//Device::GameDevice::GetInstance()->GetInstance()->GetSound()->PlaySE("se_screen_in");
 			return;
 		}
 

@@ -59,7 +59,12 @@ bool TitleState::Enter()
 
 bool TitleState::Cancel()
 {
-	return TriggerKey(KEY_INPUT_D, XINPUT_BUTTON_A);
+	if (TriggerKey(KEY_INPUT_D, XINPUT_BUTTON_A)) 
+	{
+		m_sound->PlaySE("se_cancel");
+		return true;
+	}
+	return false;
 }
 
 bool TitleState::Down()
