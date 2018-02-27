@@ -114,6 +114,7 @@
 	</texPackSettings>
 	<cellmapNames>
 		<value>Brush.ssce</value>
+		<value>FilestreamKamehameha.ssce</value>
 		<value>Hammer.ssce</value>
 		<value>Money_Bag.ssce</value>
 		<value>Roar.ssce</value>
@@ -127,13 +128,14 @@
 	</cellmapNames>
 	<animepackNames>
 		<value>Effect.ssae</value>
+		<value>Kamehameha.ssae</value>
 		<value>chara_base_anime.ssae</value>
 		<value>chara_tag.ssae</value>
 		<value>skill_effect.ssae</value>
 	</animepackNames>
-	<lastAnimeFile>chara_base_anime.ssae</lastAnimeFile>
-	<lastAnimeName>skill_mammonite</lastAnimeName>
-	<lastCellMapFile>chara_base.ssce</lastCellMapFile>
-	<lastCell>foot_left</lastCell>
-	<lastPart>Chara</lastPart>
+	<lastAnimeFile>Kamehameha.ssae</lastAnimeFile>
+	<lastAnimeName>anime_1</lastAnimeName>
+	<lastCellMapFile>FilestreamKamehameha.ssce</lastCellMapFile>
+	<lastCell>Effect</lastCell>
+	<lastPart>root</lastPart>
 </SpriteStudioProject>

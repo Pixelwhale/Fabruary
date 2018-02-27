@@ -88,7 +88,7 @@ std::string Planner::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attack
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared <AttackSystem::Punch>(position + plus, Math::Vector3(400, 400, 400), m_side, 19, 0, 30, 30, 0.83, 0.4, attack_source));
+	attack_manager->AddAttack(std::make_shared <AttackSystem::Punch>(position + plus, Math::Vector3(400, 400, 0), m_side, 17, 0, 30, 30, 0.83, 0.4, attack_source));
 	if (!is_right) return base_animation + "skill_roar_L";
 	else return base_animation + "skill_roar_R";
 }

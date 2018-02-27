@@ -76,7 +76,7 @@ std::string Business::Skill1(std::shared_ptr<AttackSystem::AttackMediator> attac
 		plus.x *= -1;
 		attack_source = AttackSystem::kLeft;
 	}
-	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(150, 150, 150), m_side, 20, 0, 10, 50, 0.8f, 0.4, attack_source));
+	attack_manager->AddAttack(std::make_shared<AttackSystem::Punch>(position + plus, Math::Vector3(300, 300, 300), m_side, 20, 0, 10, 50, 0.8f, 0.4, attack_source));
 	return base_animation + "skill_mammonite";
 }
 
