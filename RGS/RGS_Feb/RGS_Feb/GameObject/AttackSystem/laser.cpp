@@ -12,6 +12,10 @@ using namespace AttackSystem;
 Laser::Laser(Math::Vector3 initial_position, Math::Vector3 size, Side side, std::string animation_to_play, int attack, int knockdown, int knockback, int dbreak, int damage_combo, float life_span_timer, float take_damage_at, Direction source_dir)
 	: Attack(initial_position, size, side, attack, knockdown, knockback, dbreak, 0, source_dir), m_life_span_timer(life_span_timer)
 {
+	/*m_c_attack = attack;
+	m_c_knockback = knockback;
+	m_c_knockdown = knockdown;
+	m_c_dbreak = dbreak;*/
 	m_take_damage_at = take_damage_at;
 	m_damage_combo = damage_combo;
 
@@ -31,10 +35,6 @@ std::vector<std::shared_ptr<Attack>> Laser::Collide()
 {
 	std::vector<std::shared_ptr<Attack>> attack;
 	attack.clear();
-	/*if (m_life_span_timer.Rate() <= m_take_damage_at)
-	{
-		attack.push_back(std::make_shared<AttackSystem::Damage>(m_position + m_add_position, m_size + m_add_size, m_side, m_c_attack, m_c_knockback, m_knockdown, m_c_dbreak, "Effect/slash", m_life_span_timer.Rate()));
-	}*/
 	return attack;
 }
 
@@ -47,7 +47,7 @@ void Laser::Update()
 	}
 	if (m_life_span_timer.Rate() <= m_take_damage_at && m_damage_combo != 0)
 	{
-		m_take_damage_at = m_take_damage_at - 0.6667;
+		m_take_damage_at = m_take_damage_at - 0.33;
 		m_position = m_position + m_size;
 		m_size *= 2;
 		m_damage_combo--;
