@@ -72,6 +72,8 @@ void CharacterManager::RemoveDeadCharacters()
 	for (auto c : m_character_list)
 	{
 		m_winner_list.push_back(c);
+		//勝利キャラクター設定
+		c->SetWinner(true);
 	}
 
 	m_isEnd = true;

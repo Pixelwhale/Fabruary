@@ -59,6 +59,7 @@ void CharacterBase::Initialize(Math::Vector3 position)
 	m_isInvincible = false;
 	m_isHit = false;
 	m_isIntro_end = false;
+	m_isWinner = false;
 	m_intro_cnt = 0;
 	m_velocity_intro = Math::Vector3(4,0,0);
 	m_velocity_jump = Math::Vector3(0, 0, 0);
@@ -77,9 +78,9 @@ void CharacterBase::Initialize(Math::Vector3 position)
 void CharacterBase::Update()
 {
 	
-	IntroUpdate();
+	IntroUpdate();	//登場更新
 	MotionUpdate(); //モーションの更新
-	if (m_hp > 0 && m_isIntro_end)
+	if (m_hp > 0 && m_isIntro_end && !m_isWinner)
 	{
 		Attack();		//攻撃
 		Skill();		//スキール
@@ -92,19 +93,8 @@ void CharacterBase::Update()
 		PositionUpdate();//位置の更新
 		m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
 	}
-	//死亡更新
-	if (m_state == CharacterState::kDead)
-	{
-		if (m_position.y > 128)
-		{
-			m_gravity->Update(m_velocity_jump);
-			m_position += m_velocity_jump;
-		}
-		if (m_motion->IsCurrentMotionEnd())
-		{
-			m_isDead = true;
-		}
-	}
+	WinnerUpdate();	//勝利更新
+	DeadUpdate();	//死亡更新
 }
 
 //モーション
@@ -516,14 +506,19 @@ void CharacterBase::PositionUpdate()
 //Jump更新
 void CharacterBase::JumpUpdate()
 {
-	if (m_controller->IsJumpTrigger() && !m_isJump)
-	{			
-		m_state = CharacterState::kJump;
-		m_isJump = true;
-		m_velocity_jump = Math::Vector3(0, 23, 0);
-		m_isStop = false;
+	if (m_state == CharacterState::kIdle ||
+		m_state == CharacterState::kRun	 ||
+		m_state == CharacterState::kWalk)
+	{
+		if (m_controller->IsJumpTrigger() && !m_isJump)
+		{
+			m_state = CharacterState::kJump;
+			m_isJump = true;
+			m_velocity_jump = Math::Vector3(0, 23, 0);
+			m_isStop = false;
+		}
 	}
-	else if (m_position.y < 128)
+	if (m_position.y < 128)
 	{
 		m_isJump = false;	
 		m_velocity_jump = Math::Vector3(0, 0, 0);
@@ -605,6 +600,45 @@ void CharacterBase::StateUpdate()
 		
 	}
 }
+
+void CharacterBase::DeadUpdate()
+{
+	//死亡更新
+	if (m_state == CharacterState::kDead)
+	{
+		if (m_position.y > 128)
+		{
+			m_gravity->Update(m_velocity_jump);
+			m_position += m_velocity_jump;
+		}
+		if (m_motion->IsCurrentMotionEnd())
+		{
+			m_isDead = true;
+		}
+	}
+}
+
+void CharacterBase::WinnerUpdate()
+{
+	if (!m_isWinner)return;
+	/*Device::Random* rand = Device::GameDevice::GetInstance()->GetRandom();
+	switch (rand->Next(0,2))
+	{
+	case 0:
+		m_motion->Play("chara_base_anime/win_pose_1");
+		break;
+	case 1:
+		m_motion->Play("chara_base_anime/win_pose_2");
+		break;
+	default:
+		break;
+	}
+	rand = NULL;*/
+	m_motion->Play("chara_base_anime/run");//テスト用
+	m_controller->UpdateMotion(m_position + Math::Vector3(10, Size::kCharaY - 80, 0));
+}
+
+
 
 #pragma endregion
 
@@ -694,4 +728,8 @@ std::shared_ptr<Job::JobBase> CharacterBase::GetCharacterJob()
 	return m_job;
 }
 
-
+//勝利キャラクター設定
+void CharacterBase::SetWinner(bool isWinner)
+{
+	m_isWinner = isWinner;
+}
