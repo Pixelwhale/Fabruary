@@ -47,6 +47,7 @@ namespace Character
 		Math::Vector3					GetPosition();//位置の取得
 		Math::CollisionBox				GetBox();
 		std::shared_ptr<Job::JobBase>	GetCharacterJob();//Jobの取得
+		void	SetWinner(bool isWinner);//勝利キャラクター設定
 		
 	private:						//更新関連
 		void IntroUpdate();			//登場更新
@@ -59,6 +60,8 @@ namespace Character
 		void StateUpdate();			//状態の更新
 		void KnockCntUpdate();		//倒れ値カウント更新
 		void PositionUpdate();		//位置の更新
+		void DeadUpdate();			//死亡更新
+		void WinnerUpdate();		//勝利キャラクター更新
 			
 		void ChangeSheet();			//キャラクター画像判定
 		void SetColor();			//色設定
@@ -84,6 +87,7 @@ namespace Character
 		bool	m_isInvincible;		//無敵フラグ
 		bool	m_isStop;			//攻撃状態とか攻撃を受けた時、入力による移動を防ぐ
 		bool	m_isHit;			//攻撃を受けたか？
+		bool	m_isWinner;			//勝利したか？
 
 		string  m_sheet_name;		//sheet名
 
