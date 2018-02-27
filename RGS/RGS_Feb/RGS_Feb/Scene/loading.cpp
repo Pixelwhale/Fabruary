@@ -59,6 +59,7 @@ void Loading::LoadContents()
 	m_content->LoadSE("ƒSƒ“ƒO_onjin", ".mp3");
 	m_content->LoadSE("se_countdown", ".mp3");
 	m_content->LoadSE("se_hit", ".mp3");
+	m_content->LoadSE("se_updown", ".mp3");
 	m_content->LoadSE("se_over", ".mp3");
 	m_content->LoadSE("se_down", ".mp3");
 	m_content->LoadSE("se_ukemi", ".mp3");
